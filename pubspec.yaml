@@ -1,0 +1,21 @@
+name: portfolio
+description: Portfolio Davide Bolzoni
+version: 1.0.3+4
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.12.0+2
+
+flutter: 
+  uses-material-design: true
+
+  assets:
+    - assets/wallpaperprofile.jpg
+  fonts:
+  - family: ProductSans
+    fonts:
+      - asset: fonts/ProductSans-Black.ttf
