@@ -3,8 +3,13 @@ import 'dart:io';
 import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
 import 'package:flutter/material.dart';
-import 'package:portfolio/widgets/cards/card_horizontal/card_horizontal_md2.dart';
+import 'package:portfolio/pages/profile_page.dart';
 import 'package:portfolio/widgets/drawer/drawer_md2.dart';
+import 'package:portfolio/pages/news_page.dart';
+import 'package:provider/provider.dart';
+
+import 'providers/bloc.dart';
+import 'providers/navigation_provider.dart';
 
 void main() {
   _setTargetPlatformForDesktop();
@@ -28,13 +33,27 @@ void _setTargetPlatformForDesktop() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primaryColor: Colors.purpleAccent,
-        fontFamily: 'ProductSans',
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<NavigationProvider>.value(
+          notifier: NavigationProvider(),
+        ),
+        ChangeNotifierProvider<Bloc>.value(
+          notifier: Bloc(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          primaryColor: Colors.blue,
+          fontFamily: 'ProductSans',
+        ),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => MyHomePage(),
+        },
       ),
-      home: MyHomePage(),
     );
   }
 }
@@ -42,69 +61,37 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-      ),
-      drawer: DrawlerMaterialDesign2(),
-      body: ListView(
-        children: <Widget>[
-          CardHorizontalMaterialDesign2(
-            onTap: () {},
-            title: "Rozes",
-            subTitle:
-                "A list should be easily scannable, and any element of a list can be used to anchor and align list item content. Scannability is improved when elements (such as supporting visual and primary text) are placed in consistent locations across list items.",
-            imageNetwork:
-                "https://media.timeout.com/images/105404217/750/422/image.jpg",
-            //imageAsset: "assets/oltresempionelogo.png",
-          ),
-          CardHorizontalMaterialDesign2(
-            onTap: () {},
-            title: "Rozes",
-            subTitle:
-                "A list should be easily scannable, and any element of a list can be used to anchor and align list item content. Scannability is improved when elements (such as supporting visual and primary text) are placed in consistent locations across list items.",
-            imageNetwork:
-                "https://media.timeout.com/images/105404217/750/422/image.jpg",
-            //imageAsset: "assets/oltresempionelogo.png",
-          ),
-          CardHorizontalMaterialDesign2(
-            onTap: () {},
-            title: "Rozes",
-            subTitle:
-                "A list should be easily scannable, and any element of a list can be used to anchor and align list item content. Scannability is improved when elements (such as supporting visual and primary text) are placed in consistent locations across list items.",
-            imageNetwork:
-                "https://media.timeout.com/images/105404217/750/422/image.jpg",
-            //imageAsset: "assets/oltresempionelogo.png",
-          ),
-          CardHorizontalMaterialDesign2(
-            onTap: () {},
-            title: "Rozes",
-            subTitle:
-                "A list should be easily scannable, and any element of a list can be used to anchor and align list item content. Scannability is improved when elements (such as supporting visual and primary text) are placed in consistent locations across list items.",
-            imageNetwork:
-                "https://media.timeout.com/images/105404217/750/422/image.jpg",
-            //imageAsset: "assets/oltresempionelogo.png",
-          ),
-          CardHorizontalMaterialDesign2(
-            onTap: () {},
-            title: "Rozes",
-            subTitle:
-                "A list should be easily scannable, and any element of a list can be used to anchor and align list item content. Scannability is improved when elements (such as supporting visual and primary text) are placed in consistent locations across list items.",
-            imageNetwork:
-                "https://media.timeout.com/images/105404217/750/422/image.jpg",
-            //imageAsset: "assets/oltresempionelogo.png",
-          ),
-          CardHorizontalMaterialDesign2(
-            onTap: () {},
-            title: "Rozes",
-            subTitle:
-                "A list should be easily scannable, and any element of a list can be used to anchor and align list item content. Scannability is improved when elements (such as supporting visual and primary text) are placed in consistent locations across list items.",
-            imageNetwork:
-                "https://media.timeout.com/images/105404217/750/422/image.jpg",
-            //imageAsset: "assets/oltresempionelogo.png",
-          ),
-        ],
-      ),
+    Widget currentWidget =
+        Provider.of<NavigationProvider>(context).currentWidget;
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < 1256)
+          return Scaffold(
+            appBar: AppBar(
+              elevation: 0,
+            ),
+            drawer: DrawlerMaterialDesign2(),
+            body: currentWidget,
+          );
+        else
+          return Scaffold(
+            appBar: AppBar(
+              elevation: 0,
+            ),
+            body: Row(
+              children: <Widget>[
+                Container(
+                  width: 256,
+                  child: DrawlerMaterialDesign2(),
+                ),
+                Expanded(
+                  child: currentWidget,
+                ),
+              ],
+            ),
+          );
+      },
     );
   }
 }
