@@ -3,9 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
 import 'package:flutter/material.dart';
-import 'package:portfolio/pages/profile_page.dart';
 import 'package:portfolio/widgets/drawer/drawer_md2.dart';
-import 'package:portfolio/pages/news_page.dart';
 import 'package:provider/provider.dart';
 
 import 'providers/bloc.dart';
