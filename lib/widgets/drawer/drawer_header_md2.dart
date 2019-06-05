@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class HeaderDrawerMaterialDesign2 extends StatelessWidget {
@@ -31,7 +32,7 @@ class HeaderDrawerMaterialDesign2 extends StatelessWidget {
           children: <Widget>[
             imageNetwork != null
                 ? CircleAvatar(
-                    backgroundImage: NetworkImage(imageNetwork),
+                    backgroundImage: CachedNetworkImageProvider(imageNetwork),
                     backgroundColor: Theme.of(context).primaryColor,
                   )
                 : imageAsset != null
@@ -49,13 +50,20 @@ class HeaderDrawerMaterialDesign2 extends StatelessWidget {
               children: <Widget>[
                 Text(
                   title,
+                  softWrap: true,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 20.0,
                   ),
                 ),
                 Text(
                   subTitle,
-                  style: TextStyle(fontSize: 13.0, color: Colors.grey),
+                  softWrap: true,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 12.0,
+                    color: Colors.grey,
+                  ),
                 ),
               ],
             ),

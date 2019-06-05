@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           brightness: Brightness.dark,
-          primaryColor: Colors.blue,
+          primaryColor: Colors.blueAccent,
           fontFamily: 'ProductSans',
         ),
         initialRoute: '/',
@@ -61,7 +61,6 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget currentWidget =
         Provider.of<NavigationProvider>(context).currentWidget;
-
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth < 1256)
@@ -78,6 +77,7 @@ class MyHomePage extends StatelessWidget {
               elevation: 0,
             ),
             body: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Container(
                   width: 256,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/diagonal.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -27,8 +28,8 @@ class ProfilePage extends StatelessWidget {
                       height: 40,
                     ),
                     CircleAvatar(
-                      backgroundImage: NetworkImage(
-                          "https://keyassets-p2.timeincuk.net/wp/prod/wp-content/uploads/sites/50/2013/04/GettyImages-935602860-e1526047614270-464x620.jpg"),
+                      backgroundImage: CachedNetworkImageProvider(
+                          "https://scontent-cdg2-1.cdninstagram.com/vp/89dde4d5b5c8dae27794012b37a281b3/5D798DBD/t51.2885-19/s320x320/58453660_411757989373588_4475648126237016064_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com"),
                       radius: 75.0,
                     ),
                     SizedBox(
@@ -42,7 +43,7 @@ class ProfilePage extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        "  Sandra Adams  ",
+                        "  Davide Bolzoni  ",
                         style: TextStyle(
                           fontSize: 36.0,
                           color: Colors.black,
@@ -62,112 +63,22 @@ class ProfilePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(
-                    height: 25,
+                    height: 16,
                   ),
                   Text(
-                    "sandra_a88@gmail.com",
+                    "davide.bolzoni59@gmail.com",
                     style: TextStyle(
                       fontSize: 16.0,
                       color: Colors.black,
                     ),
                   ),
                   SizedBox(
-                    height: 25,
+                    height: 16,
                   ),
                   Text(
                     "Sandra Adams",
                     style: TextStyle(
                       fontSize: 36.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Text(
-                    "sandra_a88@gmail.com",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Text(
-                    "Sandra Adams",
-                    style: TextStyle(
-                      fontSize: 36.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Text(
-                    "sandra_a88@gmail.com",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Text(
-                    "Sandra Adams",
-                    style: TextStyle(
-                      fontSize: 36.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Text(
-                    "sandra_a88@gmail.com",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Text(
-                    "Sandra Adams",
-                    style: TextStyle(
-                      fontSize: 36.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Text(
-                    "sandra_a88@gmail.com",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Text(
-                    "Sandra Adams",
-                    style: TextStyle(
-                      fontSize: 36.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Text(
-                    "sandra_a88@gmail.com",
-                    style: TextStyle(
-                      fontSize: 16.0,
                       color: Colors.black,
                     ),
                   ),

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CardMaterialDesign2 extends StatelessWidget {
@@ -34,8 +35,8 @@ class CardMaterialDesign2 extends StatelessWidget {
                           image: DecorationImage(
                             alignment: Alignment.center,
                             image: imageNetwork != null
-                                ? NetworkImage(imageNetwork)
-                                : NetworkImage(
+                                ? CachedNetworkImageProvider(imageNetwork)
+                                : CachedNetworkImageProvider(
                                     "https://d28fs0o8ewdlxv.cloudfront.net/compare-assets/placeholders/news-placeholder-a0aa1349678d0b4fa44b774efba2bb68.png"),
                             fit: BoxFit.cover,
                           ),
@@ -83,8 +84,8 @@ class CardMaterialDesign2 extends StatelessWidget {
                           image: DecorationImage(
                             alignment: Alignment.center,
                             image: imageNetwork != null
-                                ? NetworkImage(imageNetwork)
-                                : NetworkImage(
+                                ? CachedNetworkImageProvider(imageNetwork)
+                                : CachedNetworkImageProvider(
                                     "https://d28fs0o8ewdlxv.cloudfront.net/compare-assets/placeholders/news-placeholder-a0aa1349678d0b4fa44b774efba2bb68.png"),
                             fit: BoxFit.cover,
                           ),

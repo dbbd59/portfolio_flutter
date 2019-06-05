@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/pages/news_page.dart';
+import 'package:portfolio/pages/profile_page.dart';
 
 class NavigationProvider extends ChangeNotifier {
-  Widget currentWidget = NewsPage();
+  Widget currentWidget = ProfilePage();
   int currentIndex = 0;
   setCurrentWidget(Widget _current) {
     currentWidget = _current;
