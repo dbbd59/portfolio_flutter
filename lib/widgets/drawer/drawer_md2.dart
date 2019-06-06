@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/pages/blank_page.dart';
 import 'package:portfolio/pages/news_page.dart';
 import 'package:portfolio/pages/profile_page.dart';
+import 'package:portfolio/pages/welcome_page.dart';
 import 'package:portfolio/providers/bloc.dart';
 import 'package:portfolio/providers/navigation_provider.dart';
 import 'package:portfolio/stores/news_store/news_store.dart';
@@ -21,7 +22,10 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
         child: Column(
           children: <Widget>[
             HeaderDrawerMaterialDesign2(
-              onTap: () {},
+              onTap: () {
+                np.setCurrentWidget(WelocmePage());
+                np.setCurrentIndex(-1);
+              },
               imageNetwork:
                   "https://scontent-cdg2-1.cdninstagram.com/vp/89dde4d5b5c8dae27794012b37a281b3/5D798DBD/t51.2885-19/s320x320/58453660_411757989373588_4475648126237016064_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com",
               subTitle: "davide.bolzoni59@gmail.com",

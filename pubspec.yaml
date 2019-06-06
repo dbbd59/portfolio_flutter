@@ -14,7 +14,8 @@ dependencies:
   cached_network_image: ^0.8.0
   mobx: ^0.2.0
   flutter_mobx: ^0.2.0+1
-
+  url_launcher: ^5.0.3
+  auto_size_text: ^2.0.0+2
 dev_dependencies:
   build_runner:
   mobx_codegen: ^0.2.0+1
@@ -24,6 +25,10 @@ flutter:
   assets:
     - assets/wallpaperprofile.jpg
   fonts:
-  - family: ProductSans
-    fonts:
-      - asset: fonts/ProductSans-Black.ttf
+    - family: ProductSans
+      fonts:
+        - asset: fonts/Product Sans Regular.ttf
+        - asset: fonts/Product Sans Bold.ttf
+          weight: 700
+        - asset: fonts/Product Sans Italic.ttf
+          style: italic
