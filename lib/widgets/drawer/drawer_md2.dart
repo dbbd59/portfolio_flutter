@@ -4,6 +4,7 @@ import 'package:portfolio/pages/news_page.dart';
 import 'package:portfolio/pages/profile_page.dart';
 import 'package:portfolio/providers/bloc.dart';
 import 'package:portfolio/providers/navigation_provider.dart';
+import 'package:portfolio/stores/news_store/news_store.dart';
 import 'package:portfolio/widgets/drawer/drawer_header_md2.dart';
 import 'package:portfolio/widgets/drawer/drawer_list_tile_md2.dart';
 import 'package:provider/provider.dart';
@@ -12,7 +13,7 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     NavigationProvider np = Provider.of<NavigationProvider>(context);
-    Bloc bloc = Provider.of<Bloc>(context);
+    NewsStore newsStore = Provider.of<Bloc>(context).newsStore;
 
     return SafeArea(
       top: true,
@@ -44,7 +45,7 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                     text: "News",
                     onTap: () {
                       np.setCurrentWidget(NewsPage(
-                        bloc: bloc,
+                        newsStore: newsStore,
                       ));
                       np.setCurrentIndex(1);
                     },
