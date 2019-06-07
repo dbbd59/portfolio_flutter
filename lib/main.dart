@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
 import 'package:flutter/material.dart';
+import 'package:portfolio/providers/theme_provider.dart';
 import 'package:portfolio/widgets/drawer/drawer_md2.dart';
 import 'package:provider/provider.dart';
 
@@ -33,6 +34,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider<ThemeProvider>.value(
+          notifier: ThemeProvider(),
+        ),
         ChangeNotifierProvider<NavigationProvider>.value(
           notifier: NavigationProvider(),
         ),
@@ -40,18 +44,27 @@ class MyApp extends StatelessWidget {
           notifier: Bloc(),
         ),
       ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          brightness: Brightness.light,
-          primaryColor: Colors.blueAccent,
-          fontFamily: 'ProductSans',
-        ),
-        initialRoute: '/',
-        routes: {
-          '/': (context) => MyHomePage(),
-        },
+      child: MaterialAppWidget(),
+    );
+  }
+}
+
+class MaterialAppWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    Brightness brightness = Provider.of<ThemeProvider>(context).brightnessTheme;
+
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        brightness: brightness,
+        primaryColor: Colors.blueAccent,
+        fontFamily: 'ProductSans',
       ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MyHomePage(),
+      },
     );
   }
 }
@@ -61,12 +74,28 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget currentWidget =
         Provider.of<NavigationProvider>(context).currentWidget;
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth < 1256)
           return Scaffold(
             appBar: AppBar(
               elevation: 0,
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(
+                    Icons.brightness_7,
+                  ),
+                  onPressed: () {
+                    if (themeProvider.brightnessTheme == Brightness.light) {
+                      themeProvider.setBrightness(Brightness.dark);
+                    } else {
+                      themeProvider.setBrightness(Brightness.light);
+                    }
+                  },
+                )
+              ],
             ),
             drawer: DrawlerMaterialDesign2(),
             body: currentWidget,
@@ -75,6 +104,20 @@ class MyHomePage extends StatelessWidget {
           return Scaffold(
             appBar: AppBar(
               elevation: 0,
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(
+                    Icons.brightness_7,
+                  ),
+                  onPressed: () {
+                    if (themeProvider.brightnessTheme == Brightness.light) {
+                      themeProvider.setBrightness(Brightness.light);
+                    } else {
+                      themeProvider.setBrightness(Brightness.dark);
+                    }
+                  },
+                )
+              ],
             ),
             body: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
