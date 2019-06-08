@@ -31,53 +31,56 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
                 ? LayoutBuilder(
                     builder: (context, constraints) {
                       if (constraints.maxWidth > 600 &&
-                          constraints.maxWidth <= 750)
-                        return GridView.count(
-                          primary: true,
-                          crossAxisCount: 2,
-                          children: List.generate(
-                            widget.gitHubTrendsStore.listGitHubTrends.length,
-                            (index) {
-                              return CardGitHubTrend(
-                                currentPeriodStars: widget.gitHubTrendsStore
-                                    .listGitHubTrends[index].currentPeriodStars,
-                                author: widget.gitHubTrendsStore
-                                    .listGitHubTrends[index].author,
-                                languageName: widget.gitHubTrendsStore
-                                    .listGitHubTrends[index].language,
-                                stars: widget.gitHubTrendsStore
-                                    .listGitHubTrends[index].stars,
-                                forks: widget.gitHubTrendsStore
-                                    .listGitHubTrends[index].forks,
-                                borderColor: bloc.getColorHexFromStr(
-                                  widget.gitHubTrendsStore
-                                      .listGitHubTrends[index].languageColor,
-                                ),
-                                horizontal: false,
-                                onTap: () {
-                                  bloc.launchURL(
-                                      url: widget.gitHubTrendsStore
-                                          .listGitHubTrends[index].url);
-                                },
-                                title: widget.gitHubTrendsStore
-                                    .listGitHubTrends[index].name,
-                                imageNetwork: widget
-                                            .gitHubTrendsStore
-                                            .listGitHubTrends[index]
-                                            .builtBy
-                                            .length >
-                                        0
-                                    ? widget
-                                        .gitHubTrendsStore
-                                        ?.listGitHubTrends[index]
-                                        ?.builtBy[0]
-                                        ?.avatar
-                                    : "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-                                subTitle: widget.gitHubTrendsStore
-                                    .listGitHubTrends[index].description,
-                              );
-                            },
-                          ),
+                          constraints.maxWidth < 750)
+                        return ListView.builder(
+                          itemCount:
+                              widget.gitHubTrendsStore.listGitHubTrends.length,
+                          itemBuilder: (BuildContext ctxt, int index) {
+                            return CardGitHubTrend(
+                              currentPeriodStars: widget.gitHubTrendsStore
+                                  .listGitHubTrends[index].currentPeriodStars,
+                              author: widget.gitHubTrendsStore
+                                  .listGitHubTrends[index].author,
+                              languageName: widget.gitHubTrendsStore
+                                  .listGitHubTrends[index].language,
+                              stars: widget.gitHubTrendsStore
+                                  .listGitHubTrends[index].stars,
+                              forks: widget.gitHubTrendsStore
+                                  .listGitHubTrends[index].forks,
+                              borderColor: widget
+                                          .gitHubTrendsStore
+                                          .listGitHubTrends[index]
+                                          .languageColor !=
+                                      null
+                                  ? bloc.getColorHexFromStr(widget
+                                      .gitHubTrendsStore
+                                      .listGitHubTrends[index]
+                                      .languageColor)
+                                  : 0x00000000,
+                              horizontal: true,
+                              onTap: () {
+                                bloc.launchURL(
+                                    url: widget.gitHubTrendsStore
+                                        .listGitHubTrends[index].url);
+                              },
+                              title: widget.gitHubTrendsStore
+                                  .listGitHubTrends[index].name,
+                              imageNetwork: widget
+                                          .gitHubTrendsStore
+                                          .listGitHubTrends[index]
+                                          .builtBy
+                                          .length >
+                                      0
+                                  ? widget
+                                      .gitHubTrendsStore
+                                      ?.listGitHubTrends[index]
+                                      ?.builtBy[0]
+                                      ?.avatar
+                                  : "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+                              subTitle: widget.gitHubTrendsStore
+                                  .listGitHubTrends[index].description,
+                            );
+                          },
                         );
                       if (constraints.maxWidth >= 750 &&
                           constraints.maxWidth < 1100)
