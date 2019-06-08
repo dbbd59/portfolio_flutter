@@ -11,6 +11,7 @@ class WelocmePage extends StatelessWidget {
           return WelcomeLarge();
         if (constraints.maxWidth >= 750) return WelcomeLarge();
         if (constraints.maxWidth <= 600) return WelcomeSmall();
+        return Container();
       },
     );
   }

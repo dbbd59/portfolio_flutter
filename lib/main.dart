@@ -74,7 +74,6 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget currentWidget =
         Provider.of<NavigationProvider>(context).currentWidget;
-    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -82,20 +81,6 @@ class MyHomePage extends StatelessWidget {
           return Scaffold(
             appBar: AppBar(
               elevation: 0,
-              actions: <Widget>[
-                IconButton(
-                  icon: Icon(
-                    Icons.brightness_7,
-                  ),
-                  onPressed: () {
-                    if (themeProvider.brightnessTheme == Brightness.light) {
-                      themeProvider.setBrightness(Brightness.dark);
-                    } else {
-                      themeProvider.setBrightness(Brightness.light);
-                    }
-                  },
-                )
-              ],
             ),
             drawer: DrawlerMaterialDesign2(),
             body: currentWidget,
@@ -104,20 +89,6 @@ class MyHomePage extends StatelessWidget {
           return Scaffold(
             appBar: AppBar(
               elevation: 0,
-              actions: <Widget>[
-                IconButton(
-                  icon: Icon(
-                    Icons.brightness_7,
-                  ),
-                  onPressed: () {
-                    if (themeProvider.brightnessTheme == Brightness.light) {
-                      themeProvider.setBrightness(Brightness.light);
-                    } else {
-                      themeProvider.setBrightness(Brightness.dark);
-                    }
-                  },
-                )
-              ],
             ),
             body: Row(
               crossAxisAlignment: CrossAxisAlignment.start,

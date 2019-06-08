@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/pages/blank_page.dart';
+import 'package:portfolio/pages/github_trends_page.dart';
 import 'package:portfolio/pages/news_page.dart';
 import 'package:portfolio/pages/profile_page.dart';
 import 'package:portfolio/pages/welcome_page.dart';
 import 'package:portfolio/providers/bloc.dart';
 import 'package:portfolio/providers/navigation_provider.dart';
+import 'package:portfolio/providers/theme_provider.dart';
+import 'package:portfolio/stores/github_trend_store.dart/github_trend_store.dart';
 import 'package:portfolio/stores/news_store/news_store.dart';
 import 'package:portfolio/widgets/drawer/drawer_header_md2.dart';
 import 'package:portfolio/widgets/drawer/drawer_list_tile_md2.dart';
@@ -15,6 +18,9 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
   Widget build(BuildContext context) {
     NavigationProvider np = Provider.of<NavigationProvider>(context);
     NewsStore newsStore = Provider.of<Bloc>(context).newsStore;
+    GitHubTrendStore gitHubTrendsStore =
+        Provider.of<Bloc>(context).gitHubTrendsStore;
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
 
     return SafeArea(
       top: true,
@@ -45,21 +51,27 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                     active: np.currentIndex == 0,
                   ),
                   ListTileDrawerMaterialDesign2(
-                    icon: Icons.folder_shared,
-                    text: "News",
+                    icon: Icons.widgets,
+                    text: "Technology News",
                     onTap: () {
-                      np.setCurrentWidget(NewsPage(
-                        newsStore: newsStore,
-                      ));
+                      np.setCurrentWidget(
+                        NewsPage(
+                          newsStore: newsStore,
+                        ),
+                      );
                       np.setCurrentIndex(1);
                     },
                     active: np.currentIndex == 1,
                   ),
                   ListTileDrawerMaterialDesign2(
                     icon: Icons.star,
-                    text: "Starred",
+                    text: "GitHub Trends",
                     onTap: () {
-                      np.setCurrentWidget(BlankPage());
+                      np.setCurrentWidget(
+                        GitHubTrendsPage(
+                          gitHubTrendsStore: gitHubTrendsStore,
+                        ),
+                      );
                       np.setCurrentIndex(2);
                     },
                     active: np.currentIndex == 2,
@@ -77,11 +89,32 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                 ],
               ),
             ),
-            ListTileDrawerMaterialDesign2(
-              icon: Icons.info_outline,
-              text: "version 0.1",
-              onTap: () {},
-            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Icon(Icons.info_outline),
+                    SizedBox(
+                      width: 16,
+                    ),
+                    Text("version 0.1"),
+                  ],
+                ),
+                IconButton(
+                  icon: Icon(
+                    Icons.brightness_7,
+                  ),
+                  onPressed: () {
+                    if (themeProvider.brightnessTheme == Brightness.light) {
+                      themeProvider.setBrightness(Brightness.dark);
+                    } else {
+                      themeProvider.setBrightness(Brightness.light);
+                    }
+                  },
+                )
+              ],
+            )
           ],
         ),
       ),

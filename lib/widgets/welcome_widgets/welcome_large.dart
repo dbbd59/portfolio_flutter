@@ -71,8 +71,7 @@ class WelcomeLarge extends StatelessWidget {
                           onPressed: () {},
                           child: Text(
                             "Cv",
-                            style: TextStyle(
-                            ),
+                            style: TextStyle(),
                           ),
                           splashColor: Theme.of(context).primaryColor,
                           borderSide: BorderSide(
@@ -86,8 +85,7 @@ class WelcomeLarge extends StatelessWidget {
                           },
                           child: Text(
                             "Salutami!",
-                            style: TextStyle(
-                            ),
+                            style: TextStyle(),
                           ),
                           splashColor: Theme.of(context).primaryColor,
                           borderSide: BorderSide(
