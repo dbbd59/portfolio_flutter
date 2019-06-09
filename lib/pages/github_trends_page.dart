@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_web/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:portfolio/providers/bloc.dart';
 import 'package:portfolio/stores/github_trend_store.dart/github_trend_store.dart';
@@ -59,9 +59,6 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
                                   : 0x00000000,
                               horizontal: true,
                               onTap: () {
-                                bloc.launchURL(
-                                    url: widget.gitHubTrendsStore
-                                        .listGitHubTrends[index].url);
                               },
                               title: widget.gitHubTrendsStore
                                   .listGitHubTrends[index].name,
@@ -113,9 +110,6 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
                                     : 0x00000000,
                                 horizontal: false,
                                 onTap: () {
-                                  bloc.launchURL(
-                                      url: widget.gitHubTrendsStore
-                                          .listGitHubTrends[index].url);
                                 },
                                 title: widget.gitHubTrendsStore
                                     .listGitHubTrends[index].name,
@@ -167,9 +161,6 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
                                     : 0x00000000,
                                 horizontal: false,
                                 onTap: () {
-                                  bloc.launchURL(
-                                      url: widget.gitHubTrendsStore
-                                          .listGitHubTrends[index].url);
                                 },
                                 title: widget.gitHubTrendsStore
                                     .listGitHubTrends[index].name,
@@ -218,9 +209,6 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
                                 : 0x00000000,
                             horizontal: true,
                             onTap: () {
-                              bloc.launchURL(
-                                  url: widget.gitHubTrendsStore
-                                      .listGitHubTrends[index].url);
                             },
                             title: widget
                                 .gitHubTrendsStore.listGitHubTrends[index].name,

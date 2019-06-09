@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_web/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:portfolio/providers/bloc.dart';
 import 'package:portfolio/stores/news_store/news_store.dart';
 import 'package:portfolio/widgets/cards/card_horizontal/card_horizontal_md2.dart';
-import 'package:provider/provider.dart';
 
 class NewsPage extends StatefulWidget {
   final NewsStore newsStore;
@@ -21,8 +19,6 @@ class _NewsPageState extends State<NewsPage> {
 
   @override
   Widget build(BuildContext context) {
-    Bloc bloc = Provider.of<Bloc>(context);
-
     return Container(
       child: RefreshIndicator(
         onRefresh: widget.newsStore.fetchNews,
@@ -41,11 +37,7 @@ class _NewsPageState extends State<NewsPage> {
                             (index) {
                               return CardMaterialDesign2(
                                 vertical: false,
-                                onTap: () {
-                                  bloc.launchURL(
-                                      url: widget
-                                          .newsStore.news.articles[index].url);
-                                },
+                                onTap: () {},
                                 title:
                                     widget.newsStore.news.articles[index].title,
                                 imageNetwork: widget
@@ -66,11 +58,7 @@ class _NewsPageState extends State<NewsPage> {
                             (index) {
                               return CardMaterialDesign2(
                                 vertical: false,
-                                onTap: () {
-                                  bloc.launchURL(
-                                      url: widget
-                                          .newsStore.news.articles[index].url);
-                                },
+                                onTap: () {},
                                 title:
                                     widget.newsStore.news.articles[index].title,
                                 imageNetwork: widget
@@ -90,11 +78,7 @@ class _NewsPageState extends State<NewsPage> {
                             (index) {
                               return CardMaterialDesign2(
                                 vertical: false,
-                                onTap: () {
-                                  bloc.launchURL(
-                                      url: widget
-                                          .newsStore.news.articles[index].url);
-                                },
+                                onTap: () {},
                                 title:
                                     widget.newsStore.news.articles[index].title,
                                 imageNetwork: widget
@@ -110,11 +94,7 @@ class _NewsPageState extends State<NewsPage> {
                         itemBuilder: (BuildContext ctxt, int index) {
                           return CardMaterialDesign2(
                             vertical: true,
-                            onTap: () {
-                              bloc.launchURL(
-                                  url: widget
-                                      .newsStore.news.articles[index].url);
-                            },
+                            onTap: () {},
                             title: widget.newsStore.news.articles[index].title,
                             imageNetwork: widget
                                 .newsStore.news.articles[index].urlToImage,

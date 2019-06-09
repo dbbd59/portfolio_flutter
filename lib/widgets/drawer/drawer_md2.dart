@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_web/material.dart';
 import 'package:portfolio/pages/blank_page.dart';
 import 'package:portfolio/pages/github_trends_page.dart';
 import 'package:portfolio/pages/news_page.dart';

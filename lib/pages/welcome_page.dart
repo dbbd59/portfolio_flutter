@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_web/material.dart';
 import 'package:portfolio/widgets/welcome_widgets/welcome_large.dart';
 import 'package:portfolio/widgets/welcome_widgets/welcome_small.dart';
 

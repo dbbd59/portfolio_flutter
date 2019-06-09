@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_web/material.dart';
 import 'package:portfolio/widgets/diagonal.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -28,7 +27,7 @@ class ProfilePage extends StatelessWidget {
                       height: 40,
                     ),
                     CircleAvatar(
-                      backgroundImage: CachedNetworkImageProvider(
+                      backgroundImage: NetworkImage(
                           "https://scontent-cdg2-1.cdninstagram.com/vp/89dde4d5b5c8dae27794012b37a281b3/5D798DBD/t51.2885-19/s320x320/58453660_411757989373588_4475648126237016064_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com"),
                       radius: 75.0,
                     ),

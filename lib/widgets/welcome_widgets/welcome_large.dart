@@ -1,13 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-import 'package:portfolio/providers/bloc.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_web/material.dart';
 
 class WelcomeLarge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Bloc bloc = Provider.of<Bloc>(context);
-
     return Padding(
       padding: EdgeInsets.all(16.0),
       child: Center(
@@ -18,7 +13,7 @@ class WelcomeLarge extends StatelessWidget {
               child: Align(
                 alignment: Alignment.center,
                 child: CircleAvatar(
-                  backgroundImage: CachedNetworkImageProvider(
+                  backgroundImage: NetworkImage(
                       "https://scontent-cdg2-1.cdninstagram.com/vp/89dde4d5b5c8dae27794012b37a281b3/5D798DBD/t51.2885-19/s320x320/58453660_411757989373588_4475648126237016064_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com"),
                   radius: MediaQuery.of(context).size.width * 0.20,
                 ),
@@ -79,10 +74,7 @@ class WelcomeLarge extends StatelessWidget {
                           ),
                         ),
                         OutlineButton(
-                          onPressed: () {
-                            bloc.launchURL(
-                                url: "mailto:davide.bolzoni59@gmail.com");
-                          },
+                          onPressed: () {},
                           child: Text(
                             "Salutami!",
                             style: TextStyle(),

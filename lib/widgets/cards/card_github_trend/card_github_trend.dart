@@ -1,5 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_web/material.dart';
 
 class CardGitHubTrend extends StatelessWidget {
   final Function onTap;
@@ -176,8 +175,8 @@ class _CardGitHubImage extends StatelessWidget {
             image: DecorationImage(
               alignment: Alignment.center,
               image: imageNetwork != null
-                  ? CachedNetworkImageProvider(imageNetwork)
-                  : CachedNetworkImageProvider(
+                  ? NetworkImage(imageNetwork)
+                  : NetworkImage(
                       "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"),
               fit: BoxFit.cover,
             ),

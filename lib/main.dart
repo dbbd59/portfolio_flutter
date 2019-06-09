@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:flutter/foundation.dart'
+import 'package:flutter_web/foundation.dart'
     show debugDefaultTargetPlatformOverride;
-import 'package:flutter/material.dart';
+import 'package:flutter_web/material.dart';
 import 'package:portfolio/providers/theme_provider.dart';
 import 'package:portfolio/widgets/drawer/drawer_md2.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +11,6 @@ import 'providers/bloc.dart';
 import 'providers/navigation_provider.dart';
 
 void main() {
-  _setTargetPlatformForDesktop();
   runApp(
     MyApp(),
   );
@@ -35,13 +34,13 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<ThemeProvider>.value(
-          notifier: ThemeProvider(),
+          value: ThemeProvider(),
         ),
         ChangeNotifierProvider<NavigationProvider>.value(
-          notifier: NavigationProvider(),
+          value: NavigationProvider(),
         ),
         ChangeNotifierProvider<Bloc>.value(
-          notifier: Bloc(),
+          value: Bloc(),
         ),
       ],
       child: MaterialAppWidget(),
@@ -59,7 +58,7 @@ class MaterialAppWidget extends StatelessWidget {
       theme: ThemeData(
         brightness: brightness,
         primaryColor: Colors.blueAccent,
-        fontFamily: 'ProductSans',
+        fontFamily: "GoogleSansRegular",
       ),
       initialRoute: '/',
       routes: {
