@@ -26,6 +26,8 @@ flutter:
   assets:
     - assets/wallpaperprofile.jpg
     - assets/icon.png
+    - assets/dart.png
+    - assets/flutter.png
   fonts:
     - family: ProductSans
       fonts:

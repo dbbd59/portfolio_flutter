@@ -43,7 +43,7 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                   Divider(),
                   ListTileDrawerMaterialDesign2(
                     icon: Icons.person,
-                    text: "Profile",
+                    text: "About me",
                     onTap: () {
                       np.setCurrentWidget(ProfilePage());
                       np.setCurrentIndex(0);
@@ -86,6 +86,46 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                     },
                     active: np.currentIndex == 8,
                   ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                left: 16.0,
+              ),
+              child: Row(
+                children: <Widget>[
+                  Text("Made with"),
+                  SizedBox(
+                    width: 4,
+                  ),
+                  Container(
+                    height: 30,
+                    width: 50,
+                    child: Center(
+                      child: Image.asset(
+                        'assets/flutter.png',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 4,
+                  ),
+                  Text("and"),
+                  SizedBox(
+                    width: 4,
+                  ),
+                  Container(
+                    height: 30,
+                    width: 50,
+                    child: Center(
+                      child: Image.asset(
+                        'assets/dart.png',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),

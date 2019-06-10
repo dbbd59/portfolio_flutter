@@ -83,12 +83,11 @@ class MyHomePage extends StatelessWidget {
           appBar: AppBar(
             elevation: 0,
             backgroundColor: brightness == Brightness.dark
-                ? Colors.black12
+                ? Colors.black26
                 : Theme.of(context).primaryColor,
           ),
-          drawer: constraints.maxWidth < 1000
-              ? DrawlerMaterialDesign2()
-              : null,
+          drawer: constraints.maxWidth < 1000 ? DrawlerMaterialDesign2() : null,
+          endDrawer: DrawlerMaterialDesign2(),
           body: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[

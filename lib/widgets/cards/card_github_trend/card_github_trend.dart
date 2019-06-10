@@ -281,7 +281,7 @@ class _CardGitHubTitle extends StatelessWidget {
           ),
         ),
         Text(
-          "+$currentPeriodStars ⭐ this week",
+          "+$currentPeriodStars ⭐ today",
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
             fontSize: 11.0,

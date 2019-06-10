@@ -3,7 +3,7 @@ import 'package:portfolio/pages/welcome_page.dart';
 
 class NavigationProvider extends ChangeNotifier {
   Widget currentWidget = WelocmePage();
-  int currentIndex = 0;
+  int currentIndex = -1;
   setCurrentWidget(Widget _current) {
     currentWidget = _current;
     notifyListeners();
