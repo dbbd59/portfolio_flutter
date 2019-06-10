@@ -53,12 +53,13 @@ class MaterialAppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Brightness brightness = Provider.of<ThemeProvider>(context).brightnessTheme;
+    Color primaryColor = Provider.of<ThemeProvider>(context).primaryColorTheme;
 
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         brightness: brightness,
-        primaryColor: Colors.blueAccent,
+        primaryColor: primaryColor,
         fontFamily: 'ProductSans',
       ),
       initialRoute: '/',
@@ -74,35 +75,34 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget currentWidget =
         Provider.of<NavigationProvider>(context).currentWidget;
+    Brightness brightness = Provider.of<ThemeProvider>(context).brightnessTheme;
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth < 1256)
-          return Scaffold(
-            appBar: AppBar(
-              elevation: 0,
-            ),
-            drawer: DrawlerMaterialDesign2(),
-            body: currentWidget,
-          );
-        else
-          return Scaffold(
-            appBar: AppBar(
-              elevation: 0,
-            ),
-            body: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
+        return Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: brightness == Brightness.dark
+                ? Colors.black12
+                : Theme.of(context).primaryColor,
+          ),
+          drawer: constraints.maxWidth < 1000
+              ? DrawlerMaterialDesign2()
+              : null,
+          body: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              if (constraints.maxWidth > 1000)
                 Container(
                   width: 256,
                   child: DrawlerMaterialDesign2(),
                 ),
-                Expanded(
-                  child: currentWidget,
-                ),
-              ],
-            ),
-          );
+              Expanded(
+                child: currentWidget,
+              ),
+            ],
+          ),
+        );
       },
     );
   }

@@ -32,16 +32,25 @@ class CardGitHubTrend extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-              color: Color(borderColor), style: BorderStyle.solid, width: 5),
-        ),
-        child: Card(
-          elevation: 1,
+      child: Card(
+        elevation: 1,
+        child: ClipPath(
+          clipper: ShapeBorderClipper(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(3),
+            ),
+          ),
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: 164,
+            decoration: BoxDecoration(
+              border: Border(
+                right: BorderSide(color: Color(borderColor), width: 5),
+                left: BorderSide(color: Color(borderColor), width: 5),
+                top: BorderSide(color: Color(borderColor), width: 5),
+                bottom: BorderSide(color: Color(borderColor), width: 5),
+              ),
+            ),
             child: horizontal
                 ? Row(
                     children: <Widget>[
@@ -113,7 +122,7 @@ class _CardGitHubContent extends StatelessWidget {
     return Expanded(
       flex: 2,
       child: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
