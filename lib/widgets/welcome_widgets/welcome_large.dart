@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/providers/bloc.dart';
+import 'package:portfolio/providers/utilities_provider.dart';
 import 'package:provider/provider.dart';
 
 class WelcomeLarge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Bloc bloc = Provider.of<Bloc>(context);
+    UtilitiesProvider bloc = Provider.of<UtilitiesProvider>(context);
 
     return Padding(
       padding: EdgeInsets.all(16.0),

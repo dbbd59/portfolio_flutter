@@ -3,17 +3,26 @@ import 'dart:io';
 import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
 import 'package:flutter/material.dart';
+import 'package:portfolio/Apis/Api.dart';
+import 'package:portfolio/providers/state_provider.dart';
 import 'package:portfolio/providers/theme_provider.dart';
+import 'package:portfolio/providers/utilities_provider.dart';
+import 'package:portfolio/stores/github_trend_store.dart/github_trend_store.dart';
+import 'package:portfolio/stores/news_store/news_store.dart';
 import 'package:portfolio/widgets/drawer/drawer_md2.dart';
 import 'package:provider/provider.dart';
-
-import 'providers/bloc.dart';
 import 'providers/navigation_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
+  Provider.debugCheckInvalidValueType = null;
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String token = prefs.getString('token');
   _setTargetPlatformForDesktop();
   runApp(
-    MyApp(),
+    MyApp(
+      token: token,
+    ),
   );
 }
 
@@ -30,19 +39,34 @@ void _setTargetPlatformForDesktop() {
 }
 
 class MyApp extends StatelessWidget {
+  final String token;
+  MyApp({this.token});
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider<StateProvider>.value(
+          value: StateProvider(token: token)..init(),
+        ),
         ChangeNotifierProvider<ThemeProvider>.value(
-          notifier: ThemeProvider(),
+          value: ThemeProvider(),
         ),
         ChangeNotifierProvider<NavigationProvider>.value(
-          notifier: NavigationProvider(),
+          value: NavigationProvider(),
         ),
-        ChangeNotifierProvider<Bloc>.value(
-          notifier: Bloc(),
+        Provider<UtilitiesProvider>.value(
+          value: UtilitiesProvider(),
         ),
+        Provider<Api>.value(
+          value: Api(),
+        ),
+        ProxyProvider<Api, GitHubTrendStore>(
+          builder: (context, api, gitHubTrendStore) =>
+              GitHubTrendStore(api: api),
+        ),
+        ProxyProvider<Api, NewsStore>(
+          builder: (context, api, newsStore) => NewsStore(api: api),
+        )
       ],
       child: MaterialAppWidget(),
     );

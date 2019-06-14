@@ -4,7 +4,6 @@ import 'package:portfolio/pages/github_trends_page.dart';
 import 'package:portfolio/pages/news_page.dart';
 import 'package:portfolio/pages/profile_page.dart';
 import 'package:portfolio/pages/welcome_page.dart';
-import 'package:portfolio/providers/bloc.dart';
 import 'package:portfolio/providers/navigation_provider.dart';
 import 'package:portfolio/providers/theme_provider.dart';
 import 'package:portfolio/stores/github_trend_store.dart/github_trend_store.dart';
@@ -17,9 +16,8 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     NavigationProvider np = Provider.of<NavigationProvider>(context);
-    NewsStore newsStore = Provider.of<Bloc>(context).newsStore;
-    GitHubTrendStore gitHubTrendsStore =
-        Provider.of<Bloc>(context).gitHubTrendsStore;
+    NewsStore newsStore = Provider.of<NewsStore>(context);
+    GitHubTrendStore gitHubTrendsStore = Provider.of<GitHubTrendStore>(context);
     ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
 
     return SafeArea(

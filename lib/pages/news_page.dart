@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:portfolio/providers/bloc.dart';
+import 'package:portfolio/providers/utilities_provider.dart';
 import 'package:portfolio/stores/news_store/news_store.dart';
 import 'package:portfolio/widgets/cards/card_horizontal/card_horizontal_md2.dart';
 import 'package:portfolio/widgets/common/progress_indicator.dart';
@@ -22,7 +22,7 @@ class _NewsPageState extends State<NewsPage> {
 
   @override
   Widget build(BuildContext context) {
-    Bloc bloc = Provider.of<Bloc>(context);
+    UtilitiesProvider bloc = Provider.of<UtilitiesProvider>(context);
 
     return Container(
       child: RefreshIndicator(
@@ -60,7 +60,7 @@ class _NewsPageState extends State<NewsPage> {
     );
   }
 
-  ListView buildListView({Bloc bloc}) {
+  ListView buildListView({UtilitiesProvider bloc}) {
     return ListView.builder(
       itemCount: widget.newsStore.news.articles.length,
       itemBuilder: (BuildContext ctxt, int index) {
@@ -77,7 +77,7 @@ class _NewsPageState extends State<NewsPage> {
     );
   }
 
-  GridView buildGridView({Bloc bloc, int gridNumber}) {
+  GridView buildGridView({UtilitiesProvider bloc, int gridNumber}) {
     return GridView.count(
       primary: true,
       crossAxisCount: gridNumber,

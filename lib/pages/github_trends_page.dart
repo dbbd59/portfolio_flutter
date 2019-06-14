@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:portfolio/providers/bloc.dart';
+import 'package:portfolio/providers/utilities_provider.dart';
 import 'package:portfolio/stores/github_trend_store.dart/github_trend_store.dart';
 import 'package:portfolio/widgets/cards/card_github_trend/card_github_trend.dart';
 import 'package:provider/provider.dart';
@@ -22,7 +22,7 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
 
   @override
   Widget build(BuildContext context) {
-    Bloc bloc = Provider.of<Bloc>(context);
+    UtilitiesProvider bloc = Provider.of<UtilitiesProvider>(context);
     return Container(
       child: RefreshIndicator(
         onRefresh: widget.gitHubTrendsStore.fetchGitHubTrends,
@@ -54,7 +54,7 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
     );
   }
 
-  ListView buildListView({Bloc bloc}) {
+  ListView buildListView({UtilitiesProvider bloc}) {
     return ListView.builder(
       itemCount: widget.gitHubTrendsStore.listGitHubTrends.length,
       itemBuilder: (BuildContext ctxt, int index) {
@@ -91,7 +91,7 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
     );
   }
 
-  GridView buildGridView({Bloc bloc, int gridNumber}) {
+  GridView buildGridView({UtilitiesProvider bloc, int gridNumber}) {
     return GridView.count(
       primary: true,
       crossAxisCount: gridNumber,
