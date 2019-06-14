@@ -1,14 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/providers/state_provider.dart';
 import 'package:portfolio/providers/utilities_provider.dart';
 import 'package:provider/provider.dart';
 
 class WelcomeSmall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    UtilitiesProvider bloc = Provider.of<UtilitiesProvider>(context);
-    StateProvider stateProvider = Provider.of<StateProvider>(context);
+    UtilitiesProvider utility = Provider.of<UtilitiesProvider>(context);
 
     return SingleChildScrollView(
       child: Padding(
@@ -17,12 +15,11 @@ class WelcomeSmall extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              if (stateProvider.loggedIn)
-                CircleAvatar(
-                  backgroundImage: CachedNetworkImageProvider(
-                      "https://scontent-cdg2-1.cdninstagram.com/vp/89dde4d5b5c8dae27794012b37a281b3/5D798DBD/t51.2885-19/s320x320/58453660_411757989373588_4475648126237016064_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com"),
-                  radius: MediaQuery.of(context).size.height * 0.20,
-                ),
+              CircleAvatar(
+                backgroundImage: CachedNetworkImageProvider(
+                    "https://scontent-cdg2-1.cdninstagram.com/vp/89dde4d5b5c8dae27794012b37a281b3/5D798DBD/t51.2885-19/s320x320/58453660_411757989373588_4475648126237016064_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com"),
+                radius: MediaQuery.of(context).size.height * 0.20,
+              ),
               SizedBox(
                 height: 16.0,
               ),
@@ -61,9 +58,7 @@ class WelcomeSmall extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   OutlineButton(
-                    onPressed: () {
-                      stateProvider.setLoggedIn(false);
-                    },
+                    onPressed: () {},
                     child: Text("Cv"),
                     splashColor: Theme.of(context).primaryColor,
                     borderSide: BorderSide(
@@ -72,9 +67,7 @@ class WelcomeSmall extends StatelessWidget {
                   ),
                   OutlineButton(
                     onPressed: () {
-                      stateProvider.setLoggedIn(true);
-
-                      // bloc.launchURL(url: "mailto:davide.bolzoni59@gmail.com");
+                      utility.launchURL(url: "mailto:davide.bolzoni59@gmail.com");
                     },
                     child: Text("Salutami!"),
                     splashColor: Theme.of(context).primaryColor,

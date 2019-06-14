@@ -100,7 +100,7 @@ class MyHomePage extends StatelessWidget {
     Widget currentWidget =
         Provider.of<NavigationProvider>(context).currentWidget;
     Brightness brightness = Provider.of<ThemeProvider>(context).brightnessTheme;
-
+    StateProvider stateProvider = Provider.of<StateProvider>(context);
     return LayoutBuilder(
       builder: (context, constraints) {
         return Scaffold(
@@ -109,9 +109,18 @@ class MyHomePage extends StatelessWidget {
             backgroundColor: brightness == Brightness.dark
                 ? Colors.black26
                 : Theme.of(context).primaryColor,
+            actions: <Widget>[
+              IconButton(
+                onPressed: () {
+                  stateProvider.setLoggedIn(false);
+                },
+                icon: Icon(
+                  Icons.exit_to_app,
+                ),
+              )
+            ],
           ),
           drawer: constraints.maxWidth < 1000 ? DrawlerMaterialDesign2() : null,
-          endDrawer: DrawlerMaterialDesign2(),
           body: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[

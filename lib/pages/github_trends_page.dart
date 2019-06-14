@@ -22,7 +22,7 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
 
   @override
   Widget build(BuildContext context) {
-    UtilitiesProvider bloc = Provider.of<UtilitiesProvider>(context);
+    UtilitiesProvider utility = Provider.of<UtilitiesProvider>(context);
     return Container(
       child: RefreshIndicator(
         onRefresh: widget.gitHubTrendsStore.fetchGitHubTrends,
@@ -34,15 +34,15 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
                   if (constraints.maxWidth >= 750 &&
                       constraints.maxWidth < 1100)
                     return buildGridView(
-                      bloc: bloc,
+                      utility: utility,
                       gridNumber: 3,
                     );
                   if (constraints.maxWidth >= 1100)
                     return buildGridView(
-                      bloc: bloc,
+                      utility: utility,
                       gridNumber: 4,
                     );
-                  return buildListView(bloc: bloc);
+                  return buildListView(utility: utility);
                 },
               );
             } else {
@@ -54,7 +54,7 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
     );
   }
 
-  ListView buildListView({UtilitiesProvider bloc}) {
+  ListView buildListView({UtilitiesProvider utility}) {
     return ListView.builder(
       itemCount: widget.gitHubTrendsStore.listGitHubTrends.length,
       itemBuilder: (BuildContext ctxt, int index) {
@@ -69,12 +69,12 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
           borderColor:
               widget.gitHubTrendsStore.listGitHubTrends[index].languageColor !=
                       null
-                  ? bloc.getColorHexFromStr(widget
+                  ? utility.getColorHexFromStr(widget
                       .gitHubTrendsStore.listGitHubTrends[index].languageColor)
                   : 0x00000000,
           horizontal: true,
           onTap: () {
-            bloc.launchURL(
+            utility.launchURL(
                 url: widget.gitHubTrendsStore.listGitHubTrends[index].url);
           },
           title: widget.gitHubTrendsStore.listGitHubTrends[index].name,
@@ -91,7 +91,7 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
     );
   }
 
-  GridView buildGridView({UtilitiesProvider bloc, int gridNumber}) {
+  GridView buildGridView({UtilitiesProvider utility, int gridNumber}) {
     return GridView.count(
       primary: true,
       crossAxisCount: gridNumber,
@@ -109,12 +109,12 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
             borderColor: widget.gitHubTrendsStore.listGitHubTrends[index]
                         .languageColor !=
                     null
-                ? bloc.getColorHexFromStr(widget
+                ? utility.getColorHexFromStr(widget
                     .gitHubTrendsStore.listGitHubTrends[index].languageColor)
                 : 0x00000000,
             horizontal: false,
             onTap: () {
-              bloc.launchURL(
+              utility.launchURL(
                   url: widget.gitHubTrendsStore.listGitHubTrends[index].url);
             },
             title: widget.gitHubTrendsStore.listGitHubTrends[index].name,

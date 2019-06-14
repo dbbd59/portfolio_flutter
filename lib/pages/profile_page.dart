@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:portfolio/providers/state_provider.dart';
 import 'package:portfolio/widgets/common/diagonal.dart';
+import 'package:provider/provider.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -19,7 +21,9 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    if (pswOk)
+    StateProvider stateProvider = Provider.of<StateProvider>(context);
+
+    if (stateProvider.loggedIn)
       return SingleChildScrollView(
         child: Column(
           children: <Widget>[
@@ -121,9 +125,7 @@ class _ProfilePageState extends State<ProfilePage> {
               OutlineButton(
                 onPressed: () {
                   if (myController.text == "dbbd59") {
-                    setState(() {
-                      pswOk = true;
-                    });
+                    stateProvider.setLoggedIn(true);
                   } else {
                     Scaffold.of(context).showSnackBar(
                       SnackBar(

@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 class WelcomeLarge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    UtilitiesProvider bloc = Provider.of<UtilitiesProvider>(context);
+    UtilitiesProvider utility = Provider.of<UtilitiesProvider>(context);
 
     return Padding(
       padding: EdgeInsets.all(16.0),
@@ -80,7 +80,7 @@ class WelcomeLarge extends StatelessWidget {
                         ),
                         OutlineButton(
                           onPressed: () {
-                            bloc.launchURL(
+                            utility.launchURL(
                                 url: "mailto:davide.bolzoni59@gmail.com");
                           },
                           child: Text(

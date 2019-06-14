@@ -5,6 +5,7 @@ import 'package:portfolio/pages/news_page.dart';
 import 'package:portfolio/pages/profile_page.dart';
 import 'package:portfolio/pages/welcome_page.dart';
 import 'package:portfolio/providers/navigation_provider.dart';
+import 'package:portfolio/providers/state_provider.dart';
 import 'package:portfolio/providers/theme_provider.dart';
 import 'package:portfolio/stores/github_trend_store.dart/github_trend_store.dart';
 import 'package:portfolio/stores/news_store/news_store.dart';
@@ -19,22 +20,24 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
     NewsStore newsStore = Provider.of<NewsStore>(context);
     GitHubTrendStore gitHubTrendsStore = Provider.of<GitHubTrendStore>(context);
     ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+    StateProvider stateProvider = Provider.of<StateProvider>(context);
 
     return SafeArea(
       top: true,
       child: Drawer(
         child: Column(
           children: <Widget>[
-            HeaderDrawerMaterialDesign2(
-              onTap: () {
-                np.setCurrentWidget(WelocmePage());
-                np.setCurrentIndex(-1);
-              },
-              imageNetwork:
-                  "https://scontent-cdg2-1.cdninstagram.com/vp/89dde4d5b5c8dae27794012b37a281b3/5D798DBD/t51.2885-19/s320x320/58453660_411757989373588_4475648126237016064_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com",
-              subTitle: "davide.bolzoni59@gmail.com",
-              title: "Davide Bolzoni",
-            ),
+            if (stateProvider.loggedIn)
+              HeaderDrawerMaterialDesign2(
+                onTap: () {
+                  np.setCurrentWidget(WelocmePage());
+                  np.setCurrentIndex(-1);
+                },
+                imageNetwork:
+                    "https://scontent-cdg2-1.cdninstagram.com/vp/89dde4d5b5c8dae27794012b37a281b3/5D798DBD/t51.2885-19/s320x320/58453660_411757989373588_4475648126237016064_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com",
+                subTitle: "davide.bolzoni59@gmail.com",
+                title: "Davide Bolzoni",
+              ),
             Flexible(
               child: ListView(
                 children: <Widget>[

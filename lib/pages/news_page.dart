@@ -22,7 +22,7 @@ class _NewsPageState extends State<NewsPage> {
 
   @override
   Widget build(BuildContext context) {
-    UtilitiesProvider bloc = Provider.of<UtilitiesProvider>(context);
+    UtilitiesProvider utility = Provider.of<UtilitiesProvider>(context);
 
     return Container(
       child: RefreshIndicator(
@@ -34,21 +34,21 @@ class _NewsPageState extends State<NewsPage> {
                 builder: (context, constraints) {
                   if (constraints.maxWidth > 600 && constraints.maxWidth <= 750)
                     return buildGridView(
-                      bloc: bloc,
+                      utility: utility,
                       gridNumber: 2,
                     );
                   if (constraints.maxWidth >= 750 &&
                       constraints.maxWidth < 1100)
                     return buildGridView(
-                      bloc: bloc,
+                      utility: utility,
                       gridNumber: 3,
                     );
                   if (constraints.maxWidth >= 1100)
                     return buildGridView(
-                      bloc: bloc,
+                      utility: utility,
                       gridNumber: 4,
                     );
-                  return buildListView(bloc: bloc);
+                  return buildListView(utility: utility);
                 },
               );
             } else {
@@ -60,14 +60,14 @@ class _NewsPageState extends State<NewsPage> {
     );
   }
 
-  ListView buildListView({UtilitiesProvider bloc}) {
+  ListView buildListView({UtilitiesProvider utility}) {
     return ListView.builder(
       itemCount: widget.newsStore.news.articles.length,
       itemBuilder: (BuildContext ctxt, int index) {
         return CardMaterialDesign2(
           vertical: true,
           onTap: () {
-            bloc.launchURL(url: widget.newsStore.news.articles[index].url);
+            utility.launchURL(url: widget.newsStore.news.articles[index].url);
           },
           title: widget.newsStore.news.articles[index].title,
           imageNetwork: widget.newsStore.news.articles[index].urlToImage,
@@ -77,7 +77,7 @@ class _NewsPageState extends State<NewsPage> {
     );
   }
 
-  GridView buildGridView({UtilitiesProvider bloc, int gridNumber}) {
+  GridView buildGridView({UtilitiesProvider utility, int gridNumber}) {
     return GridView.count(
       primary: true,
       crossAxisCount: gridNumber,
@@ -87,7 +87,7 @@ class _NewsPageState extends State<NewsPage> {
           return CardMaterialDesign2(
             vertical: false,
             onTap: () {
-              bloc.launchURL(url: widget.newsStore.news.articles[index].url);
+              utility.launchURL(url: widget.newsStore.news.articles[index].url);
             },
             title: widget.newsStore.news.articles[index].title,
             imageNetwork: widget.newsStore.news.articles[index].urlToImage,
