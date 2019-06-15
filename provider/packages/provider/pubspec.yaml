@@ -1,0 +1,23 @@
+name: provider
+description: A dependency injection system built with widgets for widgets. provider is mostly syntax sugar for InheritedWidget, to make common use-cases straightforward.
+version: 3.0.0
+homepage: https://github.com/rrousselGit/provider
+authors:
+  - Remi Rousselet <darky12s@gmail.com>
+  - Flutter Team <flutter-dev@googlegroups.com>
+
+environment:
+  sdk: ">=2.0.0 <3.0.0"
+
+dependencies:
+  flutter_web: any
+
+dependency_overrides:
+  flutter_web:
+    git:
+      url: https://github.com/flutter/flutter_web
+      path: packages/flutter_web
+  flutter_web_ui:
+    git:
+      url: https://github.com/flutter/flutter_web
+      path: packages/flutter_web_ui
