@@ -6,11 +6,11 @@ dependencies:
   flutter_web: any
   http: ^0.12.0+2
   provider: 
-    path: ../provider/packages/provider
+    path: ./pubs/provider/packages/provider
   mobx: 
-    path: ../mobx.dart/mobx
+    path: ./pubs/mobx.dart/mobx
   flutter_mobx: 
-    path: ../mobx.dart/flutter_mobx
+    path: ./pubs/mobx.dart/flutter_mobx
 
 dev_dependencies:
   flutter_web_test: any

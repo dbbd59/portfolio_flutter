@@ -1,8 +1,12 @@
 import 'package:flutter_web/material.dart';
+import 'package:portfolio/providers/utilities_provider.dart';
+import 'package:provider/provider.dart';
 
 class WelcomeLarge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    UtilitiesProvider utility = Provider.of<UtilitiesProvider>(context);
+
     return Padding(
       padding: EdgeInsets.all(16.0),
       child: Center(
@@ -74,7 +78,10 @@ class WelcomeLarge extends StatelessWidget {
                           ),
                         ),
                         OutlineButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            utility.launchURL(
+                                url: "mailto:davide.bolzoni59@gmail.com");
+                          },
                           child: Text(
                             "Salutami!",
                             style: TextStyle(),

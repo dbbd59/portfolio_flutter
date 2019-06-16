@@ -156,7 +156,6 @@ ReactionDisposer createWhenReaction(ReactiveContext context,
         if (onError != null) {
           onError(error, dispose.reaction);
         } else {
-          // TODO(pavanpodila): Should this be reported with onReactionError handler???
           throw error;
         }
       }

@@ -1,8 +1,12 @@
 import 'package:flutter_web/material.dart';
+import 'package:portfolio/providers/utilities_provider.dart';
+import 'package:provider/provider.dart';
 
 class WelcomeSmall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    UtilitiesProvider utility = Provider.of<UtilitiesProvider>(context);
+
     return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.all(16.0),
@@ -61,7 +65,9 @@ class WelcomeSmall extends StatelessWidget {
                     ),
                   ),
                   OutlineButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      utility.launchURL(url: "mailto:davide.bolzoni59@gmail.com");
+                    },
                     child: Text("Salutami!"),
                     splashColor: Theme.of(context).primaryColor,
                     borderSide: BorderSide(

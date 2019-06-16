@@ -31,60 +31,62 @@ class CardGitHubTrend extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-              color: Color(borderColor), style: BorderStyle.solid, width: 5),
-        ),
-        child: Card(
-          elevation: 1,
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: 164,
-            child: horizontal
-                ? Row(
-                    children: <Widget>[
-                      _CardGitHubContent(
-                        title: title,
-                        currentPeriodStars: currentPeriodStars,
-                        subTitle: subTitle,
-                        stars: stars,
-                        forks: forks,
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: _CardGitHubImage(
-                          horizontal: horizontal,
-                          imageNetwork: imageNetwork,
-                          languageName: languageName,
-                          borderColor: borderColor,
-                          author: author,
-                        ),
-                      ),
-                    ],
-                  )
-                : Column(
-                    children: <Widget>[
-                      Expanded(
-                        flex: 1,
-                        child: _CardGitHubImage(
-                          horizontal: horizontal,
-                          imageNetwork: imageNetwork,
-                          languageName: languageName,
-                          borderColor: borderColor,
-                          author: author,
-                        ),
-                      ),
-                      _CardGitHubContent(
-                        title: title,
-                        currentPeriodStars: currentPeriodStars,
-                        subTitle: subTitle,
-                        stars: stars,
-                        forks: forks,
-                      ),
-                    ],
-                  ),
+      child: Card(
+        elevation: 1,
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: 164,
+          decoration: BoxDecoration(
+            border: Border(
+              right: BorderSide(color: Color(borderColor), width: 5),
+              left: BorderSide(color: Color(borderColor), width: 5),
+              top: BorderSide(color: Color(borderColor), width: 5),
+              bottom: BorderSide(color: Color(borderColor), width: 5),
+            ),
           ),
+          child: horizontal
+              ? Row(
+                  children: <Widget>[
+                    _CardGitHubContent(
+                      title: title,
+                      currentPeriodStars: currentPeriodStars,
+                      subTitle: subTitle,
+                      stars: stars,
+                      forks: forks,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: _CardGitHubImage(
+                        horizontal: horizontal,
+                        imageNetwork: imageNetwork,
+                        languageName: languageName,
+                        borderColor: borderColor,
+                        author: author,
+                      ),
+                    ),
+                  ],
+                )
+              : Column(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: _CardGitHubImage(
+                        horizontal: horizontal,
+                        imageNetwork: imageNetwork,
+                        languageName: languageName,
+                        borderColor: borderColor,
+                        author: author,
+                      ),
+                    ),
+                    _CardGitHubContent(
+                      title: title,
+                      currentPeriodStars: currentPeriodStars,
+                      subTitle: subTitle,
+                      stars: stars,
+                      forks: forks,
+                    ),
+                  ],
+                ),
         ),
       ),
     );
@@ -112,7 +114,7 @@ class _CardGitHubContent extends StatelessWidget {
     return Expanded(
       flex: 2,
       child: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -271,7 +273,7 @@ class _CardGitHubTitle extends StatelessWidget {
           ),
         ),
         Text(
-          "+$currentPeriodStars ⭐ this week",
+          "+$currentPeriodStars ⭐ today",
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
             fontSize: 11.0,
