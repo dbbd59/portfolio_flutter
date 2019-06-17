@@ -10,7 +10,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  bool pswOk = false;
   final myController = TextEditingController();
 
   @override
@@ -48,7 +47,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       CircleAvatar(
                         backgroundImage: CachedNetworkImageProvider(
-                            "https://scontent-cdg2-1.cdninstagram.com/vp/89dde4d5b5c8dae27794012b37a281b3/5D798DBD/t51.2885-19/s320x320/58453660_411757989373588_4475648126237016064_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com"),
+                          "https://scontent-cdg2-1.cdninstagram.com/vp/89dde4d5b5c8dae27794012b37a281b3/5D798DBD/t51.2885-19/s320x320/58453660_411757989373588_4475648126237016064_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com",
+                        ),
                         radius: 75.0,
                       ),
                       SizedBox(
@@ -56,7 +56,6 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          color: Colors.white,
                           borderRadius: BorderRadius.all(
                             Radius.circular(8.0),
                           ),
@@ -111,7 +110,7 @@ class _ProfilePageState extends State<ProfilePage> {
     else
       return Center(
         child: Container(
-          width: MediaQuery.of(context).size.width / 2.5,
+          width: MediaQuery.of(context).size.width / 2,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

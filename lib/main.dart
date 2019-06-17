@@ -1,20 +1,27 @@
 import 'dart:io';
 
+import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
 import 'package:flutter/material.dart';
-import 'package:portfolio/Apis/Api.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/Apis/api.dart';
+import 'package:portfolio/blocs/bloc_delegate.dart';
+import 'package:portfolio/blocs/weather_bloc.dart';
 import 'package:portfolio/providers/state_provider.dart';
 import 'package:portfolio/providers/theme_provider.dart';
 import 'package:portfolio/providers/utilities_provider.dart';
 import 'package:portfolio/stores/github_trend_store.dart/github_trend_store.dart';
 import 'package:portfolio/stores/news_store/news_store.dart';
+import 'package:portfolio/stores/weather_store.dart/weather_store.dart';
 import 'package:portfolio/widgets/drawer/drawer_md2.dart';
 import 'package:provider/provider.dart';
 import 'providers/navigation_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
+  BlocSupervisor.delegate = SimpleBlocDelegate();
+
   Provider.debugCheckInvalidValueType = null;
   SharedPreferences prefs = await SharedPreferences.getInstance();
   String token = prefs.getString('token');
@@ -40,7 +47,9 @@ void _setTargetPlatformForDesktop() {
 
 class MyApp extends StatelessWidget {
   final String token;
+  final Api api = Api();
   MyApp({this.token});
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -65,10 +74,24 @@ class MyApp extends StatelessWidget {
               GitHubTrendStore(api: api),
         ),
         ProxyProvider<Api, NewsStore>(
-          builder: (context, api, newsStore) => NewsStore(api: api),
-        )
+          builder: (context, api, newsStore) => NewsStore(
+            api: api,
+          ),
+        ),
+        ProxyProvider<Api, WeatherStore>(
+          builder: (context, api, weatherStore) => WeatherStore(
+            api: api,
+          ),
+        ),
       ],
-      child: MaterialAppWidget(),
+      child: BlocProvider(
+        builder: (context) {
+          return WeatherBloc(
+            api: api,
+          );
+        },
+        child: MaterialAppWidget(),
+      ),
     );
   }
 }
@@ -99,16 +122,12 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget currentWidget =
         Provider.of<NavigationProvider>(context).currentWidget;
-    Brightness brightness = Provider.of<ThemeProvider>(context).brightnessTheme;
     StateProvider stateProvider = Provider.of<StateProvider>(context);
     return LayoutBuilder(
       builder: (context, constraints) {
         return Scaffold(
           appBar: AppBar(
             elevation: 0,
-            backgroundColor: brightness == Brightness.dark
-                ? Colors.black26
-                : Theme.of(context).primaryColor,
             actions: <Widget>[
               IconButton(
                 onPressed: () {

@@ -35,12 +35,12 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
                       constraints.maxWidth < 1100)
                     return buildGridView(
                       utility: utility,
-                      gridNumber: 3,
+                      gridNumber: 2,
                     );
                   if (constraints.maxWidth >= 1100)
                     return buildGridView(
                       utility: utility,
-                      gridNumber: 4,
+                      gridNumber: 3,
                     );
                   return buildListView(utility: utility);
                 },

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/pages/welcome_page.dart';
+import 'package:portfolio/pages/weather_page.dart';
 
 class NavigationProvider extends ChangeNotifier {
-  Widget currentWidget = WelocmePage();
-  int currentIndex = -1;
+  Widget currentWidget = WeatherPage();
+  int currentIndex = 3;
   setCurrentWidget(Widget _current) {
     currentWidget = _current;
     notifyListeners();

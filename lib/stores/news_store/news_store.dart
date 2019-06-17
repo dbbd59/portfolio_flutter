@@ -1,5 +1,5 @@
 import 'package:mobx/mobx.dart';
-import 'package:portfolio/Apis/Api.dart';
+import 'package:portfolio/Apis/api.dart';
 import 'package:portfolio/models/news.dart';
 
 part 'news_store.g.dart';

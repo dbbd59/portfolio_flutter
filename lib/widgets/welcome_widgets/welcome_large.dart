@@ -33,7 +33,7 @@ class WelcomeLarge extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Text(
-                          "Ciao! il mio nome è",
+                          "Hi, my name is",
                           textScaleFactor: 1,
                           style: TextStyle(
                             fontSize: 22.0,
@@ -55,7 +55,7 @@ class WelcomeLarge extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      "Sono un Mobile Developer con la passione per la tecnologia. Ora mi occupo di sviluppo in Flutter.",
+                      "I'm a mobile developer with a passion for technology. Now I'm involved in development in Flutter.",
                       textScaleFactor: 1,
                       style: TextStyle(
                         fontSize: 20.0,
@@ -84,7 +84,7 @@ class WelcomeLarge extends StatelessWidget {
                                 url: "mailto:davide.bolzoni59@gmail.com");
                           },
                           child: Text(
-                            "Salutami!",
+                            "Say hi!",
                             style: TextStyle(),
                           ),
                           splashColor: Theme.of(context).primaryColor,

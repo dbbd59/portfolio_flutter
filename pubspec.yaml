@@ -17,7 +17,10 @@ dependencies:
   url_launcher: ^5.0.3
   flutter_launcher_icons: ^0.7.2
   shared_preferences: ^0.5.3+1
-
+  flutter_bloc: ^0.17.0
+  equatable: ^0.2.0  
+  bloc: ^0.14.2
+  
 dev_dependencies:
   build_runner:
   mobx_codegen: ^0.2.1+1
@@ -25,10 +28,7 @@ dev_dependencies:
 flutter: 
   uses-material-design: true
   assets:
-    - assets/wallpaperprofile.jpg
-    - assets/icon.png
-    - assets/dart.png
-    - assets/flutter.png
+    - assets/
   fonts:
     - family: ProductSans
       fonts:

@@ -26,7 +26,7 @@ class WelcomeSmall extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Text(
-                    "Ciao! il mio nome è",
+                    "Hi, my name is",
                     style: TextStyle(
                       fontSize: 22.0,
                       color: Theme.of(context).primaryColor,
@@ -46,7 +46,7 @@ class WelcomeSmall extends StatelessWidget {
                 ],
               ),
               Text(
-                "Sono un Mobile Developer con la passione per la tecnologia. Ora mi occupo di sviluppo in Flutter.",
+                "I'm a mobile developer with a passion for technology. Now I'm involved in development in Flutter.",
                 style: TextStyle(
                   fontSize: 20.0,
                 ),
@@ -67,9 +67,11 @@ class WelcomeSmall extends StatelessWidget {
                   ),
                   OutlineButton(
                     onPressed: () {
-                      utility.launchURL(url: "mailto:davide.bolzoni59@gmail.com");
+                      utility.launchURL(
+                        url: "mailto:davide.bolzoni59@gmail.com",
+                      );
                     },
-                    child: Text("Salutami!"),
+                    child: Text("Say hi!"),
                     splashColor: Theme.of(context).primaryColor,
                     borderSide: BorderSide(
                       color: Theme.of(context).primaryColor,

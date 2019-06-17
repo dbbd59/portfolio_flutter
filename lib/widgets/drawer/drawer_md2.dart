@@ -3,6 +3,8 @@ import 'package:portfolio/pages/blank_page.dart';
 import 'package:portfolio/pages/github_trends_page.dart';
 import 'package:portfolio/pages/news_page.dart';
 import 'package:portfolio/pages/profile_page.dart';
+import 'package:portfolio/pages/weather_mobx_page.dart';
+import 'package:portfolio/pages/weather_page.dart';
 import 'package:portfolio/pages/welcome_page.dart';
 import 'package:portfolio/providers/navigation_provider.dart';
 import 'package:portfolio/providers/state_provider.dart';
@@ -76,6 +78,24 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                       np.setCurrentIndex(2);
                     },
                     active: np.currentIndex == 2,
+                  ),
+                  ListTileDrawerMaterialDesign2(
+                    icon: Icons.wb_sunny,
+                    text: "Weather bloc package",
+                    onTap: () {
+                      np.setCurrentWidget(WeatherPage());
+                      np.setCurrentIndex(3);
+                    },
+                    active: np.currentIndex == 3,
+                  ),
+                  ListTileDrawerMaterialDesign2(
+                    icon: Icons.wb_sunny,
+                    text: "Weather mobx package",
+                    onTap: () {
+                      np.setCurrentWidget(WeatherPageMobx());
+                      np.setCurrentIndex(4);
+                    },
+                    active: np.currentIndex == 4,
                   ),
                   Divider(),
                   ListTileDrawerMaterialDesign2(

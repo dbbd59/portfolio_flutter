@@ -1,5 +1,5 @@
 import 'package:mobx/mobx.dart';
-import 'package:portfolio/Apis/Api.dart';
+import 'package:portfolio/Apis/api.dart';
 import 'package:portfolio/models/github_trend.dart';
 
 part 'github_trend_store.g.dart';
