@@ -6,14 +6,14 @@ import 'package:portfolio/widgets/cards/card_github_trend/card_github_trend.dart
 import 'package:provider/provider.dart';
 import 'package:portfolio/widgets/common/progress_indicator.dart';
 
-class GitHubTrendsPage extends StatefulWidget {
+class GitHubTrendsPageMobx extends StatefulWidget {
   final GitHubTrendStore gitHubTrendsStore;
-  GitHubTrendsPage({@required this.gitHubTrendsStore});
+  GitHubTrendsPageMobx({@required this.gitHubTrendsStore});
   @override
-  _GitHubTrendsPageState createState() => _GitHubTrendsPageState();
+  _GitHubTrendsPageMobxState createState() => _GitHubTrendsPageMobxState();
 }
 
-class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
+class _GitHubTrendsPageMobxState extends State<GitHubTrendsPageMobx> {
   @override
   void initState() {
     super.initState();

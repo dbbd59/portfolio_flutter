@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/blocs/weather_bloc.dart';
-import 'package:portfolio/blocs/weather_event.dart';
-import 'package:portfolio/blocs/weather_state.dart';
+import 'package:portfolio/bloc/weather_bloc.dart';
+import 'package:portfolio/bloc/weather_event.dart';
+import 'package:portfolio/bloc/weather_state.dart';
 import 'package:portfolio/widgets/common/progress_indicator.dart';
 import 'package:portfolio/widgets/weather/combined_weather_temperature.dart';
 import 'package:portfolio/widgets/weather/last_updated.dart';
 import 'package:portfolio/widgets/weather/location.dart';
 
-class WeatherPage extends StatelessWidget {
+class WeatherPageBloc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final weatherBloc = BlocProvider.of<WeatherBloc>(context);

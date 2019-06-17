@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/pages/blank_page.dart';
-import 'package:portfolio/pages/github_trends_page.dart';
-import 'package:portfolio/pages/news_page.dart';
+import 'package:portfolio/pages/github_trends_bloc_page.dart';
+import 'package:portfolio/pages/github_trends_mobx_page.dart';
+import 'package:portfolio/pages/news_bloc_page.dart';
+import 'package:portfolio/pages/news_mobx_page.dart';
 import 'package:portfolio/pages/profile_page.dart';
+import 'package:portfolio/pages/weather_bloc_page.dart';
 import 'package:portfolio/pages/weather_mobx_page.dart';
-import 'package:portfolio/pages/weather_page.dart';
 import 'package:portfolio/pages/welcome_page.dart';
 import 'package:portfolio/providers/navigation_provider.dart';
 import 'package:portfolio/providers/state_provider.dart';
@@ -50,50 +52,81 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                     onTap: () {
                       np.setCurrentWidget(ProfilePage());
                       np.setCurrentIndex(0);
+                      Navigator.of(context).pop();
                     },
                     active: np.currentIndex == 0,
                   ),
                   ListTileDrawerMaterialDesign2(
                     icon: Icons.widgets,
-                    text: "Technology News",
+                    text: "Technology News Bloc",
                     onTap: () {
                       np.setCurrentWidget(
-                        NewsPage(
+                        NewsPageBloc(),
+                      );
+                      np.setCurrentIndex(5);
+                      Navigator.of(context).pop();
+                    },
+                    active: np.currentIndex == 5,
+                  ),
+                  ListTileDrawerMaterialDesign2(
+                    icon: Icons.widgets,
+                    text: "Technology News Mobx",
+                    onTap: () {
+                      np.setCurrentWidget(
+                        NewsPageMobx(
                           newsStore: newsStore,
                         ),
                       );
                       np.setCurrentIndex(1);
+                      Navigator.of(context).pop();
                     },
                     active: np.currentIndex == 1,
                   ),
                   ListTileDrawerMaterialDesign2(
                     icon: Icons.star,
-                    text: "GitHub Trends",
+                    text: "GitHub Trends Bloc",
                     onTap: () {
                       np.setCurrentWidget(
-                        GitHubTrendsPage(
+                        GitHubTrendsPageBloc(),
+                      );
+                      np.setCurrentIndex(6);
+                      Navigator.of(context).pop();
+                    },
+                    active: np.currentIndex == 6,
+                  ),
+                  ListTileDrawerMaterialDesign2(
+                    icon: Icons.star,
+                    text: "GitHub Trends Mobx",
+                    onTap: () {
+                      np.setCurrentWidget(
+                        GitHubTrendsPageMobx(
                           gitHubTrendsStore: gitHubTrendsStore,
                         ),
                       );
                       np.setCurrentIndex(2);
+                      Navigator.of(context).pop();
                     },
                     active: np.currentIndex == 2,
                   ),
                   ListTileDrawerMaterialDesign2(
                     icon: Icons.wb_sunny,
-                    text: "Weather bloc package",
+                    text: "Weather package Bloc",
                     onTap: () {
-                      np.setCurrentWidget(WeatherPage());
+                      np.setCurrentWidget(
+                        WeatherPageBloc(),
+                      );
                       np.setCurrentIndex(3);
+                      Navigator.of(context).pop();
                     },
                     active: np.currentIndex == 3,
                   ),
                   ListTileDrawerMaterialDesign2(
                     icon: Icons.wb_sunny,
-                    text: "Weather mobx package",
+                    text: "Weather package Mobx",
                     onTap: () {
                       np.setCurrentWidget(WeatherPageMobx());
                       np.setCurrentIndex(4);
+                      Navigator.of(context).pop();
                     },
                     active: np.currentIndex == 4,
                   ),
@@ -104,6 +137,7 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                     onTap: () {
                       np.setCurrentWidget(BlankPage());
                       np.setCurrentIndex(8);
+                      Navigator.of(context).pop();
                     },
                     active: np.currentIndex == 8,
                   ),

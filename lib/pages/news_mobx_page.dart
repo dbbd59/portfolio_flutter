@@ -6,14 +6,14 @@ import 'package:portfolio/widgets/cards/card_horizontal/card_horizontal_md2.dart
 import 'package:portfolio/widgets/common/progress_indicator.dart';
 import 'package:provider/provider.dart';
 
-class NewsPage extends StatefulWidget {
+class NewsPageMobx extends StatefulWidget {
   final NewsStore newsStore;
-  NewsPage({@required this.newsStore});
+  NewsPageMobx({@required this.newsStore});
   @override
-  _NewsPageState createState() => _NewsPageState();
+  _NewsPageMobxState createState() => _NewsPageMobxState();
 }
 
-class _NewsPageState extends State<NewsPage> {
+class _NewsPageMobxState extends State<NewsPageMobx> {
   @override
   void initState() {
     super.initState();

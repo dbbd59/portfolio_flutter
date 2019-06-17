@@ -6,8 +6,9 @@ import 'package:flutter/foundation.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/Apis/api.dart';
-import 'package:portfolio/blocs/bloc_delegate.dart';
-import 'package:portfolio/blocs/weather_bloc.dart';
+import 'package:portfolio/bloc/github_trend_bloc.dart';
+import 'package:portfolio/bloc/news_bloc.dart';
+import 'package:portfolio/bloc/weather_bloc.dart';
 import 'package:portfolio/providers/state_provider.dart';
 import 'package:portfolio/providers/theme_provider.dart';
 import 'package:portfolio/providers/utilities_provider.dart';
@@ -16,6 +17,7 @@ import 'package:portfolio/stores/news_store/news_store.dart';
 import 'package:portfolio/stores/weather_store.dart/weather_store.dart';
 import 'package:portfolio/widgets/drawer/drawer_md2.dart';
 import 'package:provider/provider.dart';
+import 'bloc/bloc_delegate.dart';
 import 'providers/navigation_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -23,8 +25,10 @@ void main() async {
   BlocSupervisor.delegate = SimpleBlocDelegate();
 
   Provider.debugCheckInvalidValueType = null;
+
   SharedPreferences prefs = await SharedPreferences.getInstance();
   String token = prefs.getString('token');
+
   _setTargetPlatformForDesktop();
   runApp(
     MyApp(
@@ -53,46 +57,57 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<StateProvider>.value(
-          value: StateProvider(token: token)..init(),
-        ),
-        ChangeNotifierProvider<ThemeProvider>.value(
-          value: ThemeProvider(),
-        ),
-        ChangeNotifierProvider<NavigationProvider>.value(
-          value: NavigationProvider(),
-        ),
-        Provider<UtilitiesProvider>.value(
-          value: UtilitiesProvider(),
-        ),
-        Provider<Api>.value(
-          value: Api(),
-        ),
-        ProxyProvider<Api, GitHubTrendStore>(
-          builder: (context, api, gitHubTrendStore) =>
-              GitHubTrendStore(api: api),
-        ),
-        ProxyProvider<Api, NewsStore>(
-          builder: (context, api, newsStore) => NewsStore(
-            api: api,
+        providers: [
+          ChangeNotifierProvider<StateProvider>.value(
+            value: StateProvider(token: token)..init(),
           ),
-        ),
-        ProxyProvider<Api, WeatherStore>(
-          builder: (context, api, weatherStore) => WeatherStore(
-            api: api,
+          ChangeNotifierProvider<ThemeProvider>.value(
+            value: ThemeProvider(),
           ),
-        ),
-      ],
-      child: BlocProvider(
-        builder: (context) {
-          return WeatherBloc(
-            api: api,
-          );
-        },
-        child: MaterialAppWidget(),
-      ),
-    );
+          ChangeNotifierProvider<NavigationProvider>.value(
+            value: NavigationProvider(),
+          ),
+          Provider<UtilitiesProvider>.value(
+            value: UtilitiesProvider(),
+          ),
+          Provider<Api>.value(
+            value: Api(),
+          ),
+          ProxyProvider<Api, GitHubTrendStore>(
+            builder: (context, api, gitHubTrendStore) =>
+                GitHubTrendStore(api: api),
+          ),
+          ProxyProvider<Api, NewsStore>(
+            builder: (context, api, newsStore) => NewsStore(
+              api: api,
+            ),
+          ),
+          ProxyProvider<Api, WeatherStore>(
+            builder: (context, api, weatherStore) => WeatherStore(
+              api: api,
+            ),
+          ),
+        ],
+        child: BlocProviderTree(
+          blocProviders: [
+            BlocProvider<WeatherBloc>(
+              builder: (BuildContext context) => WeatherBloc(
+                api: api,
+              ),
+            ),
+            BlocProvider<NewsBloc>(
+              builder: (BuildContext context) => NewsBloc(
+                api: api,
+              ),
+            ),
+            BlocProvider<GithubTrendBloc>(
+              builder: (BuildContext context) => GithubTrendBloc(
+                api: api,
+              ),
+            ),
+          ],
+          child: MaterialAppWidget(),
+        ));
   }
 }
 
@@ -134,7 +149,7 @@ class MyHomePage extends StatelessWidget {
                   stateProvider.setLoggedIn(false);
                 },
                 icon: Icon(
-                  Icons.exit_to_app,
+                  Icons.power_settings_new,
                 ),
               )
             ],
