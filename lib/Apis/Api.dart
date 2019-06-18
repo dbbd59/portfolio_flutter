@@ -1,9 +1,8 @@
 import 'dart:async';
-import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:portfolio/models/github_trend.dart';
 import 'package:portfolio/models/news.dart';
-import 'package:http/http.dart' as http;
 import 'package:portfolio/models/weather.dart';
 
 class Api {
@@ -12,9 +11,9 @@ class Api {
   Future<News> fetchNews() async {
     final String url =
         "https://newsapi.org/v2/everything?q=technology&apiKey=c66c291990c048ff842cacb5aba3f53f";
-    var response = await http.get(url);
+    Response response = await Dio().get(url);
     if (response.statusCode == 200) {
-      var jsonResponse = jsonDecode(response.body);
+      var jsonResponse = response.data;
       return News.fromJson(jsonResponse);
     } else {
       return null;
@@ -23,9 +22,9 @@ class Api {
 
   Future<List<GitHubTrend>> fetchGitHubTrends() async {
     final String url = "https://github-trending-api.now.sh/repositories";
-    var response = await http.get(url);
+    Response response = await Dio().get(url);
     if (response.statusCode == 200) {
-      var jsonResponse = jsonDecode(response.body);
+      var jsonResponse = response.data;
       List<GitHubTrend> listGitHubTrend = List<GitHubTrend>();
       if (jsonResponse != null) {
         jsonResponse.forEach((v) {
@@ -40,24 +39,24 @@ class Api {
 
   Future<int> _getLocationId({String city}) async {
     final String url = '$baseUrl/api/location/search/?query=$city';
-    var response = await http.get(url);
+    Response response = await Dio().get(url);
     if (response.statusCode != 200) {
       throw Exception('error getting locationId for city');
     }
 
-    final locationJson = jsonDecode(response.body) as List;
+    final locationJson = response.data as List;
     return (locationJson.first)['woeid'];
   }
 
   Future<Weather> _fetchWeather({int locationId}) async {
     final String url = '$baseUrl/api/location/$locationId';
-    var response = await http.get(url);
+    Response response = await Dio().get(url);
 
     if (response.statusCode != 200) {
       throw Exception('error getting weather for location');
     }
 
-    final weatherJson = jsonDecode(response.body);
+    final weatherJson = response.data;
     return Weather.fromJson(weatherJson);
   }
 
