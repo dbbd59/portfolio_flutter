@@ -60,7 +60,7 @@ class MaterialAppWidget extends StatelessWidget {
     Color primaryColor = Provider.of<ThemeProvider>(context).primaryColorTheme;
 
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Davide Bolzoni',
       theme: ThemeData(
         brightness: brightness,
         primaryColor: primaryColor,
@@ -89,16 +89,6 @@ class MyHomePage extends StatelessWidget {
             backgroundColor: brightness == Brightness.dark
                 ? Colors.black26
                 : Theme.of(context).primaryColor,
-            actions: <Widget>[
-              IconButton(
-                onPressed: () {
-                  stateProvider.setLoggedIn(false);
-                },
-                icon: Icon(
-                  Icons.exit_to_app,
-                ),
-              )
-            ],
           ),
           drawer: constraints.maxWidth < 1000 ? DrawlerMaterialDesign2() : null,
           body: Row(

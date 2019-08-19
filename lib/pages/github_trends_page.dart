@@ -75,7 +75,9 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
           horizontal: true,
           onTap: () {
             utility.launchURL(
-                url: widget.gitHubTrendsStore.listGitHubTrends[index].url);
+              url: widget.gitHubTrendsStore.listGitHubTrends[index].url,
+              name: widget.gitHubTrendsStore.listGitHubTrends[index].name,
+            );
           },
           title: widget.gitHubTrendsStore.listGitHubTrends[index].name,
           imageNetwork: widget.gitHubTrendsStore.listGitHubTrends[index].builtBy
@@ -115,7 +117,9 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
             horizontal: false,
             onTap: () {
               utility.launchURL(
-                  url: widget.gitHubTrendsStore.listGitHubTrends[index].url);
+                url: widget.gitHubTrendsStore.listGitHubTrends[index].url,
+                name: widget.gitHubTrendsStore.listGitHubTrends[index].name,
+              );
             },
             title: widget.gitHubTrendsStore.listGitHubTrends[index].name,
             imageNetwork: widget.gitHubTrendsStore.listGitHubTrends[index]
@@ -127,7 +131,6 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
             subTitle:
                 widget.gitHubTrendsStore.listGitHubTrends[index].description,
           );
-          
         },
       ),
     );

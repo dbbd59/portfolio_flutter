@@ -32,7 +32,7 @@ class WelcomeLarge extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Text(
-                          "Ciao! il mio nome è",
+                          "Hi! My name is",
                           textScaleFactor: 1,
                           style: TextStyle(
                             fontSize: 22.0,
@@ -54,7 +54,7 @@ class WelcomeLarge extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      "Sono un Mobile Developer con la passione per la tecnologia. Ora mi occupo di sviluppo in Flutter.",
+                      "I am a Mobile Developer with a passion for technology. Now I'm working on development with Flutter.",
                       textScaleFactor: 1,
                       style: TextStyle(
                         fontSize: 20.0,
@@ -63,13 +63,18 @@ class WelcomeLarge extends StatelessWidget {
                     SizedBox(
                       height: 8.0,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    Wrap(
+                      spacing: 16,
                       children: <Widget>[
                         OutlineButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            utility.launchURL(
+                              url: "https://github.com/dbbd59",
+                              name: "Github",
+                            );
+                          },
                           child: Text(
-                            "Cv",
+                            "GitHub",
                             style: TextStyle(),
                           ),
                           splashColor: Theme.of(context).primaryColor,
@@ -80,10 +85,46 @@ class WelcomeLarge extends StatelessWidget {
                         OutlineButton(
                           onPressed: () {
                             utility.launchURL(
-                                url: "mailto:davide.bolzoni59@gmail.com");
+                              url:
+                                  "https://www.linkedin.com/in/davide-bolzoni-a54958112/",
+                              name: "Linkedin",
+                            );
                           },
                           child: Text(
-                            "Salutami!",
+                            "Linkedin",
+                            style: TextStyle(),
+                          ),
+                          splashColor: Theme.of(context).primaryColor,
+                          borderSide: BorderSide(
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                        OutlineButton(
+                          onPressed: () {
+                            utility.launchURL(
+                              url:
+                                  "https://drive.google.com/file/d/1YOZgCtKcuiEyMS-XdZCupMw6-_6nGRev/view?usp=sharing",
+                              name: "resume",
+                            );
+                          },
+                          child: Text(
+                            "CV",
+                            style: TextStyle(),
+                          ),
+                          splashColor: Theme.of(context).primaryColor,
+                          borderSide: BorderSide(
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                        OutlineButton(
+                          onPressed: () {
+                            utility.launchURL(
+                              url: "mailto:davide.bolzoni59@gmail.com",
+                              name: "mail",
+                            );
+                          },
+                          child: Text(
+                            "Say Hi!",
                             style: TextStyle(),
                           ),
                           splashColor: Theme.of(context).primaryColor,

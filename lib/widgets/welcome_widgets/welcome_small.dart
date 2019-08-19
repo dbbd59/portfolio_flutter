@@ -25,7 +25,7 @@ class WelcomeSmall extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Text(
-                    "Ciao! il mio nome è",
+                    "Hi! My name is",
                     style: TextStyle(
                       fontSize: 22.0,
                       color: Theme.of(context).primaryColor,
@@ -45,7 +45,7 @@ class WelcomeSmall extends StatelessWidget {
                 ],
               ),
               Text(
-                "Sono un Mobile Developer con la passione per la tecnologia. Ora mi occupo di sviluppo in Flutter.",
+                "I am a Mobile Developer with a passion for technology. Now I'm working on development with Flutter.",
                 style: TextStyle(
                   fontSize: 20.0,
                 ),
@@ -53,12 +53,18 @@ class WelcomeSmall extends StatelessWidget {
               SizedBox(
                 height: 16.0,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+              Wrap(
+                spacing: 16,
                 children: <Widget>[
                   OutlineButton(
-                    onPressed: () {},
-                    child: Text("Cv"),
+                    onPressed: () {
+                      utility.launchURL(
+                        url:
+                            "https://drive.google.com/file/d/1YOZgCtKcuiEyMS-XdZCupMw6-_6nGRev/view?usp=sharing",
+                        name: "resume",
+                      );
+                    },
+                    child: Text("CV"),
                     splashColor: Theme.of(context).primaryColor,
                     borderSide: BorderSide(
                       color: Theme.of(context).primaryColor,
@@ -66,9 +72,12 @@ class WelcomeSmall extends StatelessWidget {
                   ),
                   OutlineButton(
                     onPressed: () {
-                      utility.launchURL(url: "mailto:davide.bolzoni59@gmail.com");
+                      utility.launchURL(
+                        url: "mailto:davide.bolzoni59@gmail.com",
+                        name: "mail",
+                      );
                     },
-                    child: Text("Salutami!"),
+                    child: Text("Say Hi!"),
                     splashColor: Theme.of(context).primaryColor,
                     borderSide: BorderSide(
                       color: Theme.of(context).primaryColor,

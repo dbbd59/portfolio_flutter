@@ -1,8 +1,8 @@
 import 'package:flutter_web/material.dart';
-import 'package:portfolio/pages/blank_page.dart';
 import 'package:portfolio/pages/github_trends_page.dart';
 import 'package:portfolio/pages/news_page.dart';
 import 'package:portfolio/pages/profile_page.dart';
+import 'package:portfolio/pages/source_code_page.dart';
 import 'package:portfolio/pages/welcome_page.dart';
 import 'package:portfolio/providers/navigation_provider.dart';
 import 'package:portfolio/providers/state_provider.dart';
@@ -25,11 +25,13 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
     return SafeArea(
       top: true,
       child: Drawer(
+        elevation: 0,
         child: Column(
           children: <Widget>[
             if (stateProvider.loggedIn)
               HeaderDrawerMaterialDesign2(
                 onTap: () {
+                  Navigator.of(context).maybePop();
                   np.setCurrentWidget(WelocmePage());
                   np.setCurrentIndex(-1);
                 },
@@ -42,32 +44,33 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
               child: ListView(
                 children: <Widget>[
                   Divider(),
-                  ListTileDrawerMaterialDesign2(
+                  /*      ListTileDrawerMaterialDesign2(
                     icon: Icons.person,
                     text: "About me",
                     onTap: () {
+                      Navigator.of(context).maybePop();
                       np.setCurrentWidget(ProfilePage());
                       np.setCurrentIndex(0);
                     },
                     active: np.currentIndex == 0,
-                  ),
-                  ListTileDrawerMaterialDesign2(
-                    icon: Icons.widgets,
-                    text: "Technology News",
+                  ), */
+                  /*  ListTileDrawerMaterialDesign2(
+                    icon: Icons.code,
+                    text: "Source Code",
                     onTap: () {
+                      Navigator.of(context).maybePop();
                       np.setCurrentWidget(
-                        NewsPage(
-                          newsStore: newsStore,
-                        ),
+                        SourceCodePage(),
                       );
-                      np.setCurrentIndex(1);
+                      np.setCurrentIndex(3);
                     },
-                    active: np.currentIndex == 1,
-                  ),
+                    active: np.currentIndex == 3,
+                  ), */
                   ListTileDrawerMaterialDesign2(
                     icon: Icons.star,
-                    text: "GitHub Trends",
+                    text: "GitHub Trends (MobX)",
                     onTap: () {
+                      Navigator.of(context).maybePop();
                       np.setCurrentWidget(
                         GitHubTrendsPage(
                           gitHubTrendsStore: gitHubTrendsStore,
@@ -77,15 +80,19 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                     },
                     active: np.currentIndex == 2,
                   ),
-                  Divider(),
                   ListTileDrawerMaterialDesign2(
-                    icon: Icons.settings,
-                    text: "Settings & account",
+                    icon: Icons.widgets,
+                    text: "Technology News (MobX)",
                     onTap: () {
-                      np.setCurrentWidget(BlankPage());
-                      np.setCurrentIndex(8);
+                      Navigator.of(context).maybePop();
+                      np.setCurrentWidget(
+                        NewsPage(
+                          newsStore: newsStore,
+                        ),
+                      );
+                      np.setCurrentIndex(1);
                     },
-                    active: np.currentIndex == 8,
+                    active: np.currentIndex == 1,
                   ),
                 ],
               ),
@@ -139,7 +146,7 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                     SizedBox(
                       width: 16,
                     ),
-                    Text("version 0.1"),
+                    Text("version 0.2"),
                   ],
                 ),
                 IconButton(

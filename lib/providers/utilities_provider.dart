@@ -1,13 +1,16 @@
 import 'package:flutter_web/material.dart';
+import 'dart:html' as html;
 
 class UtilitiesProvider extends ChangeNotifier {
-  launchURL({@required String url}) async {
+  launchURL({
+    @required String url,
+    @required String name,
+  }) async {
     print(url);
-/*     if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    } */
+    html.window.open(
+      url,
+      name,
+    );
   }
 
   int getColorHexFromStr(String colorStr) {

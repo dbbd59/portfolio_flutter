@@ -67,7 +67,10 @@ class _NewsPageState extends State<NewsPage> {
         return CardMaterialDesign2(
           vertical: true,
           onTap: () {
-            utility.launchURL(url: widget.newsStore.news.articles[index].url);
+            utility.launchURL(
+              url: widget.newsStore.news.articles[index].url,
+              name: widget.newsStore.news.articles[index].title,
+            );
           },
           title: widget.newsStore.news.articles[index].title,
           imageNetwork: widget.newsStore.news.articles[index].urlToImage,
@@ -87,7 +90,10 @@ class _NewsPageState extends State<NewsPage> {
           return CardMaterialDesign2(
             vertical: false,
             onTap: () {
-              utility.launchURL(url: widget.newsStore.news.articles[index].url);
+              utility.launchURL(
+                url: widget.newsStore.news.articles[index].url,
+                name: widget.newsStore.news.articles[index].title,
+              );
             },
             title: widget.newsStore.news.articles[index].title,
             imageNetwork: widget.newsStore.news.articles[index].urlToImage,
