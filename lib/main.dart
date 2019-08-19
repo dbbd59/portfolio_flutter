@@ -80,7 +80,6 @@ class MyHomePage extends StatelessWidget {
     Widget currentWidget =
         Provider.of<NavigationProvider>(context).currentWidget;
     Brightness brightness = Provider.of<ThemeProvider>(context).brightnessTheme;
-    StateProvider stateProvider = Provider.of<StateProvider>(context);
     return LayoutBuilder(
       builder: (context, constraints) {
         return Scaffold(

@@ -17,6 +17,7 @@ class HeaderDrawerMaterialDesign2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      hoverColor: Theme.of(context).primaryColor.withOpacity(0.12),
       onTap: () {
         onTap();
       },

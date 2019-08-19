@@ -63,77 +63,7 @@ class WelcomeLarge extends StatelessWidget {
                     SizedBox(
                       height: 8.0,
                     ),
-                    Wrap(
-                      spacing: 16,
-                      children: <Widget>[
-                        OutlineButton(
-                          onPressed: () {
-                            utility.launchURL(
-                              url: "https://github.com/dbbd59",
-                              name: "Github",
-                            );
-                          },
-                          child: Text(
-                            "GitHub",
-                            style: TextStyle(),
-                          ),
-                          splashColor: Theme.of(context).primaryColor,
-                          borderSide: BorderSide(
-                            color: Theme.of(context).primaryColor,
-                          ),
-                        ),
-                        OutlineButton(
-                          onPressed: () {
-                            utility.launchURL(
-                              url:
-                                  "https://www.linkedin.com/in/davide-bolzoni-a54958112/",
-                              name: "Linkedin",
-                            );
-                          },
-                          child: Text(
-                            "Linkedin",
-                            style: TextStyle(),
-                          ),
-                          splashColor: Theme.of(context).primaryColor,
-                          borderSide: BorderSide(
-                            color: Theme.of(context).primaryColor,
-                          ),
-                        ),
-                        OutlineButton(
-                          onPressed: () {
-                            utility.launchURL(
-                              url:
-                                  "https://drive.google.com/file/d/1YOZgCtKcuiEyMS-XdZCupMw6-_6nGRev/view?usp=sharing",
-                              name: "resume",
-                            );
-                          },
-                          child: Text(
-                            "CV",
-                            style: TextStyle(),
-                          ),
-                          splashColor: Theme.of(context).primaryColor,
-                          borderSide: BorderSide(
-                            color: Theme.of(context).primaryColor,
-                          ),
-                        ),
-                        OutlineButton(
-                          onPressed: () {
-                            utility.launchURL(
-                              url: "mailto:davide.bolzoni59@gmail.com",
-                              name: "mail",
-                            );
-                          },
-                          child: Text(
-                            "Say Hi!",
-                            style: TextStyle(),
-                          ),
-                          splashColor: Theme.of(context).primaryColor,
-                          borderSide: BorderSide(
-                            color: Theme.of(context).primaryColor,
-                          ),
-                        ),
-                      ],
-                    ),
+                    ButtonsRowWelcome(utility: utility),
                   ],
                 ),
               ),
@@ -141,6 +71,89 @@ class WelcomeLarge extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class ButtonsRowWelcome extends StatelessWidget {
+  const ButtonsRowWelcome({
+    Key key,
+    @required this.utility,
+  }) : super(key: key);
+
+  final UtilitiesProvider utility;
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: 16,
+      children: <Widget>[
+        OutlineButton(
+          onPressed: () {
+            utility.launchURL(
+              url: "https://github.com/dbbd59",
+              name: "Github",
+            );
+          },
+          child: Text(
+            "GitHub",
+            style: TextStyle(),
+          ),
+          splashColor: Theme.of(context).primaryColor,
+          borderSide: BorderSide(
+            color: Theme.of(context).primaryColor,
+          ),
+        ),
+        OutlineButton(
+          onPressed: () {
+            utility.launchURL(
+              url: "https://www.linkedin.com/in/davide-bolzoni-a54958112/",
+              name: "Linkedin",
+            );
+          },
+          child: Text(
+            "Linkedin",
+            style: TextStyle(),
+          ),
+          splashColor: Theme.of(context).primaryColor,
+          borderSide: BorderSide(
+            color: Theme.of(context).primaryColor,
+          ),
+        ),
+        OutlineButton(
+          onPressed: () {
+            utility.launchURL(
+              url:
+                  "https://drive.google.com/file/d/1YOZgCtKcuiEyMS-XdZCupMw6-_6nGRev/view?usp=sharing",
+              name: "resume",
+            );
+          },
+          child: Text(
+            "CV",
+            style: TextStyle(),
+          ),
+          splashColor: Theme.of(context).primaryColor,
+          borderSide: BorderSide(
+            color: Theme.of(context).primaryColor,
+          ),
+        ),
+        OutlineButton(
+          onPressed: () {
+            utility.launchURL(
+              url: "mailto:davide.bolzoni59@gmail.com",
+              name: "mail",
+            );
+          },
+          child: Text(
+            "Say Hi!",
+            style: TextStyle(),
+          ),
+          splashColor: Theme.of(context).primaryColor,
+          borderSide: BorderSide(
+            color: Theme.of(context).primaryColor,
+          ),
+        ),
+      ],
     );
   }
 }

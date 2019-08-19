@@ -1,8 +1,6 @@
 import 'package:flutter_web/material.dart';
 import 'package:portfolio/pages/github_trends_page.dart';
 import 'package:portfolio/pages/news_page.dart';
-import 'package:portfolio/pages/profile_page.dart';
-import 'package:portfolio/pages/source_code_page.dart';
 import 'package:portfolio/pages/welcome_page.dart';
 import 'package:portfolio/providers/navigation_provider.dart';
 import 'package:portfolio/providers/state_provider.dart';
