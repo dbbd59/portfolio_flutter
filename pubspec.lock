@@ -7,7 +7,7 @@ packages:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.35.4"
+    version: "0.38.0"
   archive:
     dependency: transitive
     description:
@@ -140,7 +140,7 @@ packages:
       name: collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.14.11"
+    version: "1.14.12"
   convert:
     dependency: transitive
     description:
@@ -168,7 +168,7 @@ packages:
       name: dart_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.4"
+    version: "1.2.10"
   fixnum:
     dependency: transitive
     description:
@@ -179,7 +179,7 @@ packages:
   flutter_mobx:
     dependency: "direct main"
     description:
-      path: "pubs\\mobx.dart\\flutter_mobx"
+      path: "pubs/mobx.dart/flutter_mobx"
       relative: true
     source: path
     version: "0.2.1+1"
@@ -216,7 +216,7 @@ packages:
       name: front_end
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.14"
+    version: "0.1.22"
   glob:
     dependency: transitive
     description:
@@ -286,21 +286,14 @@ packages:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.4.0"
-  json_rpc_2:
-    dependency: transitive
-    description:
-      name: json_rpc_2
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.0"
+    version: "3.0.0"
   kernel:
     dependency: transitive
     description:
       name: kernel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.14"
+    version: "0.3.22"
   logging:
     dependency: transitive
     description:
@@ -332,7 +325,7 @@ packages:
   mobx:
     dependency: "direct main"
     description:
-      path: "pubs\\mobx.dart\\mobx"
+      path: "pubs/mobx.dart/mobx"
       relative: true
     source: path
     version: "0.2.1+1"
@@ -395,7 +388,7 @@ packages:
   provider:
     dependency: "direct main"
     description:
-      path: "pubs\\provider\\packages\\provider"
+      path: "pubs/provider/packages/provider"
       relative: true
     source: path
     version: "3.0.0"
@@ -517,21 +510,21 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.3"
+    version: "1.6.7"
   test_api:
     dependency: transitive
     description:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.5"
+    version: "0.2.6"
   test_core:
     dependency: transitive
     description:
       name: test_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.5"
+    version: "0.2.8"
   timing:
     dependency: transitive
     description:
@@ -553,13 +546,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.8"
-  vm_service_client:
+  vm_service:
     dependency: transitive
     description:
-      name: vm_service_client
+      name: vm_service
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.6+3"
+    version: "1.1.0"
   watcher:
     dependency: transitive
     description:

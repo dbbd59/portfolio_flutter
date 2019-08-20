@@ -1,6 +1,8 @@
 import 'package:flutter_web/material.dart';
+import 'package:portfolio/pages/about_me_page.dart';
 import 'package:portfolio/pages/github_trends_page.dart';
 import 'package:portfolio/pages/news_page.dart';
+import 'package:portfolio/pages/profile_page.dart';
 import 'package:portfolio/pages/welcome_page.dart';
 import 'package:portfolio/providers/navigation_provider.dart';
 import 'package:portfolio/providers/state_provider.dart';
@@ -42,16 +44,16 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
               child: ListView(
                 children: <Widget>[
                   Divider(),
-                  /*      ListTileDrawerMaterialDesign2(
+                  ListTileDrawerMaterialDesign2(
                     icon: Icons.person,
                     text: "About me",
                     onTap: () {
                       Navigator.of(context).maybePop();
-                      np.setCurrentWidget(ProfilePage());
+                      np.setCurrentWidget(AboutMePage());
                       np.setCurrentIndex(0);
                     },
                     active: np.currentIndex == 0,
-                  ), */
+                  ),
                   /*  ListTileDrawerMaterialDesign2(
                     icon: Icons.code,
                     text: "Source Code",
