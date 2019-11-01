@@ -21,7 +21,7 @@ void main() async {
 
   Provider.debugCheckInvalidValueType = null;
 
-  _setTargetPlatformForDesktop();
+ // _setTargetPlatformForDesktop();
   runApp(
     MyApp(),
   );
