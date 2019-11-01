@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/pages/blank_page.dart';
+import 'package:portfolio/pages/about_me_page.dart';
 import 'package:portfolio/pages/github_trends_bloc_page.dart';
-import 'package:portfolio/pages/github_trends_mobx_page.dart';
 import 'package:portfolio/pages/news_bloc_page.dart';
-import 'package:portfolio/pages/news_mobx_page.dart';
-import 'package:portfolio/pages/profile_page.dart';
-import 'package:portfolio/pages/weather_bloc_page.dart';
-import 'package:portfolio/pages/weather_mobx_page.dart';
 import 'package:portfolio/pages/welcome_page.dart';
 import 'package:portfolio/providers/navigation_provider.dart';
-import 'package:portfolio/providers/state_provider.dart';
 import 'package:portfolio/providers/theme_provider.dart';
-import 'package:portfolio/stores/github_trend_store.dart/github_trend_store.dart';
-import 'package:portfolio/stores/news_store/news_store.dart';
 import 'package:portfolio/widgets/drawer/drawer_header_md2.dart';
 import 'package:portfolio/widgets/drawer/drawer_list_tile_md2.dart';
 import 'package:provider/provider.dart';
@@ -21,27 +13,25 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     NavigationProvider np = Provider.of<NavigationProvider>(context);
-    NewsStore newsStore = Provider.of<NewsStore>(context);
-    GitHubTrendStore gitHubTrendsStore = Provider.of<GitHubTrendStore>(context);
     ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
-    StateProvider stateProvider = Provider.of<StateProvider>(context);
 
     return SafeArea(
       top: true,
       child: Drawer(
+        elevation: 0,
         child: Column(
           children: <Widget>[
-            if (stateProvider.loggedIn)
-              HeaderDrawerMaterialDesign2(
-                onTap: () {
-                  np.setCurrentWidget(WelocmePage());
-                  np.setCurrentIndex(-1);
-                },
-                imageNetwork:
-                    "https://scontent-cdg2-1.cdninstagram.com/vp/89dde4d5b5c8dae27794012b37a281b3/5D798DBD/t51.2885-19/s320x320/58453660_411757989373588_4475648126237016064_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com",
-                subTitle: "davide.bolzoni59@gmail.com",
-                title: "Davide Bolzoni",
-              ),
+            HeaderDrawerMaterialDesign2(
+              onTap: () {
+                Navigator.of(context).maybePop();
+                np.setCurrentWidget(WelcomePage());
+                np.setCurrentIndex(-1);
+              },
+              imageNetwork:
+                  "https://media.licdn.com/dms/image/C4D03AQGCIgIwGyMQRA/profile-displayphoto-shrink_200_200/0?e=1577923200&v=beta&t=y1vN2SHS9O059O76ws6IyiQ2MvHySC4-QysDzo1tkXU",
+              subTitle: "davide.bolzoni59@gmail.com",
+              title: "Davide Bolzoni",
+            ),
             Flexible(
               child: ListView(
                 children: <Widget>[
@@ -50,96 +40,35 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                     icon: Icons.person,
                     text: "About me",
                     onTap: () {
-                      np.setCurrentWidget(ProfilePage());
+                      Navigator.of(context).maybePop();
+                      np.setCurrentWidget(AboutMePage());
                       np.setCurrentIndex(0);
-                      Navigator.of(context).pop();
                     },
                     active: np.currentIndex == 0,
                   ),
                   ListTileDrawerMaterialDesign2(
-                    icon: Icons.widgets,
-                    text: "Technology News Bloc",
-                    onTap: () {
-                      np.setCurrentWidget(
-                        NewsPageBloc(),
-                      );
-                      np.setCurrentIndex(5);
-                      Navigator.of(context).pop();
-                    },
-                    active: np.currentIndex == 5,
-                  ),
-                  ListTileDrawerMaterialDesign2(
-                    icon: Icons.widgets,
-                    text: "Technology News Mobx",
-                    onTap: () {
-                      np.setCurrentWidget(
-                        NewsPageMobx(
-                          newsStore: newsStore,
-                        ),
-                      );
-                      np.setCurrentIndex(1);
-                      Navigator.of(context).pop();
-                    },
-                    active: np.currentIndex == 1,
-                  ),
-                  ListTileDrawerMaterialDesign2(
                     icon: Icons.star,
-                    text: "GitHub Trends Bloc",
+                    text: "GitHub Trends (MobX)",
                     onTap: () {
+                      Navigator.of(context).maybePop();
                       np.setCurrentWidget(
-                        GitHubTrendsPageBloc(),
-                      );
-                      np.setCurrentIndex(6);
-                      Navigator.of(context).pop();
-                    },
-                    active: np.currentIndex == 6,
-                  ),
-                  ListTileDrawerMaterialDesign2(
-                    icon: Icons.star,
-                    text: "GitHub Trends Mobx",
-                    onTap: () {
-                      np.setCurrentWidget(
-                        GitHubTrendsPageMobx(
-                          gitHubTrendsStore: gitHubTrendsStore,
-                        ),
+                        GitHubTrendsPage(),
                       );
                       np.setCurrentIndex(2);
-                      Navigator.of(context).pop();
                     },
                     active: np.currentIndex == 2,
                   ),
                   ListTileDrawerMaterialDesign2(
-                    icon: Icons.wb_sunny,
-                    text: "Weather package Bloc",
+                    icon: Icons.widgets,
+                    text: "Technology News (MobX)",
                     onTap: () {
+                      Navigator.of(context).maybePop();
                       np.setCurrentWidget(
-                        WeatherPageBloc(),
+                        NewsPage(),
                       );
-                      np.setCurrentIndex(3);
-                      Navigator.of(context).pop();
+                      np.setCurrentIndex(1);
                     },
-                    active: np.currentIndex == 3,
-                  ),
-                  ListTileDrawerMaterialDesign2(
-                    icon: Icons.wb_sunny,
-                    text: "Weather package Mobx",
-                    onTap: () {
-                      np.setCurrentWidget(WeatherPageMobx());
-                      np.setCurrentIndex(4);
-                      Navigator.of(context).pop();
-                    },
-                    active: np.currentIndex == 4,
-                  ),
-                  Divider(),
-                  ListTileDrawerMaterialDesign2(
-                    icon: Icons.settings,
-                    text: "Settings & account",
-                    onTap: () {
-                      np.setCurrentWidget(BlankPage());
-                      np.setCurrentIndex(8);
-                      Navigator.of(context).pop();
-                    },
-                    active: np.currentIndex == 8,
+                    active: np.currentIndex == 1,
                   ),
                 ],
               ),
@@ -159,7 +88,7 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                     width: 50,
                     child: Center(
                       child: Image.asset(
-                        'assets/flutter.png',
+                        'flutter.png',
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -176,7 +105,7 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                     width: 50,
                     child: Center(
                       child: Image.asset(
-                        'assets/dart.png',
+                        'dart.png',
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -193,7 +122,7 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                     SizedBox(
                       width: 16,
                     ),
-                    Text("version 0.1"),
+                    Text("version 0.2"),
                   ],
                 ),
                 IconButton(

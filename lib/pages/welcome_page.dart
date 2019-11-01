@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/welcome_widgets/welcome_large.dart';
 import 'package:portfolio/widgets/welcome_widgets/welcome_small.dart';
 
-class WelocmePage extends StatelessWidget {
+class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(

@@ -9,19 +9,16 @@ import 'package:portfolio/widgets/cards/card_horizontal/card_horizontal_md2.dart
 import 'package:portfolio/widgets/common/progress_indicator.dart';
 import 'package:provider/provider.dart';
 
-class NewsPageBloc extends StatefulWidget {
+class NewsPage extends StatefulWidget {
   @override
-  _NewsPageBlocState createState() => _NewsPageBlocState();
+  _NewsPageState createState() => _NewsPageState();
 }
 
-class _NewsPageBlocState extends State<NewsPageBloc> {
-  NewsBloc newsBloc;
-
+class _NewsPageState extends State<NewsPage> {
   @override
-  void initState() {
-    super.initState();
-    newsBloc = BlocProvider.of<NewsBloc>(context);
-    newsBloc.dispatch(FetchNews());
+  void didChangeDependencies() {
+    BlocProvider.of<NewsBloc>(context).add(FetchNews());
+    super.didChangeDependencies();
   }
 
   @override
@@ -29,7 +26,7 @@ class _NewsPageBlocState extends State<NewsPageBloc> {
     UtilitiesProvider utility = Provider.of<UtilitiesProvider>(context);
     return Container(
       child: BlocBuilder(
-        bloc: newsBloc,
+        bloc: BlocProvider.of<NewsBloc>(context),
         builder: (_, NewsState state) {
           if (state is NewsEmpty) {
             return Container();

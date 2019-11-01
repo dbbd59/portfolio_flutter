@@ -1,6 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/providers/utilities_provider.dart';
+import 'package:portfolio/widgets/welcome_widgets/welcome_large.dart';
 import 'package:provider/provider.dart';
 
 class WelcomeSmall extends StatelessWidget {
@@ -16,8 +16,8 @@ class WelcomeSmall extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               CircleAvatar(
-                backgroundImage: CachedNetworkImageProvider(
-                    "https://scontent-cdg2-1.cdninstagram.com/vp/89dde4d5b5c8dae27794012b37a281b3/5D798DBD/t51.2885-19/s320x320/58453660_411757989373588_4475648126237016064_n.jpg?_nc_ht=scontent-cdg2-1.cdninstagram.com"),
+                backgroundImage: NetworkImage(
+                    "https://media.licdn.com/dms/image/C4D03AQGCIgIwGyMQRA/profile-displayphoto-shrink_200_200/0?e=1577923200&v=beta&t=y1vN2SHS9O059O76ws6IyiQ2MvHySC4-QysDzo1tkXU"),
                 radius: MediaQuery.of(context).size.height * 0.20,
               ),
               SizedBox(
@@ -26,7 +26,7 @@ class WelcomeSmall extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Text(
-                    "Hi, my name is",
+                    "HEY WORLD, I'M",
                     style: TextStyle(
                       fontSize: 22.0,
                       color: Theme.of(context).primaryColor,
@@ -37,7 +37,7 @@ class WelcomeSmall extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Text(
-                    "Davide\nBolzoni",
+                    "DAVIDE\nBOLZONI",
                     style: TextStyle(
                       fontSize: 46.0,
                       fontWeight: FontWeight.bold,
@@ -46,7 +46,7 @@ class WelcomeSmall extends StatelessWidget {
                 ],
               ),
               Text(
-                "I'm a mobile developer with a passion for technology. Now I'm involved in development in Flutter.",
+                "a Mobile Developer with a passion for technology. Now I'm working on development with Flutter.",
                 style: TextStyle(
                   fontSize: 20.0,
                 ),
@@ -54,31 +54,7 @@ class WelcomeSmall extends StatelessWidget {
               SizedBox(
                 height: 16.0,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  OutlineButton(
-                    onPressed: () {},
-                    child: Text("Cv"),
-                    splashColor: Theme.of(context).primaryColor,
-                    borderSide: BorderSide(
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ),
-                  OutlineButton(
-                    onPressed: () {
-                      utility.launchURL(
-                        url: "mailto:davide.bolzoni59@gmail.com",
-                      );
-                    },
-                    child: Text("Say hi!"),
-                    splashColor: Theme.of(context).primaryColor,
-                    borderSide: BorderSide(
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ),
-                ],
-              ),
+              ButtonsRowWelcome(utility: utility),
             ],
           ),
         ),

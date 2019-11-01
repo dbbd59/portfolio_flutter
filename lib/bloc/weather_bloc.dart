@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:portfolio/Apis/api.dart';
 import 'package:portfolio/bloc/weather_event.dart';
 import 'package:portfolio/bloc/weather_state.dart';
 import 'package:portfolio/models/weather.dart';
+import 'package:portfolio/server.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   WeatherBloc({Api api}) : _api = api;

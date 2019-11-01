@@ -4,7 +4,10 @@ import 'package:portfolio/models/news.dart';
 
 @immutable
 abstract class NewsState extends Equatable {
-  NewsState([List props = const []]) : super(props);
+  const NewsState();
+
+  @override
+  List<Object> get props => [];
 }
 
 class NewsEmpty extends NewsState {}
@@ -12,9 +15,7 @@ class NewsEmpty extends NewsState {}
 class NewsLoading extends NewsState {}
 
 class NewsLoaded extends NewsState {
-  NewsLoaded({@required this.news})
-      : assert(news != null),
-        super([news]);
+  NewsLoaded({@required this.news}) : assert(news != null);
 
   final News news;
 }

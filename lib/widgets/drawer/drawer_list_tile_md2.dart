@@ -14,6 +14,8 @@ class ListTileDrawerMaterialDesign2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      hoverColor:
+          !active ? Theme.of(context).primaryColor.withOpacity(0.12) : Colors.transparent,
       onTap: () {
         onTap();
       },

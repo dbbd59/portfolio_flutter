@@ -4,19 +4,29 @@ import 'package:portfolio/models/github_trend.dart';
 
 @immutable
 abstract class GithubTrendState extends Equatable {
-  GithubTrendState([List props = const []]) : super(props);
+  const GithubTrendState();
 }
 
-class GithubTrendEmpty extends GithubTrendState {}
+class GithubTrendEmpty extends GithubTrendState {
+  @override
+  List<Object> get props => null;
+}
 
-class GithubTrendLoading extends GithubTrendState {}
+class GithubTrendLoading extends GithubTrendState {
+  @override
+  List<Object> get props => null;
+}
 
 class GithubTrendLoaded extends GithubTrendState {
   GithubTrendLoaded({@required this.listGitHubTrends})
-      : assert(listGitHubTrends != null),
-        super([listGitHubTrends]);
+      : assert(listGitHubTrends != null);
 
   final List<GitHubTrend> listGitHubTrends;
+  @override
+  List<Object> get props => listGitHubTrends;
 }
 
-class GithubTrendError extends GithubTrendState {}
+class GithubTrendError extends GithubTrendState {
+  @override
+  List<Object> get props => null;
+}

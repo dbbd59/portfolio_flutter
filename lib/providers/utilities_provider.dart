@@ -1,15 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UtilitiesProvider extends ChangeNotifier {
-  var logger = Logger(
-    printer: PrettyPrinter(
-      colors: true,
-      printEmojis: true,
-    ),
-  );
-
   launchURL({@required String url}) async {
     if (await canLaunch(url)) {
       await launch(url);

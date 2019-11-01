@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:portfolio/Apis/api.dart';
 import 'package:portfolio/models/github_trend.dart';
+import 'package:portfolio/server.dart';
 import './bloc.dart';
 
 class GithubTrendBloc extends Bloc<GithubTrendEvent, GithubTrendState> {

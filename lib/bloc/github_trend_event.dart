@@ -3,7 +3,10 @@ import 'package:meta/meta.dart';
 
 @immutable
 abstract class GithubTrendEvent extends Equatable {
-  GithubTrendEvent([List props = const []]) : super(props);
+ const GithubTrendEvent();
 }
 
-class FetchGitHubTrends extends GithubTrendEvent {}
+class FetchGitHubTrends extends GithubTrendEvent {
+  @override
+  List<Object> get props => null;
+}

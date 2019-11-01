@@ -3,7 +3,10 @@ import 'package:meta/meta.dart';
 
 @immutable
 abstract class NewsEvent extends Equatable {
-  NewsEvent([List props = const []]) : super(props);
+  const NewsEvent();
 }
 
-class FetchNews extends NewsEvent {}
+class FetchNews extends NewsEvent {
+  @override
+  List<Object> get props => null;
+}

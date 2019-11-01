@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:portfolio/Apis/api.dart';
 import 'package:portfolio/models/news.dart';
+import 'package:portfolio/server.dart';
 import './bloc.dart';
 
 class NewsBloc extends Bloc<NewsEvent, NewsState> {

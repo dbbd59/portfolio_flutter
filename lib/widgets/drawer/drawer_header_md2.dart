@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class HeaderDrawerMaterialDesign2 extends StatelessWidget {
@@ -18,6 +17,7 @@ class HeaderDrawerMaterialDesign2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      hoverColor: Theme.of(context).primaryColor.withOpacity(0.12),
       onTap: () {
         onTap();
       },
@@ -32,7 +32,7 @@ class HeaderDrawerMaterialDesign2 extends StatelessWidget {
           children: <Widget>[
             imageNetwork != null
                 ? CircleAvatar(
-                    backgroundImage: CachedNetworkImageProvider(imageNetwork),
+                    backgroundImage: NetworkImage(imageNetwork),
                     backgroundColor: Theme.of(context).primaryColor,
                   )
                 : imageAsset != null

@@ -8,19 +8,16 @@ import 'package:portfolio/widgets/cards/card_github_trend/card_github_trend.dart
 import 'package:provider/provider.dart';
 import 'package:portfolio/widgets/common/progress_indicator.dart';
 
-class GitHubTrendsPageBloc extends StatefulWidget {
+class GitHubTrendsPage extends StatefulWidget {
   @override
-  _GitHubTrendsPageBlocState createState() => _GitHubTrendsPageBlocState();
+  _GitHubTrendsPageState createState() => _GitHubTrendsPageState();
 }
 
-class _GitHubTrendsPageBlocState extends State<GitHubTrendsPageBloc> {
-  GithubTrendBloc gitHubTrendsBloc;
-
+class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
   @override
-  void initState() {
-    super.initState();
-    gitHubTrendsBloc = BlocProvider.of<GithubTrendBloc>(context);
-    gitHubTrendsBloc.dispatch(FetchGitHubTrends());
+  void didChangeDependencies() {
+    BlocProvider.of<GithubTrendBloc>(context).add(FetchGitHubTrends());
+    super.didChangeDependencies();
   }
 
   @override
@@ -28,7 +25,7 @@ class _GitHubTrendsPageBlocState extends State<GitHubTrendsPageBloc> {
     UtilitiesProvider utility = Provider.of<UtilitiesProvider>(context);
     return Container(
       child: BlocBuilder(
-        bloc: gitHubTrendsBloc,
+        bloc: BlocProvider.of<GithubTrendBloc>(context),
         builder: (_, GithubTrendState state) {
           if (state is GithubTrendLoaded) {
             return LayoutBuilder(
