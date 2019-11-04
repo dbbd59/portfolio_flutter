@@ -11,7 +11,7 @@ class AboutMePage extends StatelessWidget {
       "company": "Wher",
       "jobTitle": "Mobile Developer",
       "descr":
-          "Responsabile dello sviluppo dell'App per iOS e Android con Flutter. Utilizzo della metodologia Agile. App pubblicata sugli store ed utilizzata da 25.000 utenti. Collaborazione col il Team di UX/UI e di Marketing. ",
+          "Head of App development for iOS and Android with Flutter. Use of Agile methodology. App published on stores and used by 25,000 users. Cooperation with the UX/UI and Marketing Team",
     },
     {
       "date": "feb 18 - may 19",
@@ -20,7 +20,7 @@ class AboutMePage extends StatelessWidget {
       "linkDisplay": "BlueIT.com",
       "jobTitle": "Full Stack Developer",
       "descr":
-          "Innovation Lab, spin-off di Blueit s.p.a, che si occupa di software basati su AI.Realizzati interamente con tools Opensource.Sviluppo applicazioni mobile native con Flutter, sviluppo backend con GraphQL,sviluppo web Angular e progetti di IoT.Conoscenza dei servizi cognitive di Watson e Azure.- Realizzazione di uno Smart Oven con integrazone di Watson Assistant, AmazonAlexa e applicazioni Android e iOS.- Realizzazione portale web (Angular) e mobile (Flutter), integrato con backendGraphQL, per monitoraggio di Server.",
+          "Innovation Lab, spin-off of Blueit s.p.a, company which works on software based on AI. Completely made with Opensource tools. Mobile development of native apps with Flutter, backend development with GraphQL, web development with Angular and Iot projects.",
     },
     {
       "date": "oct 17 - jan 18",
@@ -29,7 +29,7 @@ class AboutMePage extends StatelessWidget {
       "linkDisplay": "touch400.com",
       "jobTitle": "Software Developer",
       "descr":
-          "Tirocinio. Sviluppo applicazioni per Andorid e iOS. Progettazione componenti visuali da integrare nel framework dell’azienda. Gestione del sito web.",
+          "Internship. Developing Android and iOS apps. Development of UI components to be integrated into the company's main framework.",
     },
   ];
   final List<Map<String, dynamic>> skillList = [
