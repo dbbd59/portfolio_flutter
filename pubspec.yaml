@@ -15,7 +15,10 @@ dependencies:
   equatable: ^0.6.1  
   bloc: ^1.0.0
   flutter_bloc: ^1.0.0
-  
+
+dev_dependencies:
+  build_runner: ^1.5.0
+  build_web_compilers: ^2.7.1
 flutter: 
   uses-material-design: true
   assets:
