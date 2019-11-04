@@ -9,8 +9,6 @@ class AboutMePage extends StatelessWidget {
     {
       "date": "mag 19 - now",
       "company": "Wher",
-      "link": "https://w-her.com/",
-      "linkDisplay": "Wher.com",
       "jobTitle": "Mobile Developer",
       "descr":
           "Responsabile dello sviluppo dell'App per iOS e Android con Flutter. Utilizzo della metodologia Agile. App pubblicata sugli store ed utilizzata da 25.000 utenti. Collaborazione col il Team di UX/UI e di Marketing. ",
@@ -260,8 +258,8 @@ class AboutMePage extends StatelessWidget {
                                                                           () {
                                                                         utility
                                                                             .launchURL(
-                                                                          url: job[
-                                                                              "link"],
+                                                                          url: job["link"] ??
+                                                                              "",
                                                                         );
                                                                       },
                                                               ),

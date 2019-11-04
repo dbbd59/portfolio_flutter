@@ -5,6 +5,7 @@ import 'package:portfolio/pages/news_bloc_page.dart';
 import 'package:portfolio/pages/welcome_page.dart';
 import 'package:portfolio/providers/navigation_provider.dart';
 import 'package:portfolio/providers/theme_provider.dart';
+import 'package:portfolio/providers/utilities_provider.dart';
 import 'package:portfolio/widgets/drawer/drawer_header_md2.dart';
 import 'package:portfolio/widgets/drawer/drawer_list_tile_md2.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,7 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
   Widget build(BuildContext context) {
     NavigationProvider np = Provider.of<NavigationProvider>(context);
     ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+    UtilitiesProvider utility = Provider.of<UtilitiesProvider>(context);
 
     return SafeArea(
       top: true,
@@ -48,7 +50,7 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                   ),
                   ListTileDrawerMaterialDesign2(
                     icon: Icons.star,
-                    text: "GitHub Trends (MobX)",
+                    text: "GitHub Trends",
                     onTap: () {
                       Navigator.of(context).maybePop();
                       np.setCurrentWidget(
@@ -60,7 +62,7 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                   ),
                   ListTileDrawerMaterialDesign2(
                     icon: Icons.widgets,
-                    text: "Technology News (MobX)",
+                    text: "Technology News",
                     onTap: () {
                       Navigator.of(context).maybePop();
                       np.setCurrentWidget(
@@ -87,10 +89,7 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                     height: 30,
                     width: 50,
                     child: Center(
-                      child: Image.asset(
-                        'flutter.png',
-                        fit: BoxFit.contain,
-                      ),
+                      child: FlutterLogo(),
                     ),
                   ),
                   SizedBox(
@@ -105,7 +104,7 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                     width: 50,
                     child: Center(
                       child: Image.asset(
-                        'dart.png',
+                        'assets/dart.png',
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -116,14 +115,23 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Icon(Icons.info_outline),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Text("version 0.2"),
-                  ],
+                GestureDetector(
+                  onTap: () {
+                    utility.launchURL(
+                      url:
+                          "https://github.com/dbbd59/portfolio_flutter_multiplatform" ??
+                              "",
+                    );
+                  },
+                  child: Row(
+                    children: <Widget>[
+                      Icon(Icons.code),
+                      SizedBox(
+                        width: 16,
+                      ),
+                      Text("Source Code"),
+                    ],
+                  ),
                 ),
                 IconButton(
                   icon: Icon(

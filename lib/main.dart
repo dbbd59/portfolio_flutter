@@ -21,7 +21,7 @@ void main() async {
 
   Provider.debugCheckInvalidValueType = null;
 
- // _setTargetPlatformForDesktop();
+  // _setTargetPlatformForDesktop();
   runApp(
     MyApp(),
   );
@@ -87,7 +87,6 @@ class MaterialAppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Brightness brightness = Provider.of<ThemeProvider>(context).brightnessTheme;
     Color primaryColor = Provider.of<ThemeProvider>(context).primaryColorTheme;
-
     return MaterialApp(
       title: 'Davide Bolzoni',
       theme: ThemeData(

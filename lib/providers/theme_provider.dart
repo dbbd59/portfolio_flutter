@@ -7,12 +7,12 @@ class ThemeProvider extends ChangeNotifier {
     if (brightnessTheme == Brightness.dark) {
       setPrimaryColor(Colors.grey);
     } else {
-      setPrimaryColor(Colors.blue);
+      setPrimaryColor(Color(0xFFdbbd59));
     }
     notifyListeners();
   }
 
-  Color primaryColorTheme = Colors.blue;
+  Color primaryColorTheme = Color(0xFFdbbd59);
   setPrimaryColor(Color color) {
     primaryColorTheme = color;
     notifyListeners();

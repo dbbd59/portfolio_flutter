@@ -127,22 +127,6 @@ class ButtonsRowWelcome extends StatelessWidget {
         OutlineButton(
           onPressed: () {
             utility.launchURL(
-              url:
-                  "https://drive.google.com/file/d/1YOZgCtKcuiEyMS-XdZCupMw6-_6nGRev/view?usp=sharing",
-            );
-          },
-          child: Text(
-            "CV",
-            style: TextStyle(),
-          ),
-          splashColor: Theme.of(context).primaryColor,
-          borderSide: BorderSide(
-            color: Theme.of(context).primaryColor,
-          ),
-        ),
-        OutlineButton(
-          onPressed: () {
-            utility.launchURL(
               url: "mailto:davide.bolzoni59@gmail.com",
             );
           },

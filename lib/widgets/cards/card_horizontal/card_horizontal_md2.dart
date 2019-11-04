@@ -52,7 +52,6 @@ class CardMaterialDesign2 extends StatelessWidget {
                           children: <Widget>[
                             Text(
                               title != null ? title : "Title",
-                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                 fontSize: 24.0,
                               ),
@@ -63,7 +62,6 @@ class CardMaterialDesign2 extends StatelessWidget {
                             Flexible(
                               child: Text(
                                 subTitle != null ? subTitle : "Title",
-                                overflow: TextOverflow.fade,
                                 style: TextStyle(
                                     fontSize: 14.0, color: Colors.grey),
                               ),
@@ -101,7 +99,6 @@ class CardMaterialDesign2 extends StatelessWidget {
                           children: <Widget>[
                             Text(
                               title != null ? title : "",
-                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                 fontSize: 24.0,
                               ),
@@ -112,7 +109,6 @@ class CardMaterialDesign2 extends StatelessWidget {
                             Flexible(
                               child: Text(
                                 subTitle != null ? subTitle : "",
-                                overflow: TextOverflow.fade,
                                 style: TextStyle(
                                     fontSize: 14.0, color: Colors.grey),
                               ),

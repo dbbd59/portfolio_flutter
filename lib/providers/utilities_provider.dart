@@ -1,12 +1,21 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:html' as html;
 
 class UtilitiesProvider extends ChangeNotifier {
   launchURL({@required String url}) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (!kIsWeb) {
+      if (await canLaunch(url)) {
+        await launch(url);
+      } else {
+        throw 'Could not launch $url';
+      }
     } else {
-      throw 'Could not launch $url';
+      html.window.open(
+        url,
+        "dbbd59",
+      );
     }
   }
 

@@ -240,7 +240,6 @@ class _CardGitHubDescr extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       subTitle != null ? subTitle : "",
-      overflow: TextOverflow.fade,
       style: TextStyle(
         fontSize: 12.0,
         color: Colors.grey,
@@ -267,14 +266,12 @@ class _CardGitHubTitle extends StatelessWidget {
       children: <Widget>[
         Text(
           title != null ? title : "",
-          overflow: TextOverflow.ellipsis,
           style: TextStyle(
             fontSize: 16.0,
           ),
         ),
         Text(
           "+$currentPeriodStars ⭐ today",
-          overflow: TextOverflow.ellipsis,
           style: TextStyle(
             fontSize: 11.0,
           ),
