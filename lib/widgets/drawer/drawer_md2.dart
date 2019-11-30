@@ -92,23 +92,6 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                       child: FlutterLogo(),
                     ),
                   ),
-                  SizedBox(
-                    width: 4,
-                  ),
-                  Text("and"),
-                  SizedBox(
-                    width: 4,
-                  ),
-                  Container(
-                    height: 30,
-                    width: 50,
-                    child: Center(
-                      child: Image.asset(
-                        'assets/dart.png',
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  )
                 ],
               ),
             ),

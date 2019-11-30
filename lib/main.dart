@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart'
-    show debugDefaultTargetPlatformOverride;
+    show debugDefaultTargetPlatformOverride, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/bloc/github_trend_bloc.dart';
@@ -21,7 +21,7 @@ void main() async {
 
   Provider.debugCheckInvalidValueType = null;
 
-  // _setTargetPlatformForDesktop();
+  //_setTargetPlatformForDesktop();
   runApp(
     MyApp(),
   );
@@ -29,7 +29,7 @@ void main() async {
 
 void _setTargetPlatformForDesktop() {
   TargetPlatform targetPlatform;
-  if (Platform.isMacOS) {
+  if (!kIsWeb && Platform.isMacOS) {
     targetPlatform = TargetPlatform.iOS;
   } else if (Platform.isLinux || Platform.isWindows) {
     targetPlatform = TargetPlatform.android;
@@ -62,17 +62,17 @@ class MyApp extends StatelessWidget {
         child: MultiBlocProvider(
           providers: [
             BlocProvider<WeatherBloc>(
-              builder: (BuildContext context) => WeatherBloc(
+              create: (BuildContext context) => WeatherBloc(
                 api: api,
               ),
             ),
             BlocProvider<NewsBloc>(
-              builder: (BuildContext context) => NewsBloc(
+              create: (BuildContext context) => NewsBloc(
                 api: api,
               ),
             ),
             BlocProvider<GithubTrendBloc>(
-              builder: (BuildContext context) => GithubTrendBloc(
+              create: (BuildContext context) => GithubTrendBloc(
                 api: api,
               ),
             ),

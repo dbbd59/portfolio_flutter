@@ -7,8 +7,8 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth > 600) return WelcomeLarge();
-        if (constraints.maxWidth <= 600) return WelcomeSmall();
+        if (constraints.maxWidth > 600) return Center(child: WelcomeLarge());
+        if (constraints.maxWidth <= 600) return Center(child: WelcomeSmall());
         return Container();
       },
     );

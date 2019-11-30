@@ -33,7 +33,7 @@ class WelcomeLarge extends StatelessWidget {
                       Row(
                         children: <Widget>[
                           Text(
-                            "HEY WORLD, I'M",
+                            "HELLO WORLD, I'M",
                             textScaleFactor: 1,
                             style: TextStyle(
                               fontSize: 22.0,
@@ -54,12 +54,18 @@ class WelcomeLarge extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Text(
-                        "a Mobile Developer with a passion for technology. Now I'm working on development with Flutter.",
-                        textScaleFactor: 1,
-                        style: TextStyle(
-                          fontSize: 20.0,
-                        ),
+                      Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: Text(
+                              "a Mobile Developer with a passion for technology.",
+                              textScaleFactor: 1,
+                              style: TextStyle(
+                                fontSize: 20.0,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                       SizedBox(
                         height: 8.0,

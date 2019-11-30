@@ -26,7 +26,7 @@ class WelcomeSmall extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Text(
-                    "HEY WORLD, I'M",
+                    "HELLO WORLD, I'M",
                     style: TextStyle(
                       fontSize: 22.0,
                       color: Theme.of(context).primaryColor,
@@ -45,11 +45,15 @@ class WelcomeSmall extends StatelessWidget {
                   ),
                 ],
               ),
-              Text(
-                "a Mobile Developer with a passion for technology. Now I'm working on development with Flutter.",
-                style: TextStyle(
-                  fontSize: 20.0,
-                ),
+              Row(
+                children: <Widget>[
+                  Text(
+                    "a Mobile Developer with a passion for technology.",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 16.0,
