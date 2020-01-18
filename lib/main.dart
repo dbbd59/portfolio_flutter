@@ -1,13 +1,9 @@
-import 'dart:io';
-
 import 'package:bloc/bloc.dart';
-import 'package:flutter/foundation.dart'
-    show debugDefaultTargetPlatformOverride, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/bloc/bloc.dart';
 import 'package:portfolio/bloc/github_trend_bloc.dart';
 import 'package:portfolio/bloc/news_bloc.dart';
-import 'package:portfolio/bloc/weather_bloc.dart';
 import 'package:portfolio/providers/theme_provider.dart';
 import 'package:portfolio/providers/utilities_provider.dart';
 import 'package:portfolio/server.dart';
@@ -18,16 +14,13 @@ import 'providers/navigation_provider.dart';
 
 void main() async {
   BlocSupervisor.delegate = SimpleBlocDelegate();
-
   Provider.debugCheckInvalidValueType = null;
-
-  //_setTargetPlatformForDesktop();
   runApp(
     MyApp(),
   );
 }
 
-void _setTargetPlatformForDesktop() {
+/* void _setTargetPlatformForDesktop() {
   TargetPlatform targetPlatform;
   if (!kIsWeb && Platform.isMacOS) {
     targetPlatform = TargetPlatform.iOS;
@@ -37,7 +30,7 @@ void _setTargetPlatformForDesktop() {
   if (targetPlatform != null) {
     debugDefaultTargetPlatformOverride = targetPlatform;
   }
-}
+} */
 
 class MyApp extends StatelessWidget {
   final Api api = Api();
@@ -61,8 +54,8 @@ class MyApp extends StatelessWidget {
         ],
         child: MultiBlocProvider(
           providers: [
-            BlocProvider<WeatherBloc>(
-              create: (BuildContext context) => WeatherBloc(
+            BlocProvider<ChucknorrisBloc>(
+              create: (BuildContext context) => ChucknorrisBloc(
                 api: api,
               ),
             ),

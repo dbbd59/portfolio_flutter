@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:dio/dio.dart';
+import 'package:portfolio/models/chuck_norris_fact.dart';
 import 'package:portfolio/models/github_trend.dart';
 import 'package:portfolio/models/news.dart';
-import 'package:portfolio/models/weather.dart';
 
 class Api {
   static const baseUrl = 'https://www.metaweather.com';
@@ -37,31 +37,13 @@ class Api {
     }
   }
 
-  Future<int> _getLocationId({String city}) async {
-    final String url = '$baseUrl/api/location/search/?query=$city';
+  Future<ChuckNorrisFact> fetchChuckNorrisFact() async {
+    final String url = "https://api.chucknorris.io/jokes/random";
     Response response = await Dio().get(url);
-    if (response.statusCode != 200) {
-      throw Exception('error getting locationId for city');
+    if (response.statusCode == 200) {
+      return ChuckNorrisFact.fromMap(response.data);
+    } else {
+      return null;
     }
-
-    final locationJson = response.data as List;
-    return (locationJson.first)['woeid'];
-  }
-
-  Future<Weather> _fetchWeather({int locationId}) async {
-    final String url = '$baseUrl/api/location/$locationId';
-    Response response = await Dio().get(url);
-
-    if (response.statusCode != 200) {
-      throw Exception('error getting weather for location');
-    }
-
-    final weatherJson = response.data;
-    return Weather.fromJson(weatherJson);
-  }
-
-  Future<Weather> getWeather({String city}) async {
-    final int locationId = await _getLocationId(city: city);
-    return await _fetchWeather(locationId: locationId);
   }
 }

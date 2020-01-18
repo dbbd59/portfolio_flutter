@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/pages/about_me_page.dart';
+import 'package:portfolio/pages/chuck_norris_page.dart';
 import 'package:portfolio/pages/github_trends_bloc_page.dart';
 import 'package:portfolio/pages/news_bloc_page.dart';
 import 'package:portfolio/pages/welcome_page.dart';
@@ -29,8 +30,7 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                 np.setCurrentWidget(WelcomePage());
                 np.setCurrentIndex(-1);
               },
-              imageNetwork:
-                  "https://media.licdn.com/dms/image/C4D03AQGCIgIwGyMQRA/profile-displayphoto-shrink_200_200/0?e=1577923200&v=beta&t=y1vN2SHS9O059O76ws6IyiQ2MvHySC4-QysDzo1tkXU",
+              imageAsset: "assets/profilepic.jpg",
               subTitle: "davide.bolzoni59@gmail.com",
               title: "Davide Bolzoni",
             ),
@@ -71,6 +71,18 @@ class DrawlerMaterialDesign2 extends StatelessWidget {
                       np.setCurrentIndex(1);
                     },
                     active: np.currentIndex == 1,
+                  ),
+                  ListTileDrawerMaterialDesign2(
+                    icon: Icons.gesture,
+                    text: "Chuck Norris Fact",
+                    onTap: () {
+                      Navigator.of(context).maybePop();
+                      np.setCurrentWidget(
+                        ChuckNorrisPage(),
+                      );
+                      np.setCurrentIndex(3);
+                    },
+                    active: np.currentIndex == 3,
                   ),
                 ],
               ),

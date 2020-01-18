@@ -18,8 +18,7 @@ class WelcomeLarge extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.center,
                   child: CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        "https://media.licdn.com/dms/image/C4D03AQGCIgIwGyMQRA/profile-displayphoto-shrink_200_200/0?e=1577923200&v=beta&t=y1vN2SHS9O059O76ws6IyiQ2MvHySC4-QysDzo1tkXU"),
+                    backgroundImage: AssetImage("assets/profilepic.jpg"),
                     radius: MediaQuery.of(context).size.width * 0.20,
                   ),
                 ),

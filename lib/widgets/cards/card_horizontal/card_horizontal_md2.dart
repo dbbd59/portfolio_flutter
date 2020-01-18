@@ -52,6 +52,7 @@ class CardMaterialDesign2 extends StatelessWidget {
                           children: <Widget>[
                             Text(
                               title != null ? title : "Title",
+                              maxLines: 3,
                               style: TextStyle(
                                 fontSize: 24.0,
                               ),
