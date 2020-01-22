@@ -1,0 +1,23 @@
+{
+    "name": "Davide Bolzoni",
+    "short_name": "Davide Bolzoni",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#0DBBD59",
+    "theme_color": "#DBBD59",
+    "description": "A new Flutter project.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "assets/profilepic.jpg",
+            "sizes": "192x192",
+            "type": "image/jpg"
+        },
+        {
+            "src": "assets/profilepic.jpg",
+            "sizes": "512x512",
+            "type": "image/jpg"
+        }
+    ]
+}
