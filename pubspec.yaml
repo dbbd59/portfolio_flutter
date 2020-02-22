@@ -1,42 +1,51 @@
-name: portfolio
-description: Portfolio Davide Bolzoni
-version: 1.0.3+4
+name: baseapp
+description: Flutter Base App
+
+version: 0.0.1+1
 
 environment:
-  sdk: ">=2.2.2 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  provider: ^4.0.2
-  url_launcher: ^5.4.1
-  flutter_launcher_icons: ^0.7.4
-  equatable: ^1.0.2  
-  bloc: ^3.0.0
-  flutter_bloc: ^3.1.0
-  dio: ^3.0.8
 
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+
+  ######################Dependency Injection######################  
+  #https://pub.dev/packages/get_it
+  get_it: ^3.1.0
+
+  ######################State Managment######################
+  #https://pub.dev/packages/bloc
+  bloc: ^3.0.0
+  #https://pub.dev/packages/flutter_bloc
+  flutter_bloc: ^3.2.0
+  
+  ######################Library######################
+  #https://pub.dev/packages/cached_network_image
+  cached_network_image: ^2.0.0
+  #https://pub.dev/packages/url_launcher
+  url_launcher: ^5.4.1
+  #https://pub.dev/packages/shared_preferences
+  shared_preferences: ^0.5.6+1
+  #https://pub.dev/packages/dio
+  dio: ^3.0.8
+  #https://pub.dev/packages/google_fonts
+  google_fonts: ^0.3.9
+    
 dev_dependencies:
-flutter: 
+  flutter_test:
+    sdk: flutter
+
+flutter:
   uses-material-design: true
   assets:
-    - assets/profilepic.jpg
-    - assets/chuck-norris.png
-    - assets/chuck-norris-face.png
-    
-  fonts:
-    - family: ProductSans
-      fonts:
-        - asset: assets/Product-Sans-Regular.ttf
-        - asset: assets/Product-Sans-Bold.ttf
-          weight: 700
-        - asset: assets/Product-Sans-Italic.ttf
-          style: italic
-
-flutter_icons:
-  image_path_android: "assets/icon.png"
-  image_path_ios: "assets/icon.png"
-  android: true 
-  ios: true 
-  adaptive_icon_background: "assets/icon.png" 
-  adaptive_icon_foreground: "assets/icon.png"
+    - lang/en.json
+    - lang/it.json 
+    - assets/images/profile.png
+    - assets/images/chuck-norris-face.png
+    - assets/images/chuck-norris.png

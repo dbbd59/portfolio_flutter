@@ -1,131 +1,77 @@
-import 'package:bloc/bloc.dart';
+import 'package:baseapp/helpers/app_localizations.dart';
+import 'package:baseapp/bloc/auth/auth_bloc.dart';
+import 'package:baseapp/helpers/multi_bloc_provider_helper.dart';
+import 'package:baseapp/ui/main/responsive_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/bloc/bloc.dart';
-import 'package:portfolio/bloc/github_trend_bloc.dart';
-import 'package:portfolio/bloc/news_bloc.dart';
-import 'package:portfolio/providers/theme_provider.dart';
-import 'package:portfolio/providers/utilities_provider.dart';
-import 'package:portfolio/server.dart';
-import 'package:portfolio/widgets/drawer/drawer_md2.dart';
-import 'package:provider/provider.dart';
-import 'bloc/bloc_delegate.dart';
-import 'providers/navigation_provider.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'helpers/injection_container.dart' as di;
 
 void main() async {
-  BlocSupervisor.delegate = SimpleBlocDelegate();
-  Provider.debugCheckInvalidValueType = null;
-  runApp(
-    MyApp(),
-  );
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
+  runApp(MyApp());
 }
 
-/* void _setTargetPlatformForDesktop() {
-  TargetPlatform targetPlatform;
-  if (!kIsWeb && Platform.isMacOS) {
-    targetPlatform = TargetPlatform.iOS;
-  } else if (Platform.isLinux || Platform.isWindows) {
-    targetPlatform = TargetPlatform.android;
-  }
-  if (targetPlatform != null) {
-    debugDefaultTargetPlatformOverride = targetPlatform;
-  }
-} */
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
 
-class MyApp extends StatelessWidget {
-  final Api api = Api();
-
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-        providers: [
-          ChangeNotifierProvider<ThemeProvider>.value(
-            value: ThemeProvider(),
+    return MultiBlocProvider(
+      providers: providers,
+      child: MaterialApp(
+        builder: (context, child) {
+          return MediaQuery(
+            child: child,
+            data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+          );
+        },
+        theme: ThemeData(
+          brightness: Brightness.light,
+          primaryColor: Color(0xFFdbbd59),
+          accentColor: Color(0xFFdbbd59),
+          textTheme: GoogleFonts.mcLarenTextTheme(
+            Theme.of(context).textTheme,
           ),
-          ChangeNotifierProvider<NavigationProvider>.value(
-            value: NavigationProvider(),
+        ),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          accentColor: Color(0xFFdbbd59),
+          primaryColor: Color(0xFFdbbd59),
+          textTheme: GoogleFonts.mcLarenTextTheme(
+            Theme.of(context).textTheme,
           ),
-          Provider<UtilitiesProvider>.value(
-            value: UtilitiesProvider(),
-          ),
-          Provider<Api>.value(
-            value: Api(),
-          ),
+        ),
+        themeMode: ThemeMode.system,
+        supportedLocales: [
+          Locale('en', 'US'),
+          Locale('it', 'IT'),
         ],
-        child: MultiBlocProvider(
-          providers: [
-            BlocProvider<ChucknorrisBloc>(
-              create: (BuildContext context) => ChucknorrisBloc(
-                api: api,
-              ),
-            ),
-            BlocProvider<NewsBloc>(
-              create: (BuildContext context) => NewsBloc(
-                api: api,
-              ),
-            ),
-            BlocProvider<GithubTrendBloc>(
-              create: (BuildContext context) => GithubTrendBloc(
-                api: api,
-              ),
-            ),
-          ],
-          child: MaterialAppWidget(),
-        ));
-  }
-}
-
-class MaterialAppWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    Brightness brightness = Provider.of<ThemeProvider>(context).brightnessTheme;
-    Color primaryColor = Provider.of<ThemeProvider>(context).primaryColorTheme;
-    return MaterialApp(
-      title: 'Davide Bolzoni',
-      theme: ThemeData(
-        brightness: brightness,
-        primaryColor: primaryColor,
-        fontFamily: 'ProductSans',
+        localizationsDelegates: [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        localeResolutionCallback: (locale, supportedLocales) {
+          for (var supportedLocale in supportedLocales) {
+            if (supportedLocale.languageCode == locale.languageCode &&
+                supportedLocale.countryCode == locale.countryCode) {
+              return supportedLocale;
+            }
+          }
+          return supportedLocales.first;
+        },
+        home: BlocBuilder<AuthBloc, AuthState>(
+          builder: (context, state) {
+            return ResponsivePage();
+          },
+        ),
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => MyHomePage(),
-      },
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    Widget currentWidget =
-        Provider.of<NavigationProvider>(context).currentWidget;
-    Brightness brightness = Provider.of<ThemeProvider>(context).brightnessTheme;
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return Scaffold(
-          appBar: AppBar(
-            elevation: 0,
-            backgroundColor: brightness == Brightness.dark
-                ? Colors.black26
-                : Theme.of(context).primaryColor,
-          ),
-          drawer: constraints.maxWidth < 1000 ? DrawlerMaterialDesign2() : null,
-          body: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              if (constraints.maxWidth > 1000)
-                Container(
-                  width: 256,
-                  child: DrawlerMaterialDesign2(),
-                ),
-              Expanded(
-                child: currentWidget,
-              ),
-            ],
-          ),
-        );
-      },
     );
   }
 }
