@@ -1,11 +1,10 @@
-import 'package:baseapp/helpers/injection_container.dart';
 import 'package:baseapp/repositories/utility/utility_repository.dart';
+import 'package:baseapp/shared/injection_container.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeLarge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.all(16.0),
@@ -17,7 +16,8 @@ class WelcomeLarge extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.center,
                   child: CircleAvatar(
-                    backgroundImage: NetworkImage("https://avatars3.githubusercontent.com/u/16138584?s=460&v=4"),
+                    backgroundImage: NetworkImage(
+                        "https://avatars3.githubusercontent.com/u/16138584?s=460&v=4"),
                     radius: MediaQuery.of(context).size.width * 0.20,
                   ),
                 ),
@@ -86,7 +86,6 @@ class ButtonsRowWelcome extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return Wrap(
@@ -98,9 +97,9 @@ class ButtonsRowWelcome extends StatelessWidget {
       children: <Widget>[
         OutlineButton(
           onPressed: () {
-            sl<UtilityRepository>().launchURL(
+            getIt<UtilityRepository>().launchURL(
               url: "https://github.com/dbbd59",
-            ); 
+            );
           },
           child: Text(
             "GitHub",
@@ -113,9 +112,9 @@ class ButtonsRowWelcome extends StatelessWidget {
         ),
         OutlineButton(
           onPressed: () {
-             sl<UtilityRepository>().launchURL(
+            getIt<UtilityRepository>().launchURL(
               url: "https://www.linkedin.com/in/davide-bolzoni-a54958112/",
-            ); 
+            );
           },
           child: Text(
             "Linkedin",
@@ -128,9 +127,9 @@ class ButtonsRowWelcome extends StatelessWidget {
         ),
         OutlineButton(
           onPressed: () {
-            sl<UtilityRepository>().launchURL(
+            getIt<UtilityRepository>().launchURL(
               url: "mailto:davide.bolzoni59@gmail.com",
-            ); 
+            );
           },
           child: Text(
             "Say Hi!",

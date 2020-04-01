@@ -1,12 +1,19 @@
-import 'package:baseapp/helpers/app_localizations.dart';
+import 'package:baseapp/shared/app_localizations.dart';
 import 'package:baseapp/bloc/bottomappbar/bottomappbar_bloc.dart';
 import 'package:baseapp/models/enums/navigation_page_enum.dart';
+import 'package:baseapp/shared/injection_container.dart';
+import 'package:baseapp/theme/theme_repository.dart';
 import 'package:baseapp/ui/pages/about_me_page.dart';
 import 'package:baseapp/ui/pages/chuck_norris_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class DrawerApp extends StatelessWidget {
+class DrawerApp extends StatefulWidget {
+  @override
+  _DrawerAppState createState() => _DrawerAppState();
+}
+
+class _DrawerAppState extends State<DrawerApp> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -94,7 +101,22 @@ class DrawerApp extends StatelessWidget {
               ),
             ),
             Divider(),
-            Divider(),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: SwitchListTile(
+                value: getIt<ThemeRepository>().isDark,
+                onChanged: (bool value) {
+                  setState(() {
+                    getIt<ThemeRepository>().isDark = value;
+                  });
+                },
+                secondary: Icon(
+                  getIt<ThemeRepository>().isDark
+                      ? Icons.brightness_7
+                      : Icons.brightness_2,
+                ),
+              ),
+            ),
             Container(
               margin: EdgeInsets.only(left: 8.0, right: 8.0),
               height: 48,

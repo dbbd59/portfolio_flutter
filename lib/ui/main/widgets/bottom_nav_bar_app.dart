@@ -1,4 +1,4 @@
-import 'package:baseapp/helpers/app_localizations.dart';
+import 'package:baseapp/shared/app_localizations.dart';
 import 'package:baseapp/bloc/bottomappbar/bottomappbar_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

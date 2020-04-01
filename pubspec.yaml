@@ -36,7 +36,11 @@ dependencies:
   dio: ^3.0.8
   #https://pub.dev/packages/google_fonts
   google_fonts: ^0.3.9
-    
+  #https://pub.dev/packages/connectivity
+  connectivity: ^0.4.6+2
+  #https://pub.dev/packages/provider
+  provider: ^4.0.4
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -44,8 +48,13 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    ###Lang###
     - lang/en.json
     - lang/it.json 
+    ###Images###
     - assets/images/profile.png
     - assets/images/chuck-norris-face.png
     - assets/images/chuck-norris.png
+    ###Configs###
+    - config/prod.json
+    - config/dev.json

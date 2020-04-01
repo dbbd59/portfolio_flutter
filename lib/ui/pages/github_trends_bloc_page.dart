@@ -1,24 +1,31 @@
 import 'package:baseapp/bloc/gh_trend/github_trend_bloc.dart';
-import 'package:baseapp/helpers/injection_container.dart';
 import 'package:baseapp/models/github_trend.dart';
 import 'package:baseapp/repositories/utility/utility_repository.dart';
+import 'package:baseapp/shared/injection_container.dart';
 import 'package:baseapp/ui/common/widgets/cards/card_github_trend/card_github_trend.dart';
 import 'package:baseapp/ui/common/widgets/common/progress_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class GitHubTrendsPage extends StatefulWidget {
+class GitHubTrendsPage extends StatelessWidget {
+  const GitHubTrendsPage({
+    Key key,
+ 
+  }) : super(key: key);
+
   @override
-  _GitHubTrendsPageState createState() => _GitHubTrendsPageState();
+  Widget build(BuildContext context) {
+    return BlocProvider<GithubTrendBloc>(
+      create: (context) => getIt<GithubTrendBloc>()
+        ..add(
+          FetchGitHubTrends(),
+        ),
+      child: GitHubTrendsBody(),
+    );
+  }
 }
 
-class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
-  @override
-  void didChangeDependencies() {
-    BlocProvider.of<GithubTrendBloc>(context).add(FetchGitHubTrends());
-    super.didChangeDependencies();
-  }
-
+class GitHubTrendsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -61,12 +68,13 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
           stars: listGitHubTrends[index].stars,
           forks: listGitHubTrends[index].forks,
           borderColor: listGitHubTrends[index].languageColor != null
-              ? sl<UtilityRepository>()
+              ? getIt<UtilityRepository>()
                   .getColorHexFromStr(listGitHubTrends[index].languageColor)
               : 0x00000000,
           horizontal: true,
           onTap: () {
-            sl<UtilityRepository>().launchURL(url: listGitHubTrends[index].url);
+            getIt<UtilityRepository>()
+                .launchURL(url: listGitHubTrends[index].url);
           },
           title: listGitHubTrends[index].name,
           imageNetwork: listGitHubTrends[index].builtBy.length > 0
@@ -92,12 +100,12 @@ class _GitHubTrendsPageState extends State<GitHubTrendsPage> {
             stars: listGitHubTrends[index].stars,
             forks: listGitHubTrends[index].forks,
             borderColor: listGitHubTrends[index].languageColor != null
-                ? sl<UtilityRepository>()
+                ? getIt<UtilityRepository>()
                     .getColorHexFromStr(listGitHubTrends[index].languageColor)
                 : 0x00000000,
             horizontal: false,
             onTap: () {
-              sl<UtilityRepository>()
+              getIt<UtilityRepository>()
                   .launchURL(url: listGitHubTrends[index].url);
             },
             title: listGitHubTrends[index].name,

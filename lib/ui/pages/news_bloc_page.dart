@@ -1,23 +1,28 @@
 import 'package:baseapp/bloc/news/news_bloc.dart';
-import 'package:baseapp/helpers/injection_container.dart';
 import 'package:baseapp/models/news.dart';
 import 'package:baseapp/repositories/utility/utility_repository.dart';
+import 'package:baseapp/shared/injection_container.dart';
 import 'package:baseapp/ui/common/widgets/cards/card_horizontal/card_horizontal_md2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class NewsPage extends StatefulWidget {
+class NewsPage extends StatelessWidget {
+  const NewsPage({
+    Key key,
+  }) : super(key: key);
   @override
-  _NewsPageState createState() => _NewsPageState();
+  Widget build(BuildContext context) {
+    return BlocProvider<NewsBloc>(
+      create: (context) => getIt<NewsBloc>()
+        ..add(
+          FetchNews(),
+        ),
+      child: NewsBody(),
+    );
+  }
 }
 
-class _NewsPageState extends State<NewsPage> {
-  @override
-  void didChangeDependencies() {
-    BlocProvider.of<NewsBloc>(context).add(FetchNews());
-    super.didChangeDependencies();
-  }
-
+class NewsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -76,7 +81,7 @@ class _NewsPageState extends State<NewsPage> {
         return CardMaterialDesign2(
           vertical: true,
           onTap: () {
-            sl<UtilityRepository>().launchURL(url: news.articles[index].url);
+            getIt<UtilityRepository>().launchURL(url: news.articles[index].url);
           },
           title: news.articles[index].title,
           imageNetwork: news.articles[index].urlToImage,
@@ -96,7 +101,8 @@ class _NewsPageState extends State<NewsPage> {
           return CardMaterialDesign2(
             vertical: false,
             onTap: () {
-              sl<UtilityRepository>().launchURL(url: news.articles[index].url);
+              getIt<UtilityRepository>()
+                  .launchURL(url: news.articles[index].url);
             },
             title: news.articles[index].title,
             imageNetwork: news.articles[index].urlToImage,

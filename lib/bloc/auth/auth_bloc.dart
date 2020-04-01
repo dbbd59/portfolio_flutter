@@ -1,8 +1,7 @@
 import 'dart:async';
 
+import 'package:baseapp/shared/injection_container.dart';
 import 'package:bloc/bloc.dart';
-import 'package:baseapp/bloc/auth/login_bloc.dart';
-import 'package:baseapp/helpers/injection_container.dart';
 import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -18,8 +17,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     AuthEvent event,
   ) async* {
     if (event is AuthEventStart) {
-      if (sl<SharedPreferences>().getString("accessToken") != null) {
-        sl<LoginBloc>().add(LoginEventReset());
+      if (getIt<SharedPreferences>().getString("accessToken") != null) {
         yield AuthStateLogged();
       } else {
         yield AuthStateUnLogged();

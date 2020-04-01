@@ -1,5 +1,5 @@
-import 'package:baseapp/helpers/injection_container.dart';
 import 'package:baseapp/repositories/utility/utility_repository.dart';
+import 'package:baseapp/shared/injection_container.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -250,7 +250,7 @@ class AboutMePage extends StatelessWidget {
                                                                       TapGestureRecognizer()
                                                                         ..onTap =
                                                                             () {
-                                                                          sl<UtilityRepository>()
+                                                                          getIt<UtilityRepository>()
                                                                               .launchURL(
                                                                             url:
                                                                                 job["link"] ?? "",
@@ -343,7 +343,7 @@ class AboutMePage extends StatelessWidget {
                                                                     TapGestureRecognizer()
                                                                       ..onTap =
                                                                           () {
-                                                                        sl<UtilityRepository>()
+                                                                        getIt<UtilityRepository>()
                                                                             .launchURL(
                                                                           url: job[
                                                                               "link"],

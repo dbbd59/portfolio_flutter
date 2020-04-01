@@ -1,6 +1,7 @@
 import 'dart:async';
-import 'package:baseapp/bloc/api.dart';
 import 'package:baseapp/models/news.dart';
+import 'package:baseapp/services/api_service.dart';
+import 'package:baseapp/shared/injection_container.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -15,7 +16,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
     if (event is FetchNews) {
       yield NewsLoading();
       try {
-        final News news = await AppApi.fetchNews();
+        final News news = await getIt<ApiService>().fetchNews();
         yield NewsLoaded(news: news);
       } catch (_) {
         yield NewsError();

@@ -1,13 +1,30 @@
 import 'package:baseapp/bloc/chuck_norris/chucknorris_bloc.dart';
+import 'package:baseapp/shared/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ChuckNorrisPage extends StatefulWidget {
+class ChuckNorrisPage extends StatelessWidget {
+  const ChuckNorrisPage({
+    Key key,
+  }) : super(key: key);
   @override
-  _ChuckNorrisPageState createState() => _ChuckNorrisPageState();
+  Widget build(BuildContext context) {
+    return BlocProvider<ChucknorrisBloc>(
+      create: (context) => getIt<ChucknorrisBloc>()
+        ..add(
+          FetchChuckNorrisFact(),
+        ),
+      child: ChuckNorrisBody(),
+    );
+  }
 }
 
-class _ChuckNorrisPageState extends State<ChuckNorrisPage>
+class ChuckNorrisBody extends StatefulWidget {
+  @override
+  _ChuckNorrisBodyState createState() => _ChuckNorrisBodyState();
+}
+
+class _ChuckNorrisBodyState extends State<ChuckNorrisBody>
     with TickerProviderStateMixin {
   final Tween<double> turnsTween = Tween<double>(
     begin: 1,
@@ -21,7 +38,6 @@ class _ChuckNorrisPageState extends State<ChuckNorrisPage>
       duration: const Duration(seconds: 1),
       vsync: this,
     );
-    BlocProvider.of<ChucknorrisBloc>(context).add(FetchChuckNorrisFact());
     super.didChangeDependencies();
   }
 
