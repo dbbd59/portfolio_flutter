@@ -1,8 +1,5 @@
 name: Build and Release apk
-on:
-    push:
-      branches:
-        - master
+on: push
 jobs:
   build:
     name: Build APK
