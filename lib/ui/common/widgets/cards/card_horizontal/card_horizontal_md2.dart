@@ -17,10 +17,10 @@ class CardMaterialDesign2 extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Card(
-        elevation: 1,
+    return Card(
+      elevation: 1,
+      child: InkWell(
+        onTap: onTap,
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: 164,
