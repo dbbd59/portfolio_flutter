@@ -1,6 +1,7 @@
 import 'package:baseapp/bloc/auth/auth_bloc.dart';
 import 'package:baseapp/bloc/bottomappbar/bottomappbar_bloc.dart';
 import 'package:baseapp/bloc/dialog/dialog_bloc.dart';
+import 'package:baseapp/repositories/utility/utility_repository.dart';
 import 'package:baseapp/shared/injection_container.dart';
 import 'package:baseapp/theme/theme_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,4 +25,5 @@ var blocProviders = [
 
 List<SingleChildWidget> providers = [
   ChangeNotifierProvider(create: (context) => getIt<ThemeRepository>()),
+  ChangeNotifierProvider(create: (context) => getIt<UtilityRepository>()),
 ];

@@ -1,3 +1,4 @@
+import 'package:baseapp/repositories/utility/utility_repository.dart';
 import 'package:baseapp/shared/app_localizations.dart';
 import 'package:baseapp/bloc/auth/auth_bloc.dart';
 import 'package:baseapp/shared/app_config.dart';
@@ -10,11 +11,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'shared/injection_container.dart' as di;
+import 'package:statsfl/statsfl.dart';
+
+import 'shared/injection_container.dart';
 
 void main({Environment environment}) async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.init();
-  runApp(MyApp());
+  runApp(
+    MyApp(),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -61,10 +67,14 @@ class _MyAppState extends State<MyApp> {
                 }
                 return supportedLocales.first;
               },
-              home: BlocBuilder<AuthBloc, AuthState>(
-                builder: (context, state) {
-                  return ResponsivePage();
-                },
+              home: StatsFl(
+                align: Alignment.center,
+                isEnabled: Provider.of<UtilityRepository>(context).showFps,
+                child: BlocBuilder<AuthBloc, AuthState>(
+                  builder: (context, state) {
+                    return ResponsivePage();
+                  },
+                ),
               ),
             );
           },

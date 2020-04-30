@@ -1,7 +1,7 @@
 name: baseapp
 description: Flutter Base App
 
-version: 1.5.0+3
+version: 1.7.0+3
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
@@ -40,6 +40,7 @@ dependencies:
   connectivity: ^0.4.8+2
   #https://pub.dev/packages/provider
   provider: ^4.0.5
+  statsfl: ^0.1.0
   
 dev_dependencies:
   flutter_test:

@@ -1,7 +1,9 @@
+import 'package:baseapp/shared/injection_container.dart';
 import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class UtilityRepository {
+class UtilityRepository extends ChangeNotifier {
   int getColorHexFromStr(String colorStr) {
     colorStr = "FF" + colorStr;
     colorStr = colorStr.replaceAll("#", "");
@@ -30,5 +32,14 @@ class UtilityRepository {
     } else {
       throw 'Could not launch $url';
     }
+  }
+
+  bool get showFps {
+    return getIt<SharedPreferences>().getBool("fps-enabled") ?? false;
+  }
+
+  set showFps(bool value) {
+    getIt<SharedPreferences>().setBool("fps-enabled", value);
+    notifyListeners();
   }
 }

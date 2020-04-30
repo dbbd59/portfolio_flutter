@@ -1,3 +1,4 @@
+import 'package:baseapp/repositories/utility/utility_repository.dart';
 import 'package:baseapp/shared/app_localizations.dart';
 import 'package:baseapp/bloc/bottomappbar/bottomappbar_bloc.dart';
 import 'package:baseapp/models/enums/navigation_page_enum.dart';
@@ -117,6 +118,18 @@ class _DrawerAppState extends State<DrawerApp> {
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: SwitchListTile(
+                value: getIt<UtilityRepository>().showFps,
+                onChanged: (bool value) {
+                  setState(() {
+                    getIt<UtilityRepository>().showFps = value;
+                  });
+                },
+                secondary: Text("Show FPS"),
+              ),
+            ),
             Container(
               margin: EdgeInsets.only(left: 8.0, right: 8.0),
               height: 48,
@@ -129,7 +142,7 @@ class _DrawerAppState extends State<DrawerApp> {
                     SizedBox(
                       width: 16.0,
                     ),
-                    Text("V1.0.0")
+                    Text("V1.7.0")
                   ],
                 ),
               ),

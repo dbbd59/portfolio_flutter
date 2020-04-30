@@ -44,7 +44,9 @@ class _ChuckNorrisBodyState extends State<ChuckNorrisBody>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        elevation: 0,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: BlocBuilder<ChucknorrisBloc, ChucknorrisState>(

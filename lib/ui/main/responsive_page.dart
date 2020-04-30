@@ -18,6 +18,7 @@ class _ResponsivePageState extends State<ResponsivePage> {
       case DisplayType.MOBILE:
         return Scaffold(
           appBar: AppBar(
+            elevation: 0,
             title: Text(
               AppLocalizations.of(context).translate('main_app_bar_title'),
             ),
@@ -35,6 +36,7 @@ class _ResponsivePageState extends State<ResponsivePage> {
             Expanded(
               child: Scaffold(
                 appBar: AppBar(
+                  elevation: 0,
                   title: Text(
                     AppLocalizations.of(context)
                         .translate('main_app_bar_title'),
@@ -49,6 +51,7 @@ class _ResponsivePageState extends State<ResponsivePage> {
       default:
         return Scaffold(
           appBar: AppBar(
+            elevation: 0,
             title: Text(
               "Default" +
                   AppLocalizations.of(context).translate('main_app_bar_title'),
