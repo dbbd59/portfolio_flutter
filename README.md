@@ -42,7 +42,7 @@ git push origin vX.Y.Z
 👤 **DavideBolzoni**
 
 * Website: davidebolzoni.com
-* Twitter: [@dbbd5959](https://twitter.com/davybolzo)
+* Twitter: [@davybolzo](https://twitter.com/davybolzo)
 * Github: [@dbbd59](https://github.com/dbbd59)
 * LinkedIn: [@Davide Bolzoni](https://www.linkedin.com/in/davide-bolzoni-a54958112/)
 
