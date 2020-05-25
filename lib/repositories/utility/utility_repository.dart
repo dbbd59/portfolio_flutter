@@ -1,9 +1,25 @@
-import 'package:baseapp/shared/injection_container.dart';
-import 'package:flutter/foundation.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class UtilityRepository extends ChangeNotifier {
+// 🌎 Project imports:
+import 'package:baseapp/repositories/utility/i_utility_repository.dart';
+
+@Injectable(as: IUtilityRepository)
+class UtilityRepository implements IUtilityRepository {
+  UtilityRepository(
+    this._prefs,
+  );
+
+  final SharedPreferences _prefs;
+
+  @override
+  bool get showFps {
+    return _prefs.getBool("fps-enabled") ?? false;
+  }
+
+  @override
   int getColorHexFromStr(String colorStr) {
     colorStr = "FF" + colorStr;
     colorStr = colorStr.replaceAll("#", "");
@@ -26,7 +42,8 @@ class UtilityRepository extends ChangeNotifier {
     return val;
   }
 
-  launchURL({@required String url}) async {
+  @override
+  launchURL({String url}) async {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -34,12 +51,8 @@ class UtilityRepository extends ChangeNotifier {
     }
   }
 
-  bool get showFps {
-    return getIt<SharedPreferences>().getBool("fps-enabled") ?? false;
-  }
-
+  @override
   set showFps(bool value) {
-    getIt<SharedPreferences>().setBool("fps-enabled", value);
-    notifyListeners();
+    _prefs.setBool("fps-enabled", value);
   }
 }

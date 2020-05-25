@@ -1,17 +1,24 @@
+// 🎯 Dart imports:
 import 'dart:async';
-import 'package:baseapp/services/http_service.dart';
-import 'package:baseapp/shared/injection_container.dart';
+
+// 📦 Package imports:
 import 'package:dio/dio.dart';
 
+// 🌎 Project imports:
+import 'package:baseapp/services/http_service.dart';
 import '../models/chuck_norris_fact.dart';
 import '../models/github_trend.dart';
 import '../models/news.dart';
 
 class ApiService {
+  ApiService(this._httpService);
+
   String token;
 
+  HttpService _httpService;
+
   Future<News> fetchNews() async {
-    Response response = await getIt<HttpService>().httpServiceGet(
+    Response response = await _httpService.httpServiceGet(
       endpoint:
           "https://newsapi.org/v2/everything?q=technology&apiKey=c66c291990c048ff842cacb5aba3f53f",
     );
@@ -24,7 +31,7 @@ class ApiService {
   }
 
   Future<ChuckNorrisFact> fetchChuckNorrisFact() async {
-    Response response = await getIt<HttpService>().httpServiceGet(
+    Response response = await _httpService.httpServiceGet(
       endpoint: "https://api.chucknorris.io/jokes/random",
     );
     if (response.statusCode == 200) {
@@ -35,7 +42,7 @@ class ApiService {
   }
 
   Future<List<GitHubTrend>> fetchGitHubTrends() async {
-    Response response = await getIt<HttpService>().httpServiceGet(
+    Response response = await _httpService.httpServiceGet(
       endpoint: "https://github-trending-api.now.sh/repositories",
     );
     if (response.statusCode == 200) {

@@ -1,11 +1,16 @@
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+// 🌎 Project imports:
 import 'package:baseapp/bloc/bottomappbar/bottomappbar_bloc.dart';
 import 'package:baseapp/bloc/dialog/dialog_bloc.dart';
 import 'package:baseapp/ui/common/alert.dart';
 import 'package:baseapp/ui/pages/github_trends_bloc_page.dart';
 import 'package:baseapp/ui/pages/news_bloc_page.dart';
 import 'package:baseapp/ui/pages/welcome_page.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainPage extends StatelessWidget {
   final List<Widget> _children = [

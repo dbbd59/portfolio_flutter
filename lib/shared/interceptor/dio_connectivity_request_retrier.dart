@@ -1,21 +1,30 @@
+// 🎯 Dart imports:
 import 'dart:async';
 
+// 📦 Package imports:
 import 'package:dio/dio.dart';
 import 'package:connectivity/connectivity.dart';
+import 'package:injectable/injectable.dart';
 
-import '../injection_container.dart';
-
+@Injectable()
 class DioConnectivityRequestRetrier {
+  DioConnectivityRequestRetrier(
+    this._connectivity,
+    this._dio,
+  );
+
+  Connectivity _connectivity;
+  Dio _dio;
+
   Future<Response> scheduleRequestRetry(RequestOptions requestOptions) async {
     StreamSubscription streamSubscription;
     final Completer<Response> responseCompleter = Completer<Response>();
-    streamSubscription = getIt<Connectivity>()
-        .onConnectivityChanged
-        .listen((connectivityResult) {
+    streamSubscription =
+        _connectivity.onConnectivityChanged.listen((connectivityResult) {
       if (connectivityResult != ConnectivityResult.none) {
         streamSubscription.cancel();
         responseCompleter.complete(
-          getIt<Dio>().request(
+          _dio.request(
             requestOptions.path,
             cancelToken: requestOptions.cancelToken,
             data: requestOptions.data,

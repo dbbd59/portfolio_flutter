@@ -12,52 +12,38 @@ dependencies:
 
   flutter_localizations:
     sdk: flutter
-
   cupertino_icons: ^0.1.2
-
-  ######################Dependency Injection######################  
-  #https://pub.dev/packages/get_it
   get_it: ^4.0.1
-
-  ######################State Managment######################
-  #https://pub.dev/packages/bloc
   bloc: ^4.0.0
-  #https://pub.dev/packages/flutter_bloc
   flutter_bloc: ^4.0.0
-  
-  ######################Library######################
-  #https://pub.dev/packages/cached_network_image
   cached_network_image: ^2.1.0+1
-  #https://pub.dev/packages/url_launcher
   url_launcher: ^5.4.5
-  #https://pub.dev/packages/shared_preferences
   shared_preferences: ^0.5.7
-  #https://pub.dev/packages/dio
   dio: ^3.0.9
-  #https://pub.dev/packages/google_fonts
   google_fonts: ^1.0.0
-  #https://pub.dev/packages/connectivity
   connectivity: ^0.4.8+2
-  #https://pub.dev/packages/provider
   provider: ^4.0.5
   statsfl: ^0.1.0
+  injectable: ^0.4.0
   
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: "^0.7.3"
+  flutter_launcher_icons: ^0.7.3
+  injectable_generator: ^0.4.0
+  build_runner: ^1.10.0
+  import_sorter: ^3.0.6
 
 flutter:
   uses-material-design: true
   assets:
-    ###Lang###
     - lang/en.json
     - lang/it.json 
-    ###Images###
+
     - assets/images/profile.png
     - assets/images/chuck-norris-face.png
     - assets/images/chuck-norris.png
-    ###Configs###
+
     - config/prod.json
     - config/dev.json
 
@@ -65,3 +51,5 @@ flutter_icons:
   android: true 
   ios: true
   image_path: "assets/icon.png"
+import_sorter:
+  emojis: true

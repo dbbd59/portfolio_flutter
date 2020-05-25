@@ -1,12 +1,18 @@
+// 🎯 Dart imports:
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
+import 'package:bloc/bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 part 'dialog_event.dart';
 part 'dialog_state.dart';
 
+@Singleton()
 class DialogBloc extends Bloc<DialogEvent, DialogState> {
   @override
   DialogState get initialState => DialogStateHide();

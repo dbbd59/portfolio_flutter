@@ -1,8 +1,14 @@
+// 🎯 Dart imports:
 import 'dart:io';
 
-import 'package:baseapp/shared/interceptor/dio_connectivity_request_retrier.dart';
-import 'package:dio/dio.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/foundation.dart';
+
+// 📦 Package imports:
+import 'package:dio/dio.dart';
+
+// 🌎 Project imports:
+import 'package:baseapp/shared/interceptor/dio_connectivity_request_retrier.dart';
 
 class RetryOnConnectionChangeInterceptor extends Interceptor {
   RetryOnConnectionChangeInterceptor({@required this.requestRetrier});

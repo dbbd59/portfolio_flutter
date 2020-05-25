@@ -1,7 +1,12 @@
-import 'package:baseapp/bloc/chuck_norris/chucknorris_bloc.dart';
-import 'package:baseapp/shared/injection_container.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// 🌎 Project imports:
+import 'package:baseapp/bloc/chuck_norris/chucknorris_bloc.dart';
+import 'package:baseapp/injections.dart';
 
 class ChuckNorrisPage extends StatelessWidget {
   const ChuckNorrisPage({

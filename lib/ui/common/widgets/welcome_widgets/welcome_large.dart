@@ -1,6 +1,9 @@
-import 'package:baseapp/repositories/utility/utility_repository.dart';
-import 'package:baseapp/shared/injection_container.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 🌎 Project imports:
+import 'package:baseapp/repositories/utility/i_utility_repository.dart';
+import 'package:baseapp/injections.dart';
 
 class WelcomeLarge extends StatelessWidget {
   @override
@@ -97,7 +100,7 @@ class ButtonsRowWelcome extends StatelessWidget {
       children: <Widget>[
         OutlineButton(
           onPressed: () {
-            getIt<UtilityRepository>().launchURL(
+            getIt<IUtilityRepository>().launchURL(
               url: "https://github.com/dbbd59",
             );
           },
@@ -112,7 +115,7 @@ class ButtonsRowWelcome extends StatelessWidget {
         ),
         OutlineButton(
           onPressed: () {
-            getIt<UtilityRepository>().launchURL(
+            getIt<IUtilityRepository>().launchURL(
               url: "https://www.linkedin.com/in/davide-bolzoni-a54958112/",
             );
           },
@@ -127,7 +130,7 @@ class ButtonsRowWelcome extends StatelessWidget {
         ),
         OutlineButton(
           onPressed: () {
-            getIt<UtilityRepository>().launchURL(
+            getIt<IUtilityRepository>().launchURL(
               url: "mailto:davide.bolzoni59@gmail.com",
             );
           },

@@ -1,11 +1,16 @@
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+// 🌎 Project imports:
 import 'package:baseapp/bloc/gh_trend/github_trend_bloc.dart';
 import 'package:baseapp/models/github_trend.dart';
-import 'package:baseapp/repositories/utility/utility_repository.dart';
-import 'package:baseapp/shared/injection_container.dart';
+import 'package:baseapp/repositories/utility/i_utility_repository.dart';
+import 'package:baseapp/injections.dart';
 import 'package:baseapp/ui/common/widgets/cards/card_github_trend/card_github_trend.dart';
 import 'package:baseapp/ui/common/widgets/common/progress_indicator.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GitHubTrendsPage extends StatelessWidget {
   const GitHubTrendsPage({
@@ -68,12 +73,12 @@ class GitHubTrendsBody extends StatelessWidget {
           stars: listGitHubTrends[index].stars,
           forks: listGitHubTrends[index].forks,
           borderColor: listGitHubTrends[index].languageColor != null
-              ? getIt<UtilityRepository>()
+              ? getIt<IUtilityRepository>()
                   .getColorHexFromStr(listGitHubTrends[index].languageColor)
               : 0x00000000,
           horizontal: true,
           onTap: () {
-            getIt<UtilityRepository>()
+            getIt<IUtilityRepository>()
                 .launchURL(url: listGitHubTrends[index].url);
           },
           title: listGitHubTrends[index].name,
@@ -100,12 +105,12 @@ class GitHubTrendsBody extends StatelessWidget {
             stars: listGitHubTrends[index].stars,
             forks: listGitHubTrends[index].forks,
             borderColor: listGitHubTrends[index].languageColor != null
-                ? getIt<UtilityRepository>()
+                ? getIt<IUtilityRepository>()
                     .getColorHexFromStr(listGitHubTrends[index].languageColor)
                 : 0x00000000,
             horizontal: false,
             onTap: () {
-              getIt<UtilityRepository>()
+              getIt<IUtilityRepository>()
                   .launchURL(url: listGitHubTrends[index].url);
             },
             title: listGitHubTrends[index].name,

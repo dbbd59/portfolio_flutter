@@ -1,5 +1,8 @@
-import 'package:baseapp/ui/common/widgets/welcome_widgets/welcome_large.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+
+// 🌎 Project imports:
+import 'package:baseapp/ui/common/widgets/welcome_widgets/welcome_large.dart';
 
 class WelcomeSmall extends StatelessWidget {
   @override

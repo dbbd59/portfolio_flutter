@@ -1,7 +1,10 @@
-import 'package:baseapp/repositories/utility/utility_repository.dart';
-import 'package:baseapp/shared/injection_container.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
+// 🌎 Project imports:
+import 'package:baseapp/repositories/utility/i_utility_repository.dart';
+import 'package:baseapp/injections.dart';
 
 class AboutMePage extends StatelessWidget {
   final List<Map<String, dynamic>> jobsList = [
@@ -252,7 +255,7 @@ class AboutMePage extends StatelessWidget {
                                                                       TapGestureRecognizer()
                                                                         ..onTap =
                                                                             () {
-                                                                          getIt<UtilityRepository>()
+                                                                          getIt<IUtilityRepository>()
                                                                               .launchURL(
                                                                             url:
                                                                                 job["link"] ?? "",
@@ -345,7 +348,7 @@ class AboutMePage extends StatelessWidget {
                                                                     TapGestureRecognizer()
                                                                       ..onTap =
                                                                           () {
-                                                                        getIt<UtilityRepository>()
+                                                                        getIt<IUtilityRepository>()
                                                                             .launchURL(
                                                                           url: job[
                                                                               "link"],

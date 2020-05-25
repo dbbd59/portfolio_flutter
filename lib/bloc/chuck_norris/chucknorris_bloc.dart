@@ -1,14 +1,26 @@
+// 🎯 Dart imports:
 import 'dart:async';
+
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+
+// 📦 Package imports:
+import 'package:bloc/bloc.dart';
+import 'package:injectable/injectable.dart';
+
+// 🌎 Project imports:
 import 'package:baseapp/models/chuck_norris_fact.dart';
 import 'package:baseapp/services/api_service.dart';
-import 'package:baseapp/shared/injection_container.dart';
-import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 
 part 'chucknorris_event.dart';
 part 'chucknorris_state.dart';
 
+@Injectable()
 class ChucknorrisBloc extends Bloc<ChucknorrisEvent, ChucknorrisState> {
+  ChucknorrisBloc(this._apiService);
+
+  ApiService _apiService;
+
   @override
   ChucknorrisState get initialState => InitialChucknorrisState();
 
@@ -20,7 +32,7 @@ class ChucknorrisBloc extends Bloc<ChucknorrisEvent, ChucknorrisState> {
       yield ChucknorrisStateLoading();
       try {
         final ChuckNorrisFact chuckNorrisFact =
-            await getIt<ApiService>().fetchChuckNorrisFact();
+            await _apiService.fetchChuckNorrisFact();
         yield ChucknorrisStateLoaded(chuckNorrisFact: chuckNorrisFact);
       } catch (_) {
         yield ChucknorrisStateError();

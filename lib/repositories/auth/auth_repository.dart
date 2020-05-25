@@ -1,12 +1,25 @@
-import 'package:baseapp/shared/injection_container.dart';
+// 📦 Package imports:
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class AuthRepository {
+// 🌎 Project imports:
+import 'package:baseapp/repositories/auth/i_auth_repository.dart';
+
+@Injectable(as: IAuthRepository)
+class AuthRepository implements IAuthRepository {
+  AuthRepository(
+    this._prefs,
+  );
+
+  final SharedPreferences _prefs;
+
+  @override
   Future<void> auth() async {
-    getIt<SharedPreferences>().setString("accessToken", "x");
+    _prefs.setString("accessToken", "x");
   }
 
+  @override
   Future<void> logout() async {
-    getIt<SharedPreferences>().remove("accessToken");
+    _prefs.remove("accessToken");
   }
 }

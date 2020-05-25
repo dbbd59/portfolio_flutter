@@ -1,13 +1,18 @@
-import 'package:baseapp/repositories/utility/utility_repository.dart';
+// 🐦 Flutter imports:
+import 'package:baseapp/change_notifier/theme_changenotifier.dart';
+import 'package:baseapp/change_notifier/utility_changenotifier.dart';
+import 'package:flutter/material.dart';
+
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+// 🌎 Project imports:
 import 'package:baseapp/shared/app_localizations.dart';
 import 'package:baseapp/bloc/bottomappbar/bottomappbar_bloc.dart';
 import 'package:baseapp/models/enums/navigation_page_enum.dart';
-import 'package:baseapp/shared/injection_container.dart';
-import 'package:baseapp/theme/theme_repository.dart';
+import 'package:baseapp/injections.dart';
 import 'package:baseapp/ui/pages/about_me_page.dart';
 import 'package:baseapp/ui/pages/chuck_norris_page.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DrawerApp extends StatefulWidget {
   @override
@@ -105,14 +110,14 @@ class _DrawerAppState extends State<DrawerApp> {
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: SwitchListTile(
-                value: getIt<ThemeRepository>().isDark,
+                value: getIt<ThemeChangeNotifier>().pippo,
                 onChanged: (bool value) {
                   setState(() {
-                    getIt<ThemeRepository>().isDark = value;
+                    getIt<ThemeChangeNotifier>().pippo = value;
                   });
                 },
                 secondary: Icon(
-                  getIt<ThemeRepository>().isDark
+                  getIt<ThemeChangeNotifier>().pippo
                       ? Icons.brightness_7
                       : Icons.brightness_2,
                 ),
@@ -121,10 +126,10 @@ class _DrawerAppState extends State<DrawerApp> {
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: SwitchListTile(
-                value: getIt<UtilityRepository>().showFps,
+                value: getIt<UtilityChangeNotifier>().showFps,
                 onChanged: (bool value) {
                   setState(() {
-                    getIt<UtilityRepository>().showFps = value;
+                    getIt<UtilityChangeNotifier>().showFps = value;
                   });
                 },
                 secondary: Text("Show FPS"),

@@ -1,20 +1,35 @@
+// 🎯 Dart imports:
 import 'dart:convert';
 
-import 'package:baseapp/shared/exceptions.dart';
-import 'package:baseapp/shared/injection_container.dart';
-import 'package:baseapp/shared/interceptor/dio_connectivity_request_retrier.dart';
-import 'package:baseapp/shared/interceptor/retry_interceptor.dart';
-import 'package:dio/dio.dart';
+// 🐦 Flutter imports:
 import 'package:flutter/material.dart';
 
+// 📦 Package imports:
+import 'package:connectivity/connectivity.dart';
+import 'package:dio/dio.dart';
+
+// 🌎 Project imports:
+import 'package:baseapp/shared/exceptions.dart';
+import 'package:baseapp/shared/interceptor/dio_connectivity_request_retrier.dart';
+import 'package:baseapp/shared/interceptor/retry_interceptor.dart';
+
 class HttpService {
-  HttpService() {
-    getIt<Dio>().interceptors.add(
-          RetryOnConnectionChangeInterceptor(
-            requestRetrier: DioConnectivityRequestRetrier(),
-          ),
-        );
+  HttpService(
+    this._dio,
+    this._connectivity,
+  ) {
+    _dio.interceptors.add(
+      RetryOnConnectionChangeInterceptor(
+        requestRetrier: DioConnectivityRequestRetrier(
+          _connectivity,
+          _dio,
+        ),
+      ),
+    );
   }
+
+  final Connectivity _connectivity;
+  final Dio _dio;
 
   Future<Response> httpServiceGet({
     @required String endpoint,
@@ -22,7 +37,7 @@ class HttpService {
   }) async {
     Response response;
     try {
-      response = await getIt<Dio>().get(
+      response = await _dio.get(
         endpoint,
         options: headers != null
             ? Options(
@@ -48,7 +63,7 @@ class HttpService {
   }) async {
     Response response;
     try {
-      response = await getIt<Dio>().post(
+      response = await _dio.post(
         endpoint,
         options: Options(
           headers: headers,

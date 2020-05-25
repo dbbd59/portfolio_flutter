@@ -1,10 +1,15 @@
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+
+// 📦 Package imports:
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+// 🌎 Project imports:
 import 'package:baseapp/bloc/news/news_bloc.dart';
 import 'package:baseapp/models/news.dart';
-import 'package:baseapp/repositories/utility/utility_repository.dart';
-import 'package:baseapp/shared/injection_container.dart';
+import 'package:baseapp/repositories/utility/i_utility_repository.dart';
+import 'package:baseapp/injections.dart';
 import 'package:baseapp/ui/common/widgets/cards/card_horizontal/card_horizontal_md2.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NewsPage extends StatelessWidget {
   const NewsPage({
@@ -81,7 +86,7 @@ class NewsBody extends StatelessWidget {
         return CardMaterialDesign2(
           vertical: true,
           onTap: () {
-            getIt<UtilityRepository>().launchURL(url: news.articles[index].url);
+            getIt<IUtilityRepository>().launchURL(url: news.articles[index].url);
           },
           title: news.articles[index].title,
           imageNetwork: news.articles[index].urlToImage,
@@ -101,7 +106,7 @@ class NewsBody extends StatelessWidget {
           return CardMaterialDesign2(
             vertical: false,
             onTap: () {
-              getIt<UtilityRepository>()
+              getIt<IUtilityRepository>()
                   .launchURL(url: news.articles[index].url);
             },
             title: news.articles[index].title,

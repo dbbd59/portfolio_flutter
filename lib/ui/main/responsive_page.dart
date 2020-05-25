@@ -1,9 +1,12 @@
+// 🐦 Flutter imports:
+import 'package:flutter/material.dart';
+
+// 🌎 Project imports:
 import 'package:baseapp/helpers/adaptive.dart';
 import 'package:baseapp/shared/app_localizations.dart';
 import 'package:baseapp/ui/main/main_page.dart';
 import 'package:baseapp/ui/main/widgets/bottom_nav_bar_app.dart';
 import 'package:baseapp/ui/main/widgets/drawer_app.dart';
-import 'package:flutter/material.dart';
 
 class ResponsivePage extends StatefulWidget {
   @override
