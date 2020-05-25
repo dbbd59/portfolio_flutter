@@ -1,7 +1,7 @@
 name: baseapp
 description: Flutter Base App
 
-version: 1.7.0+3
+version: 1.8.0+3
 
 environment:
   sdk: ">=2.6.0 <3.0.0"

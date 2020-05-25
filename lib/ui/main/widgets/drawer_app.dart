@@ -147,7 +147,7 @@ class _DrawerAppState extends State<DrawerApp> {
                     SizedBox(
                       width: 16.0,
                     ),
-                    Text("V1.7.0")
+                    Text("V1.8.0")
                   ],
                 ),
               ),
