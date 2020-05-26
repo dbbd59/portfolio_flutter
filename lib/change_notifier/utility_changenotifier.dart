@@ -5,7 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/repositories/utility/i_utility_repository.dart';
+import 'package:baseapp/repository/utility/i_utility_repository.dart';
+
+// 🌎 Project imports:
 
 @Singleton()
 class UtilityChangeNotifier extends ChangeNotifier {

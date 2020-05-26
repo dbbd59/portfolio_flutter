@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // 🌎 Project imports:
+import 'package:baseapp/model/news.dart';
+import 'package:baseapp/repository/utility/i_utility_repository.dart';
 import 'package:baseapp/bloc/news/news_bloc.dart';
-import 'package:baseapp/models/news.dart';
-import 'package:baseapp/repositories/utility/i_utility_repository.dart';
 import 'package:baseapp/injections.dart';
 import 'package:baseapp/ui/common/widgets/cards/card_horizontal/card_horizontal_md2.dart';
 

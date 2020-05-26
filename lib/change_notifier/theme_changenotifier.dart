@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/repositories/theme/i_theme_repository.dart';
+import 'package:baseapp/repository/theme/i_theme_repository.dart';
+
+// 🌎 Project imports:
 
 @Singleton()
 class ThemeChangeNotifier extends ChangeNotifier {

@@ -1,6 +1,4 @@
 // 🐦 Flutter imports:
-import 'package:baseapp/change_notifier/theme_changenotifier.dart';
-import 'package:baseapp/change_notifier/utility_changenotifier.dart';
 import 'package:flutter/material.dart';
 
 // 📦 Package imports:
@@ -10,10 +8,12 @@ import 'package:provider/provider.dart';
 import 'package:statsfl/statsfl.dart';
 
 // 🌎 Project imports:
+import 'package:baseapp/change_notifier/theme_changenotifier.dart';
+import 'package:baseapp/change_notifier/utility_changenotifier.dart';
+import 'package:baseapp/core/app_localizations.dart';
+import 'package:baseapp/helper/providers_helper.dart';
 import 'package:baseapp/injections.dart';
-import 'package:baseapp/shared/app_localizations.dart';
 import 'package:baseapp/bloc/auth/auth_bloc.dart';
-import 'package:baseapp/shared/providers_helper.dart';
 import 'package:baseapp/ui/main/responsive_page.dart';
 
 void main() async {

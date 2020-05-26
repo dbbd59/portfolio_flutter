@@ -9,9 +9,11 @@ import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/shared/exceptions.dart';
-import 'package:baseapp/shared/interceptor/dio_connectivity_request_retrier.dart';
-import 'package:baseapp/shared/interceptor/retry_interceptor.dart';
+import 'package:baseapp/core/exceptions.dart';
+import 'package:baseapp/core/interceptor/dio_connectivity_request_retrier.dart';
+import 'package:baseapp/core/interceptor/retry_interceptor.dart';
+
+// 🌎 Project imports:
 
 class HttpService {
   HttpService(

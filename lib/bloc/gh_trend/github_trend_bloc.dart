@@ -9,8 +9,10 @@ import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/models/github_trend.dart';
-import 'package:baseapp/services/api_service.dart';
+import 'package:baseapp/core/services/api_service.dart';
+import 'package:baseapp/model/github_trend.dart';
+
+// 🌎 Project imports:
 
 part 'github_trend_event.dart';
 part 'github_trend_state.dart';

@@ -3,7 +3,9 @@ import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/repositories/auth/i_auth_repository.dart';
+import 'package:baseapp/repository/auth/i_auth_repository.dart';
+
+// 🌎 Project imports:
 
 @Injectable(as: IAuthRepository)
 class AuthRepository implements IAuthRepository {

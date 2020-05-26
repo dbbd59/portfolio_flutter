@@ -44,12 +44,10 @@ flutter:
     - assets/images/chuck-norris-face.png
     - assets/images/chuck-norris.png
 
-    - config/prod.json
-    - config/dev.json
-
 flutter_icons:
   android: true 
   ios: true
   image_path: "assets/icon.png"
+  
 import_sorter:
   emojis: true

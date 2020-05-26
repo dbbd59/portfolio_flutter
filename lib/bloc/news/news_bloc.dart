@@ -7,8 +7,10 @@ import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/models/news.dart';
-import 'package:baseapp/services/api_service.dart';
+import 'package:baseapp/core/services/api_service.dart';
+import 'package:baseapp/model/news.dart';
+
+// 🌎 Project imports:
 
 part 'news_event.dart';
 part 'news_state.dart';

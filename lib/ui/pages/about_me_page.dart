@@ -3,7 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/repositories/utility/i_utility_repository.dart';
+import 'package:baseapp/repository/utility/i_utility_repository.dart';
 import 'package:baseapp/injections.dart';
 
 class AboutMePage extends StatelessWidget {

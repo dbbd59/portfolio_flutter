@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // 🌎 Project imports:
+import 'package:baseapp/model/github_trend.dart';
+import 'package:baseapp/repository/utility/i_utility_repository.dart';
 import 'package:baseapp/bloc/gh_trend/github_trend_bloc.dart';
-import 'package:baseapp/models/github_trend.dart';
-import 'package:baseapp/repositories/utility/i_utility_repository.dart';
 import 'package:baseapp/injections.dart';
 import 'package:baseapp/ui/common/widgets/cards/card_github_trend/card_github_trend.dart';
 import 'package:baseapp/ui/common/widgets/common/progress_indicator.dart';

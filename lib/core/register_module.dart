@@ -1,10 +1,12 @@
 // 📦 Package imports:
-import 'package:baseapp/services/api_service.dart';
-import 'package:baseapp/services/http_service.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+// 🌎 Project imports:
+import 'package:baseapp/core/services/api_service.dart';
+import 'package:baseapp/core/services/http_service.dart';
 
 @module
 abstract class RegisterModule {

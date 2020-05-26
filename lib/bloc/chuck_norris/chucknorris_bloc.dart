@@ -9,8 +9,10 @@ import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/models/chuck_norris_fact.dart';
-import 'package:baseapp/services/api_service.dart';
+import 'package:baseapp/core/services/api_service.dart';
+import 'package:baseapp/model/chuck_norris_fact.dart';
+
+// 🌎 Project imports:
 
 part 'chucknorris_event.dart';
 part 'chucknorris_state.dart';
