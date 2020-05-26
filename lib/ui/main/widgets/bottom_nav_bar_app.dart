@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // 🌎 Project imports:
 import 'package:baseapp/core/app_localizations.dart';
 import 'package:baseapp/bloc/bottomappbar/bottomappbar_bloc.dart';
-import 'package:baseapp/models/enums/navigation_page_enum.dart';
+import 'package:baseapp/model/enums/navigation_page_enum.dart';
 
 class BottomNavBarApp extends StatelessWidget {
   const BottomNavBarApp();

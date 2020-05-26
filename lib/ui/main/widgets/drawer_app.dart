@@ -9,7 +9,7 @@ import 'package:baseapp/change_notifier/theme_changenotifier.dart';
 import 'package:baseapp/change_notifier/utility_changenotifier.dart';
 import 'package:baseapp/core/app_localizations.dart';
 import 'package:baseapp/bloc/bottomappbar/bottomappbar_bloc.dart';
-import 'package:baseapp/models/enums/navigation_page_enum.dart';
+import 'package:baseapp/model/enums/navigation_page_enum.dart';
 import 'package:baseapp/injections.dart';
 import 'package:baseapp/ui/pages/about_me_page.dart';
 import 'package:baseapp/ui/pages/chuck_norris_page.dart';

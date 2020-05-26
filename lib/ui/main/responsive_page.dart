@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // 🌎 Project imports:
 import 'package:baseapp/core/app_localizations.dart';
-import 'package:baseapp/helpers/adaptive.dart';
+import 'package:baseapp/helper/adaptive.dart';
 import 'package:baseapp/ui/main/main_page.dart';
 import 'package:baseapp/ui/main/widgets/bottom_nav_bar_app.dart';
 import 'package:baseapp/ui/main/widgets/drawer_app.dart';
