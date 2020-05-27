@@ -25,6 +25,7 @@ dependencies:
   provider: ^4.0.5
   statsfl: ^0.1.0
   injectable: ^0.4.0
+  freezed_annotation: ^0.7.1
   
 dev_dependencies:
   flutter_test:
@@ -33,6 +34,7 @@ dev_dependencies:
   injectable_generator: ^0.4.0
   build_runner: ^1.10.0
   import_sorter: ^3.0.6
+  freezed: ^0.10.9
 
 flutter:
   uses-material-design: true

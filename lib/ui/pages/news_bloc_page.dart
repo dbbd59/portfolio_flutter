@@ -20,7 +20,7 @@ class NewsPage extends StatelessWidget {
     return BlocProvider<NewsBloc>(
       create: (context) => getIt<NewsBloc>()
         ..add(
-          FetchNews(),
+          NewsEvent.fetchNews(),
         ),
       child: NewsBody(),
     );
@@ -34,46 +34,38 @@ class NewsBody extends StatelessWidget {
       child: BlocBuilder(
         bloc: BlocProvider.of<NewsBloc>(context),
         builder: (_, NewsState state) {
-          if (state is NewsEmpty) {
-            return Container();
-          }
-          if (state is NewsLoading) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          if (state is NewsLoaded) {
-            News news = state.news;
-            return LayoutBuilder(
+          return state.map(
+            empty: (_) => Container(),
+            loaded: (state) => LayoutBuilder(
               builder: (context, constraints) {
                 if (constraints.maxWidth > 600 && constraints.maxWidth <= 750)
                   return buildGridView(
                     gridNumber: 2,
-                    news: news,
+                    news: state.news,
                   );
                 if (constraints.maxWidth >= 750 && constraints.maxWidth < 1100)
                   return buildGridView(
                     gridNumber: 3,
-                    news: news,
+                    news: state.news,
                   );
                 if (constraints.maxWidth >= 1100)
                   return buildGridView(
                     gridNumber: 4,
-                    news: news,
+                    news: state.news,
                   );
                 return buildListView(
-                  news: news,
+                  news: state.news,
                 );
               },
-            );
-          }
-          if (state is NewsError) {
-            return Text(
+            ),
+            loading: (_) => Center(
+              child: CircularProgressIndicator(),
+            ),
+            error: (_) => Text(
               'Something went wrong!',
               style: TextStyle(color: Colors.red),
-            );
-          }
-          return Container();
+            ),
+          );
         },
       ),
     );
@@ -86,7 +78,8 @@ class NewsBody extends StatelessWidget {
         return CardMaterialDesign2(
           vertical: true,
           onTap: () {
-            getIt<IUtilityRepository>().launchURL(url: news.articles[index].url);
+            getIt<IUtilityRepository>()
+                .launchURL(url: news.articles[index].url);
           },
           title: news.articles[index].title,
           imageNetwork: news.articles[index].urlToImage,

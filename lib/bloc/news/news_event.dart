@@ -1,10 +1,7 @@
-
 part of 'news_bloc.dart';
 
-
-@immutable
-abstract class NewsEvent {
-  const NewsEvent();
+@freezed
+abstract class NewsEvent with _$NewsEvent {
+  const factory NewsEvent.fetchNews() = FetchNews;
+  const factory NewsEvent.reset() = FetchReset;
 }
-
-class FetchNews extends NewsEvent {}
