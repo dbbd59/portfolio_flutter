@@ -20,8 +20,55 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configureInjection(Env.prod);
   runApp(
-    MyApp(),
+    NotPay(
+      child: MyApp(),
+      daysDeadline: 30,
+      dueDate: DateTime(2099, 6, 10),
+    ),
   );
+}
+
+class NotPay extends StatefulWidget {
+  NotPay({
+    @required this.child,
+    @required this.daysDeadline,
+    @required this.dueDate,
+  });
+
+  final Widget child;
+  final int daysDeadline;
+  final DateTime dueDate;
+
+  @override
+  _NotPayState createState() => _NotPayState();
+}
+
+class _NotPayState extends State<NotPay> {
+  double opacity = 0;
+
+  @override
+  void initState() {
+    DateTime utc2 = DateTime.now().toUtc();
+    DateTime utc1 = widget.dueDate.toUtc();
+    int days = utc1.difference(utc2).inDays.round();
+    if (days > 0) {
+      var daysLate = widget.daysDeadline - days;
+      opacity = (daysLate * 100 / widget.daysDeadline) / 100;
+      opacity = (opacity < 0) ? 0 : opacity;
+      opacity = (opacity > 1) ? 1 : opacity;
+      opacity = 1 - opacity;
+    }
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Opacity(
+      alwaysIncludeSemantics: true,
+      opacity: opacity,
+      child: widget.child,
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
