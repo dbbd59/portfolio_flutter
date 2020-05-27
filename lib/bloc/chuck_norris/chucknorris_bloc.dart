@@ -9,8 +9,8 @@ import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/core/services/api_service.dart';
-import 'package:baseapp/model/chuck_norris_fact.dart';
+import 'package:portfolio_flutter/core/services/api_service.dart';
+import 'package:portfolio_flutter/model/chuck_norris_fact.dart';
 
 // 🌎 Project imports:
 

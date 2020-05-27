@@ -5,8 +5,8 @@ import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/core/services/api_service.dart';
-import 'package:baseapp/core/services/http_service.dart';
+import 'package:portfolio_flutter/core/services/api_service.dart';
+import 'package:portfolio_flutter/core/services/http_service.dart';
 
 @module
 abstract class RegisterModule {

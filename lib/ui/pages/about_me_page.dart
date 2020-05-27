@@ -3,20 +3,26 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/repository/utility/i_utility_repository.dart';
-import 'package:baseapp/injections.dart';
+import 'package:portfolio_flutter/repository/utility/i_utility_repository.dart';
+import 'package:portfolio_flutter/injections.dart';
 
 class AboutMePage extends StatelessWidget {
   final List<Map<String, dynamic>> jobsList = [
     {
-      "date": "mag 19 - now",
+      "date": "jan 20 - jun 20",
+      "company": "MCSI",
+      "jobTitle": "Software Developer",
+      "descr": "",
+    },
+    {
+      "date": "apr 19 - nov 19",
       "company": "Wher",
       "jobTitle": "Mobile Developer",
       "descr":
           "Head of App development for iOS and Android with Flutter. Use of Agile methodology. App published on stores and used by 25,000 users. Cooperation with the UX/UI and Marketing Team",
     },
     {
-      "date": "feb 18 - may 19",
+      "date": "jan 18 - apr 19",
       "company": "BlueIt spa",
       "link": "https://www.blueit.it/en/",
       "linkDisplay": "BlueIT.com",

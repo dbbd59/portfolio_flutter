@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/repository/utility/i_utility_repository.dart';
+import 'package:portfolio_flutter/repository/utility/i_utility_repository.dart';
 
 // 🌎 Project imports:
 

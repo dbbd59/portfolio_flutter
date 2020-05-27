@@ -8,13 +8,13 @@ import 'package:provider/provider.dart';
 import 'package:statsfl/statsfl.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/change_notifier/theme_changenotifier.dart';
-import 'package:baseapp/change_notifier/utility_changenotifier.dart';
-import 'package:baseapp/core/app_localizations.dart';
-import 'package:baseapp/helper/providers_helper.dart';
-import 'package:baseapp/injections.dart';
-import 'package:baseapp/bloc/auth/auth_bloc.dart';
-import 'package:baseapp/ui/main/responsive_page.dart';
+import 'package:portfolio_flutter/change_notifier/theme_changenotifier.dart';
+import 'package:portfolio_flutter/change_notifier/utility_changenotifier.dart';
+import 'package:portfolio_flutter/core/app_localizations.dart';
+import 'package:portfolio_flutter/helper/providers_helper.dart';
+import 'package:portfolio_flutter/injections.dart';
+import 'package:portfolio_flutter/bloc/auth/auth_bloc.dart';
+import 'package:portfolio_flutter/ui/main/responsive_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,9 +48,6 @@ class AppWidget extends StatelessWidget {
       builder: (context, theme, child) {
         return MaterialApp(
           builder: (context, child) {
-            print(getIt<ThemeChangeNotifier>().pippo);
-            print(theme.pippo);
-
             return MediaQuery(
               child: child,
               data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
@@ -58,7 +55,7 @@ class AppWidget extends StatelessWidget {
           },
           theme: getIt<ThemeChangeNotifier>().lightTheme(context),
           darkTheme: getIt<ThemeChangeNotifier>().darkTheme(context),
-          themeMode: getIt<ThemeChangeNotifier>().pippo
+          themeMode: getIt<ThemeChangeNotifier>().isDark
               ? ThemeMode.dark
               : ThemeMode.light,
           supportedLocales: [

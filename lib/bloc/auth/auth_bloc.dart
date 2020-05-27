@@ -8,7 +8,7 @@ import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/injections.dart';
+import 'package:portfolio_flutter/injections.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';

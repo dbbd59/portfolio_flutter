@@ -10,7 +10,7 @@ import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/model/enums/navigation_page_enum.dart';
+import 'package:portfolio_flutter/model/enums/navigation_page_enum.dart';
 
 part 'bottomappbar_event.dart';
 part 'bottomappbar_state.dart';

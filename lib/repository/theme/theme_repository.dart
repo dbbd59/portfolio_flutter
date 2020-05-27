@@ -7,7 +7,7 @@ import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/repository/theme/i_theme_repository.dart';
+import 'package:portfolio_flutter/repository/theme/i_theme_repository.dart';
 
 @Injectable(as: IThemeRepository)
 class ThemeRepository implements IThemeRepository {
@@ -24,7 +24,7 @@ class ThemeRepository implements IThemeRepository {
   @override
   ThemeData buildThemeDataDark(BuildContext context) {
     return ThemeData(
-      textTheme: GoogleFonts.latoTextTheme(
+      textTheme: GoogleFonts.montserratTextTheme(
         ThemeData(brightness: Brightness.dark).textTheme,
       ),
       pageTransitionsTheme: const PageTransitionsTheme(
@@ -41,7 +41,7 @@ class ThemeRepository implements IThemeRepository {
   @override
   ThemeData buildThemeDataLight(BuildContext context) {
     return ThemeData(
-      textTheme: GoogleFonts.latoTextTheme(
+      textTheme: GoogleFonts.montserratTextTheme(
         ThemeData(brightness: Brightness.light).textTheme,
       ),
       pageTransitionsTheme: const PageTransitionsTheme(

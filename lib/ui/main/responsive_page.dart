@@ -2,11 +2,11 @@
 import 'package:flutter/material.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/core/app_localizations.dart';
-import 'package:baseapp/helper/adaptive.dart';
-import 'package:baseapp/ui/main/main_page.dart';
-import 'package:baseapp/ui/main/widgets/bottom_nav_bar_app.dart';
-import 'package:baseapp/ui/main/widgets/drawer_app.dart';
+import 'package:portfolio_flutter/core/app_localizations.dart';
+import 'package:portfolio_flutter/helper/adaptive.dart';
+import 'package:portfolio_flutter/ui/main/main_page.dart';
+import 'package:portfolio_flutter/ui/main/widgets/bottom_nav_bar_app.dart';
+import 'package:portfolio_flutter/ui/main/widgets/drawer_app.dart';
 
 class ResponsivePage extends StatefulWidget {
   @override

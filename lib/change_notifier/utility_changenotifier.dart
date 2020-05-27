@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/repository/utility/i_utility_repository.dart';
+import 'package:portfolio_flutter/repository/utility/i_utility_repository.dart';
 
 // 🌎 Project imports:
 

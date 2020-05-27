@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/model/news.dart';
-import 'package:baseapp/repository/utility/i_utility_repository.dart';
-import 'package:baseapp/bloc/news/news_bloc.dart';
-import 'package:baseapp/injections.dart';
-import 'package:baseapp/ui/common/widgets/cards/card_horizontal/card_horizontal_md2.dart';
+import 'package:portfolio_flutter/model/news.dart';
+import 'package:portfolio_flutter/repository/utility/i_utility_repository.dart';
+import 'package:portfolio_flutter/bloc/news/news_bloc.dart';
+import 'package:portfolio_flutter/injections.dart';
+import 'package:portfolio_flutter/ui/common/widgets/cards/card_horizontal/card_horizontal_md2.dart';
 
 class NewsPage extends StatelessWidget {
   const NewsPage({

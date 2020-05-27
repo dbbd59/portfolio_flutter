@@ -4,12 +4,12 @@ import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/change_notifier/theme_changenotifier.dart';
-import 'package:baseapp/change_notifier/utility_changenotifier.dart';
-import 'package:baseapp/bloc/auth/auth_bloc.dart';
-import 'package:baseapp/bloc/bottomappbar/bottomappbar_bloc.dart';
-import 'package:baseapp/bloc/dialog/dialog_bloc.dart';
-import 'package:baseapp/injections.dart';
+import 'package:portfolio_flutter/change_notifier/theme_changenotifier.dart';
+import 'package:portfolio_flutter/change_notifier/utility_changenotifier.dart';
+import 'package:portfolio_flutter/bloc/auth/auth_bloc.dart';
+import 'package:portfolio_flutter/bloc/bottomappbar/bottomappbar_bloc.dart';
+import 'package:portfolio_flutter/bloc/dialog/dialog_bloc.dart';
+import 'package:portfolio_flutter/injections.dart';
 
 var blocProviders = [
   BlocProvider<AuthBloc>(

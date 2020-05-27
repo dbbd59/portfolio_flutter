@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:dio/dio.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/core/interceptor/dio_connectivity_request_retrier.dart';
+import 'package:portfolio_flutter/core/interceptor/dio_connectivity_request_retrier.dart';
 
 // 🌎 Project imports:
 

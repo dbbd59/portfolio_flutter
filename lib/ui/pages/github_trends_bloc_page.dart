@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/model/github_trend.dart';
-import 'package:baseapp/repository/utility/i_utility_repository.dart';
-import 'package:baseapp/bloc/gh_trend/github_trend_bloc.dart';
-import 'package:baseapp/injections.dart';
-import 'package:baseapp/ui/common/widgets/cards/card_github_trend/card_github_trend.dart';
-import 'package:baseapp/ui/common/widgets/common/progress_indicator.dart';
+import 'package:portfolio_flutter/model/github_trend.dart';
+import 'package:portfolio_flutter/repository/utility/i_utility_repository.dart';
+import 'package:portfolio_flutter/bloc/gh_trend/github_trend_bloc.dart';
+import 'package:portfolio_flutter/injections.dart';
+import 'package:portfolio_flutter/ui/common/widgets/cards/card_github_trend/card_github_trend.dart';
+import 'package:portfolio_flutter/ui/common/widgets/common/progress_indicator.dart';
 
 class GitHubTrendsPage extends StatelessWidget {
   const GitHubTrendsPage({

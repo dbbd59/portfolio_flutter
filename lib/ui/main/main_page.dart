@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/bloc/bottomappbar/bottomappbar_bloc.dart';
-import 'package:baseapp/bloc/dialog/dialog_bloc.dart';
-import 'package:baseapp/ui/common/alert.dart';
-import 'package:baseapp/ui/pages/github_trends_bloc_page.dart';
-import 'package:baseapp/ui/pages/news_bloc_page.dart';
-import 'package:baseapp/ui/pages/welcome_page.dart';
+import 'package:portfolio_flutter/bloc/bottomappbar/bottomappbar_bloc.dart';
+import 'package:portfolio_flutter/bloc/dialog/dialog_bloc.dart';
+import 'package:portfolio_flutter/ui/common/alert.dart';
+import 'package:portfolio_flutter/ui/pages/github_trends_bloc_page.dart';
+import 'package:portfolio_flutter/ui/pages/news_bloc_page.dart';
+import 'package:portfolio_flutter/ui/pages/welcome_page.dart';
 
 class MainPage extends StatelessWidget {
   final List<Widget> _children = [

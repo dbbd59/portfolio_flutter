@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/change_notifier/theme_changenotifier.dart';
-import 'package:baseapp/change_notifier/utility_changenotifier.dart';
-import 'package:baseapp/core/app_localizations.dart';
-import 'package:baseapp/bloc/bottomappbar/bottomappbar_bloc.dart';
-import 'package:baseapp/model/enums/navigation_page_enum.dart';
-import 'package:baseapp/injections.dart';
-import 'package:baseapp/ui/pages/about_me_page.dart';
-import 'package:baseapp/ui/pages/chuck_norris_page.dart';
+import 'package:portfolio_flutter/change_notifier/theme_changenotifier.dart';
+import 'package:portfolio_flutter/change_notifier/utility_changenotifier.dart';
+import 'package:portfolio_flutter/core/app_localizations.dart';
+import 'package:portfolio_flutter/bloc/bottomappbar/bottomappbar_bloc.dart';
+import 'package:portfolio_flutter/model/enums/navigation_page_enum.dart';
+import 'package:portfolio_flutter/injections.dart';
+import 'package:portfolio_flutter/ui/pages/about_me_page.dart';
+import 'package:portfolio_flutter/ui/pages/chuck_norris_page.dart';
 
 class DrawerApp extends StatefulWidget {
   @override
@@ -110,14 +110,14 @@ class _DrawerAppState extends State<DrawerApp> {
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: SwitchListTile(
-                value: getIt<ThemeChangeNotifier>().pippo,
+                value: getIt<ThemeChangeNotifier>().isDark,
                 onChanged: (bool value) {
                   setState(() {
-                    getIt<ThemeChangeNotifier>().pippo = value;
+                    getIt<ThemeChangeNotifier>().isDark = value;
                   });
                 },
                 secondary: Icon(
-                  getIt<ThemeChangeNotifier>().pippo
+                  getIt<ThemeChangeNotifier>().isDark
                       ? Icons.brightness_7
                       : Icons.brightness_2,
                 ),

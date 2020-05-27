@@ -9,9 +9,9 @@ import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/core/exceptions.dart';
-import 'package:baseapp/core/interceptor/dio_connectivity_request_retrier.dart';
-import 'package:baseapp/core/interceptor/retry_interceptor.dart';
+import 'package:portfolio_flutter/core/exceptions.dart';
+import 'package:portfolio_flutter/core/interceptor/dio_connectivity_request_retrier.dart';
+import 'package:portfolio_flutter/core/interceptor/retry_interceptor.dart';
 
 // 🌎 Project imports:
 

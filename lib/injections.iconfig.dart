@@ -11,24 +11,24 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:get_it/get_it.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/core/interceptor/dio_connectivity_request_retrier.dart';
-import 'package:baseapp/core/register_module.dart';
-import 'package:baseapp/core/services/api_service.dart';
-import 'package:baseapp/bloc/auth/auth_bloc.dart';
-import 'package:baseapp/bloc/bottomappbar/bottomappbar_bloc.dart';
-import 'package:baseapp/bloc/chuck_norris/chucknorris_bloc.dart';
-import 'package:baseapp/core/services/http_service.dart';
-import 'package:baseapp/repository/auth/auth_repository.dart';
-import 'package:baseapp/repository/auth/i_auth_repository.dart';
-import 'package:baseapp/repository/theme/theme_repository.dart';
-import 'package:baseapp/repository/utility/i_utility_repository.dart';
-import 'package:baseapp/repository/utility/utility_repository.dart';
-import 'package:baseapp/bloc/dialog/dialog_bloc.dart';
-import 'package:baseapp/bloc/gh_trend/github_trend_bloc.dart';
-import 'package:baseapp/bloc/news/news_bloc.dart';
-import 'package:baseapp/repository/theme/i_theme_repository.dart';
-import 'package:baseapp/change_notifier/theme_changenotifier.dart';
-import 'package:baseapp/change_notifier/utility_changenotifier.dart';
+import 'package:portfolio_flutter/core/interceptor/dio_connectivity_request_retrier.dart';
+import 'package:portfolio_flutter/core/register_module.dart';
+import 'package:portfolio_flutter/core/services/api_service.dart';
+import 'package:portfolio_flutter/bloc/auth/auth_bloc.dart';
+import 'package:portfolio_flutter/bloc/bottomappbar/bottomappbar_bloc.dart';
+import 'package:portfolio_flutter/bloc/chuck_norris/chucknorris_bloc.dart';
+import 'package:portfolio_flutter/core/services/http_service.dart';
+import 'package:portfolio_flutter/repository/auth/auth_repository.dart';
+import 'package:portfolio_flutter/repository/auth/i_auth_repository.dart';
+import 'package:portfolio_flutter/repository/theme/theme_repository.dart';
+import 'package:portfolio_flutter/repository/utility/i_utility_repository.dart';
+import 'package:portfolio_flutter/repository/utility/utility_repository.dart';
+import 'package:portfolio_flutter/bloc/dialog/dialog_bloc.dart';
+import 'package:portfolio_flutter/bloc/gh_trend/github_trend_bloc.dart';
+import 'package:portfolio_flutter/bloc/news/news_bloc.dart';
+import 'package:portfolio_flutter/repository/theme/i_theme_repository.dart';
+import 'package:portfolio_flutter/change_notifier/theme_changenotifier.dart';
+import 'package:portfolio_flutter/change_notifier/utility_changenotifier.dart';
 
 Future<void> $initGetIt(GetIt g, {String environment}) async {
   final registerModule = _$RegisterModule();

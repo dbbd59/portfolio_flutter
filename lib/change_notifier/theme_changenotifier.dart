@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/repository/theme/i_theme_repository.dart';
+import 'package:portfolio_flutter/repository/theme/i_theme_repository.dart';
 
 // 🌎 Project imports:
 
@@ -16,12 +16,12 @@ class ThemeChangeNotifier extends ChangeNotifier {
 
   ThemeChangeNotifier(this._themeRepository);
 
-  set pippo(bool value) {
+  set isDark(bool value) {
     _themeRepository.isDark = value;
     notifyListeners();
   }
 
-  bool get pippo {
+  bool get isDark {
     return _themeRepository.isDark;
   }
 

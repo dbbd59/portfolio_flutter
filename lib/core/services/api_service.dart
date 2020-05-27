@@ -5,10 +5,10 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/core/services/http_service.dart';
-import 'package:baseapp/model/chuck_norris_fact.dart';
-import 'package:baseapp/model/github_trend.dart';
-import 'package:baseapp/model/news.dart';
+import 'package:portfolio_flutter/core/services/http_service.dart';
+import 'package:portfolio_flutter/model/chuck_norris_fact.dart';
+import 'package:portfolio_flutter/model/github_trend.dart';
+import 'package:portfolio_flutter/model/news.dart';
 
 class ApiService {
   ApiService(this._httpService);

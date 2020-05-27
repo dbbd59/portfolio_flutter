@@ -7,8 +7,8 @@ import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 // 🌎 Project imports:
-import 'package:baseapp/core/services/api_service.dart';
-import 'package:baseapp/model/news.dart';
+import 'package:portfolio_flutter/core/services/api_service.dart';
+import 'package:portfolio_flutter/model/news.dart';
 
 // 🌎 Project imports:
 
