@@ -43,8 +43,6 @@ flutter:
     - lang/it.json 
 
     - assets/images/profile.png
-    - assets/images/chuck-norris-face.png
-    - assets/images/chuck-norris.png
 
 flutter_icons:
   android: true 

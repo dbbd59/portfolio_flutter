@@ -1,9 +1,7 @@
 part of 'github_trend_bloc.dart';
 
-@immutable
-abstract class GithubTrendEvent  {
- const GithubTrendEvent();
-}
-
-class FetchGitHubTrends extends GithubTrendEvent {
+@freezed
+abstract class GithubTrendEvent with _$GithubTrendEvent {
+  const factory GithubTrendEvent.fetchTrends() = GithubTrendEventFetchTrends;
+  const factory GithubTrendEvent.reset() = GithubTrendEventReset;
 }

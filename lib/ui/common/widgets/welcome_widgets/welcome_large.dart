@@ -16,12 +16,18 @@ class WelcomeLarge extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Expanded(
-                child: Align(
-                  alignment: Alignment.center,
-                  child: CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        "https://avatars3.githubusercontent.com/u/16138584?s=460&v=4"),
-                    radius: MediaQuery.of(context).size.width * 0.20,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: AspectRatio(
+                      aspectRatio: 1.0,
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            "https://avatars3.githubusercontent.com/u/16138584?s=460&v=4"),
+                        radius: MediaQuery.of(context).size.width * 0.10,
+                      ),
+                    ),
                   ),
                 ),
               ),

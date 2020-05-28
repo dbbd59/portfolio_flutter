@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio_flutter/bloc/bottomappbar/bottomappbar_bloc.dart';
 import 'package:portfolio_flutter/bloc/dialog/dialog_bloc.dart';
 import 'package:portfolio_flutter/ui/common/alert.dart';
+import 'package:portfolio_flutter/ui/pages/about_me_page.dart';
 import 'package:portfolio_flutter/ui/pages/github_trends_bloc_page.dart';
 import 'package:portfolio_flutter/ui/pages/news_bloc_page.dart';
 import 'package:portfolio_flutter/ui/pages/welcome_page.dart';
@@ -17,6 +18,7 @@ class MainPage extends StatelessWidget {
     WelcomePage(),
     GitHubTrendsPage(),
     NewsPage(),
+    AboutMePage(),
   ];
   @override
   Widget build(BuildContext context) {

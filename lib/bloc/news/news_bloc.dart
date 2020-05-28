@@ -10,8 +10,6 @@ import 'package:injectable/injectable.dart';
 import 'package:portfolio_flutter/core/services/api_service.dart';
 import 'package:portfolio_flutter/model/news.dart';
 
-// 🌎 Project imports:
-
 part 'news_event.dart';
 part 'news_state.dart';
 part 'news_bloc.freezed.dart';
@@ -28,9 +26,13 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
   ) async* {
     yield* event.map(
       fetchNews: (e) async* {
-        yield NewsState.loading();
-        final News news = await _apiService.fetchNews();
-        yield NewsState.loaded(news);
+        try {
+          yield NewsState.loading();
+          final News news = await _apiService.fetchNews();
+          yield NewsState.loaded(news);
+        } catch (_) {
+          yield NewsState.error();
+        }
       },
       reset: (e) async* {},
     );

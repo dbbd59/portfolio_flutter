@@ -77,9 +77,6 @@ class AboutMePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-      ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[

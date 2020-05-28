@@ -6,7 +6,6 @@ import 'package:dio/dio.dart';
 
 // 🌎 Project imports:
 import 'package:portfolio_flutter/core/services/http_service.dart';
-import 'package:portfolio_flutter/model/chuck_norris_fact.dart';
 import 'package:portfolio_flutter/model/github_trend.dart';
 import 'package:portfolio_flutter/model/news.dart';
 
@@ -25,17 +24,6 @@ class ApiService {
     if (response.statusCode == 200) {
       var jsonResponse = response.data;
       return News.fromJson(jsonResponse);
-    } else {
-      return null;
-    }
-  }
-
-  Future<ChuckNorrisFact> fetchChuckNorrisFact() async {
-    Response response = await _httpService.httpServiceGet(
-      endpoint: "https://api.chucknorris.io/jokes/random",
-    );
-    if (response.statusCode == 200) {
-      return ChuckNorrisFact.fromMap(response.data);
     } else {
       return null;
     }

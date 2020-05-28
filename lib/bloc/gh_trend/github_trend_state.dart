@@ -1,19 +1,10 @@
 part of 'github_trend_bloc.dart';
 
-@immutable
-abstract class GithubTrendState {
-  const GithubTrendState();
+@freezed
+abstract class GithubTrendState with _$GithubTrendState {
+  const factory GithubTrendState.empty() = GithubTrendEmpty;
+  const factory GithubTrendState.loaded(List<GitHubTrend> gitHubTrends) =
+      GithubTrendLoaded;
+  const factory GithubTrendState.loading() = GithubTrendLoading;
+  const factory GithubTrendState.error() = GithubTrendError;
 }
-
-class GithubTrendEmpty extends GithubTrendState {}
-
-class GithubTrendLoading extends GithubTrendState {}
-
-class GithubTrendLoaded extends GithubTrendState {
-  GithubTrendLoaded({@required this.listGitHubTrends})
-      : assert(listGitHubTrends != null);
-
-  final List<GitHubTrend> listGitHubTrends;
-}
-
-class GithubTrendError extends GithubTrendState {}

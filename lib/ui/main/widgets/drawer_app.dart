@@ -11,8 +11,6 @@ import 'package:portfolio_flutter/core/app_localizations.dart';
 import 'package:portfolio_flutter/bloc/bottomappbar/bottomappbar_bloc.dart';
 import 'package:portfolio_flutter/model/enums/navigation_page_enum.dart';
 import 'package:portfolio_flutter/injections.dart';
-import 'package:portfolio_flutter/ui/pages/about_me_page.dart';
-import 'package:portfolio_flutter/ui/pages/chuck_norris_page.dart';
 
 class DrawerApp extends StatefulWidget {
   @override
@@ -48,20 +46,6 @@ class _DrawerAppState extends State<DrawerApp> {
                   children: <Widget>[
                     DrawerAppListItem(
                       label: AppLocalizations.of(context)
-                          .translate('bottom_nav_bar_fifth'),
-                      icon: Icons.person,
-                      route: NavigationPageEnum.ABOUTME,
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => AboutMePage(),
-                          ),
-                        );
-                      },
-                    ),
-                    DrawerAppListItem(
-                      label: AppLocalizations.of(context)
                           .translate('bottom_nav_bar_second'),
                       icon: Icons.star,
                       route: NavigationPageEnum.GITHUBTRENDS,
@@ -90,14 +74,14 @@ class _DrawerAppState extends State<DrawerApp> {
                     ),
                     DrawerAppListItem(
                       label: AppLocalizations.of(context)
-                          .translate('bottom_nav_bar_fourth'),
-                      icon: Icons.group_work,
-                      route: NavigationPageEnum.CHUCKNORRIS,
+                          .translate('bottom_nav_bar_fifth'),
+                      icon: Icons.person,
+                      route: NavigationPageEnum.ABOUTME,
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ChuckNorrisPage(),
+                        Navigator.maybePop(context);
+                        BlocProvider.of<BottomAppBarBloc>(context).add(
+                          BottomAppBarEventPageChanged(
+                            selectedPage: NavigationPageEnum.ABOUTME,
                           ),
                         );
                       },

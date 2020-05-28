@@ -15,7 +15,6 @@ import 'package:portfolio_flutter/ui/common/widgets/common/progress_indicator.da
 class GitHubTrendsPage extends StatelessWidget {
   const GitHubTrendsPage({
     Key key,
- 
   }) : super(key: key);
 
   @override
@@ -23,7 +22,7 @@ class GitHubTrendsPage extends StatelessWidget {
     return BlocProvider<GithubTrendBloc>(
       create: (context) => getIt<GithubTrendBloc>()
         ..add(
-          FetchGitHubTrends(),
+          GithubTrendEvent.fetchTrends(),
         ),
       child: GitHubTrendsBody(),
     );
@@ -37,26 +36,22 @@ class GitHubTrendsBody extends StatelessWidget {
       child: BlocBuilder(
         bloc: BlocProvider.of<GithubTrendBloc>(context),
         builder: (_, GithubTrendState state) {
-          if (state is GithubTrendLoaded) {
-            return LayoutBuilder(
+          return state.map(
+            empty: (_) => Container(),
+            loaded: (state) => LayoutBuilder(
               builder: (context, constraints) {
                 if (constraints.maxWidth >= 750 && constraints.maxWidth < 1100)
                   return buildGridView(
-                      gridNumber: 2, listGitHubTrends: state.listGitHubTrends);
+                      gridNumber: 2, listGitHubTrends: state.gitHubTrends);
                 if (constraints.maxWidth >= 1100)
                   return buildGridView(
-                      gridNumber: 3, listGitHubTrends: state.listGitHubTrends);
-                return buildListView(listGitHubTrends: state.listGitHubTrends);
+                      gridNumber: 3, listGitHubTrends: state.gitHubTrends);
+                return buildListView(listGitHubTrends: state.gitHubTrends);
               },
-            );
-          }
-          if (state is GithubTrendLoading) {
-            return ProgressIndicatorCustom();
-          }
-          if (state is GithubTrendError) {
-            return ProgressIndicatorCustom();
-          }
-          return Container();
+            ),
+            loading: (_) => ProgressIndicatorCustom(),
+            error: (_) => ProgressIndicatorCustom(),
+          );
         },
       ),
     );

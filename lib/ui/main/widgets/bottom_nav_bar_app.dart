@@ -29,6 +29,9 @@ class BottomNavBarApp extends StatelessWidget {
               case 2:
                 navigationPageEnum = NavigationPageEnum.NEWS;
                 break;
+              case 3:
+                navigationPageEnum = NavigationPageEnum.ABOUTME;
+                break;
               default:
             }
             BlocProvider.of<BottomAppBarBloc>(context).add(
@@ -59,6 +62,12 @@ class BottomNavBarApp extends StatelessWidget {
               icon: Icon(Icons.flare),
               title: Text(
                 AppLocalizations.of(context).translate('bottom_nav_bar_third'),
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              title: Text(
+                AppLocalizations.of(context).translate('bottom_nav_bar_fifth'),
               ),
             ),
           ],
