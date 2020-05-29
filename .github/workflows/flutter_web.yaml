@@ -1,11 +1,11 @@
-name: Build and Release Web
+name: [WEB] Build and Release
 on:
     push:
       tags:
       - '*'
 jobs:
   build:
-    name: Build Web
+    name: Build Web and Deploy
     env:
       my_secret: ${{secrets.commit_secret}}
     runs-on: ubuntu-latest
@@ -14,6 +14,8 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           channel: 'dev'
+      - run: flutter channel master
+      - run: flutter upgrade
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web --release
@@ -23,7 +25,7 @@ jobs:
           git config --global user.email davide.bolzoni59@gmail.com
           git config --global user.name dbbd59
           git status
-          git remote add origin https://${{secrets.TOKEN}}@github.com/dbbd59/portfolio_flutter_multiplatform.git
+          git remote add origin https://${{secrets.TOKEN}}@github.com/dbbd59/portfolio_flutter.git
           git checkout -b gh-pages
           echo "davidebolzoni.com" >> CNAME
           git add --all

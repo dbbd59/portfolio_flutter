@@ -1,4 +1,4 @@
-name: Build and Release apk
+name: [ANDROID] Build and Release
 on:
     push:
       tags:
@@ -14,10 +14,12 @@ jobs:
         java-version: '12.x'
     - uses: subosito/flutter-action@v1
       with:
-        channel: 'stable'
+        channel: 'dev'
+    - run: flutter channel master
+    - run: flutter upgrade
     - run: flutter pub get
     - run: flutter build apk --release --split-per-abi
-    - name: Create a Release APK
+    - name: Release APK
       uses: ncipollo/release-action@v1
       with:
         artifacts: "build/app/outputs/apk/release/*.apk"
