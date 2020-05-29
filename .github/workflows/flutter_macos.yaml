@@ -21,3 +21,8 @@ jobs:
     - run: flutter create .
     - run: flutter pub get
     - run: flutter build macos
+    - name: Release MacOS
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "build/macos/Build/Products/Release/*.app"
+        token: ${{ secrets.TOKEN }}
