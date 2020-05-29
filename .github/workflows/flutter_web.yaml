@@ -1,4 +1,4 @@
-name: [WEB] Build and Release
+name: -WEB- Build and Release
 on:
     push:
       tags:

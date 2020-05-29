@@ -1,4 +1,4 @@
-name: [ANDROID] Build and Release
+name: -ANDROID- Build and Release
 on:
     push:
       tags:
