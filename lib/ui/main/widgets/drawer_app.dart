@@ -11,6 +11,7 @@ import 'package:portfolio_flutter/core/app_localizations.dart';
 import 'package:portfolio_flutter/bloc/bottomappbar/bottomappbar_bloc.dart';
 import 'package:portfolio_flutter/model/enums/navigation_page_enum.dart';
 import 'package:portfolio_flutter/injections.dart';
+import 'package:portfolio_flutter/ui/pages/settings_page.dart';
 
 class DrawerApp extends StatefulWidget {
   @override
@@ -91,51 +92,19 @@ class _DrawerAppState extends State<DrawerApp> {
               ),
             ),
             Divider(),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: SwitchListTile(
-                value: getIt<ThemeChangeNotifier>().isDark,
-                onChanged: (bool value) {
-                  setState(() {
-                    getIt<ThemeChangeNotifier>().isDark = value;
-                  });
-                },
-                secondary: Icon(
-                  getIt<ThemeChangeNotifier>().isDark
-                      ? Icons.brightness_7
-                      : Icons.brightness_2,
-                ),
-              ),
+            DrawerAppListItem(
+              label: "Settings",
+              icon: Icons.settings,
+              //route: NavigationPageEnum.ABOUTME,
+              onPressed: () {
+                Navigator.maybePop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SettingsPage()),
+                );
+              },
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: SwitchListTile(
-                value: getIt<UtilityChangeNotifier>().showFps,
-                onChanged: (bool value) {
-                  setState(() {
-                    getIt<UtilityChangeNotifier>().showFps = value;
-                  });
-                },
-                secondary: Text("Show FPS"),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 8.0, right: 8.0),
-              height: 48,
-              child: Container(
-                margin: EdgeInsets.symmetric(
-                  vertical: 2.0,
-                ),
-                child: Row(
-                  children: <Widget>[
-                    SizedBox(
-                      width: 16.0,
-                    ),
-                    Text("V1.9.0")
-                  ],
-                ),
-              ),
-            ),
+           
           ],
         ),
       ),
