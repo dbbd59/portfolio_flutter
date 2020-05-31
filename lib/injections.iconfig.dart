@@ -16,6 +16,7 @@ import 'package:portfolio_flutter/bloc/gh_trend/github_trend_bloc.dart';
 import 'package:portfolio_flutter/core/services/http_service.dart';
 import 'package:portfolio_flutter/bloc/news/news_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:portfolio_flutter/bloc/about_me/aboutme_bloc.dart';
 import 'package:portfolio_flutter/repository/auth/auth_repository.dart';
 import 'package:portfolio_flutter/repository/auth/i_auth_repository.dart';
 import 'package:portfolio_flutter/repository/theme/theme_repository.dart';
@@ -32,6 +33,7 @@ Future<void> $initGetIt(GetIt g, {String environment}) async {
       () => DioConnectivityRequestRetrier(g<Connectivity>(), g<Dio>()));
   g.registerFactory<GithubTrendBloc>(() => GithubTrendBloc(g<ApiService>()));
   g.registerFactory<NewsBloc>(() => NewsBloc(g<ApiService>()));
+  g.registerFactory<AboutMeBloc>(() => AboutMeBloc(g<ApiService>()));
   g.registerFactory<IAuthRepository>(
       () => AuthRepository(g<SharedPreferences>()));
   g.registerFactory<IThemeRepository>(
