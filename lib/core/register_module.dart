@@ -2,14 +2,12 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:portfolio_flutter/injections.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-// 🌎 Project imports:
-import 'package:portfolio_flutter/core/services/api_service.dart';
-import 'package:portfolio_flutter/core/services/http_service.dart';
 
 @module
 abstract class RegisterModule {
+  @Environment(Env.dev)
   @preResolve
   @singleton
   Future<SharedPreferences> get prefs => SharedPreferences.getInstance();
@@ -21,12 +19,4 @@ abstract class RegisterModule {
   @preResolve
   @singleton
   Connectivity get connectivity => Connectivity();
-
-  @preResolve
-  @singleton
-  HttpService get httpService => HttpService(dio, connectivity);
-
-  @preResolve
-  @singleton
-  ApiService get apiService => ApiService(httpService);
 }

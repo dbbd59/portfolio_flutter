@@ -7,8 +7,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 // 🌎 Project imports:
-import 'package:portfolio_flutter/core/services/api_service.dart';
 import 'package:portfolio_flutter/model/news.dart';
+import 'package:portfolio_flutter/repository/api_service/i_api_service.dart';
 
 part 'news_event.dart';
 part 'news_state.dart';
@@ -18,7 +18,7 @@ part 'news_bloc.freezed.dart';
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
   NewsBloc(this._apiService);
 
-  ApiService _apiService;
+  IApiService _apiService;
 
   @override
   Stream<NewsState> mapEventToState(

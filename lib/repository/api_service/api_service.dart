@@ -3,23 +3,29 @@ import 'dart:async';
 
 // 📦 Package imports:
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
+import 'package:mockito/mockito.dart';
 
 // 🌎 Project imports:
-import 'package:portfolio_flutter/core/services/http_service.dart';
+import 'package:portfolio_flutter/injections.dart';
 import 'package:portfolio_flutter/model/github_trend.dart';
 import 'package:portfolio_flutter/model/job.dart';
 import 'package:portfolio_flutter/model/news.dart';
 import 'package:portfolio_flutter/model/skill.dart';
+import 'package:portfolio_flutter/repository/api_service/i_api_service.dart';
+import 'package:portfolio_flutter/repository/http_service/i_http_service.dart';
 
-class ApiService {
-  ApiService(this._httpService);
+@Singleton(as: IApiService, env: Env.dev)
+class ApiService implements IApiService {
+  ApiService(this.httpService);
 
   String token;
 
-  HttpService _httpService;
+  @override
+  IHttpService httpService;
 
   Future<News> fetchNews() async {
-    Response response = await _httpService.httpServiceGet(
+    Response response = await httpService.httpServiceGet(
       endpoint:
           "https://newsapi.org/v2/everything?q=technology&apiKey=c66c291990c048ff842cacb5aba3f53f",
     );
@@ -32,7 +38,7 @@ class ApiService {
   }
 
   Future<List<GitHubTrend>> fetchGitHubTrends() async {
-    Response response = await _httpService.httpServiceGet(
+    Response response = await httpService.httpServiceGet(
       endpoint: "https://github-trending-api.now.sh/repositories",
     );
     if (response.statusCode == 200) {
@@ -49,7 +55,7 @@ class ApiService {
   }
 
   Future<List<Job>> fetchJobs() async {
-    Response response = await _httpService.httpServiceGet(
+    Response response = await httpService.httpServiceGet(
       endpoint: "https://my-json-server.typicode.com/dbbd59/json_server/jobs",
     );
     if (response.statusCode == 200) {
@@ -66,7 +72,7 @@ class ApiService {
   }
 
   Future<List<Skill>> fetchSkills() async {
-    Response response = await _httpService.httpServiceGet(
+    Response response = await httpService.httpServiceGet(
       endpoint: "https://my-json-server.typicode.com/dbbd59/json_server/skills",
     );
     if (response.statusCode == 200) {
@@ -82,3 +88,6 @@ class ApiService {
     }
   }
 }
+
+@Singleton(as: IApiService, env: Env.test)
+class MockApiService extends Mock implements IApiService {}

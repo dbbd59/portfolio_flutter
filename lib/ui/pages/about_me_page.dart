@@ -1,16 +1,25 @@
 // 🐦 Flutter imports:
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio_flutter/bloc/about_me/aboutme_bloc.dart';
-import 'package:portfolio_flutter/model/job.dart';
-import 'package:portfolio_flutter/model/skill.dart';
 
 // 🌎 Project imports:
-import 'package:portfolio_flutter/repository/utility/i_utility_repository.dart';
 import 'package:portfolio_flutter/injections.dart';
 
 class AboutMePage extends StatelessWidget {
+  const AboutMePage({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider<AboutMeBloc>(
+      create: (context) => getIt<AboutMeBloc>(),
+      child: Container(),
+    );
+  }
+}
+/* class AboutMePage extends StatelessWidget {
   const AboutMePage({
     Key key,
   }) : super(key: key);
@@ -412,3 +421,4 @@ class SkillItem extends StatelessWidget {
     );
   }
 }
+ */

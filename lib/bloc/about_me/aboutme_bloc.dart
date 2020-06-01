@@ -3,20 +3,21 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:portfolio_flutter/core/services/api_service.dart';
+import 'package:portfolio_flutter/injections.dart';
 import 'package:portfolio_flutter/model/job.dart';
 import 'package:portfolio_flutter/model/skill.dart';
+import 'package:bloc_test/bloc_test.dart';
+import 'package:portfolio_flutter/repository/api_service/i_api_service.dart';
 
 part 'aboutme_event.dart';
 part 'aboutme_state.dart';
 part 'aboutme_bloc.freezed.dart';
 
-@Injectable()
+@Injectable(env: Env.dev)
 class AboutMeBloc extends Bloc<AboutMeEvent, AboutMeState> {
   AboutMeBloc(this._apiService);
 
-  ApiService _apiService;
-
+  IApiService _apiService;
   @override
   AboutMeState get initialState => AboutMeState.empty();
 
@@ -38,7 +39,17 @@ class AboutMeBloc extends Bloc<AboutMeEvent, AboutMeState> {
           yield AboutMeState.error();
         }
       },
-      reset: (e) async* {},
+      reset: (e) async* {
+        yield AboutMeState.loading();
+      },
     );
   }
+}
+
+@Injectable(env: Env.test)
+class MockAboutMeBloc extends MockBloc<AboutMeEvent, AboutMeState>
+    implements AboutMeBloc {
+  MockAboutMeBloc(this._apiService);
+
+  IApiService _apiService;
 }

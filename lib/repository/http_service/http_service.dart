@@ -7,31 +7,37 @@ import 'package:flutter/material.dart';
 // 📦 Package imports:
 import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
+import 'package:mockito/mockito.dart';
 
 // 🌎 Project imports:
 import 'package:portfolio_flutter/core/exceptions.dart';
 import 'package:portfolio_flutter/core/interceptor/dio_connectivity_request_retrier.dart';
 import 'package:portfolio_flutter/core/interceptor/retry_interceptor.dart';
+import 'package:portfolio_flutter/injections.dart';
+import 'package:portfolio_flutter/repository/http_service/i_http_service.dart';
 
-// 🌎 Project imports:
-
-class HttpService {
+@Singleton(as: IHttpService, env: Env.dev)
+class HttpService implements IHttpService {
   HttpService(
-    this._dio,
-    this._connectivity,
+    this.dio,
+    this.connectivity,
   ) {
-    _dio.interceptors.add(
+    dio.interceptors.add(
       RetryOnConnectionChangeInterceptor(
         requestRetrier: DioConnectivityRequestRetrier(
-          _connectivity,
-          _dio,
+          connectivity,
+          dio,
         ),
       ),
     );
   }
 
-  final Connectivity _connectivity;
-  final Dio _dio;
+  @override
+  Connectivity connectivity;
+
+  @override
+  Dio dio;
 
   Future<Response> httpServiceGet({
     @required String endpoint,
@@ -39,7 +45,7 @@ class HttpService {
   }) async {
     Response response;
     try {
-      response = await _dio.get(
+      response = await dio.get(
         endpoint,
         options: headers != null
             ? Options(
@@ -65,7 +71,7 @@ class HttpService {
   }) async {
     Response response;
     try {
-      response = await _dio.post(
+      response = await dio.post(
         endpoint,
         options: Options(
           headers: headers,
@@ -107,3 +113,6 @@ class HttpService {
     }
   }
 }
+
+@Singleton(as: IHttpService, env: Env.test)
+class MockHttpService extends Mock implements IHttpService {}

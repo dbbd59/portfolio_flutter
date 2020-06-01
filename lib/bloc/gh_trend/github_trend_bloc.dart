@@ -11,8 +11,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 // 🌎 Project imports:
-import 'package:portfolio_flutter/core/services/api_service.dart';
 import 'package:portfolio_flutter/model/github_trend.dart';
+import 'package:portfolio_flutter/repository/api_service/i_api_service.dart';
 
 part 'github_trend_event.dart';
 part 'github_trend_state.dart';
@@ -22,7 +22,7 @@ part 'github_trend_bloc.freezed.dart';
 class GithubTrendBloc extends Bloc<GithubTrendEvent, GithubTrendState> {
   GithubTrendBloc(this._apiService);
 
-  ApiService _apiService;
+  IApiService _apiService;
 
   @override
   GithubTrendState get initialState => GithubTrendState.empty();

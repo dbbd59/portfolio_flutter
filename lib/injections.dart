@@ -12,7 +12,12 @@ Future<void> configureInjection(String environment) async {
   await $initGetIt(getIt, environment: environment);
 }
 
+const test = const Environment('test');
+const dev = const Environment('dev');
+const prod = const Environment('prod');
+
 abstract class Env {
+  static const test = 'test';
   static const dev = 'dev';
   static const prod = 'prod';
 }

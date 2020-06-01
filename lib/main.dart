@@ -18,7 +18,7 @@ import 'package:portfolio_flutter/ui/main/responsive_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await configureInjection(Env.prod);
+  await configureInjection(Env.dev);
   runApp(
     NotPay(
       child: MyApp(),

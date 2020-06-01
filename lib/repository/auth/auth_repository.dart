@@ -1,13 +1,15 @@
 // 📦 Package imports:
 import 'package:injectable/injectable.dart';
+import 'package:portfolio_flutter/injections.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:mockito/mockito.dart';
 
 // 🌎 Project imports:
 import 'package:portfolio_flutter/repository/auth/i_auth_repository.dart';
 
 // 🌎 Project imports:
 
-@Injectable(as: IAuthRepository)
+@Injectable(as: IAuthRepository, env: Env.dev)
 class AuthRepository implements IAuthRepository {
   AuthRepository(
     this._prefs,
@@ -25,3 +27,6 @@ class AuthRepository implements IAuthRepository {
     _prefs.remove("accessToken");
   }
 }
+
+@Injectable(as: IAuthRepository, env: Env.test)
+class MockAuthRepository extends Mock implements IAuthRepository {}

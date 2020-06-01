@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 // 📦 Package imports:
 import 'package:google_fonts/google_fonts.dart';
 import 'package:injectable/injectable.dart';
+import 'package:portfolio_flutter/injections.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:mockito/mockito.dart';
 
 // 🌎 Project imports:
 import 'package:portfolio_flutter/repository/theme/i_theme_repository.dart';
 
-@Injectable(as: IThemeRepository)
+@Injectable(as: IThemeRepository, env: Env.dev)
 class ThemeRepository implements IThemeRepository {
   ThemeRepository(
     this._prefs,
@@ -60,3 +62,6 @@ class ThemeRepository implements IThemeRepository {
     _prefs.setBool("isDarkMode", value);
   }
 }
+
+@Injectable(as: IThemeRepository, env: Env.test)
+class MockThemeRepository extends Mock implements IThemeRepository {}

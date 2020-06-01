@@ -1,14 +1,15 @@
 // 📦 Package imports:
 import 'package:injectable/injectable.dart';
+import 'package:portfolio_flutter/injections.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:mockito/mockito.dart';
 
 // 🌎 Project imports:
 import 'package:portfolio_flutter/repository/utility/i_utility_repository.dart';
 
 // 🌎 Project imports:
-
-@Injectable(as: IUtilityRepository)
+@Injectable(as: IUtilityRepository, env: Env.dev)
 class UtilityRepository implements IUtilityRepository {
   UtilityRepository(
     this._prefs,
@@ -58,3 +59,6 @@ class UtilityRepository implements IUtilityRepository {
     _prefs.setBool("fps-enabled", value);
   }
 }
+
+@Injectable(as: IUtilityRepository, env: Env.test)
+class MockUtilityRepository extends Mock implements IUtilityRepository {}
