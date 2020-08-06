@@ -1,4 +1,5 @@
 // 🐦 Flutter imports:
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio_flutter/bloc/about_me/aboutme_bloc.dart';
@@ -6,6 +7,11 @@ import 'package:portfolio_flutter/bloc/about_me/aboutme_bloc.dart';
 // 🌎 Project imports:
 import 'package:portfolio_flutter/injections.dart';
 
+import '../../model/job.dart';
+import '../../model/skill.dart';
+import '../../repository/utility/i_utility_repository.dart';
+
+/* 
 class AboutMePage extends StatelessWidget {
   const AboutMePage({
     Key key,
@@ -18,8 +24,8 @@ class AboutMePage extends StatelessWidget {
       child: Container(),
     );
   }
-}
-/* class AboutMePage extends StatelessWidget {
+} */
+class AboutMePage extends StatelessWidget {
   const AboutMePage({
     Key key,
   }) : super(key: key);
@@ -421,4 +427,3 @@ class SkillItem extends StatelessWidget {
     );
   }
 }
- */

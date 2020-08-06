@@ -1,7 +1,7 @@
 name: portfolio_flutter
 description: Flutter Base App
 
-version: 1.9.1+6
+version: 2.0.0+7
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
