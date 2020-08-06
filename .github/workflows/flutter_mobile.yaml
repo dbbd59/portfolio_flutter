@@ -3,6 +3,9 @@ on:
     push:
       tags:
       - '*'
+    workflow_dispatch:
+      tags:
+      - '*'
 jobs:
   build:
     name: Build APK
