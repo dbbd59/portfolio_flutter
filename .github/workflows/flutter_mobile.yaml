@@ -6,7 +6,8 @@ on:
     workflow_dispatch:
       inputs:
         tags:
-            description: 'Tag' 
+        - '*'
+        description: 'Tag' 
 jobs:
   build:
     name: Build APK
