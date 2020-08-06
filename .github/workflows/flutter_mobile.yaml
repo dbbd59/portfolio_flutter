@@ -4,8 +4,9 @@ on:
       tags:
       - '*'
     workflow_dispatch:
-      tags:
-      - '*'
+      inputs:
+        tags:
+            description: 'Tag' 
 jobs:
   build:
     name: Build APK
