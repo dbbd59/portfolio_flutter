@@ -61,7 +61,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   ),
                   applicationName: "portfolio_flutter",
-                  applicationVersion: "1.9.1",
+                  applicationVersion: "2.0.1",
                 );
               }),
         ],
