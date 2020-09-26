@@ -21,7 +21,7 @@ jobs:
       - run: flutter upgrade
       - run: flutter config --enable-web
       - run: flutter pub get
-      - run: flutter build web --release
+      - run: flutter build web --release --dart-define=FLUTTER_WEB_USE_SKIA=true
       - run: |
           cd build/web
           git init
