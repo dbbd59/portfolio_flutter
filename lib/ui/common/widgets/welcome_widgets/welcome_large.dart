@@ -65,7 +65,7 @@ class WelcomeLarge extends StatelessWidget {
                         children: <Widget>[
                           Expanded(
                             child: Text(
-                              "a Mobile Developer with a passion for technology.",
+                              "",
                               textScaleFactor: 1,
                               style: TextStyle(
                                 fontSize: 20.0,
