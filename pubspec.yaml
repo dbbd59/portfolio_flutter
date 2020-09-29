@@ -23,7 +23,7 @@ dependencies:
   google_fonts: ^1.0.0
   connectivity: ^0.4.8+2
   provider: ^4.0.5
-  statsfl: ^0.1.0
+  statsfl: ^1.1.0+3
   injectable: ^0.4.0
   freezed_annotation: ^0.7.1
   equatable: ^1.2.0
