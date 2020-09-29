@@ -125,6 +125,7 @@ class AppWidget extends StatelessWidget {
           },
           home: StatsFl(
             align: Alignment.center,
+            maxFps: 120,
             isEnabled: Provider.of<UtilityChangeNotifier>(context).showFps,
             child: BlocBuilder<AuthBloc, AuthState>(
               builder: (context, state) {
