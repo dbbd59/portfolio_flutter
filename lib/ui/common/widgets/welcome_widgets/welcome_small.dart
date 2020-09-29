@@ -48,7 +48,7 @@ class WelcomeSmall extends StatelessWidget {
                 children: <Widget>[
                   Expanded(
                     child: Text(
-                      "a Mobile Developer with a passion for technology.",
+                      "",
                       style: TextStyle(
                         fontSize: 20.0,
                       ),
