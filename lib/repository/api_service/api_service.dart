@@ -39,7 +39,7 @@ class ApiService implements IApiService {
 
   Future<List<GitHubTrend>> fetchGitHubTrends() async {
     Response response = await httpService.httpServiceGet(
-      endpoint: "https://github-trending-api.now.sh/repositories",
+      endpoint: "https://gtrend.yapie.me/repositories",
     );
     if (response.statusCode == 200) {
       List<GitHubTrend> listGitHubTrend = List<GitHubTrend>();
