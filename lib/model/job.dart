@@ -1,13 +1,6 @@
 import 'dart:convert';
 
 class Job {
-  final String date;
-  final String company;
-  final String link;
-  final String linkDisplay;
-  final String jobTitle;
-  final String descr;
-
   Job({
     this.date,
     this.company,
@@ -17,22 +10,12 @@ class Job {
     this.descr,
   });
 
-  Job copyWith({
-    String date,
-    String company,
-    String link,
-    String linkDisplay,
-    String jobTitle,
-    String descr,
-  }) =>
-      Job(
-        date: date ?? this.date,
-        company: company ?? this.company,
-        link: link ?? this.link,
-        linkDisplay: linkDisplay ?? this.linkDisplay,
-        jobTitle: jobTitle ?? this.jobTitle,
-        descr: descr ?? this.descr,
-      );
+  final String date;
+  final String company;
+  final String link;
+  final String linkDisplay;
+  final String jobTitle;
+  final String descr;
 
   factory Job.fromJson(String str) => Job.fromMap(json.decode(str));
 

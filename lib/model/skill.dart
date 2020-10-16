@@ -1,26 +1,13 @@
-// To parse this JSON data, do
-//
-//     final skill = skillFromJson(jsonString);
-
 import 'dart:convert';
 
 class Skill {
-  final String name;
-  final double perc;
-
   Skill({
     this.name,
     this.perc,
   });
 
-  Skill copyWith({
-    String name,
-    double perc,
-  }) =>
-      Skill(
-        name: name ?? this.name,
-        perc: perc ?? this.perc,
-      );
+  final String name;
+  final double perc;
 
   factory Skill.fromJson(String str) => Skill.fromMap(json.decode(str));
 

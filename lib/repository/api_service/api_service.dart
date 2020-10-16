@@ -1,5 +1,6 @@
 // 🎯 Dart imports:
 import 'dart:async';
+import 'dart:convert';
 
 // 📦 Package imports:
 import 'package:dio/dio.dart';
@@ -26,8 +27,7 @@ class ApiService implements IApiService {
 
   Future<News> fetchNews() async {
     Response response = await httpService.httpServiceGet(
-      endpoint:
-          "https://safe-tor-42804.herokuapp.com/api/news",
+      endpoint: "https://safe-tor-42804.herokuapp.com/api/news",
     );
     if (response.statusCode == 200) {
       var jsonResponse = response.data;
@@ -44,9 +44,16 @@ class ApiService implements IApiService {
     if (response.statusCode == 200) {
       List<GitHubTrend> listGitHubTrend = List<GitHubTrend>();
       if (response.data != null) {
-        response.data.forEach((v) {
-          listGitHubTrend.add(GitHubTrend.fromJson(v));
-        });
+        var jsonResponse = jsonDecode(response.data);
+
+        List<GitHubTrend> trends = List<GitHubTrend>.from(
+          jsonResponse.map(
+            (x) {
+              return GitHubTrend.fromMap(x);
+            },
+          ),
+        );
+        return trends;
       }
       return listGitHubTrend;
     } else {
@@ -59,12 +66,13 @@ class ApiService implements IApiService {
       endpoint: "https://safe-tor-42804.herokuapp.com/api/jobs",
     );
     if (response.statusCode == 200) {
-      List<Job> jobs = List<Job>();
-      if (response.data != null) {
-        response.data.forEach((v) {
-          jobs.add(Job.fromMap(v));
-        });
-      }
+      var jsonResponse = jsonDecode(response.data);
+
+      List<Job> jobs = List<Job>.from(
+        jsonResponse.map(
+          (x) => Job.fromMap(x),
+        ),
+      );
       return jobs;
     } else {
       return null;
@@ -76,12 +84,13 @@ class ApiService implements IApiService {
       endpoint: "https://safe-tor-42804.herokuapp.com/api/skills",
     );
     if (response.statusCode == 200) {
-      List<Skill> skills = List<Skill>();
-      if (response.data != null) {
-        response.data.forEach((v) {
-          skills.add(Skill.fromMap(v));
-        });
-      }
+      var jsonResponse = jsonDecode(response.data);
+
+      List<Skill> skills = List<Skill>.from(
+        jsonResponse.map(
+          (x) => Skill.fromMap(x),
+        ),
+      );
       return skills;
     } else {
       return null;
