@@ -27,7 +27,7 @@ class ApiService implements IApiService {
   Future<News> fetchNews() async {
     Response response = await httpService.httpServiceGet(
       endpoint:
-          "https://newsapi.org/v2/everything?q=technology&apiKey=c66c291990c048ff842cacb5aba3f53f",
+          "https://safe-tor-42804.herokuapp.com/api/news",
     );
     if (response.statusCode == 200) {
       var jsonResponse = response.data;
@@ -39,7 +39,7 @@ class ApiService implements IApiService {
 
   Future<List<GitHubTrend>> fetchGitHubTrends() async {
     Response response = await httpService.httpServiceGet(
-      endpoint: "https://gtrend.yapie.me/repositories",
+      endpoint: "https://safe-tor-42804.herokuapp.com/api/ghtrends",
     );
     if (response.statusCode == 200) {
       List<GitHubTrend> listGitHubTrend = List<GitHubTrend>();
@@ -56,7 +56,7 @@ class ApiService implements IApiService {
 
   Future<List<Job>> fetchJobs() async {
     Response response = await httpService.httpServiceGet(
-      endpoint: "https://my-json-server.typicode.com/dbbd59/json_server/jobs",
+      endpoint: "https://safe-tor-42804.herokuapp.com/api/jobs",
     );
     if (response.statusCode == 200) {
       List<Job> jobs = List<Job>();
@@ -73,7 +73,7 @@ class ApiService implements IApiService {
 
   Future<List<Skill>> fetchSkills() async {
     Response response = await httpService.httpServiceGet(
-      endpoint: "https://my-json-server.typicode.com/dbbd59/json_server/skills",
+      endpoint: "https://safe-tor-42804.herokuapp.com/api/skills",
     );
     if (response.statusCode == 200) {
       List<Skill> skills = List<Skill>();
