@@ -14,8 +14,7 @@ part 'dialog_state.dart';
 
 @Singleton()
 class DialogBloc extends Bloc<DialogEvent, DialogState> {
-  @override
-  DialogState get initialState => DialogStateHide();
+  DialogBloc() : super(DialogStateHide());
 
   @override
   Stream<DialogState> mapEventToState(

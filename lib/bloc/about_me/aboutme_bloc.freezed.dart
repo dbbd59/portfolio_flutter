@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'aboutme_bloc.dart';
 
@@ -9,21 +9,26 @@ part of 'aboutme_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$AboutMeEventTearOff {
   const _$AboutMeEventTearOff();
 
+// ignore: unused_element
   AboutMeEventFetch fetch() {
     return const AboutMeEventFetch();
   }
 
+// ignore: unused_element
   AboutMeEventReset reset() {
     return const AboutMeEventReset();
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $AboutMeEvent = _$AboutMeEventTearOff();
 
+/// @nodoc
 mixin _$AboutMeEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -49,12 +54,14 @@ mixin _$AboutMeEvent {
   });
 }
 
+/// @nodoc
 abstract class $AboutMeEventCopyWith<$Res> {
   factory $AboutMeEventCopyWith(
           AboutMeEvent value, $Res Function(AboutMeEvent) then) =
       _$AboutMeEventCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$AboutMeEventCopyWithImpl<$Res> implements $AboutMeEventCopyWith<$Res> {
   _$AboutMeEventCopyWithImpl(this._value, this._then);
 
@@ -63,12 +70,14 @@ class _$AboutMeEventCopyWithImpl<$Res> implements $AboutMeEventCopyWith<$Res> {
   final $Res Function(AboutMeEvent) _then;
 }
 
+/// @nodoc
 abstract class $AboutMeEventFetchCopyWith<$Res> {
   factory $AboutMeEventFetchCopyWith(
           AboutMeEventFetch value, $Res Function(AboutMeEventFetch) then) =
       _$AboutMeEventFetchCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$AboutMeEventFetchCopyWithImpl<$Res>
     extends _$AboutMeEventCopyWithImpl<$Res>
     implements $AboutMeEventFetchCopyWith<$Res> {
@@ -80,6 +89,7 @@ class _$AboutMeEventFetchCopyWithImpl<$Res>
   AboutMeEventFetch get _value => super._value as AboutMeEventFetch;
 }
 
+/// @nodoc
 class _$AboutMeEventFetch implements AboutMeEventFetch {
   const _$AboutMeEventFetch();
 
@@ -151,12 +161,14 @@ abstract class AboutMeEventFetch implements AboutMeEvent {
   const factory AboutMeEventFetch() = _$AboutMeEventFetch;
 }
 
+/// @nodoc
 abstract class $AboutMeEventResetCopyWith<$Res> {
   factory $AboutMeEventResetCopyWith(
           AboutMeEventReset value, $Res Function(AboutMeEventReset) then) =
       _$AboutMeEventResetCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$AboutMeEventResetCopyWithImpl<$Res>
     extends _$AboutMeEventCopyWithImpl<$Res>
     implements $AboutMeEventResetCopyWith<$Res> {
@@ -168,6 +180,7 @@ class _$AboutMeEventResetCopyWithImpl<$Res>
   AboutMeEventReset get _value => super._value as AboutMeEventReset;
 }
 
+/// @nodoc
 class _$AboutMeEventReset implements AboutMeEventReset {
   const _$AboutMeEventReset();
 
@@ -239,13 +252,16 @@ abstract class AboutMeEventReset implements AboutMeEvent {
   const factory AboutMeEventReset() = _$AboutMeEventReset;
 }
 
+/// @nodoc
 class _$AboutMeStateTearOff {
   const _$AboutMeStateTearOff();
 
+// ignore: unused_element
   AboutMeStateEmpty empty() {
     return const AboutMeStateEmpty();
   }
 
+// ignore: unused_element
   AboutMeStateLoaded loaded(List<Job> jobs, List<Skill> skills) {
     return AboutMeStateLoaded(
       jobs,
@@ -253,18 +269,22 @@ class _$AboutMeStateTearOff {
     );
   }
 
+// ignore: unused_element
   AboutMeStateLoading loading() {
     return const AboutMeStateLoading();
   }
 
+// ignore: unused_element
   AboutMeStateError error() {
     return const AboutMeStateError();
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $AboutMeState = _$AboutMeStateTearOff();
 
+/// @nodoc
 mixin _$AboutMeState {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -298,12 +318,14 @@ mixin _$AboutMeState {
   });
 }
 
+/// @nodoc
 abstract class $AboutMeStateCopyWith<$Res> {
   factory $AboutMeStateCopyWith(
           AboutMeState value, $Res Function(AboutMeState) then) =
       _$AboutMeStateCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$AboutMeStateCopyWithImpl<$Res> implements $AboutMeStateCopyWith<$Res> {
   _$AboutMeStateCopyWithImpl(this._value, this._then);
 
@@ -312,12 +334,14 @@ class _$AboutMeStateCopyWithImpl<$Res> implements $AboutMeStateCopyWith<$Res> {
   final $Res Function(AboutMeState) _then;
 }
 
+/// @nodoc
 abstract class $AboutMeStateEmptyCopyWith<$Res> {
   factory $AboutMeStateEmptyCopyWith(
           AboutMeStateEmpty value, $Res Function(AboutMeStateEmpty) then) =
       _$AboutMeStateEmptyCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$AboutMeStateEmptyCopyWithImpl<$Res>
     extends _$AboutMeStateCopyWithImpl<$Res>
     implements $AboutMeStateEmptyCopyWith<$Res> {
@@ -329,6 +353,7 @@ class _$AboutMeStateEmptyCopyWithImpl<$Res>
   AboutMeStateEmpty get _value => super._value as AboutMeStateEmpty;
 }
 
+/// @nodoc
 class _$AboutMeStateEmpty implements AboutMeStateEmpty {
   const _$AboutMeStateEmpty();
 
@@ -412,6 +437,7 @@ abstract class AboutMeStateEmpty implements AboutMeState {
   const factory AboutMeStateEmpty() = _$AboutMeStateEmpty;
 }
 
+/// @nodoc
 abstract class $AboutMeStateLoadedCopyWith<$Res> {
   factory $AboutMeStateLoadedCopyWith(
           AboutMeStateLoaded value, $Res Function(AboutMeStateLoaded) then) =
@@ -419,6 +445,7 @@ abstract class $AboutMeStateLoadedCopyWith<$Res> {
   $Res call({List<Job> jobs, List<Skill> skills});
 }
 
+/// @nodoc
 class _$AboutMeStateLoadedCopyWithImpl<$Res>
     extends _$AboutMeStateCopyWithImpl<$Res>
     implements $AboutMeStateLoadedCopyWith<$Res> {
@@ -441,6 +468,7 @@ class _$AboutMeStateLoadedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$AboutMeStateLoaded implements AboutMeStateLoaded {
   const _$AboutMeStateLoaded(this.jobs, this.skills)
       : assert(jobs != null),
@@ -548,12 +576,14 @@ abstract class AboutMeStateLoaded implements AboutMeState {
   $AboutMeStateLoadedCopyWith<AboutMeStateLoaded> get copyWith;
 }
 
+/// @nodoc
 abstract class $AboutMeStateLoadingCopyWith<$Res> {
   factory $AboutMeStateLoadingCopyWith(
           AboutMeStateLoading value, $Res Function(AboutMeStateLoading) then) =
       _$AboutMeStateLoadingCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$AboutMeStateLoadingCopyWithImpl<$Res>
     extends _$AboutMeStateCopyWithImpl<$Res>
     implements $AboutMeStateLoadingCopyWith<$Res> {
@@ -565,6 +595,7 @@ class _$AboutMeStateLoadingCopyWithImpl<$Res>
   AboutMeStateLoading get _value => super._value as AboutMeStateLoading;
 }
 
+/// @nodoc
 class _$AboutMeStateLoading implements AboutMeStateLoading {
   const _$AboutMeStateLoading();
 
@@ -648,12 +679,14 @@ abstract class AboutMeStateLoading implements AboutMeState {
   const factory AboutMeStateLoading() = _$AboutMeStateLoading;
 }
 
+/// @nodoc
 abstract class $AboutMeStateErrorCopyWith<$Res> {
   factory $AboutMeStateErrorCopyWith(
           AboutMeStateError value, $Res Function(AboutMeStateError) then) =
       _$AboutMeStateErrorCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$AboutMeStateErrorCopyWithImpl<$Res>
     extends _$AboutMeStateCopyWithImpl<$Res>
     implements $AboutMeStateErrorCopyWith<$Res> {
@@ -665,6 +698,7 @@ class _$AboutMeStateErrorCopyWithImpl<$Res>
   AboutMeStateError get _value => super._value as AboutMeStateError;
 }
 
+/// @nodoc
 class _$AboutMeStateError implements AboutMeStateError {
   const _$AboutMeStateError();
 

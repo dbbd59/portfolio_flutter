@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // 🌎 Project imports:
-import 'package:portfolio_flutter/core/app_localizations.dart';
 import 'package:portfolio_flutter/bloc/bottomappbar/bottomappbar_bloc.dart';
+import 'package:portfolio_flutter/core/app_localizations.dart';
 import 'package:portfolio_flutter/model/enums/navigation_page_enum.dart';
 import 'package:portfolio_flutter/ui/pages/settings_page.dart';
 

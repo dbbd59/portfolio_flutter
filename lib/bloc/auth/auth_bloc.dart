@@ -13,12 +13,9 @@ import 'package:portfolio_flutter/injections.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
 
-
-
 @Singleton()
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  @override
-  AuthState get initialState => AuthInitial();
+  AuthBloc() : super(AuthInitial());
 
   @override
   Stream<AuthState> mapEventToState(

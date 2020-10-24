@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // 🌎 Project imports:
-import 'package:portfolio_flutter/core/app_localizations.dart';
 import 'package:portfolio_flutter/bloc/bottomappbar/bottomappbar_bloc.dart';
+import 'package:portfolio_flutter/core/app_localizations.dart';
 import 'package:portfolio_flutter/model/enums/navigation_page_enum.dart';
 
 class BottomNavBarApp extends StatelessWidget {
@@ -48,27 +48,23 @@ class BottomNavBarApp extends StatelessWidget {
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              title: Text(
-                AppLocalizations.of(context).translate('bottom_nav_bar_first'),
-              ),
+              label: AppLocalizations.of(context)
+                  .translate('bottom_nav_bar_first'),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.star),
-              title: Text(
-                AppLocalizations.of(context).translate('bottom_nav_bar_second'),
-              ),
+              label: AppLocalizations.of(context)
+                  .translate('bottom_nav_bar_second'),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.flare),
-              title: Text(
-                AppLocalizations.of(context).translate('bottom_nav_bar_third'),
-              ),
+              label: AppLocalizations.of(context)
+                  .translate('bottom_nav_bar_third'),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              title: Text(
-                AppLocalizations.of(context).translate('bottom_nav_bar_fifth'),
-              ),
+              label: AppLocalizations.of(context)
+                  .translate('bottom_nav_bar_fifth'),
             ),
           ],
         );

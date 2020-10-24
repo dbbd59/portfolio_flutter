@@ -17,10 +17,10 @@ part 'bottomappbar_state.dart';
 
 @Singleton()
 class BottomAppBarBloc extends Bloc<BottomAppBarEvent, BottomAppBarState> {
-  @override
-  BottomAppBarState get initialState => BottomAppBarState(
-        pageSelected: NavigationPageEnum.WELCOME,
-      );
+  BottomAppBarBloc()
+      : super(BottomAppBarState(
+          pageSelected: NavigationPageEnum.WELCOME,
+        ));
 
   @override
   Stream<BottomAppBarState> mapEventToState(

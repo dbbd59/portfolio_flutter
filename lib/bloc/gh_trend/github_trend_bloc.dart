@@ -20,12 +20,9 @@ part 'github_trend_bloc.freezed.dart';
 
 @Injectable()
 class GithubTrendBloc extends Bloc<GithubTrendEvent, GithubTrendState> {
-  GithubTrendBloc(this._apiService);
+  GithubTrendBloc(this._apiService) : super(GithubTrendState.empty());
 
   IApiService _apiService;
-
-  @override
-  GithubTrendState get initialState => GithubTrendState.empty();
 
   @override
   Stream<GithubTrendState> mapEventToState(

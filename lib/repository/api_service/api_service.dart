@@ -16,7 +16,7 @@ import 'package:portfolio_flutter/model/skill.dart';
 import 'package:portfolio_flutter/repository/api_service/i_api_service.dart';
 import 'package:portfolio_flutter/repository/http_service/i_http_service.dart';
 
-@Singleton(as: IApiService, env: Env.dev)
+@Singleton(as: IApiService, env: [Env.dev])
 class ApiService implements IApiService {
   ApiService(this.httpService);
 
@@ -98,5 +98,5 @@ class ApiService implements IApiService {
   }
 }
 
-@Singleton(as: IApiService, env: Env.test)
+@Singleton(as: IApiService, env: [Env.test])
 class MockApiService extends Mock implements IApiService {}

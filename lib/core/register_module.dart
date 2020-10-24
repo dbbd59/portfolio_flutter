@@ -2,8 +2,10 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:portfolio_flutter/injections.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+// 🌎 Project imports:
+import 'package:portfolio_flutter/injections.dart';
 
 @module
 abstract class RegisterModule {

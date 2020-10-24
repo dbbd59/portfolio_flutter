@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'github_trend_bloc.dart';
 
@@ -9,21 +9,26 @@ part of 'github_trend_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$GithubTrendEventTearOff {
   const _$GithubTrendEventTearOff();
 
+// ignore: unused_element
   GithubTrendEventFetchTrends fetchTrends() {
     return const GithubTrendEventFetchTrends();
   }
 
+// ignore: unused_element
   GithubTrendEventReset reset() {
     return const GithubTrendEventReset();
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $GithubTrendEvent = _$GithubTrendEventTearOff();
 
+/// @nodoc
 mixin _$GithubTrendEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -49,12 +54,14 @@ mixin _$GithubTrendEvent {
   });
 }
 
+/// @nodoc
 abstract class $GithubTrendEventCopyWith<$Res> {
   factory $GithubTrendEventCopyWith(
           GithubTrendEvent value, $Res Function(GithubTrendEvent) then) =
       _$GithubTrendEventCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$GithubTrendEventCopyWithImpl<$Res>
     implements $GithubTrendEventCopyWith<$Res> {
   _$GithubTrendEventCopyWithImpl(this._value, this._then);
@@ -64,6 +71,7 @@ class _$GithubTrendEventCopyWithImpl<$Res>
   final $Res Function(GithubTrendEvent) _then;
 }
 
+/// @nodoc
 abstract class $GithubTrendEventFetchTrendsCopyWith<$Res> {
   factory $GithubTrendEventFetchTrendsCopyWith(
           GithubTrendEventFetchTrends value,
@@ -71,6 +79,7 @@ abstract class $GithubTrendEventFetchTrendsCopyWith<$Res> {
       _$GithubTrendEventFetchTrendsCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$GithubTrendEventFetchTrendsCopyWithImpl<$Res>
     extends _$GithubTrendEventCopyWithImpl<$Res>
     implements $GithubTrendEventFetchTrendsCopyWith<$Res> {
@@ -83,6 +92,7 @@ class _$GithubTrendEventFetchTrendsCopyWithImpl<$Res>
       super._value as GithubTrendEventFetchTrends;
 }
 
+/// @nodoc
 class _$GithubTrendEventFetchTrends
     with DiagnosticableTreeMixin
     implements GithubTrendEventFetchTrends {
@@ -163,12 +173,14 @@ abstract class GithubTrendEventFetchTrends implements GithubTrendEvent {
   const factory GithubTrendEventFetchTrends() = _$GithubTrendEventFetchTrends;
 }
 
+/// @nodoc
 abstract class $GithubTrendEventResetCopyWith<$Res> {
   factory $GithubTrendEventResetCopyWith(GithubTrendEventReset value,
           $Res Function(GithubTrendEventReset) then) =
       _$GithubTrendEventResetCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$GithubTrendEventResetCopyWithImpl<$Res>
     extends _$GithubTrendEventCopyWithImpl<$Res>
     implements $GithubTrendEventResetCopyWith<$Res> {
@@ -180,6 +192,7 @@ class _$GithubTrendEventResetCopyWithImpl<$Res>
   GithubTrendEventReset get _value => super._value as GithubTrendEventReset;
 }
 
+/// @nodoc
 class _$GithubTrendEventReset
     with DiagnosticableTreeMixin
     implements GithubTrendEventReset {
@@ -259,31 +272,38 @@ abstract class GithubTrendEventReset implements GithubTrendEvent {
   const factory GithubTrendEventReset() = _$GithubTrendEventReset;
 }
 
+/// @nodoc
 class _$GithubTrendStateTearOff {
   const _$GithubTrendStateTearOff();
 
+// ignore: unused_element
   GithubTrendEmpty empty() {
     return const GithubTrendEmpty();
   }
 
+// ignore: unused_element
   GithubTrendLoaded loaded(List<GitHubTrend> gitHubTrends) {
     return GithubTrendLoaded(
       gitHubTrends,
     );
   }
 
+// ignore: unused_element
   GithubTrendLoading loading() {
     return const GithubTrendLoading();
   }
 
+// ignore: unused_element
   GithubTrendError error() {
     return const GithubTrendError();
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $GithubTrendState = _$GithubTrendStateTearOff();
 
+/// @nodoc
 mixin _$GithubTrendState {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -317,12 +337,14 @@ mixin _$GithubTrendState {
   });
 }
 
+/// @nodoc
 abstract class $GithubTrendStateCopyWith<$Res> {
   factory $GithubTrendStateCopyWith(
           GithubTrendState value, $Res Function(GithubTrendState) then) =
       _$GithubTrendStateCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$GithubTrendStateCopyWithImpl<$Res>
     implements $GithubTrendStateCopyWith<$Res> {
   _$GithubTrendStateCopyWithImpl(this._value, this._then);
@@ -332,12 +354,14 @@ class _$GithubTrendStateCopyWithImpl<$Res>
   final $Res Function(GithubTrendState) _then;
 }
 
+/// @nodoc
 abstract class $GithubTrendEmptyCopyWith<$Res> {
   factory $GithubTrendEmptyCopyWith(
           GithubTrendEmpty value, $Res Function(GithubTrendEmpty) then) =
       _$GithubTrendEmptyCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$GithubTrendEmptyCopyWithImpl<$Res>
     extends _$GithubTrendStateCopyWithImpl<$Res>
     implements $GithubTrendEmptyCopyWith<$Res> {
@@ -349,6 +373,7 @@ class _$GithubTrendEmptyCopyWithImpl<$Res>
   GithubTrendEmpty get _value => super._value as GithubTrendEmpty;
 }
 
+/// @nodoc
 class _$GithubTrendEmpty
     with DiagnosticableTreeMixin
     implements GithubTrendEmpty {
@@ -440,6 +465,7 @@ abstract class GithubTrendEmpty implements GithubTrendState {
   const factory GithubTrendEmpty() = _$GithubTrendEmpty;
 }
 
+/// @nodoc
 abstract class $GithubTrendLoadedCopyWith<$Res> {
   factory $GithubTrendLoadedCopyWith(
           GithubTrendLoaded value, $Res Function(GithubTrendLoaded) then) =
@@ -447,6 +473,7 @@ abstract class $GithubTrendLoadedCopyWith<$Res> {
   $Res call({List<GitHubTrend> gitHubTrends});
 }
 
+/// @nodoc
 class _$GithubTrendLoadedCopyWithImpl<$Res>
     extends _$GithubTrendStateCopyWithImpl<$Res>
     implements $GithubTrendLoadedCopyWith<$Res> {
@@ -469,6 +496,7 @@ class _$GithubTrendLoadedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$GithubTrendLoaded
     with DiagnosticableTreeMixin
     implements GithubTrendLoaded {
@@ -578,12 +606,14 @@ abstract class GithubTrendLoaded implements GithubTrendState {
   $GithubTrendLoadedCopyWith<GithubTrendLoaded> get copyWith;
 }
 
+/// @nodoc
 abstract class $GithubTrendLoadingCopyWith<$Res> {
   factory $GithubTrendLoadingCopyWith(
           GithubTrendLoading value, $Res Function(GithubTrendLoading) then) =
       _$GithubTrendLoadingCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$GithubTrendLoadingCopyWithImpl<$Res>
     extends _$GithubTrendStateCopyWithImpl<$Res>
     implements $GithubTrendLoadingCopyWith<$Res> {
@@ -595,6 +625,7 @@ class _$GithubTrendLoadingCopyWithImpl<$Res>
   GithubTrendLoading get _value => super._value as GithubTrendLoading;
 }
 
+/// @nodoc
 class _$GithubTrendLoading
     with DiagnosticableTreeMixin
     implements GithubTrendLoading {
@@ -686,12 +717,14 @@ abstract class GithubTrendLoading implements GithubTrendState {
   const factory GithubTrendLoading() = _$GithubTrendLoading;
 }
 
+/// @nodoc
 abstract class $GithubTrendErrorCopyWith<$Res> {
   factory $GithubTrendErrorCopyWith(
           GithubTrendError value, $Res Function(GithubTrendError) then) =
       _$GithubTrendErrorCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$GithubTrendErrorCopyWithImpl<$Res>
     extends _$GithubTrendStateCopyWithImpl<$Res>
     implements $GithubTrendErrorCopyWith<$Res> {
@@ -703,6 +736,7 @@ class _$GithubTrendErrorCopyWithImpl<$Res>
   GithubTrendError get _value => super._value as GithubTrendError;
 }
 
+/// @nodoc
 class _$GithubTrendError
     with DiagnosticableTreeMixin
     implements GithubTrendError {

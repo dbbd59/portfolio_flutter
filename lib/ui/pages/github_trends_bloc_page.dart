@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // 🌎 Project imports:
-import 'package:portfolio_flutter/model/github_trend.dart';
-import 'package:portfolio_flutter/repository/utility/i_utility_repository.dart';
 import 'package:portfolio_flutter/bloc/gh_trend/github_trend_bloc.dart';
 import 'package:portfolio_flutter/injections.dart';
+import 'package:portfolio_flutter/model/github_trend.dart';
+import 'package:portfolio_flutter/repository/utility/i_utility_repository.dart';
 import 'package:portfolio_flutter/ui/common/widgets/cards/card_github_trend/card_github_trend.dart';
 import 'package:portfolio_flutter/ui/common/widgets/common/progress_indicator.dart';
 
@@ -34,7 +34,7 @@ class GitHubTrendsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: BlocBuilder(
-        bloc: BlocProvider.of<GithubTrendBloc>(context),
+        cubit: BlocProvider.of<GithubTrendBloc>(context),
         builder: (_, GithubTrendState state) {
           return state.map(
             empty: (_) => Container(),

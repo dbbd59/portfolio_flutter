@@ -2,8 +2,8 @@
 import 'dart:async';
 
 // 📦 Package imports:
-import 'package:dio/dio.dart';
 import 'package:connectivity/connectivity.dart';
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable()

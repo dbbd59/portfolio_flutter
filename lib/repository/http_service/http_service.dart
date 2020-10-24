@@ -17,7 +17,7 @@ import 'package:portfolio_flutter/core/interceptor/retry_interceptor.dart';
 import 'package:portfolio_flutter/injections.dart';
 import 'package:portfolio_flutter/repository/http_service/i_http_service.dart';
 
-@Singleton(as: IHttpService, env: Env.dev)
+@Singleton(as: IHttpService, env: [Env.dev])
 class HttpService implements IHttpService {
   HttpService(
     this.dio,
@@ -114,5 +114,5 @@ class HttpService implements IHttpService {
   }
 }
 
-@Singleton(as: IHttpService, env: Env.test)
+@Singleton(as: IHttpService, env: [Env.test])
 class MockHttpService extends Mock implements IHttpService {}

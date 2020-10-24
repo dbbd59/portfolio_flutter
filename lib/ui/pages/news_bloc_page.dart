@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // 🌎 Project imports:
-import 'package:portfolio_flutter/model/news.dart';
-import 'package:portfolio_flutter/repository/utility/i_utility_repository.dart';
 import 'package:portfolio_flutter/bloc/news/news_bloc.dart';
 import 'package:portfolio_flutter/injections.dart';
+import 'package:portfolio_flutter/model/news.dart';
+import 'package:portfolio_flutter/repository/utility/i_utility_repository.dart';
 import 'package:portfolio_flutter/ui/common/widgets/cards/card_horizontal/card_horizontal_md2.dart';
 
 class NewsPage extends StatelessWidget {
@@ -32,7 +32,7 @@ class NewsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: BlocBuilder(
-        bloc: BlocProvider.of<NewsBloc>(context),
+        cubit: BlocProvider.of<NewsBloc>(context),
         builder: (_, NewsState state) {
           return state.map(
             empty: (_) => Container(),

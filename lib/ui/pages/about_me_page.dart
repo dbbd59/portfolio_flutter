@@ -1,30 +1,17 @@
 // 🐦 Flutter imports:
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
+// 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio_flutter/bloc/about_me/aboutme_bloc.dart';
 
 // 🌎 Project imports:
+import 'package:portfolio_flutter/bloc/about_me/aboutme_bloc.dart';
 import 'package:portfolio_flutter/injections.dart';
-
 import '../../model/job.dart';
 import '../../model/skill.dart';
 import '../../repository/utility/i_utility_repository.dart';
 
-/* 
-class AboutMePage extends StatelessWidget {
-  const AboutMePage({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider<AboutMeBloc>(
-      create: (context) => getIt<AboutMeBloc>(),
-      child: Container(),
-    );
-  }
-} */
 class AboutMePage extends StatelessWidget {
   const AboutMePage({
     Key key,
@@ -409,9 +396,8 @@ class SkillItem extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(10),
-                        topLeft: Radius.circular(10),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
                       ),
                       color: Theme.of(context).primaryColor,
                     ),

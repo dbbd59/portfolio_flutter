@@ -1,3 +1,4 @@
+// 🌎 Project imports:
 import 'package:portfolio_flutter/model/github_trend.dart';
 import 'package:portfolio_flutter/model/job.dart';
 import 'package:portfolio_flutter/model/news.dart';

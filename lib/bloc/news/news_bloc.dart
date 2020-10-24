@@ -16,7 +16,7 @@ part 'news_bloc.freezed.dart';
 
 @Injectable()
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
-  NewsBloc(this._apiService);
+  NewsBloc(this._apiService) : super(NewsState.empty());
 
   IApiService _apiService;
 
@@ -37,7 +37,4 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
       reset: (e) async* {},
     );
   }
-
-  @override
-  NewsState get initialState => NewsState.empty();
 }
