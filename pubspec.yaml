@@ -1,7 +1,7 @@
 name: portfolio_flutter
 description: Flutter Base App
 
-version: 2.0.7+4
+version: 2.0.8+4
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
@@ -21,7 +21,7 @@ dependencies:
   shared_preferences: ^0.5.12+2
   dio: ^3.0.10
   google_fonts: ^1.1.1
-  connectivity: ^0.4.9+5
+  connectivity: ^2.0.0
   provider: ^4.0.5
   statsfl: ^1.1.0+3
   injectable: ^1.0.5
