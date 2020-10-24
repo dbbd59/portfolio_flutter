@@ -14,9 +14,7 @@ jobs:
         java-version: '12.x'
     - uses: subosito/flutter-action@v1
       with:
-        channel: 'dev'
-    - run: flutter channel master
-    - run: flutter upgrade
+        channel: 'stable'
     - run: flutter pub get
     - run: flutter build apk --release --split-per-abi
     - name: Release APK
