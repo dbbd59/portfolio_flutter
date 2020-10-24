@@ -9,6 +9,7 @@ import 'package:portfolio_flutter/bloc/bottomappbar/bottomappbar_bloc.dart';
 import 'package:portfolio_flutter/core/app_localizations.dart';
 import 'package:portfolio_flutter/model/enums/navigation_page_enum.dart';
 import 'package:portfolio_flutter/ui/pages/settings_page.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class DrawerApp extends StatefulWidget {
   @override
@@ -183,10 +184,20 @@ class DrawerAppHeader extends StatelessWidget {
         ),
         child: Row(
           children: <Widget>[
-            CircleAvatar(
-              backgroundImage: NetworkImage(
-                  "https://avatars3.githubusercontent.com/u/16138584?s=460&v=4"),
-              backgroundColor: Theme.of(context).primaryColor,
+            Container(
+              width: 50,
+              child: AspectRatio(
+                aspectRatio: 1.0,
+                child: CircleAvatar(
+                  child: ClipOval(
+                    child: SvgPicture.asset(
+                      "assets/images/dbbd59.svg",
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  radius: MediaQuery.of(context).size.width * 0.10,
+                ),
+              ),
             ),
             SizedBox(
               width: 8.0,

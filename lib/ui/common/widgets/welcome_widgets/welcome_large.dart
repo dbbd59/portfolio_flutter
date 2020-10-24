@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // 🌎 Project imports:
 import 'package:portfolio_flutter/injections.dart';
 import 'package:portfolio_flutter/repository/utility/i_utility_repository.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class WelcomeLarge extends StatelessWidget {
   @override
@@ -23,9 +24,13 @@ class WelcomeLarge extends StatelessWidget {
                     child: AspectRatio(
                       aspectRatio: 1.0,
                       child: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            "https://avatars3.githubusercontent.com/u/16138584?s=460&v=4"),
-                        radius: MediaQuery.of(context).size.width * 0.10,
+                        child: ClipOval(
+                          child: SvgPicture.asset(
+                            "assets/images/dbbd59.svg",
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        radius: MediaQuery.of(context).size.width * .1,
                       ),
                     ),
                   ),

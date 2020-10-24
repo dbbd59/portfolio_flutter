@@ -1,5 +1,6 @@
 // 🐦 Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 // 🌎 Project imports:
 import 'package:portfolio_flutter/change_notifier/theme_changenotifier.dart';
@@ -46,29 +47,65 @@ class _SettingsPageState extends State<SettingsPage> {
               secondary: Text("Show FPS"),
             ),
           ),
-          MaterialButton(
-              //icon: Icon(Icons.info),
-              child: Text("More info"),
-              color: Theme.of(context).accentColor,
-              onPressed: () {
-                showAboutDialog(
-                  context: context,
-                  applicationIcon: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: SizedBox(
-                        width: 32,
-                        height: 32,
-                        child: FlutterLogo(),
-                      ),
-                    ),
-                  ),
-                  applicationName: "portfolio_flutter",
-                  applicationVersion: "2.0.1",
-                );
-              }),
+          Info(),
         ],
       ),
     );
+  }
+}
+
+class Info extends StatefulWidget {
+  const Info({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  _InfoState createState() => _InfoState();
+}
+
+class _InfoState extends State<Info> {
+  PackageInfo _packageInfo = PackageInfo(
+    appName: 'Unknown',
+    packageName: 'Unknown',
+    version: 'Unknown',
+    buildNumber: 'Unknown',
+  );
+  @override
+  void initState() {
+    super.initState();
+    _initPackageInfo();
+  }
+
+  Future<void> _initPackageInfo() async {
+    final PackageInfo info = await PackageInfo.fromPlatform();
+    setState(() {
+      _packageInfo = info;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+        child: Text("Info"),
+        color: Theme.of(context).primaryColor,
+        onPressed: () {
+          showAboutDialog(
+            context: context,
+            applicationIcon: Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: SizedBox(
+                  width: 32,
+                  height: 32,
+                  child: Image.asset(
+                    "assets/icon.png",
+                  ),
+                ),
+              ),
+            ),
+            applicationName: "portfolio_flutter",
+            applicationVersion: _packageInfo.version,
+          );
+        });
   }
 }

@@ -36,8 +36,8 @@ class ThemeRepository implements IThemeRepository {
         },
       ),
       brightness: Brightness.dark,
+      primaryColor: Color(0xFF121212),
       accentColor: Color(0xFFdbbd59),
-      primaryColor: Color(0xFFdbbd59),
     );
   }
 

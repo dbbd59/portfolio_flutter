@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // 🌎 Project imports:
 import 'package:portfolio_flutter/ui/common/widgets/welcome_widgets/welcome_large.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class WelcomeSmall extends StatelessWidget {
   @override
@@ -14,10 +15,17 @@ class WelcomeSmall extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              CircleAvatar(
-                backgroundImage: NetworkImage(
-                    "https://avatars3.githubusercontent.com/u/16138584?s=460&v=4"),
-                radius: MediaQuery.of(context).size.height * 0.20,
+              AspectRatio(
+                aspectRatio: 1.0,
+                child: CircleAvatar(
+                  child: ClipOval(
+                    child: SvgPicture.asset(
+                      "assets/images/dbbd59.svg",
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  radius: MediaQuery.of(context).size.width * .1,
+                ),
               ),
               SizedBox(
                 height: 16.0,
