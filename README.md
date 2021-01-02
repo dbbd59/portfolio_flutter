@@ -17,7 +17,7 @@
 
 ### 🏠 [Homepage](https://github.com/dbbd59/portfolio_flutter_multiplatform)
 
-### ✨ [Demo](https://davidebolzoni.com)
+### ✨ [Demo](https://davidebolzoni.com) 
 
 ## Install
 
