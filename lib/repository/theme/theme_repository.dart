@@ -20,7 +20,7 @@ class ThemeRepository implements IThemeRepository {
   final SharedPreferences _prefs;
   @override
   bool get isDark {
-    return _prefs.getBool("isDarkMode") ?? false;
+    return _prefs.getBool('isDarkMode') ?? false;
   }
 
   @override
@@ -36,8 +36,8 @@ class ThemeRepository implements IThemeRepository {
         },
       ),
       brightness: Brightness.dark,
-      primaryColor: Color(0xFF121212),
-      accentColor: Color(0xFFdbbd59),
+      primaryColor: const Color(0xFF121212),
+      accentColor: const Color(0xFFdbbd59),
     );
   }
 
@@ -54,14 +54,14 @@ class ThemeRepository implements IThemeRepository {
         },
       ),
       brightness: Brightness.light,
-      primaryColor: Color(0xFFdbbd59),
-      accentColor: Color(0xFFdbbd59),
+      primaryColor: const Color(0xFFdbbd59),
+      accentColor: const Color(0xFFdbbd59),
     );
   }
 
   @override
   set isDark(bool value) {
-    _prefs.setBool("isDarkMode", value);
+    _prefs.setBool('isDarkMode', value);
   }
 }
 

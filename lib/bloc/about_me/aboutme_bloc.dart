@@ -19,9 +19,9 @@ part 'aboutme_bloc.freezed.dart';
 
 @Injectable(env: [Env.dev])
 class AboutMeBloc extends Bloc<AboutMeEvent, AboutMeState> {
-  AboutMeBloc(this._apiService) : super(AboutMeState.empty());
+  AboutMeBloc(this._apiService) : super(const AboutMeState.empty());
 
-  IApiService _apiService;
+  final IApiService _apiService;
 
   @override
   Stream<AboutMeState> mapEventToState(
@@ -30,19 +30,19 @@ class AboutMeBloc extends Bloc<AboutMeEvent, AboutMeState> {
     yield* event.map(
       fetch: (e) async* {
         try {
-          yield AboutMeState.loading();
-          final List<Job> jobs = await _apiService.fetchJobs();
-          final List<Skill> skills = await _apiService.fetchSkills();
+          yield const AboutMeState.loading();
+          final jobs = await _apiService.fetchJobs();
+          final skills = await _apiService.fetchSkills();
           yield AboutMeState.loaded(
             jobs,
             skills,
           );
         } catch (error) {
-          yield AboutMeState.error();
+          yield const AboutMeState.error();
         }
       },
       reset: (e) async* {
-        yield AboutMeState.loading();
+        yield const AboutMeState.loading();
       },
     );
   }
@@ -52,5 +52,6 @@ class AboutMeBloc extends Bloc<AboutMeEvent, AboutMeState> {
 class MockAboutMeBloc extends MockBloc<AboutMeBloc> implements AboutMeBloc {
   MockAboutMeBloc(this._apiService);
 
-  IApiService _apiService;
+  @override
+  final IApiService _apiService;
 }

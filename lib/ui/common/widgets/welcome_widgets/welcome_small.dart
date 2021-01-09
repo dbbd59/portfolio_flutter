@@ -6,11 +6,15 @@ import 'package:portfolio_flutter/ui/common/widgets/welcome_widgets/welcome_larg
 import 'package:flutter_svg/flutter_svg.dart';
 
 class WelcomeSmall extends StatelessWidget {
+  const WelcomeSmall({
+    Key key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -20,20 +24,20 @@ class WelcomeSmall extends StatelessWidget {
                 child: CircleAvatar(
                   child: ClipOval(
                     child: SvgPicture.asset(
-                      "assets/images/dbbd59.svg",
+                      'assets/images/dbbd59.svg',
                       fit: BoxFit.cover,
                     ),
                   ),
                   radius: MediaQuery.of(context).size.width * .1,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16.0,
               ),
               Row(
                 children: <Widget>[
                   Text(
-                    "HELLO WORLD, I'M",
+                    'HELLO WORLD, I\'M',
                     style: TextStyle(
                       fontSize: 22.0,
                       color: Theme.of(context).primaryColor,
@@ -43,8 +47,8 @@ class WelcomeSmall extends StatelessWidget {
               ),
               Row(
                 children: <Widget>[
-                  Text(
-                    "DAVIDE\nBOLZONI",
+                  const Text(
+                    'DAVIDE\nBOLZONI',
                     style: TextStyle(
                       fontSize: 46.0,
                       fontWeight: FontWeight.bold,
@@ -54,9 +58,9 @@ class WelcomeSmall extends StatelessWidget {
               ),
               Row(
                 children: <Widget>[
-                  Expanded(
+                  const Expanded(
                     child: Text(
-                      "",
+                      '',
                       style: TextStyle(
                         fontSize: 20.0,
                       ),
@@ -64,10 +68,10 @@ class WelcomeSmall extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16.0,
               ),
-              ButtonsRowWelcome(),
+              const ButtonsRowWelcome(),
             ],
           ),
         ),

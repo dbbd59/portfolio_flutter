@@ -19,12 +19,12 @@ class AuthRepository implements IAuthRepository {
 
   @override
   Future<void> auth() async {
-    _prefs.setString("accessToken", "x");
+    await _prefs.setString('accessToken', 'x');
   }
 
   @override
   Future<void> logout() async {
-    _prefs.remove("accessToken");
+    await _prefs.remove('accessToken');
   }
 }
 

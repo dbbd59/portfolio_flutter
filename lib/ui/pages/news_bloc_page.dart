@@ -20,54 +20,59 @@ class NewsPage extends StatelessWidget {
     return BlocProvider<NewsBloc>(
       create: (context) => getIt<NewsBloc>()
         ..add(
-          NewsEvent.fetchNews(),
+          const NewsEvent.fetchNews(),
         ),
-      child: NewsBody(),
+      child: const NewsBody(),
     );
   }
 }
 
 class NewsBody extends StatelessWidget {
+  const NewsBody({
+    Key key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: BlocBuilder(
-        cubit: BlocProvider.of<NewsBloc>(context),
-        builder: (_, NewsState state) {
-          return state.map(
-            empty: (_) => Container(),
-            loaded: (state) => LayoutBuilder(
-              builder: (context, constraints) {
-                if (constraints.maxWidth > 600 && constraints.maxWidth <= 750)
-                  return buildGridView(
-                    gridNumber: 2,
-                    news: state.news,
-                  );
-                if (constraints.maxWidth >= 750 && constraints.maxWidth < 1100)
-                  return buildGridView(
-                    gridNumber: 3,
-                    news: state.news,
-                  );
-                if (constraints.maxWidth >= 1100)
-                  return buildGridView(
-                    gridNumber: 4,
-                    news: state.news,
-                  );
-                return buildListView(
+    return BlocBuilder(
+      cubit: BlocProvider.of<NewsBloc>(context),
+      builder: (_, NewsState state) {
+        return state.map(
+          empty: (_) => Container(),
+          loaded: (state) => LayoutBuilder(
+            builder: (context, constraints) {
+              if (constraints.maxWidth > 600 && constraints.maxWidth <= 750) {
+                return buildGridView(
+                  gridNumber: 2,
                   news: state.news,
                 );
-              },
-            ),
-            loading: (_) => Center(
-              child: CircularProgressIndicator(),
-            ),
-            error: (_) => Text(
-              'Something went wrong!',
-              style: TextStyle(color: Colors.red),
-            ),
-          );
-        },
-      ),
+              }
+              if (constraints.maxWidth >= 750 && constraints.maxWidth < 1100) {
+                return buildGridView(
+                  gridNumber: 3,
+                  news: state.news,
+                );
+              }
+              if (constraints.maxWidth >= 1100) {
+                return buildGridView(
+                  gridNumber: 4,
+                  news: state.news,
+                );
+              }
+              return buildListView(
+                news: state.news,
+              );
+            },
+          ),
+          loading: (_) => const Center(
+            child: CircularProgressIndicator(),
+          ),
+          error: (_) => const Text(
+            'Something went wrong!',
+            style: TextStyle(color: Colors.red),
+          ),
+        );
+      },
     );
   }
 

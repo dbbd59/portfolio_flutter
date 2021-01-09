@@ -20,18 +20,22 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configureInjection(Env.dev);
   runApp(
-    MyApp(),
+    const MyApp(),
   );
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({
+    Key key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: blocProviders,
       child: MultiProvider(
         providers: providers,
-        child: AppWidget(),
+        child: const AppWidget(),
       ),
     );
   }
@@ -59,8 +63,8 @@ class AppWidget extends StatelessWidget {
               ? ThemeMode.dark
               : ThemeMode.light,
           supportedLocales: [
-            Locale('en', 'US'),
-            Locale('it', 'IT'),
+            const Locale('en', 'US'),
+            const Locale('it', 'IT'),
           ],
           localizationsDelegates: [
             AppLocalizations.delegate,
@@ -81,13 +85,12 @@ class AppWidget extends StatelessWidget {
             width: 600,
             height: 30,
             maxFps: 120,
-            showText: true,
             sampleTime: .1,
             totalTime: 30,
-            align: Alignment(1.0, -0.9),
+            align: const Alignment(1.0, -0.9),
             child: BlocBuilder<AuthBloc, AuthState>(
               builder: (context, state) {
-                return ResponsivePage();
+                return const ResponsivePage();
               },
             ),
           ),

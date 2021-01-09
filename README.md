@@ -16,6 +16,7 @@
 </p>
 
 ### 🏠 [Homepage](https://github.com/dbbd59/portfolio_flutter_multiplatform)
+[![style: ficcanaso](https://img.shields.io/badge/style-ficcanaso-yellow)](https://github.com/dbbd59/ficcanaso)
 
 ### ✨ [Demo](https://davidebolzoni.com) 
 

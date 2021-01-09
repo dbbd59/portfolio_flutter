@@ -39,6 +39,7 @@ class HttpService implements IHttpService {
   @override
   Dio dio;
 
+  @override
   Future<Response> httpServiceGet({
     @required String endpoint,
     Map<String, String> headers,
@@ -56,14 +57,12 @@ class HttpService implements IHttpService {
     } on DioError catch (e) {
       if (e.response != null) {
         _exceptionHandler(e.response);
-      } else {
-        print(e.request);
-        print(e.message);
-      }
+      } else {}
     }
     return response;
   }
 
+  @override
   Future<Response> httpServicePost({
     @required String endpoint,
     @required Map<String, String> headers,
@@ -81,18 +80,15 @@ class HttpService implements IHttpService {
     } on DioError catch (e) {
       if (e.response != null) {
         _exceptionHandler(e.response);
-      } else {
-        print(e.request);
-        print(e.message);
-      }
+      } else {}
     }
     return response;
   }
 
   void _exceptionHandler(Response response) {
-    ExceptionInfo exceptionInfo = ExceptionInfo(
-      message: response.data["error"]["message"]?.toString(),
-      details: response.data["error"]["details"]?.toString(),
+    final exceptionInfo = ExceptionInfo(
+      message: response.data['error']['message']?.toString(),
+      details: response.data['error']['details']?.toString(),
       statusCode: response.statusCode,
     );
     switch (response.statusCode) {

@@ -2,19 +2,8 @@
 import 'package:flutter/material.dart';
 
 class CardGitHubTrend extends StatelessWidget {
-  final Function onTap;
-  final String imageNetwork;
-  final String imageAsset;
-  final String title;
-  final String subTitle;
-  final bool horizontal;
-  final int borderColor;
-  final int stars;
-  final int forks;
-  final int currentPeriodStars;
-  final String languageName;
-  final String author;
   CardGitHubTrend({
+    Key key,
     @required this.title,
     @required this.onTap,
     @required this.horizontal,
@@ -27,7 +16,21 @@ class CardGitHubTrend extends StatelessWidget {
     this.languageName,
     this.author,
     this.currentPeriodStars,
-  });
+  }) : super(key: key);
+
+  final String author;
+  final int borderColor;
+  final int currentPeriodStars;
+  final int forks;
+  final bool horizontal;
+  final String imageAsset;
+  final String imageNetwork;
+  final String languageName;
+  final Function onTap;
+  final int stars;
+  final String subTitle;
+  final String title;
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -56,7 +59,6 @@ class CardGitHubTrend extends StatelessWidget {
                       forks: forks,
                     ),
                     Expanded(
-                      flex: 1,
                       child: _CardGitHubImage(
                         horizontal: horizontal,
                         imageNetwork: imageNetwork,
@@ -70,7 +72,6 @@ class CardGitHubTrend extends StatelessWidget {
               : Column(
                   children: <Widget>[
                     Expanded(
-                      flex: 1,
                       child: _CardGitHubImage(
                         horizontal: horizontal,
                         imageNetwork: imageNetwork,
@@ -104,20 +105,19 @@ class _CardGitHubContent extends StatelessWidget {
     @required this.forks,
   }) : super(key: key);
 
-  final String title;
   final int currentPeriodStars;
-  final String subTitle;
-  final int stars;
   final int forks;
+  final int stars;
+  final String subTitle;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       flex: 2,
       child: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Expanded(
@@ -127,7 +127,7 @@ class _CardGitHubContent extends StatelessWidget {
                 currentPeriodStars: currentPeriodStars,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Expanded(
@@ -136,11 +136,10 @@ class _CardGitHubContent extends StatelessWidget {
                 subTitle: subTitle,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Expanded(
-              flex: 1,
               child: _CardGitHubStarsForks(
                 stars: stars,
                 forks: forks,
@@ -163,11 +162,11 @@ class _CardGitHubImage extends StatelessWidget {
     @required this.horizontal,
   }) : super(key: key);
 
+  final String author;
+  final int borderColor;
+  final bool horizontal;
   final String imageNetwork;
   final String languageName;
-  final int borderColor;
-  final String author;
-  final bool horizontal;
 
   @override
   Widget build(BuildContext context) {
@@ -176,11 +175,10 @@ class _CardGitHubImage extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              alignment: Alignment.center,
               image: imageNetwork != null
                   ? NetworkImage(imageNetwork)
-                  : NetworkImage(
-                      "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"),
+                  : const NetworkImage(
+                      'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'),
               fit: BoxFit.cover,
             ),
           ),
@@ -214,16 +212,16 @@ class _CardGitHubStarsForks extends StatelessWidget {
     @required this.forks,
   }) : super(key: key);
 
-  final int stars;
   final int forks;
+  final int stars;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
-        Text("⭐: $stars"),
-        Text("🔀: $forks"),
+        Text('⭐: $stars'),
+        Text('🔀: $forks'),
       ],
     );
   }
@@ -240,8 +238,8 @@ class _CardGitHubDescr extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      subTitle != null ? subTitle : "",
-      style: TextStyle(
+      subTitle ?? '',
+      style: const TextStyle(
         fontSize: 12.0,
         color: Colors.grey,
       ),
@@ -256,24 +254,23 @@ class _CardGitHubTitle extends StatelessWidget {
     @required this.currentPeriodStars,
   }) : super(key: key);
 
-  final String title;
   final int currentPeriodStars;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          title != null ? title : "",
-          style: TextStyle(
+          title ?? '',
+          style: const TextStyle(
             fontSize: 16.0,
           ),
         ),
         Text(
-          "+$currentPeriodStars ⭐ today",
-          style: TextStyle(
+          '+$currentPeriodStars ⭐ today',
+          style: const TextStyle(
             fontSize: 11.0,
           ),
         ),

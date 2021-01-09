@@ -14,11 +14,15 @@ import 'package:portfolio_flutter/ui/pages/news_bloc_page.dart';
 import 'package:portfolio_flutter/ui/pages/welcome_page.dart';
 
 class MainPage extends StatelessWidget {
+  MainPage({
+    Key key,
+  }) : super(key: key);
+
   final List<Widget> _children = [
-    WelcomePage(),
-    GitHubTrendsPage(),
-    NewsPage(),
-    AboutMePage(),
+    const WelcomePage(),
+    const GitHubTrendsPage(),
+    const NewsPage(),
+    const AboutMePage(),
   ];
   @override
   Widget build(BuildContext context) {

@@ -9,6 +9,10 @@ import 'package:portfolio_flutter/ui/main/widgets/bottom_nav_bar_app.dart';
 import 'package:portfolio_flutter/ui/main/widgets/drawer_app.dart';
 
 class ResponsivePage extends StatefulWidget {
+  const ResponsivePage({
+    Key key,
+  }) : super(key: key);
+
   @override
   _ResponsivePageState createState() => _ResponsivePageState();
 }
@@ -16,7 +20,7 @@ class ResponsivePage extends StatefulWidget {
 class _ResponsivePageState extends State<ResponsivePage> {
   @override
   Widget build(BuildContext context) {
-    DisplayType displayType = displayTypeOf(context);
+    final displayType = displayTypeOf(context);
     switch (displayType) {
       case DisplayType.MOBILE:
         return Scaffold(
@@ -26,16 +30,16 @@ class _ResponsivePageState extends State<ResponsivePage> {
               AppLocalizations.of(context).translate('main_app_bar_title'),
             ),
           ),
-          drawer: DrawerApp(),
-          bottomNavigationBar: BottomNavBarApp(),
+          drawer: const DrawerApp(),
+          bottomNavigationBar: const BottomNavBarApp(),
           body: MainPage(),
         );
         break;
       case DisplayType.DESKTOP:
         return Row(
           children: [
-            DrawerApp(),
-            VerticalDivider(width: 1),
+            const DrawerApp(),
+            const VerticalDivider(width: 1),
             Expanded(
               child: Scaffold(
                 appBar: AppBar(
@@ -56,8 +60,7 @@ class _ResponsivePageState extends State<ResponsivePage> {
           appBar: AppBar(
             elevation: 0,
             title: Text(
-              "Default" +
-                  AppLocalizations.of(context).translate('main_app_bar_title'),
+              'Default${AppLocalizations.of(context).translate('main_app_bar_title')}',
             ),
           ),
           body: Container(),

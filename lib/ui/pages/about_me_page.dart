@@ -22,14 +22,18 @@ class AboutMePage extends StatelessWidget {
     return BlocProvider<AboutMeBloc>(
       create: (context) => getIt<AboutMeBloc>()
         ..add(
-          AboutMeEvent.fetch(),
+          const AboutMeEvent.fetch(),
         ),
-      child: AboutMeBody(),
+      child: const AboutMeBody(),
     );
   }
 }
 
 class AboutMeBody extends StatelessWidget {
+  const AboutMeBody({
+    Key key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,12 +47,12 @@ class AboutMeBody extends StatelessWidget {
                   jobs: state.jobs,
                   skills: state.skills,
                 ),
-                loading: (_) => Padding(
-                  padding: const EdgeInsets.all(8.0),
+                loading: (_) => const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: CircularProgressIndicator(),
                 ),
-                error: (_) => Center(
-                  child: Text("Error"),
+                error: (_) => const Center(
+                  child: Text('Error'),
                 ),
               );
             },
@@ -71,77 +75,73 @@ class AboutMeContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          child: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
-              return Padding(
-                padding: EdgeInsets.only(
-                  left: (constraints.maxWidth >= 600) ? 150.0 : 16,
-                  right: (constraints.maxWidth >= 600) ? 150.0 : 16,
-                  top: (constraints.maxWidth >= 600) ? 30.0 : 16,
-                  bottom: (constraints.maxWidth >= 600) ? 30.0 : 16,
-                ),
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Text(
-                            "SKILLS",
-                            style: TextStyle(
-                              fontSize: 36,
-                              fontWeight: FontWeight.bold,
-                            ),
+        LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            return Padding(
+              padding: EdgeInsets.only(
+                left: (constraints.maxWidth >= 600) ? 150.0 : 16,
+                right: (constraints.maxWidth >= 600) ? 150.0 : 16,
+                top: (constraints.maxWidth >= 600) ? 30.0 : 16,
+                bottom: (constraints.maxWidth >= 600) ? 30.0 : 16,
+              ),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      const Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child: Text(
+                          'SKILLS',
+                          style: TextStyle(
+                            fontSize: 36,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ],
-                    ),
-                    for (var skill in skills)
-                      SkillItem(
-                        skill: skill,
                       ),
-                  ],
-                ),
-              );
-            },
-          ),
+                    ],
+                  ),
+                  for (var skill in skills)
+                    SkillItem(
+                      skill: skill,
+                    ),
+                ],
+              ),
+            );
+          },
         ),
-        Container(
-          child: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
-              return Padding(
-                padding: EdgeInsets.only(
-                  left: (constraints.maxWidth >= 600) ? 150.0 : 16,
-                  right: (constraints.maxWidth >= 600) ? 150.0 : 16,
-                  top: (constraints.maxWidth >= 600) ? 30.0 : 16,
-                  bottom: (constraints.maxWidth >= 600) ? 30.0 : 16,
-                ),
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Text(
-                            "EXPERIENCE",
-                            style: TextStyle(
-                              fontSize: 36,
-                              fontWeight: FontWeight.bold,
-                            ),
+        LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            return Padding(
+              padding: EdgeInsets.only(
+                left: (constraints.maxWidth >= 600) ? 150.0 : 16,
+                right: (constraints.maxWidth >= 600) ? 150.0 : 16,
+                top: (constraints.maxWidth >= 600) ? 30.0 : 16,
+                bottom: (constraints.maxWidth >= 600) ? 30.0 : 16,
+              ),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      const Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child: Text(
+                          'EXPERIENCE',
+                          style: TextStyle(
+                            fontSize: 36,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ],
-                    ),
-                    for (var job in jobs)
-                      JobItem(
-                        job: job,
                       ),
-                  ],
-                ),
-              );
-            },
-          ),
+                    ],
+                  ),
+                  for (var job in jobs)
+                    JobItem(
+                      job: job,
+                    ),
+                ],
+              ),
+            );
+          },
         ),
       ],
     );
@@ -163,40 +163,39 @@ class JobItem extends StatelessWidget {
         return Stack(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 50.0,
                 top: 50,
                 bottom: 50,
               ),
               child: Card(
                 child: Padding(
-                  padding: EdgeInsets.all(32.0),
+                  padding: const EdgeInsets.all(32.0),
                   child: Container(
                     width: double.infinity,
                     child: (constraints.maxWidth >= 600)
                         ? Row(
                             children: <Widget>[
                               Expanded(
-                                flex: 1,
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
                                     Text(
                                       job.company,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 24,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     Container(
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.all(
+                                        borderRadius: const BorderRadius.all(
                                           Radius.circular(10),
                                         ),
                                         color: Theme.of(context).primaryColor,
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsets.all(16.0),
+                                        padding: const EdgeInsets.all(16.0),
                                         child: Text(
                                           job.date,
                                         ),
@@ -215,7 +214,7 @@ class JobItem extends StatelessWidget {
                                               ..onTap = () {
                                                 getIt<IUtilityRepository>()
                                                     .launchURL(
-                                                  url: job.link ?? "",
+                                                  url: job.link ?? '',
                                                 );
                                               },
                                           ),
@@ -232,14 +231,14 @@ class JobItem extends StatelessWidget {
                                   children: <Widget>[
                                     Text(
                                       job.jobTitle,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 24,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     Text(
                                       job.descr,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 16,
                                       ),
                                     ),
@@ -255,13 +254,13 @@ class JobItem extends StatelessWidget {
                                 children: <Widget>[
                                   Container(
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
+                                      borderRadius: const BorderRadius.all(
                                         Radius.circular(10),
                                       ),
                                       color: Theme.of(context).primaryColor,
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsets.all(16.0),
+                                      padding: const EdgeInsets.all(16.0),
                                       child: Text(
                                         job.date,
                                       ),
@@ -269,7 +268,7 @@ class JobItem extends StatelessWidget {
                                   ),
                                   Text(
                                     job.company,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 24,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -301,14 +300,14 @@ class JobItem extends StatelessWidget {
                                 children: <Widget>[
                                   Text(
                                     job.jobTitle,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 24,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                   Text(
                                     job.descr,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 16,
                                     ),
                                   ),
@@ -336,15 +335,15 @@ class JobItem extends StatelessWidget {
               child: Container(
                 height: 40.0,
                 width: 40.0,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.white,
                 ),
                 child: Container(
-                  margin: EdgeInsets.all(5.0),
+                  margin: const EdgeInsets.all(5.0),
                   height: 30.0,
                   width: 30.0,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.black,
                   ),
@@ -387,7 +386,7 @@ class SkillItem extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.grey[200],
-                      borderRadius: BorderRadius.all(
+                      borderRadius: const BorderRadius.all(
                         Radius.circular(10),
                       ),
                     ),
@@ -396,7 +395,7 @@ class SkillItem extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
+                      borderRadius: const BorderRadius.all(
                         Radius.circular(10),
                       ),
                       color: Theme.of(context).primaryColor,

@@ -12,6 +12,10 @@ import 'package:portfolio_flutter/ui/pages/settings_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class DrawerApp extends StatefulWidget {
+  const DrawerApp({
+    Key key,
+  }) : super(key: key);
+
   @override
   _DrawerAppState createState() => _DrawerAppState();
 }
@@ -23,7 +27,6 @@ class _DrawerAppState extends State<DrawerApp> {
       elevation: 0,
       child: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -36,7 +39,7 @@ class _DrawerAppState extends State<DrawerApp> {
                     ),
                   );
                 },
-                child: DrawerAppHeader()),
+                child: const DrawerAppHeader()),
             Expanded(
               child: MediaQuery.removePadding(
                 context: context,
@@ -89,16 +92,16 @@ class _DrawerAppState extends State<DrawerApp> {
                 ),
               ),
             ),
-            Divider(),
+            const Divider(),
             DrawerAppListItem(
-              label: "Settings",
+              label: 'Settings',
               icon: Icons.settings,
               //route: NavigationPageEnum.ABOUTME,
               onPressed: () {
                 Navigator.maybePop(context);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SettingsPage()),
+                  MaterialPageRoute(builder: (context) => const SettingsPage()),
                 );
               },
             ),
@@ -128,31 +131,31 @@ class DrawerAppListItem extends StatelessWidget {
     return BlocBuilder<BottomAppBarBloc, BottomAppBarState>(
       builder: (context, state) {
         return Container(
-          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+          margin: const EdgeInsets.only(left: 8.0, right: 8.0),
           height: 48,
           child: InkWell(
             onTap: onPressed,
             child: Container(
-              margin: EdgeInsets.symmetric(
+              margin: const EdgeInsets.symmetric(
                 vertical: 2.0,
               ),
               decoration: BoxDecoration(
                 color: route != null && state.pageSelected == route
                     ? Theme.of(context).primaryColor.withOpacity(0.12)
                     : null,
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(8.0),
                 ),
               ),
               child: Row(
                 children: <Widget>[
-                  SizedBox(
+                  const SizedBox(
                     width: 16.0,
                   ),
                   Icon(
                     icon,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 16.0,
                   ),
                   Text(
@@ -177,7 +180,7 @@ class DrawerAppHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return DrawerHeader(
       child: Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: 16.0,
           right: 16.0,
           bottom: 8.0,
@@ -191,7 +194,7 @@ class DrawerAppHeader extends StatelessWidget {
                 child: CircleAvatar(
                   child: ClipOval(
                     child: SvgPicture.asset(
-                      "assets/images/dbbd59.svg",
+                      'assets/images/dbbd59.svg',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -199,23 +202,23 @@ class DrawerAppHeader extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 8.0,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  "Davide Bolzoni",
+                const Text(
+                  'Davide Bolzoni',
                   softWrap: true,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 20.0,
                   ),
                 ),
-                Text(
-                  "davide.bolzoni59@gmail.com",
+                const Text(
+                  'davide.bolzoni59@gmail.com',
                   softWrap: true,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(

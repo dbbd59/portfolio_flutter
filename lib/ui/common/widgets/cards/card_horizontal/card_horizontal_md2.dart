@@ -2,20 +2,23 @@
 import 'package:flutter/material.dart';
 
 class CardMaterialDesign2 extends StatelessWidget {
-  final Function onTap;
-  final String imageNetwork;
-  final String imageAsset;
-  final String title;
-  final String subTitle;
-  final bool vertical;
   CardMaterialDesign2({
+    Key key,
     @required this.title,
     @required this.onTap,
     @required this.vertical,
     this.subTitle,
     this.imageNetwork,
     this.imageAsset,
-  });
+  }) : super(key: key);
+
+  final String imageAsset;
+  final String imageNetwork;
+  final Function onTap;
+  final String subTitle;
+  final String title;
+  final bool vertical;
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -29,15 +32,13 @@ class CardMaterialDesign2 extends StatelessWidget {
               ? Row(
                   children: <Widget>[
                     Expanded(
-                      flex: 1,
                       child: Container(
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            alignment: Alignment.center,
                             image: imageNetwork != null
                                 ? NetworkImage(imageNetwork)
-                                : NetworkImage(
-                                    "https://d28fs0o8ewdlxv.cloudfront.net/compare-assets/placeholders/news-placeholder-a0aa1349678d0b4fa44b774efba2bb68.png"),
+                                : const NetworkImage(
+                                    'https://d28fs0o8ewdlxv.cloudfront.net/compare-assets/placeholders/news-placeholder-a0aa1349678d0b4fa44b774efba2bb68.png'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -46,25 +47,24 @@ class CardMaterialDesign2 extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Padding(
-                        padding: EdgeInsets.all(16.0),
+                        padding: const EdgeInsets.all(16.0),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              title != null ? title : "Title",
+                              title ?? 'Title',
                               maxLines: 3,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 24.0,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Flexible(
                               child: Text(
-                                subTitle != null ? subTitle : "Title",
-                                style: TextStyle(
+                                subTitle ?? 'Title',
+                                style: const TextStyle(
                                     fontSize: 14.0, color: Colors.grey),
                               ),
                             ),
@@ -77,15 +77,13 @@ class CardMaterialDesign2 extends StatelessWidget {
               : Column(
                   children: <Widget>[
                     Expanded(
-                      flex: 1,
                       child: Container(
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            alignment: Alignment.center,
                             image: imageNetwork != null
                                 ? NetworkImage(imageNetwork)
-                                : NetworkImage(
-                                    "https://d28fs0o8ewdlxv.cloudfront.net/compare-assets/placeholders/news-placeholder-a0aa1349678d0b4fa44b774efba2bb68.png"),
+                                : const NetworkImage(
+                                    'https://d28fs0o8ewdlxv.cloudfront.net/compare-assets/placeholders/news-placeholder-a0aa1349678d0b4fa44b774efba2bb68.png'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -94,24 +92,23 @@ class CardMaterialDesign2 extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Padding(
-                        padding: EdgeInsets.all(16.0),
+                        padding: const EdgeInsets.all(16.0),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              title != null ? title : "",
-                              style: TextStyle(
+                              title ?? '',
+                              style: const TextStyle(
                                 fontSize: 24.0,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Flexible(
                               child: Text(
-                                subTitle != null ? subTitle : "",
-                                style: TextStyle(
+                                subTitle ?? '',
+                                style: const TextStyle(
                                     fontSize: 14.0, color: Colors.grey),
                               ),
                             ),

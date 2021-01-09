@@ -22,7 +22,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     AuthEvent event,
   ) async* {
     if (event is AuthEventStart) {
-      if (getIt<SharedPreferences>().getString("accessToken") != null) {
+      if (getIt<SharedPreferences>().getString('accessToken') != null) {
         yield AuthStateLogged();
       } else {
         yield AuthStateUnLogged();

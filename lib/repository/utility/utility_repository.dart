@@ -19,17 +19,17 @@ class UtilityRepository implements IUtilityRepository {
 
   @override
   bool get showFps {
-    return _prefs.getBool("fps-enabled") ?? false;
+    return _prefs.getBool('fps-enabled') ?? false;
   }
 
   @override
   int getColorHexFromStr(String colorStr) {
-    colorStr = "FF" + colorStr;
-    colorStr = colorStr.replaceAll("#", "");
-    int val = 0;
-    int len = colorStr.length;
-    for (int i = 0; i < len; i++) {
-      int hexDigit = colorStr.codeUnitAt(i);
+    colorStr = 'FF$colorStr';
+    colorStr = colorStr.replaceAll('#', '');
+    var val = 0;
+    final len = colorStr.length;
+    for (var i = 0; i < len; i++) {
+      final hexDigit = colorStr.codeUnitAt(i);
       if (hexDigit >= 48 && hexDigit <= 57) {
         val += (hexDigit - 48) * (1 << (4 * (len - 1 - i)));
       } else if (hexDigit >= 65 && hexDigit <= 70) {
@@ -39,14 +39,15 @@ class UtilityRepository implements IUtilityRepository {
         // a..f
         val += (hexDigit - 87) * (1 << (4 * (len - 1 - i)));
       } else {
-        throw new FormatException("An error occurred when converting a color");
+        throw const FormatException(
+            'An error occurred when converting a color');
       }
     }
     return val;
   }
 
   @override
-  launchURL({String url}) async {
+  void launchURL({String url}) async {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -56,7 +57,7 @@ class UtilityRepository implements IUtilityRepository {
 
   @override
   set showFps(bool value) {
-    _prefs.setBool("fps-enabled", value);
+    _prefs.setBool('fps-enabled', value);
   }
 }
 

@@ -8,6 +8,10 @@ import 'package:portfolio_flutter/change_notifier/utility_changenotifier.dart';
 import 'package:portfolio_flutter/injections.dart';
 
 class SettingsPage extends StatefulWidget {
+  const SettingsPage({
+    Key key,
+  }) : super(key: key);
+
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
@@ -44,10 +48,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   getIt<UtilityChangeNotifier>().showFps = value;
                 });
               },
-              secondary: Text("Show FPS"),
+              secondary: const Text('Show FPS'),
             ),
           ),
-          Info(),
+          const Info(),
         ],
       ),
     );
@@ -70,6 +74,7 @@ class _InfoState extends State<Info> {
     version: 'Unknown',
     buildNumber: 'Unknown',
   );
+
   @override
   void initState() {
     super.initState();
@@ -77,7 +82,7 @@ class _InfoState extends State<Info> {
   }
 
   Future<void> _initPackageInfo() async {
-    final PackageInfo info = await PackageInfo.fromPlatform();
+    final info = await PackageInfo.fromPlatform();
     setState(() {
       _packageInfo = info;
     });
@@ -86,7 +91,7 @@ class _InfoState extends State<Info> {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-        child: Text("Info"),
+        child: const Text('Info'),
         color: Theme.of(context).primaryColor,
         onPressed: () {
           showAboutDialog(
@@ -98,12 +103,12 @@ class _InfoState extends State<Info> {
                   width: 32,
                   height: 32,
                   child: Image.asset(
-                    "assets/icon.png",
+                    'assets/icon.png',
                   ),
                 ),
               ),
             ),
-            applicationName: "portfolio_flutter",
+            applicationName: 'portfolio_flutter',
             applicationVersion: _packageInfo.version,
           );
         });

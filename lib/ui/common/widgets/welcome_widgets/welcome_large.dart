@@ -7,11 +7,15 @@ import 'package:portfolio_flutter/repository/utility/i_utility_repository.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class WelcomeLarge extends StatelessWidget {
+  const WelcomeLarge({
+    Key key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -20,13 +24,12 @@ class WelcomeLarge extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Align(
-                    alignment: Alignment.center,
                     child: AspectRatio(
                       aspectRatio: 1.0,
                       child: CircleAvatar(
                         child: ClipOval(
                           child: SvgPicture.asset(
-                            "assets/images/dbbd59.svg",
+                            'assets/images/dbbd59.svg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -38,14 +41,14 @@ class WelcomeLarge extends StatelessWidget {
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Row(
                         children: <Widget>[
                           Text(
-                            "HELLO WORLD, I'M",
+                            'HELLO WORLD, I\'M',
                             textScaleFactor: 1,
                             style: TextStyle(
                               fontSize: 22.0,
@@ -56,8 +59,8 @@ class WelcomeLarge extends StatelessWidget {
                       ),
                       Row(
                         children: <Widget>[
-                          Text(
-                            "DAVIDE\nBOLZONI",
+                          const Text(
+                            'DAVIDE\nBOLZONI',
                             textScaleFactor: 1,
                             style: TextStyle(
                               fontSize: 46.0,
@@ -68,9 +71,9 @@ class WelcomeLarge extends StatelessWidget {
                       ),
                       Row(
                         children: <Widget>[
-                          Expanded(
+                          const Expanded(
                             child: Text(
-                              "",
+                              '',
                               textScaleFactor: 1,
                               style: TextStyle(
                                 fontSize: 20.0,
@@ -79,10 +82,10 @@ class WelcomeLarge extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 8.0,
                       ),
-                      ButtonsRowWelcome(),
+                      const ButtonsRowWelcome(),
                     ],
                   ),
                 ),
@@ -112,11 +115,11 @@ class ButtonsRowWelcome extends StatelessWidget {
         OutlineButton(
           onPressed: () {
             getIt<IUtilityRepository>().launchURL(
-              url: "https://github.com/dbbd59",
+              url: 'https://github.com/dbbd59',
             );
           },
-          child: Text(
-            "GitHub",
+          child: const Text(
+            'GitHub',
             style: TextStyle(),
           ),
           splashColor: Theme.of(context).primaryColor,
@@ -127,11 +130,11 @@ class ButtonsRowWelcome extends StatelessWidget {
         OutlineButton(
           onPressed: () {
             getIt<IUtilityRepository>().launchURL(
-              url: "https://www.linkedin.com/in/davide-bolzoni-a54958112/",
+              url: 'https://www.linkedin.com/in/davide-bolzoni-a54958112/',
             );
           },
-          child: Text(
-            "Linkedin",
+          child: const Text(
+            'Linkedin',
             style: TextStyle(),
           ),
           splashColor: Theme.of(context).primaryColor,
@@ -142,11 +145,11 @@ class ButtonsRowWelcome extends StatelessWidget {
         OutlineButton(
           onPressed: () {
             getIt<IUtilityRepository>().launchURL(
-              url: "mailto:davide.bolzoni59@gmail.com",
+              url: 'mailto:davide.bolzoni59@gmail.com',
             );
           },
-          child: Text(
-            "Say Hi!",
+          child: const Text(
+            'Say Hi!',
             style: TextStyle(),
           ),
           splashColor: Theme.of(context).primaryColor,

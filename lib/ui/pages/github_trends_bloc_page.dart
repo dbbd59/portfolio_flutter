@@ -22,38 +22,42 @@ class GitHubTrendsPage extends StatelessWidget {
     return BlocProvider<GithubTrendBloc>(
       create: (context) => getIt<GithubTrendBloc>()
         ..add(
-          GithubTrendEvent.fetchTrends(),
+          const GithubTrendEvent.fetchTrends(),
         ),
-      child: GitHubTrendsBody(),
+      child: const GitHubTrendsBody(),
     );
   }
 }
 
 class GitHubTrendsBody extends StatelessWidget {
+  const GitHubTrendsBody({
+    Key key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: BlocBuilder(
-        cubit: BlocProvider.of<GithubTrendBloc>(context),
-        builder: (_, GithubTrendState state) {
-          return state.map(
-            empty: (_) => Container(),
-            loaded: (state) => LayoutBuilder(
-              builder: (context, constraints) {
-                if (constraints.maxWidth >= 750 && constraints.maxWidth < 1100)
-                  return buildGridView(
-                      gridNumber: 2, listGitHubTrends: state.gitHubTrends);
-                if (constraints.maxWidth >= 1100)
-                  return buildGridView(
-                      gridNumber: 3, listGitHubTrends: state.gitHubTrends);
-                return buildListView(listGitHubTrends: state.gitHubTrends);
-              },
-            ),
-            loading: (_) => ProgressIndicatorCustom(),
-            error: (_) => ProgressIndicatorCustom(),
-          );
-        },
-      ),
+    return BlocBuilder(
+      cubit: BlocProvider.of<GithubTrendBloc>(context),
+      builder: (_, GithubTrendState state) {
+        return state.map(
+          empty: (_) => Container(),
+          loaded: (state) => LayoutBuilder(
+            builder: (context, constraints) {
+              if (constraints.maxWidth >= 750 && constraints.maxWidth < 1100) {
+                return buildGridView(
+                    gridNumber: 2, listGitHubTrends: state.gitHubTrends);
+              }
+              if (constraints.maxWidth >= 1100) {
+                return buildGridView(
+                    gridNumber: 3, listGitHubTrends: state.gitHubTrends);
+              }
+              return buildListView(listGitHubTrends: state.gitHubTrends);
+            },
+          ),
+          loading: (_) => const ProgressIndicatorCustom(),
+          error: (_) => const ProgressIndicatorCustom(),
+        );
+      },
     );
   }
 
@@ -77,9 +81,9 @@ class GitHubTrendsBody extends StatelessWidget {
                 .launchURL(url: listGitHubTrends[index].url);
           },
           title: listGitHubTrends[index].name,
-          imageNetwork: listGitHubTrends[index].builtBy.length > 0
+          imageNetwork: listGitHubTrends[index].builtBy.isNotEmpty
               ? listGitHubTrends[index]?.builtBy[0]?.avatar
-              : "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+              : 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
           subTitle: listGitHubTrends[index].description,
         );
       },
@@ -109,7 +113,7 @@ class GitHubTrendsBody extends StatelessWidget {
                   .launchURL(url: listGitHubTrends[index].url);
             },
             title: listGitHubTrends[index].name,
-            imageNetwork: listGitHubTrends[index].builtBy.length > 0
+            imageNetwork: listGitHubTrends[index].builtBy.isNotEmpty
                 ? listGitHubTrends[index]?.builtBy[0]?.avatar
                 : null,
             subTitle: listGitHubTrends[index].description,

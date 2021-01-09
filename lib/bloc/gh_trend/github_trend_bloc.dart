@@ -20,9 +20,9 @@ part 'github_trend_bloc.freezed.dart';
 
 @Injectable()
 class GithubTrendBloc extends Bloc<GithubTrendEvent, GithubTrendState> {
-  GithubTrendBloc(this._apiService) : super(GithubTrendState.empty());
+  GithubTrendBloc(this._apiService) : super(const GithubTrendState.empty());
 
-  IApiService _apiService;
+  final IApiService _apiService;
 
   @override
   Stream<GithubTrendState> mapEventToState(
@@ -31,12 +31,11 @@ class GithubTrendBloc extends Bloc<GithubTrendEvent, GithubTrendState> {
     yield* event.map(
       fetchTrends: (e) async* {
         try {
-          yield GithubTrendState.loading();
-          final List<GitHubTrend> gitHubTrends =
-              await _apiService.fetchGitHubTrends();
+          yield const GithubTrendState.loading();
+          final gitHubTrends = await _apiService.fetchGitHubTrends();
           yield GithubTrendState.loaded(gitHubTrends);
         } catch (_) {
-          yield GithubTrendState.error();
+          yield const GithubTrendState.error();
         }
       },
       reset: (e) async* {},

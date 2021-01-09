@@ -15,19 +15,17 @@ class Alert {
       animationType: AnimationType.grow,
       isCloseButton: false,
       isOverlayTapDismiss: false,
-      animationDuration: Duration(
+      animationDuration: const Duration(
         milliseconds: 175,
       ),
       alertBorder: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(4.0),
       ),
-      titleStyle: TextStyle(
+      titleStyle: const TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 25,
       ),
-      descStyle: TextStyle(
-        fontSize: 16,
-      ),
+      descStyle: const TextStyle(),
     );
   }
 
@@ -64,7 +62,7 @@ class Alert {
   Widget _buildDialog() {
     return AlertDialog(
       shape: alertStyle.alertBorder ?? _defaultShape(),
-      titlePadding: EdgeInsets.only(
+      titlePadding: const EdgeInsets.only(
         top: 16.0,
         left: 8.0,
         right: 8.0,
@@ -77,7 +75,7 @@ class Alert {
       //contentPadding: alertStyle.buttonAreaPadding,
       content: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             left: 8.0,
             right: 8.0,
           ),
@@ -86,10 +84,10 @@ class Alert {
             children: <Widget>[
               if (image != null)
                 Padding(
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   child: image,
                 ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               if (desc != null)
@@ -99,7 +97,7 @@ class Alert {
                   textAlign: TextAlign.center,
                 ),
               if (content != null) content,
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -116,19 +114,19 @@ class Alert {
   ShapeBorder _defaultShape() {
     return RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10.0),
-      side: BorderSide(
+      side: const BorderSide(
         color: Colors.blueGrey,
       ),
     );
   }
 
   List<Widget> _getButtons() {
-    List<Widget> expandedButtons = [];
+    final expandedButtons = <Widget>[];
     if (buttons != null) {
       buttons.forEach(
         (button) {
-          var buttonWidget = Padding(
-            padding: EdgeInsets.only(left: 2, right: 2),
+          final buttonWidget = Padding(
+            padding: const EdgeInsets.only(left: 2, right: 2),
             child: button,
           );
           if (buttons.length == 1) {
@@ -145,7 +143,7 @@ class Alert {
     return expandedButtons;
   }
 
-  _showAnimation(animation, secondaryAnimation, child) {
+  dynamic _showAnimation(animation, secondaryAnimation, child) {
     if (alertStyle.animationType == AnimationType.fromRight) {
       return AnimationTransition.fromRight(
           animation, secondaryAnimation, child);
@@ -165,52 +163,52 @@ class Alert {
 }
 
 class AnimationTransition {
-  static fromRight(Animation<double> animation,
+  static SlideTransition fromRight(Animation<double> animation,
       Animation<double> secondaryAnimation, Widget child) {
     return SlideTransition(
       position: Tween<Offset>(
-        begin: Offset(1.0, 0.0),
+        begin: const Offset(1.0, 0.0),
         end: Offset.zero,
       ).animate(animation),
       child: child,
     );
   }
 
-  static fromLeft(Animation<double> animation,
+  static SlideTransition fromLeft(Animation<double> animation,
       Animation<double> secondaryAnimation, Widget child) {
     return SlideTransition(
       position: Tween<Offset>(
-        begin: Offset(-1.0, 0.0),
+        begin: const Offset(-1.0, 0.0),
         end: Offset.zero,
       ).animate(animation),
       child: child,
     );
   }
 
-  static fromTop(Animation<double> animation,
+  static SlideTransition fromTop(Animation<double> animation,
       Animation<double> secondaryAnimation, Widget child) {
     return SlideTransition(
       position: Tween<Offset>(
-        begin: Offset(0.0, -1.0),
+        begin: const Offset(0.0, -1.0),
         end: Offset.zero,
       ).animate(animation),
       child: child,
     );
   }
 
-  static fromBottom(Animation<double> animation,
+  static SlideTransition fromBottom(Animation<double> animation,
       Animation<double> secondaryAnimation, Widget child) {
     return SlideTransition(
       position: Tween<Offset>(
-        begin: Offset(0.0, 1.0),
+        begin: const Offset(0.0, 1.0),
         end: Offset.zero,
       ).animate(animation),
       child: child,
     );
   }
 
-  static grow(Animation<double> animation, Animation<double> secondaryAnimation,
-      Widget child) {
+  static ScaleTransition grow(Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
     return ScaleTransition(
       scale: Tween<double>(
         begin: 0.0,
@@ -218,10 +216,9 @@ class AnimationTransition {
       ).animate(
         CurvedAnimation(
           parent: animation,
-          curve: Interval(
+          curve: const Interval(
             0.00,
             0.50,
-            curve: Curves.linear,
           ),
         ),
       ),
@@ -229,7 +226,7 @@ class AnimationTransition {
     );
   }
 
-  static shrink(Animation<double> animation,
+  static ScaleTransition shrink(Animation<double> animation,
       Animation<double> secondaryAnimation, Widget child) {
     return ScaleTransition(
       scale: Tween<double>(
@@ -238,10 +235,9 @@ class AnimationTransition {
       ).animate(
         CurvedAnimation(
           parent: animation,
-          curve: Interval(
+          curve: const Interval(
             0.50,
             1.00,
-            curve: Curves.linear,
           ),
         ),
       ),

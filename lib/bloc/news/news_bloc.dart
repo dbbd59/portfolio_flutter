@@ -16,9 +16,9 @@ part 'news_bloc.freezed.dart';
 
 @Injectable()
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
-  NewsBloc(this._apiService) : super(NewsState.empty());
+  NewsBloc(this._apiService) : super(const NewsState.empty());
 
-  IApiService _apiService;
+  final IApiService _apiService;
 
   @override
   Stream<NewsState> mapEventToState(
@@ -27,11 +27,11 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
     yield* event.map(
       fetchNews: (e) async* {
         try {
-          yield NewsState.loading();
-          final News news = await _apiService.fetchNews();
+          yield const NewsState.loading();
+          final news = await _apiService.fetchNews();
           yield NewsState.loaded(news);
         } catch (_) {
-          yield NewsState.error();
+          yield const NewsState.error();
         }
       },
       reset: (e) async* {},

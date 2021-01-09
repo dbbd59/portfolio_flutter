@@ -3,7 +3,6 @@ import 'dart:async';
 import 'dart:convert';
 
 // 📦 Package imports:
-import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mockito/mockito.dart';
 
@@ -20,33 +19,36 @@ import 'package:portfolio_flutter/repository/http_service/i_http_service.dart';
 class ApiService implements IApiService {
   ApiService(this.httpService);
 
+  @override
   String token;
 
   @override
   IHttpService httpService;
 
+  @override
   Future<News> fetchNews() async {
-    Response response = await httpService.httpServiceGet(
-      endpoint: "https://safe-tor-42804.herokuapp.com/api/news",
+    final response = await httpService.httpServiceGet(
+      endpoint: 'https://safe-tor-42804.herokuapp.com/api/news',
     );
     if (response.statusCode == 200) {
-      var jsonResponse = response.data;
+      final jsonResponse = response.data;
       return News.fromJson(jsonResponse);
     } else {
       return null;
     }
   }
 
+  @override
   Future<List<GitHubTrend>> fetchGitHubTrends() async {
-    Response response = await httpService.httpServiceGet(
-      endpoint: "https://safe-tor-42804.herokuapp.com/api/ghtrends",
+    final response = await httpService.httpServiceGet(
+      endpoint: 'https://safe-tor-42804.herokuapp.com/api/ghtrends',
     );
     if (response.statusCode == 200) {
-      List<GitHubTrend> listGitHubTrend = List<GitHubTrend>();
+      final listGitHubTrend = <GitHubTrend>[];
       if (response.data != null) {
-        var jsonResponse = jsonDecode(response.data);
+        final jsonResponse = jsonDecode(response.data);
 
-        List<GitHubTrend> trends = List<GitHubTrend>.from(
+        final trends = List<GitHubTrend>.from(
           jsonResponse.map(
             (x) {
               return GitHubTrend.fromMap(x);
@@ -61,14 +63,15 @@ class ApiService implements IApiService {
     }
   }
 
+  @override
   Future<List<Job>> fetchJobs() async {
-    Response response = await httpService.httpServiceGet(
-      endpoint: "https://safe-tor-42804.herokuapp.com/api/jobs",
+    final response = await httpService.httpServiceGet(
+      endpoint: 'https://safe-tor-42804.herokuapp.com/api/jobs',
     );
     if (response.statusCode == 200) {
-      var jsonResponse = jsonDecode(response.data);
+      final jsonResponse = jsonDecode(response.data);
 
-      List<Job> jobs = List<Job>.from(
+      final jobs = List<Job>.from(
         jsonResponse.map(
           (x) => Job.fromMap(x),
         ),
@@ -79,14 +82,15 @@ class ApiService implements IApiService {
     }
   }
 
+  @override
   Future<List<Skill>> fetchSkills() async {
-    Response response = await httpService.httpServiceGet(
-      endpoint: "https://safe-tor-42804.herokuapp.com/api/skills",
+    final response = await httpService.httpServiceGet(
+      endpoint: 'https://safe-tor-42804.herokuapp.com/api/skills',
     );
     if (response.statusCode == 200) {
-      var jsonResponse = jsonDecode(response.data);
+      final jsonResponse = jsonDecode(response.data);
 
-      List<Skill> skills = List<Skill>.from(
+      final skills = List<Skill>.from(
         jsonResponse.map(
           (x) => Skill.fromMap(x),
         ),

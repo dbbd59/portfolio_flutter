@@ -10,7 +10,9 @@ import 'package:portfolio_flutter/core/app_localizations.dart';
 import 'package:portfolio_flutter/model/enums/navigation_page_enum.dart';
 
 class BottomNavBarApp extends StatelessWidget {
-  const BottomNavBarApp();
+  const BottomNavBarApp({
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,22 +49,22 @@ class BottomNavBarApp extends StatelessWidget {
           showUnselectedLabels: true,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: const Icon(Icons.home),
               label: AppLocalizations.of(context)
                   .translate('bottom_nav_bar_first'),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.star),
+              icon: const Icon(Icons.star),
               label: AppLocalizations.of(context)
                   .translate('bottom_nav_bar_second'),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.flare),
+              icon: const Icon(Icons.flare),
               label: AppLocalizations.of(context)
                   .translate('bottom_nav_bar_third'),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: const Icon(Icons.person),
               label: AppLocalizations.of(context)
                   .translate('bottom_nav_bar_fifth'),
             ),

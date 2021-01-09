@@ -1,6 +1,8 @@
 // 🎯 Dart imports:
 import 'dart:convert';
 
+// ignore_for_file: prefer_if_null_operators
+
 class Skill {
   Skill({
     this.name,
@@ -15,12 +17,12 @@ class Skill {
   String toJson() => json.encode(toMap());
 
   factory Skill.fromMap(Map<String, dynamic> json) => Skill(
-        name: json["name"] == null ? null : json["name"],
-        perc: json["perc"] == null ? null : json["perc"].toDouble(),
+        name: json['name'] == null ? null : json['name'],
+        perc: json['perc'] == null ? null : json['perc'].toDouble(),
       );
 
   Map<String, dynamic> toMap() => {
-        "name": name == null ? null : name,
-        "perc": perc == null ? null : perc,
+        'name': name == null ? null : name,
+        'perc': perc == null ? null : perc,
       };
 }

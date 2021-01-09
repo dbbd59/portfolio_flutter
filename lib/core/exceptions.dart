@@ -13,7 +13,7 @@ class BadRequestException extends AppException {
     ExceptionInfo exceptionInfo,
   }) : super(
           exceptionInfo: exceptionInfo,
-          label: "error_invalidrequest",
+          label: 'error_invalidrequest',
         );
 }
 
@@ -34,7 +34,7 @@ class FetchDataException extends AppException {
     ExceptionInfo exceptionInfo,
   }) : super(
           exceptionInfo: exceptionInfo,
-          label: "error_fetchdata",
+          label: 'error_fetchdata',
         );
 }
 
@@ -43,7 +43,7 @@ class InvalidInputException extends AppException {
     ExceptionInfo exceptionInfo,
   }) : super(
           exceptionInfo: exceptionInfo,
-          label: "error_invalidinput",
+          label: 'error_invalidinput',
         );
 }
 
@@ -52,13 +52,13 @@ class UnauthorisedException extends AppException {
     ExceptionInfo exceptionInfo,
   }) : super(
           exceptionInfo: exceptionInfo,
-          label: "error_unauthorised",
+          label: 'error_unauthorised',
         );
 }
 
 class OfflineException extends AppException {
   OfflineException()
       : super(
-          label: "error_offline",
+          label: 'error_offline',
         );
 }
