@@ -15,8 +15,10 @@ import 'package:portfolio_flutter/core/app_localizations.dart';
 import 'package:portfolio_flutter/helper/providers_helper.dart';
 import 'package:portfolio_flutter/injections.dart';
 import 'package:portfolio_flutter/ui/main/responsive_page.dart';
+import 'configure_nonweb.dart' if (dart.library.html) 'configure_web.dart';
 
 void main() async {
+  configureApp();
   WidgetsFlutterBinding.ensureInitialized();
   await configureInjection(Env.dev);
   runApp(
