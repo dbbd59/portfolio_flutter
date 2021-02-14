@@ -9,7 +9,6 @@ import 'package:portfolio_flutter/bloc/bottomappbar/bottomappbar_bloc.dart';
 import 'package:portfolio_flutter/core/app_localizations.dart';
 import 'package:portfolio_flutter/model/enums/navigation_page_enum.dart';
 import 'package:portfolio_flutter/ui/pages/settings_page.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class DrawerApp extends StatefulWidget {
   const DrawerApp({
@@ -192,12 +191,10 @@ class DrawerAppHeader extends StatelessWidget {
               child: AspectRatio(
                 aspectRatio: 1.0,
                 child: CircleAvatar(
-                  child: ClipOval(
-                    child: SvgPicture.asset(
-                      'assets/images/dbbd59.svg',
-                      fit: BoxFit.cover,
-                    ),
+                  backgroundImage: const AssetImage(
+                    'assets/images/dbbd59.png',
                   ),
+                  backgroundColor: Colors.transparent,
                   radius: MediaQuery.of(context).size.width * 0.10,
                 ),
               ),

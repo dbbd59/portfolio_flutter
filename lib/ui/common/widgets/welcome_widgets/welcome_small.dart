@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 // 🌎 Project imports:
 import 'package:portfolio_flutter/ui/common/widgets/welcome_widgets/welcome_large.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class WelcomeSmall extends StatelessWidget {
   const WelcomeSmall({
@@ -22,13 +21,11 @@ class WelcomeSmall extends StatelessWidget {
               AspectRatio(
                 aspectRatio: 1.0,
                 child: CircleAvatar(
-                  child: ClipOval(
-                    child: SvgPicture.asset(
-                      'assets/images/dbbd59.svg',
-                      fit: BoxFit.cover,
-                    ),
+                  backgroundImage: const AssetImage(
+                    'assets/images/dbbd59.png',
                   ),
-                  radius: MediaQuery.of(context).size.width * .1,
+                  backgroundColor: Colors.transparent,
+                  radius: MediaQuery.of(context).size.width * 0.10,
                 ),
               ),
               const SizedBox(
