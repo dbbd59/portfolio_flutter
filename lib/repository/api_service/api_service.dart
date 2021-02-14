@@ -1,6 +1,5 @@
 // 🎯 Dart imports:
 import 'dart:async';
-import 'dart:convert';
 
 // 📦 Package imports:
 import 'package:injectable/injectable.dart';
@@ -28,11 +27,11 @@ class ApiService implements IApiService {
   @override
   Future<News> fetchNews() async {
     final response = await httpService.httpServiceGet(
-      endpoint: 'https://safe-tor-42804.herokuapp.com/api/news',
+      endpoint: 'https://go-rest-services.herokuapp.com/api/v1/news',
     );
-    if (response.statusCode == 200) {
-      final jsonResponse = response.data;
-      return News.fromJson(jsonResponse);
+    if (response.statusCode == 201) {
+      final jsonResponse = response.data['data'];
+      return News.fromMap(jsonResponse);
     } else {
       return null;
     }
@@ -41,12 +40,12 @@ class ApiService implements IApiService {
   @override
   Future<List<GitHubTrend>> fetchGitHubTrends() async {
     final response = await httpService.httpServiceGet(
-      endpoint: 'https://safe-tor-42804.herokuapp.com/api/ghtrends',
+      endpoint: 'https://go-rest-services.herokuapp.com/api/v1/ghtrends',
     );
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       final listGitHubTrend = <GitHubTrend>[];
       if (response.data != null) {
-        final jsonResponse = jsonDecode(response.data);
+        final jsonResponse = response.data['data'];
 
         final trends = List<GitHubTrend>.from(
           jsonResponse.map(
@@ -66,10 +65,10 @@ class ApiService implements IApiService {
   @override
   Future<List<Job>> fetchJobs() async {
     final response = await httpService.httpServiceGet(
-      endpoint: 'https://safe-tor-42804.herokuapp.com/api/jobs',
+      endpoint: 'https://go-rest-services.herokuapp.com/api/v1/jobs',
     );
-    if (response.statusCode == 200) {
-      final jsonResponse = jsonDecode(response.data);
+    if (response.statusCode == 201) {
+      final jsonResponse = response.data['data'];
 
       final jobs = List<Job>.from(
         jsonResponse.map(
@@ -85,10 +84,10 @@ class ApiService implements IApiService {
   @override
   Future<List<Skill>> fetchSkills() async {
     final response = await httpService.httpServiceGet(
-      endpoint: 'https://safe-tor-42804.herokuapp.com/api/skills',
+      endpoint: 'https://go-rest-services.herokuapp.com/api/v1/skills',
     );
-    if (response.statusCode == 200) {
-      final jsonResponse = jsonDecode(response.data);
+    if (response.statusCode == 201) {
+      final jsonResponse = response.data['data'];
 
       final skills = List<Skill>.from(
         jsonResponse.map(
