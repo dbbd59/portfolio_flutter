@@ -20,6 +20,7 @@ jobs:
       - run: flutter channel master
       - run: flutter upgrade
       - run: flutter config --enable-web
+      - run: dart lib/get_flutter_info.dart > lib/flutter_info.dart
       - run: flutter build web --release --dart-define=FLUTTER_WEB_USE_SKIA=true
       - run: |
           cd build/web
