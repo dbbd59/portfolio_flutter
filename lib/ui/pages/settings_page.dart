@@ -5,6 +5,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 // 🌎 Project imports:
 import 'package:portfolio_flutter/change_notifier/theme_changenotifier.dart';
 import 'package:portfolio_flutter/change_notifier/utility_changenotifier.dart';
+import 'package:portfolio_flutter/flutter_info.dart';
 import 'package:portfolio_flutter/injections.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -95,22 +96,25 @@ class _InfoState extends State<Info> {
         color: Theme.of(context).primaryColor,
         onPressed: () {
           showAboutDialog(
-            context: context,
-            applicationIcon: Center(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: SizedBox(
-                  width: 32,
-                  height: 32,
-                  child: Image.asset(
-                    'assets/icon.png',
+              context: context,
+              applicationIcon: Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: SizedBox(
+                    width: 32,
+                    height: 32,
+                    child: Image.asset(
+                      'assets/icon.png',
+                    ),
                   ),
                 ),
               ),
-            ),
-            applicationName: 'portfolio_flutter',
-            applicationVersion: _packageInfo.version,
-          );
+              applicationName: 'portfolio_flutter',
+              applicationVersion: _packageInfo.version,
+              children: [
+                const Text(kFlutterChannel),
+                const Text(kFlutterFrameworkVersion),
+              ]);
         });
   }
 }

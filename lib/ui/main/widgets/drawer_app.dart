@@ -93,6 +93,15 @@ class _DrawerAppState extends State<DrawerApp> {
               ),
             ),
             const Divider(),
+            Row(
+              children: [
+                const FlutterLogo(
+                  size: 50,
+                ),
+                const Text(kFlutterChannel),
+              ],
+            ),
+            const Text(kFlutterFrameworkVersion),
             DrawerAppListItem(
               label: 'Settings',
               icon: Icons.settings,
@@ -105,8 +114,6 @@ class _DrawerAppState extends State<DrawerApp> {
                 );
               },
             ),
-            const Text(kFlutterChannel),
-            const Text(kFlutterFrameworkVersion),
           ],
         ),
       ),
