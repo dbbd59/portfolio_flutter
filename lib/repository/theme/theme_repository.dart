@@ -38,6 +38,7 @@ class ThemeRepository implements IThemeRepository {
       brightness: Brightness.dark,
       primaryColor: const Color(0xFF121212),
       accentColor: const Color(0xFFdbbd59),
+      colorScheme: const ColorScheme.dark(primary: Color(0xFFdbbd59)),
     );
   }
 
@@ -56,6 +57,7 @@ class ThemeRepository implements IThemeRepository {
       brightness: Brightness.light,
       primaryColor: const Color(0xFFdbbd59),
       accentColor: const Color(0xFFdbbd59),
+      colorScheme: const ColorScheme.light(primary: Color(0xFFdbbd59)),
     );
   }
 

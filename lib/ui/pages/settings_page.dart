@@ -112,8 +112,23 @@ class _InfoState extends State<Info> {
               applicationName: 'portfolio_flutter',
               applicationVersion: _packageInfo.version,
               children: [
-                const Text(kFlutterChannel),
-                const Text(kFlutterFrameworkVersion),
+                Row(
+                  children: [
+                    const FlutterLogo(
+                      size: 30,
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(kFlutterChannel),
+                        const Text(kFlutterFrameworkVersion),
+                      ],
+                    ),
+                  ],
+                ),
               ]);
         });
   }

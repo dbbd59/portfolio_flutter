@@ -115,6 +115,25 @@ class ButtonsRowWelcome extends StatelessWidget {
               url: 'https://github.com/dbbd59',
             );
           },
+          style: ButtonStyle(
+            overlayColor: MaterialStateProperty.resolveWith<Color>(
+              (Set<MaterialState> states) {
+                if (states.contains(MaterialState.focused)) {
+                  return Theme.of(context).primaryColor;
+                }
+                if (states.contains(MaterialState.hovered)) {
+                  return Theme.of(context).primaryColor.withOpacity(.3);
+                }
+                if (states.contains(MaterialState.pressed)) {
+                  return Theme.of(context).primaryColor;
+                }
+                return null; // Defer to the widget's default.
+              },
+            ),
+            foregroundColor: MaterialStateProperty.all<Color>(
+              Theme.of(context).textTheme.bodyText1.color,
+            ),
+          ),
           child: const Text(
             'GitHub',
             style: TextStyle(),
@@ -126,6 +145,25 @@ class ButtonsRowWelcome extends StatelessWidget {
               url: 'https://www.linkedin.com/in/davide-bolzoni-a54958112/',
             );
           },
+          style: ButtonStyle(
+            overlayColor: MaterialStateProperty.resolveWith<Color>(
+              (Set<MaterialState> states) {
+                if (states.contains(MaterialState.focused)) {
+                  return Theme.of(context).primaryColor;
+                }
+                if (states.contains(MaterialState.hovered)) {
+                  return Theme.of(context).primaryColor.withOpacity(.3);
+                }
+                if (states.contains(MaterialState.pressed)) {
+                  return Theme.of(context).primaryColor;
+                }
+                return null; // Defer to the widget's default.
+              },
+            ),
+            foregroundColor: MaterialStateProperty.all<Color>(
+              Theme.of(context).textTheme.bodyText1.color,
+            ),
+          ),
           child: const Text(
             'Linkedin',
             style: TextStyle(),
@@ -137,6 +175,25 @@ class ButtonsRowWelcome extends StatelessWidget {
               url: 'mailto:davide.bolzoni59@gmail.com',
             );
           },
+          style: ButtonStyle(
+            overlayColor: MaterialStateProperty.resolveWith<Color>(
+              (Set<MaterialState> states) {
+                if (states.contains(MaterialState.focused)) {
+                  return Theme.of(context).primaryColor;
+                }
+                if (states.contains(MaterialState.hovered)) {
+                  return Theme.of(context).primaryColor.withOpacity(.3);
+                }
+                if (states.contains(MaterialState.pressed)) {
+                  return Theme.of(context).primaryColor;
+                }
+                return null; // Defer to the widget's default.
+              },
+            ),
+            foregroundColor: MaterialStateProperty.all<Color>(
+              Theme.of(context).textTheme.bodyText1.color,
+            ),
+          ),
           child: const Text(
             'Say Hi!',
             style: TextStyle(),

@@ -15,20 +15,21 @@ dependencies:
     sdk: flutter
   bloc: ^6.1.1
   cached_network_image: ^2.5.0
-  connectivity: ^2.0.2
-  cupertino_icons: ^1.0.0
+  connectivity: ^3.0.0
+  cupertino_icons: ^1.0.2
   dio: ^3.0.10
-  equatable: ^1.2.5
-  flutter_bloc: ^6.1.1
+  equatable: ^1.2.6
+  flutter_bloc: ^6.1.2
+  flutter_page_transition: ^0.1.6
   freezed_annotation: ^0.12.0
   get_it: ^5.0.3
   google_fonts: ^1.1.1
-  injectable: ^1.0.7
+  injectable: ^1.1.0
   package_info_plus: ^0.6.3
-  provider: ^4.3.2+3
+  provider: ^4.3.3
   shared_preferences: ^0.5.12+4
   statsfl: ^1.1.0+3
-  url_launcher: ^5.7.10
+  url_launcher: ^6.0.1
 
 dev_dependencies:
   bloc_test: ^7.1.0

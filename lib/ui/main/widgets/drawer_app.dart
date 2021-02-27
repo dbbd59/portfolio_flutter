@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_page_transition/flutter_page_transition.dart';
 
 // 🌎 Project imports:
 import 'package:portfolio_flutter/bloc/bottomappbar/bottomappbar_bloc.dart';
@@ -93,16 +94,27 @@ class _DrawerAppState extends State<DrawerApp> {
               ),
             ),
             const Divider(),
-            Container(
-              margin: const EdgeInsets.only(left: 8.0, right: 8.0),
-              child: Row(
-                children: [
-                  const FlutterLogo(
-                    size: 30,
-                  ),
-                  const Text(kFlutterChannel),
-                  const Text(kFlutterFrameworkVersion),
-                ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                margin: const EdgeInsets.only(left: 8.0, right: 8.0),
+                child: Row(
+                  children: [
+                    const FlutterLogo(
+                      size: 30,
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(kFlutterChannel),
+                        const Text(kFlutterFrameworkVersion),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
             const Divider(),
@@ -112,9 +124,11 @@ class _DrawerAppState extends State<DrawerApp> {
               //route: NavigationPageEnum.ABOUTME,
               onPressed: () {
                 Navigator.maybePop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SettingsPage()),
+                Navigator.of(context).push(
+                  PageTransition(
+                    type: PageTransitionType.rippleLeftUp,
+                    child: const SettingsPage(),
+                  ),
                 );
               },
             ),
