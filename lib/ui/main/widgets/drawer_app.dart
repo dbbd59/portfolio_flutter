@@ -96,7 +96,6 @@ class _DrawerAppState extends State<DrawerApp> {
             Container(
               margin: const EdgeInsets.only(left: 8.0, right: 8.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const FlutterLogo(
                     size: 30,
