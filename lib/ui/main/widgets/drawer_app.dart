@@ -93,26 +93,18 @@ class _DrawerAppState extends State<DrawerApp> {
               ),
             ),
             const Divider(),
-            Row(
-              children: [
-                const FlutterLogo(
-                  size: 35,
-                ),
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        const Expanded(child: Text(kFlutterChannel)),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const Expanded(child: Text(kFlutterFrameworkVersion)),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
+            Container(
+              margin: const EdgeInsets.only(left: 8.0, right: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const FlutterLogo(
+                    size: 30,
+                  ),
+                  const Text(kFlutterChannel),
+                  const Text(kFlutterFrameworkVersion),
+                ],
+              ),
             ),
             const Divider(),
             DrawerAppListItem(
