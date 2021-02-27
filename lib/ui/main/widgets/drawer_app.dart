@@ -96,12 +96,25 @@ class _DrawerAppState extends State<DrawerApp> {
             Row(
               children: [
                 const FlutterLogo(
-                  size: 50,
+                  size: 35,
                 ),
-                const Text(kFlutterChannel),
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        const Expanded(child: Text(kFlutterChannel)),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Expanded(child: Text(kFlutterFrameworkVersion)),
+                      ],
+                    ),
+                  ],
+                ),
               ],
             ),
-            const Text(kFlutterFrameworkVersion),
+            const Divider(),
             DrawerAppListItem(
               label: 'Settings',
               icon: Icons.settings,
