@@ -1,6 +1,8 @@
 name: -WEB- Build and Release
 on:
     push:
+      branches:
+      - main
       tags:
       - '*'
     workflow_dispatch:
