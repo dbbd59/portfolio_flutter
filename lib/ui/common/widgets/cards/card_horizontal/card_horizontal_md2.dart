@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 
 class CardMaterialDesign2 extends StatelessWidget {
   CardMaterialDesign2({
-    Key key,
-    @required this.title,
-    @required this.onTap,
-    @required this.vertical,
+    Key? key,
+    required this.title,
+    required this.onTap,
+    required this.vertical,
     this.subTitle,
-    this.imageNetwork,
+    required this.imageNetwork,
     this.imageAsset,
   }) : super(key: key);
 
-  final String imageAsset;
-  final String imageNetwork;
+  final String? imageAsset;
+  final String? imageNetwork;
   final Function onTap;
-  final String subTitle;
-  final String title;
+  final String? subTitle;
+  final String? title;
   final bool vertical;
 
   @override
@@ -24,7 +24,7 @@ class CardMaterialDesign2 extends StatelessWidget {
     return Card(
       elevation: 1,
       child: InkWell(
-        onTap: onTap,
+        onTap: onTap as void Function()?,
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: 164,
@@ -32,17 +32,21 @@ class CardMaterialDesign2 extends StatelessWidget {
               ? Row(
                   children: <Widget>[
                     Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: imageNetwork != null
-                                ? NetworkImage(imageNetwork)
-                                : const NetworkImage(
-                                    'https://d28fs0o8ewdlxv.cloudfront.net/compare-assets/placeholders/news-placeholder-a0aa1349678d0b4fa44b774efba2bb68.png'),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
+                      child: imageNetwork != null
+                          ? Image.network(
+                              imageNetwork!,
+                              errorBuilder: (BuildContext context,
+                                  Object exception, StackTrace? stackTrace) {
+                                return Image.asset(
+                                  'assets/images/breaking-news.jpg',
+                                  fit: BoxFit.fitWidth,
+                                );
+                              },
+                            )
+                          : Image.asset(
+                              'assets/images/breaking-news.jpg',
+                              fit: BoxFit.fitWidth,
+                            ),
                     ),
                     Expanded(
                       flex: 2,
@@ -77,17 +81,21 @@ class CardMaterialDesign2 extends StatelessWidget {
               : Column(
                   children: <Widget>[
                     Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: imageNetwork != null
-                                ? NetworkImage(imageNetwork)
-                                : const NetworkImage(
-                                    'https://d28fs0o8ewdlxv.cloudfront.net/compare-assets/placeholders/news-placeholder-a0aa1349678d0b4fa44b774efba2bb68.png'),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
+                      child: imageNetwork != null
+                          ? Image.network(
+                              imageNetwork!,
+                              errorBuilder: (BuildContext context,
+                                  Object exception, StackTrace? stackTrace) {
+                                return Image.asset(
+                                  'assets/images/breaking-news.jpg',
+                                  fit: BoxFit.fitWidth,
+                                );
+                              },
+                            )
+                          : Image.asset(
+                              'assets/images/breaking-news.jpg',
+                              fit: BoxFit.fitWidth,
+                            ),
                     ),
                     Expanded(
                       flex: 2,

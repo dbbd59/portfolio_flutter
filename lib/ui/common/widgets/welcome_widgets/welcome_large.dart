@@ -7,7 +7,7 @@ import 'package:portfolio_flutter/repository/utility/i_utility_repository.dart';
 
 class WelcomeLarge extends StatelessWidget {
   const WelcomeLarge({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -97,7 +97,7 @@ class WelcomeLarge extends StatelessWidget {
 
 class ButtonsRowWelcome extends StatelessWidget {
   const ButtonsRowWelcome({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -116,7 +116,7 @@ class ButtonsRowWelcome extends StatelessWidget {
             );
           },
           style: ButtonStyle(
-            overlayColor: MaterialStateProperty.resolveWith<Color>(
+            overlayColor: MaterialStateProperty.resolveWith<Color?>(
               (Set<MaterialState> states) {
                 if (states.contains(MaterialState.focused)) {
                   return Theme.of(context).primaryColor;
@@ -130,8 +130,8 @@ class ButtonsRowWelcome extends StatelessWidget {
                 return null; // Defer to the widget's default.
               },
             ),
-            foregroundColor: MaterialStateProperty.all<Color>(
-              Theme.of(context).textTheme.bodyText1.color,
+            foregroundColor: MaterialStateProperty.all<Color?>(
+              Theme.of(context).textTheme.bodyText1!.color,
             ),
           ),
           child: const Text(
@@ -146,7 +146,7 @@ class ButtonsRowWelcome extends StatelessWidget {
             );
           },
           style: ButtonStyle(
-            overlayColor: MaterialStateProperty.resolveWith<Color>(
+            overlayColor: MaterialStateProperty.resolveWith<Color?>(
               (Set<MaterialState> states) {
                 if (states.contains(MaterialState.focused)) {
                   return Theme.of(context).primaryColor;
@@ -160,8 +160,8 @@ class ButtonsRowWelcome extends StatelessWidget {
                 return null; // Defer to the widget's default.
               },
             ),
-            foregroundColor: MaterialStateProperty.all<Color>(
-              Theme.of(context).textTheme.bodyText1.color,
+            foregroundColor: MaterialStateProperty.all<Color?>(
+              Theme.of(context).textTheme.bodyText1!.color,
             ),
           ),
           child: const Text(
@@ -176,7 +176,7 @@ class ButtonsRowWelcome extends StatelessWidget {
             );
           },
           style: ButtonStyle(
-            overlayColor: MaterialStateProperty.resolveWith<Color>(
+            overlayColor: MaterialStateProperty.resolveWith<Color?>(
               (Set<MaterialState> states) {
                 if (states.contains(MaterialState.focused)) {
                   return Theme.of(context).primaryColor;
@@ -190,8 +190,8 @@ class ButtonsRowWelcome extends StatelessWidget {
                 return null; // Defer to the widget's default.
               },
             ),
-            foregroundColor: MaterialStateProperty.all<Color>(
-              Theme.of(context).textTheme.bodyText1.color,
+            foregroundColor: MaterialStateProperty.all<Color?>(
+              Theme.of(context).textTheme.bodyText1!.color,
             ),
           ),
           child: const Text(

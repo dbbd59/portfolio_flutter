@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'news_bloc.dart';
 
@@ -9,49 +9,53 @@ part of 'news_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$NewsEventTearOff {
   const _$NewsEventTearOff();
 
-// ignore: unused_element
   FetchNews fetchNews() {
     return const FetchNews();
   }
 
-// ignore: unused_element
   FetchReset reset() {
     return const FetchReset();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $NewsEvent = _$NewsEventTearOff();
 
 /// @nodoc
 mixin _$NewsEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fetchNews(),
-    @required Result reset(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchNews,
+    required TResult Function() reset,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fetchNews(),
-    Result reset(),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchNews,
+    TResult Function()? reset,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fetchNews(FetchNews value),
-    @required Result reset(FetchReset value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchNews value) fetchNews,
+    required TResult Function(FetchReset value) reset,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fetchNews(FetchNews value),
-    Result reset(FetchReset value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchNews value)? fetchNews,
+    TResult Function(FetchReset value)? reset,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -104,23 +108,20 @@ class _$FetchNews implements FetchNews {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fetchNews(),
-    @required Result reset(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchNews,
+    required TResult Function() reset,
   }) {
-    assert(fetchNews != null);
-    assert(reset != null);
     return fetchNews();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fetchNews(),
-    Result reset(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchNews,
+    TResult Function()? reset,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fetchNews != null) {
       return fetchNews();
     }
@@ -129,23 +130,20 @@ class _$FetchNews implements FetchNews {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fetchNews(FetchNews value),
-    @required Result reset(FetchReset value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchNews value) fetchNews,
+    required TResult Function(FetchReset value) reset,
   }) {
-    assert(fetchNews != null);
-    assert(reset != null);
     return fetchNews(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fetchNews(FetchNews value),
-    Result reset(FetchReset value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchNews value)? fetchNews,
+    TResult Function(FetchReset value)? reset,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fetchNews != null) {
       return fetchNews(this);
     }
@@ -193,23 +191,20 @@ class _$FetchReset implements FetchReset {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fetchNews(),
-    @required Result reset(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchNews,
+    required TResult Function() reset,
   }) {
-    assert(fetchNews != null);
-    assert(reset != null);
     return reset();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fetchNews(),
-    Result reset(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchNews,
+    TResult Function()? reset,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (reset != null) {
       return reset();
     }
@@ -218,23 +213,20 @@ class _$FetchReset implements FetchReset {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fetchNews(FetchNews value),
-    @required Result reset(FetchReset value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchNews value) fetchNews,
+    required TResult Function(FetchReset value) reset,
   }) {
-    assert(fetchNews != null);
-    assert(reset != null);
     return reset(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fetchNews(FetchNews value),
-    Result reset(FetchReset value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchNews value)? fetchNews,
+    TResult Function(FetchReset value)? reset,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (reset != null) {
       return reset(this);
     }
@@ -250,65 +242,64 @@ abstract class FetchReset implements NewsEvent {
 class _$NewsStateTearOff {
   const _$NewsStateTearOff();
 
-// ignore: unused_element
   NewsEmpty empty() {
     return const NewsEmpty();
   }
 
-// ignore: unused_element
-  NewsLoaded loaded(News news) {
+  NewsLoaded loaded(News? news) {
     return NewsLoaded(
       news,
     );
   }
 
-// ignore: unused_element
   NewsLoading loading() {
     return const NewsLoading();
   }
 
-// ignore: unused_element
   NewsError error() {
     return const NewsError();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $NewsState = _$NewsStateTearOff();
 
 /// @nodoc
 mixin _$NewsState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result empty(),
-    @required Result loaded(News news),
-    @required Result loading(),
-    @required Result error(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(News? news) loaded,
+    required TResult Function() loading,
+    required TResult Function() error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result empty(),
-    Result loaded(News news),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(News? news)? loaded,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result empty(NewsEmpty value),
-    @required Result loaded(NewsLoaded value),
-    @required Result loading(NewsLoading value),
-    @required Result error(NewsError value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(NewsEmpty value) empty,
+    required TResult Function(NewsLoaded value) loaded,
+    required TResult Function(NewsLoading value) loading,
+    required TResult Function(NewsError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result empty(NewsEmpty value),
-    Result loaded(NewsLoaded value),
-    Result loading(NewsLoading value),
-    Result error(NewsError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NewsEmpty value)? empty,
+    TResult Function(NewsLoaded value)? loaded,
+    TResult Function(NewsLoading value)? loading,
+    TResult Function(NewsError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -361,29 +352,24 @@ class _$NewsEmpty implements NewsEmpty {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result empty(),
-    @required Result loaded(News news),
-    @required Result loading(),
-    @required Result error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(News? news) loaded,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return empty();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result empty(),
-    Result loaded(News news),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(News? news)? loaded,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty();
     }
@@ -392,29 +378,24 @@ class _$NewsEmpty implements NewsEmpty {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result empty(NewsEmpty value),
-    @required Result loaded(NewsLoaded value),
-    @required Result loading(NewsLoading value),
-    @required Result error(NewsError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(NewsEmpty value) empty,
+    required TResult Function(NewsLoaded value) loaded,
+    required TResult Function(NewsLoading value) loading,
+    required TResult Function(NewsError value) error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return empty(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result empty(NewsEmpty value),
-    Result loaded(NewsLoaded value),
-    Result loading(NewsLoading value),
-    Result error(NewsError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NewsEmpty value)? empty,
+    TResult Function(NewsLoaded value)? loaded,
+    TResult Function(NewsLoading value)? loading,
+    TResult Function(NewsError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty(this);
     }
@@ -431,7 +412,7 @@ abstract class $NewsLoadedCopyWith<$Res> {
   factory $NewsLoadedCopyWith(
           NewsLoaded value, $Res Function(NewsLoaded) then) =
       _$NewsLoadedCopyWithImpl<$Res>;
-  $Res call({News news});
+  $Res call({News? news});
 }
 
 /// @nodoc
@@ -445,20 +426,23 @@ class _$NewsLoadedCopyWithImpl<$Res> extends _$NewsStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object news = freezed,
+    Object? news = freezed,
   }) {
     return _then(NewsLoaded(
-      news == freezed ? _value.news : news as News,
+      news == freezed
+          ? _value.news
+          : news // ignore: cast_nullable_to_non_nullable
+              as News?,
     ));
   }
 }
 
 /// @nodoc
 class _$NewsLoaded implements NewsLoaded {
-  const _$NewsLoaded(this.news) : assert(news != null);
+  const _$NewsLoaded(this.news);
 
   @override
-  final News news;
+  final News? news;
 
   @override
   String toString() {
@@ -477,35 +461,31 @@ class _$NewsLoaded implements NewsLoaded {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(news);
 
+  @JsonKey(ignore: true)
   @override
   $NewsLoadedCopyWith<NewsLoaded> get copyWith =>
       _$NewsLoadedCopyWithImpl<NewsLoaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result empty(),
-    @required Result loaded(News news),
-    @required Result loading(),
-    @required Result error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(News? news) loaded,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return loaded(news);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result empty(),
-    Result loaded(News news),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(News? news)? loaded,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(news);
     }
@@ -514,29 +494,24 @@ class _$NewsLoaded implements NewsLoaded {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result empty(NewsEmpty value),
-    @required Result loaded(NewsLoaded value),
-    @required Result loading(NewsLoading value),
-    @required Result error(NewsError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(NewsEmpty value) empty,
+    required TResult Function(NewsLoaded value) loaded,
+    required TResult Function(NewsLoading value) loading,
+    required TResult Function(NewsError value) error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return loaded(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result empty(NewsEmpty value),
-    Result loaded(NewsLoaded value),
-    Result loading(NewsLoading value),
-    Result error(NewsError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NewsEmpty value)? empty,
+    TResult Function(NewsLoaded value)? loaded,
+    TResult Function(NewsLoading value)? loading,
+    TResult Function(NewsError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(this);
     }
@@ -545,10 +520,12 @@ class _$NewsLoaded implements NewsLoaded {
 }
 
 abstract class NewsLoaded implements NewsState {
-  const factory NewsLoaded(News news) = _$NewsLoaded;
+  const factory NewsLoaded(News? news) = _$NewsLoaded;
 
-  News get news;
-  $NewsLoadedCopyWith<NewsLoaded> get copyWith;
+  News? get news => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $NewsLoadedCopyWith<NewsLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -588,29 +565,24 @@ class _$NewsLoading implements NewsLoading {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result empty(),
-    @required Result loaded(News news),
-    @required Result loading(),
-    @required Result error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(News? news) loaded,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result empty(),
-    Result loaded(News news),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(News? news)? loaded,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -619,29 +591,24 @@ class _$NewsLoading implements NewsLoading {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result empty(NewsEmpty value),
-    @required Result loaded(NewsLoaded value),
-    @required Result loading(NewsLoading value),
-    @required Result error(NewsError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(NewsEmpty value) empty,
+    required TResult Function(NewsLoaded value) loaded,
+    required TResult Function(NewsLoading value) loading,
+    required TResult Function(NewsError value) error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result empty(NewsEmpty value),
-    Result loaded(NewsLoaded value),
-    Result loading(NewsLoading value),
-    Result error(NewsError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NewsEmpty value)? empty,
+    TResult Function(NewsLoaded value)? loaded,
+    TResult Function(NewsLoading value)? loading,
+    TResult Function(NewsError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -688,29 +655,24 @@ class _$NewsError implements NewsError {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result empty(),
-    @required Result loaded(News news),
-    @required Result loading(),
-    @required Result error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(News? news) loaded,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return error();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result empty(),
-    Result loaded(News news),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(News? news)? loaded,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error();
     }
@@ -719,29 +681,24 @@ class _$NewsError implements NewsError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result empty(NewsEmpty value),
-    @required Result loaded(NewsLoaded value),
-    @required Result loading(NewsLoading value),
-    @required Result error(NewsError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(NewsEmpty value) empty,
+    required TResult Function(NewsLoaded value) loaded,
+    required TResult Function(NewsLoading value) loading,
+    required TResult Function(NewsError value) error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result empty(NewsEmpty value),
-    Result loaded(NewsLoaded value),
-    Result loading(NewsLoading value),
-    Result error(NewsError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NewsEmpty value)? empty,
+    TResult Function(NewsLoaded value)? loaded,
+    TResult Function(NewsLoading value)? loading,
+    TResult Function(NewsError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }

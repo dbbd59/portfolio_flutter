@@ -13,7 +13,7 @@ import 'package:portfolio_flutter/ui/common/widgets/cards/card_horizontal/card_h
 
 class NewsPage extends StatelessWidget {
   const NewsPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -29,13 +29,13 @@ class NewsPage extends StatelessWidget {
 
 class NewsBody extends StatelessWidget {
   const NewsBody({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder(
-      cubit: BlocProvider.of<NewsBloc>(context),
+      bloc: BlocProvider.of<NewsBloc>(context),
       builder: (_, NewsState state) {
         return state.map(
           empty: (_) => Container(),
@@ -76,40 +76,40 @@ class NewsBody extends StatelessWidget {
     );
   }
 
-  ListView buildListView({News news}) {
+  ListView buildListView({required News? news}) {
     return ListView.builder(
-      itemCount: news.articles.length,
+      itemCount: news!.articles!.length,
       itemBuilder: (BuildContext ctxt, int index) {
         return CardMaterialDesign2(
           vertical: true,
           onTap: () {
             getIt<IUtilityRepository>()
-                .launchURL(url: news.articles[index].url);
+                .launchURL(url: news.articles![index].url);
           },
-          title: news.articles[index].title,
-          imageNetwork: news.articles[index].urlToImage,
-          subTitle: news.articles[index].description,
+          title: news.articles![index].title,
+          imageNetwork: news.articles![index].urlToImage,
+          subTitle: news.articles![index].description,
         );
       },
     );
   }
 
-  GridView buildGridView({int gridNumber, News news}) {
+  GridView buildGridView({required int gridNumber, required News? news}) {
     return GridView.count(
       primary: true,
       crossAxisCount: gridNumber,
       children: List.generate(
-        news.articles.length,
+        news!.articles!.length,
         (index) {
           return CardMaterialDesign2(
             vertical: false,
             onTap: () {
               getIt<IUtilityRepository>()
-                  .launchURL(url: news.articles[index].url);
+                  .launchURL(url: news.articles![index].url);
             },
-            title: news.articles[index].title,
-            imageNetwork: news.articles[index].urlToImage,
-            subTitle: news.articles[index].description,
+            title: news.articles![index].title,
+            imageNetwork: news.articles![index].urlToImage,
+            subTitle: news.articles![index].description,
           );
         },
       ),

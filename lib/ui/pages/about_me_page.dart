@@ -14,7 +14,7 @@ import '../../repository/utility/i_utility_repository.dart';
 
 class AboutMePage extends StatelessWidget {
   const AboutMePage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -31,7 +31,7 @@ class AboutMePage extends StatelessWidget {
 
 class AboutMeBody extends StatelessWidget {
   const AboutMeBody({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -65,12 +65,12 @@ class AboutMeBody extends StatelessWidget {
 
 class AboutMeContent extends StatelessWidget {
   const AboutMeContent({
-    Key key,
-    @required this.jobs,
-    @required this.skills,
+    Key? key,
+    required this.jobs,
+    required this.skills,
   }) : super(key: key);
-  final List<Job> jobs;
-  final List<Skill> skills;
+  final List<Job>? jobs;
+  final List<Skill>? skills;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -100,7 +100,7 @@ class AboutMeContent extends StatelessWidget {
                       ),
                     ],
                   ),
-                  for (var skill in skills)
+                  for (var skill in skills!)
                     SkillItem(
                       skill: skill,
                     ),
@@ -134,7 +134,7 @@ class AboutMeContent extends StatelessWidget {
                       ),
                     ],
                   ),
-                  for (var job in jobs)
+                  for (var job in jobs!)
                     JobItem(
                       job: job,
                     ),
@@ -150,8 +150,8 @@ class AboutMeContent extends StatelessWidget {
 
 class JobItem extends StatelessWidget {
   const JobItem({
-    Key key,
-    @required this.job,
+    Key? key,
+    required this.job,
   }) : super(key: key);
 
   final Job job;
@@ -181,7 +181,7 @@ class JobItem extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
                                     Text(
-                                      job.company,
+                                      job.company!,
                                       style: const TextStyle(
                                         fontSize: 24,
                                         fontWeight: FontWeight.bold,
@@ -197,7 +197,7 @@ class JobItem extends StatelessWidget {
                                       child: Padding(
                                         padding: const EdgeInsets.all(16.0),
                                         child: Text(
-                                          job.date,
+                                          job.date!,
                                         ),
                                       ),
                                     ),
@@ -230,14 +230,14 @@ class JobItem extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
                                     Text(
-                                      job.jobTitle,
+                                      job.jobTitle!,
                                       style: const TextStyle(
                                         fontSize: 24,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     Text(
-                                      job.descr,
+                                      job.descr!,
                                       style: const TextStyle(
                                         fontSize: 16,
                                       ),
@@ -262,12 +262,12 @@ class JobItem extends StatelessWidget {
                                     child: Padding(
                                       padding: const EdgeInsets.all(16.0),
                                       child: Text(
-                                        job.date,
+                                        job.date!,
                                       ),
                                     ),
                                   ),
                                   Text(
-                                    job.company,
+                                    job.company!,
                                     style: const TextStyle(
                                       fontSize: 24,
                                       fontWeight: FontWeight.bold,
@@ -299,14 +299,14 @@ class JobItem extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   Text(
-                                    job.jobTitle,
+                                    job.jobTitle!,
                                     style: const TextStyle(
                                       fontSize: 24,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                   Text(
-                                    job.descr,
+                                    job.descr!,
                                     style: const TextStyle(
                                       fontSize: 16,
                                     ),
@@ -359,8 +359,8 @@ class JobItem extends StatelessWidget {
 
 class SkillItem extends StatelessWidget {
   const SkillItem({
-    Key key,
-    @required this.skill,
+    Key? key,
+    required this.skill,
   }) : super(key: key);
 
   final Skill skill;
@@ -377,7 +377,7 @@ class SkillItem extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Text(
-                    skill.name,
+                    skill.name!,
                   ),
                 ],
               ),
@@ -401,7 +401,7 @@ class SkillItem extends StatelessWidget {
                       color: Theme.of(context).primaryColor,
                     ),
                     height: 12,
-                    width: constraints.maxWidth * skill.perc,
+                    width: constraints.maxWidth * skill.perc!,
                   ),
                 ],
               )

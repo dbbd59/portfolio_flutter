@@ -8,7 +8,7 @@ import 'package:injectable/injectable.dart';
 
 // 🌎 Project imports:
 import 'package:portfolio_flutter/model/news.dart';
-import 'package:portfolio_flutter/repository/api_service/i_api_service.dart';
+import 'package:portfolio_flutter/repository/api_service/api_service.dart';
 
 part 'news_event.dart';
 part 'news_state.dart';
@@ -18,7 +18,7 @@ part 'news_bloc.freezed.dart';
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
   NewsBloc(this._apiService) : super(const NewsState.empty());
 
-  final IApiService _apiService;
+  final ApiService? _apiService;
 
   @override
   Stream<NewsState> mapEventToState(
@@ -28,7 +28,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
       fetchNews: (e) async* {
         try {
           yield const NewsState.loading();
-          final news = await _apiService.fetchNews();
+          final news = await _apiService!.fetchNews();
           yield NewsState.loaded(news);
         } catch (_) {
           yield const NewsState.error();

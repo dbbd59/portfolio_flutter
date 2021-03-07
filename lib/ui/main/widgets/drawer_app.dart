@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 // 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_page_transition/flutter_page_transition.dart';
 
 // 🌎 Project imports:
 import 'package:portfolio_flutter/bloc/bottomappbar/bottomappbar_bloc.dart';
@@ -14,7 +13,7 @@ import 'package:portfolio_flutter/ui/pages/settings_page.dart';
 
 class DrawerApp extends StatefulWidget {
   const DrawerApp({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -48,7 +47,7 @@ class _DrawerAppState extends State<DrawerApp> {
                 child: ListView(
                   children: <Widget>[
                     DrawerAppListItem(
-                      label: AppLocalizations.of(context)
+                      label: AppLocalizations.of(context)!
                           .translate('bottom_nav_bar_second'),
                       icon: Icons.star,
                       route: NavigationPageEnum.GITHUBTRENDS,
@@ -62,7 +61,7 @@ class _DrawerAppState extends State<DrawerApp> {
                       },
                     ),
                     DrawerAppListItem(
-                      label: AppLocalizations.of(context)
+                      label: AppLocalizations.of(context)!
                           .translate('bottom_nav_bar_third'),
                       icon: Icons.flare,
                       route: NavigationPageEnum.NEWS,
@@ -76,7 +75,7 @@ class _DrawerAppState extends State<DrawerApp> {
                       },
                     ),
                     DrawerAppListItem(
-                      label: AppLocalizations.of(context)
+                      label: AppLocalizations.of(context)!
                           .translate('bottom_nav_bar_fifth'),
                       icon: Icons.person,
                       route: NavigationPageEnum.ABOUTME,
@@ -125,9 +124,8 @@ class _DrawerAppState extends State<DrawerApp> {
               onPressed: () {
                 Navigator.maybePop(context);
                 Navigator.of(context).push(
-                  PageTransition(
-                    type: PageTransitionType.rippleLeftUp,
-                    child: const SettingsPage(),
+                  MaterialPageRoute(
+                    builder: (context) => const SettingsPage(),
                   ),
                 );
               },
@@ -141,17 +139,17 @@ class _DrawerAppState extends State<DrawerApp> {
 
 class DrawerAppListItem extends StatelessWidget {
   const DrawerAppListItem({
-    Key key,
-    @required this.label,
-    @required this.icon,
-    @required this.onPressed,
+    Key? key,
+    required this.label,
+    required this.icon,
+    required this.onPressed,
     this.route,
   }) : super(key: key);
 
   final IconData icon;
   final String label;
   final Function onPressed;
-  final NavigationPageEnum route;
+  final NavigationPageEnum? route;
 
   @override
   Widget build(BuildContext context) {
@@ -161,7 +159,7 @@ class DrawerAppListItem extends StatelessWidget {
           margin: const EdgeInsets.only(left: 8.0, right: 8.0),
           height: 48,
           child: InkWell(
-            onTap: onPressed,
+            onTap: onPressed as void Function()?,
             child: Container(
               margin: const EdgeInsets.symmetric(
                 vertical: 2.0,
@@ -200,7 +198,7 @@ class DrawerAppListItem extends StatelessWidget {
 
 class DrawerAppHeader extends StatelessWidget {
   const DrawerAppHeader({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

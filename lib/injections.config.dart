@@ -4,89 +4,60 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-// 📦 Package imports:
-import 'package:connectivity/connectivity.dart';
-import 'package:dio/dio.dart';
-import 'package:get_it/get_it.dart';
-import 'package:injectable/injectable.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:get_it/get_it.dart' as _i1;
+import 'package:injectable/injectable.dart' as _i2;
+import 'package:shared_preferences/shared_preferences.dart' as _i9;
 
-// 🌎 Project imports:
-import 'bloc/about_me/aboutme_bloc.dart';
-import 'bloc/auth/auth_bloc.dart';
-import 'bloc/bottomappbar/bottomappbar_bloc.dart';
-import 'bloc/dialog/dialog_bloc.dart';
-import 'bloc/gh_trend/github_trend_bloc.dart';
-import 'bloc/news/news_bloc.dart';
-import 'change_notifier/theme_changenotifier.dart';
-import 'change_notifier/utility_changenotifier.dart';
-import 'core/interceptor/dio_connectivity_request_retrier.dart';
-import 'core/register_module.dart';
-import 'repository/api_service/api_service.dart';
-import 'repository/api_service/i_api_service.dart';
-import 'repository/auth/auth_repository.dart';
-import 'repository/auth/i_auth_repository.dart';
-import 'repository/http_service/http_service.dart';
-import 'repository/http_service/i_http_service.dart';
-import 'repository/theme/i_theme_repository.dart';
-import 'repository/theme/theme_repository.dart';
-import 'repository/utility/i_utility_repository.dart';
-import 'repository/utility/utility_repository.dart';
+import 'bloc/about_me/aboutme_bloc.dart' as _i3;
+import 'bloc/auth/auth_bloc.dart' as _i5;
+import 'bloc/bottomappbar/bottomappbar_bloc.dart' as _i15;
+import 'bloc/dialog/dialog_bloc.dart' as _i16;
+import 'bloc/gh_trend/github_trend_bloc.dart' as _i6;
+import 'bloc/news/news_bloc.dart' as _i14;
+import 'change_notifier/theme_changenotifier.dart' as _i17;
+import 'change_notifier/utility_changenotifier.dart' as _i18;
+import 'core/register_module.dart' as _i19;
+import 'repository/api_service/api_service.dart' as _i4;
+import 'repository/auth/auth_repository.dart' as _i8;
+import 'repository/auth/i_auth_repository.dart' as _i7;
+import 'repository/theme/i_theme_repository.dart' as _i10;
+import 'repository/theme/theme_repository.dart' as _i11;
+import 'repository/utility/i_utility_repository.dart' as _i12;
+import 'repository/utility/utility_repository.dart' as _i13;
 
-/// Environment names
-const _test = 'test';
-const _dev = 'dev';
-
-/// adds generated dependencies
-/// to the provided [GetIt] instance
-
-Future<GetIt> $initGetIt(
-  GetIt get, {
-  String environment,
-  EnvironmentFilter environmentFilter,
-}) async {
-  final gh = GetItHelper(get, environment, environmentFilter);
+const String _dev = 'dev';
+// ignore_for_file: unnecessary_lambdas
+// ignore_for_file: lines_longer_than_80_chars
+/// initializes the registration of provided dependencies inside of [GetIt]
+Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
+    {String? environment, _i2.EnvironmentFilter? environmentFilter}) async {
+  final gh = _i2.GetItHelper(get, environment, environmentFilter);
   final registerModule = _$RegisterModule();
-  gh.factory<DioConnectivityRequestRetrier>(
-      () => DioConnectivityRequestRetrier(get<Connectivity>(), get<Dio>()));
-  gh.factory<IAuthRepository>(() => MockAuthRepository(), registerFor: {_test});
-  gh.factory<IThemeRepository>(() => MockThemeRepository(),
-      registerFor: {_test});
-  gh.factory<IUtilityRepository>(() => MockUtilityRepository(),
-      registerFor: {_test});
-  gh.factory<MockAboutMeBloc>(() => MockAboutMeBloc(get<IApiService>()),
-      registerFor: {_test});
-  gh.factory<NewsBloc>(() => NewsBloc(get<IApiService>()));
-  gh.factory<AboutMeBloc>(() => AboutMeBloc(get<IApiService>()),
+  gh.factory<_i3.AboutMeBloc>(() => _i3.AboutMeBloc(get<_i4.ApiService>()),
       registerFor: {_dev});
-  gh.factory<GithubTrendBloc>(() => GithubTrendBloc(get<IApiService>()));
-  gh.factory<IAuthRepository>(() => AuthRepository(get<SharedPreferences>()),
+  gh.factory<_i4.ApiService>(() => _i4.ApiService(), registerFor: {_dev});
+  gh.factory<_i5.AuthBloc>(() => _i5.AuthBloc());
+  gh.factory<_i6.GithubTrendBloc>(
+      () => _i6.GithubTrendBloc(get<_i4.ApiService>()));
+  gh.factory<_i7.IAuthRepository>(
+      () => _i8.AuthRepository(get<_i9.SharedPreferences>()),
       registerFor: {_dev});
-  gh.factory<IThemeRepository>(() => ThemeRepository(get<SharedPreferences>()),
+  gh.factory<_i10.IThemeRepository>(
+      () => _i11.ThemeRepository(get<_i9.SharedPreferences>()),
       registerFor: {_dev});
-  gh.factory<IUtilityRepository>(
-      () => UtilityRepository(get<SharedPreferences>()),
+  gh.factory<_i12.IUtilityRepository>(
+      () => _i13.UtilityRepository(get<_i9.SharedPreferences>()),
       registerFor: {_dev});
-
-  // Eager singletons must be registered in the right order
-  gh.singleton<AuthBloc>(AuthBloc());
-  gh.singleton<BottomAppBarBloc>(BottomAppBarBloc());
-  gh.singleton<Connectivity>(registerModule.connectivity);
-  gh.singleton<DialogBloc>(DialogBloc());
-  gh.singleton<Dio>(registerModule.dio);
-  gh.singleton<IApiService>(MockApiService(), registerFor: {_test});
-  gh.singleton<IHttpService>(HttpService(get<Dio>(), get<Connectivity>()),
-      registerFor: {_dev});
-  gh.singleton<IHttpService>(MockHttpService(), registerFor: {_test});
-  final sharedPreferences = await registerModule.prefs;
-  gh.singleton<SharedPreferences>(sharedPreferences, registerFor: {_dev});
-  gh.singleton<ThemeChangeNotifier>(
-      ThemeChangeNotifier(get<IThemeRepository>()));
-  gh.singleton<UtilityChangeNotifier>(
-      UtilityChangeNotifier(get<IUtilityRepository>()));
-  gh.singleton<IApiService>(ApiService(get<IHttpService>()),
-      registerFor: {_dev});
+  gh.factory<_i14.NewsBloc>(() => _i14.NewsBloc(get<_i4.ApiService>()));
+  gh.singleton<_i15.BottomAppBarBloc>(_i15.BottomAppBarBloc());
+  gh.singleton<_i16.DialogBloc>(_i16.DialogBloc());
+  await gh.singletonAsync<_i9.SharedPreferences>(() => registerModule.prefs,
+      registerFor: {_dev}, preResolve: true);
+  gh.singleton<_i17.ThemeChangeNotifier>(
+      _i17.ThemeChangeNotifier(get<_i10.IThemeRepository>()));
+  gh.singleton<_i18.UtilityChangeNotifier>(
+      _i18.UtilityChangeNotifier(get<_i12.IUtilityRepository>()));
   return get;
 }
 
-class _$RegisterModule extends RegisterModule {}
+class _$RegisterModule extends _i19.RegisterModule {}

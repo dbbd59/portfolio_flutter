@@ -1,10 +1,7 @@
-// 🐦 Flutter imports:
-import 'package:flutter/foundation.dart';
-
 abstract class IUtilityRepository {
-  int getColorHexFromStr(String colorStr);
+  int getColorHexFromStr(String? colorStr);
 
-  void launchURL({@required String url});
+  void launchURL({required String? url});
 
   bool get showFps;
 

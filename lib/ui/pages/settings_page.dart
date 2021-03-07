@@ -10,7 +10,7 @@ import 'package:portfolio_flutter/injections.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -61,7 +61,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
 class Info extends StatefulWidget {
   const Info({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

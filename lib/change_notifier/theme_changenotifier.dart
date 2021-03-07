@@ -12,24 +12,24 @@ import 'package:portfolio_flutter/repository/theme/i_theme_repository.dart';
 
 @Singleton()
 class ThemeChangeNotifier extends ChangeNotifier {
-  final IThemeRepository _themeRepository;
+  final IThemeRepository? _themeRepository;
 
   ThemeChangeNotifier(this._themeRepository);
 
   set isDark(bool value) {
-    _themeRepository.isDark = value;
+    _themeRepository!.isDark = value;
     notifyListeners();
   }
 
   bool get isDark {
-    return _themeRepository.isDark;
+    return _themeRepository!.isDark;
   }
 
   ThemeData lightTheme(BuildContext context) {
-    return _themeRepository.buildThemeDataLight(context);
+    return _themeRepository!.buildThemeDataLight(context);
   }
 
   ThemeData darkTheme(BuildContext context) {
-    return _themeRepository.buildThemeDataDark(context);
+    return _themeRepository!.buildThemeDataDark(context);
   }
 }

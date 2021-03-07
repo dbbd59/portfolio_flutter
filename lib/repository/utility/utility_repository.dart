@@ -1,6 +1,5 @@
 // 📦 Package imports:
 import 'package:injectable/injectable.dart';
-import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -15,15 +14,15 @@ class UtilityRepository implements IUtilityRepository {
     this._prefs,
   );
 
-  final SharedPreferences _prefs;
+  final SharedPreferences? _prefs;
 
   @override
   bool get showFps {
-    return _prefs.getBool('fps-enabled') ?? false;
+    return _prefs!.getBool('fps-enabled') ?? false;
   }
 
   @override
-  int getColorHexFromStr(String colorStr) {
+  int getColorHexFromStr(String? colorStr) {
     colorStr = 'FF$colorStr';
     colorStr = colorStr.replaceAll('#', '');
     var val = 0;
@@ -47,8 +46,8 @@ class UtilityRepository implements IUtilityRepository {
   }
 
   @override
-  void launchURL({String url}) async {
-    if (await canLaunch(url)) {
+  void launchURL({String? url}) async {
+    if (await canLaunch(url!)) {
       await launch(url);
     } else {
       throw 'Could not launch $url';
@@ -57,9 +56,6 @@ class UtilityRepository implements IUtilityRepository {
 
   @override
   set showFps(bool value) {
-    _prefs.setBool('fps-enabled', value);
+    _prefs!.setBool('fps-enabled', value);
   }
 }
-
-@Injectable(as: IUtilityRepository, env: [Env.test])
-class MockUtilityRepository extends Mock implements IUtilityRepository {}

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class ProgressIndicatorCustom extends StatelessWidget {
   const ProgressIndicatorCustom({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

@@ -7,6 +7,7 @@ void main() {
       final result = Map<String, Object>.from(
         json.decode(results.stdout.toString()) as Map,
       );
+      // ignore: avoid_print
       print(constantDeclarationsFromMap(result, 'kFlutter'));
     },
   );
@@ -15,7 +16,7 @@ void main() {
 String constantDeclarationsFromMap(Map<String, Object> map,
     [String prefix = 'k']) {
   String _capitalize(String text) =>
-      text.isEmpty ? text : "${text[0].toUpperCase()}${text.substring(1)}";
+      text.isEmpty ? text : '${text[0].toUpperCase()}${text.substring(1)}';
 
   String _constantName(String name, String prefix) =>
       prefix.isEmpty ? name : prefix + _capitalize(name);

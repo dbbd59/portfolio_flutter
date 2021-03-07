@@ -17,17 +17,17 @@ class GitHubTrend {
     this.builtBy,
   });
 
-  final String author;
-  final String name;
-  final String avatar;
-  final String description;
-  final String url;
-  final String language;
-  final String languageColor;
-  final int stars;
-  final int forks;
-  final int currentPeriodStars;
-  final List<BuiltBy> builtBy;
+  final String? author;
+  final String? name;
+  final String? avatar;
+  final String? description;
+  final String? url;
+  final String? language;
+  final String? languageColor;
+  final int? stars;
+  final int? forks;
+  final int? currentPeriodStars;
+  final List<BuiltBy>? builtBy;
 
   factory GitHubTrend.fromJson(String str) =>
       GitHubTrend.fromMap(json.decode(str));
@@ -68,7 +68,7 @@ class GitHubTrend {
             currentPeriodStars == null ? null : currentPeriodStars,
         'builtBy': builtBy == null
             ? null
-            : List<dynamic>.from(builtBy.map((x) => x.toMap())),
+            : List<dynamic>.from(builtBy!.map((x) => x.toMap())),
       };
 }
 
@@ -79,9 +79,9 @@ class BuiltBy {
     this.avatar,
   });
 
-  final String username;
-  final String href;
-  final String avatar;
+  final String? username;
+  final String? href;
+  final String? avatar;
 
   factory BuiltBy.fromJson(String str) => BuiltBy.fromMap(json.decode(str));
 

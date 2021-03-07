@@ -14,9 +14,9 @@ class AppLocalizations {
 
   final Locale locale;
 
-  Map<String, String> _localizedStrings;
+  late Map<String, String> _localizedStrings;
 
-  static AppLocalizations of(BuildContext context) {
+  static AppLocalizations? of(BuildContext context) {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 

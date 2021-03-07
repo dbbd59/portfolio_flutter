@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 class CardGitHubTrend extends StatelessWidget {
   CardGitHubTrend({
-    Key key,
-    @required this.title,
-    @required this.onTap,
-    @required this.horizontal,
+    Key? key,
+    required this.title,
+    required this.onTap,
+    required this.horizontal,
     this.subTitle,
     this.imageNetwork,
     this.imageAsset,
@@ -18,34 +18,34 @@ class CardGitHubTrend extends StatelessWidget {
     this.currentPeriodStars,
   }) : super(key: key);
 
-  final String author;
-  final int borderColor;
-  final int currentPeriodStars;
-  final int forks;
+  final String? author;
+  final int? borderColor;
+  final int? currentPeriodStars;
+  final int? forks;
   final bool horizontal;
-  final String imageAsset;
-  final String imageNetwork;
-  final String languageName;
+  final String? imageAsset;
+  final String? imageNetwork;
+  final String? languageName;
   final Function onTap;
-  final int stars;
-  final String subTitle;
-  final String title;
+  final int? stars;
+  final String? subTitle;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 1,
       child: InkWell(
-        onTap: onTap,
+        onTap: onTap as void Function()?,
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: 164,
           decoration: BoxDecoration(
             border: Border(
-              right: BorderSide(color: Color(borderColor), width: 5),
-              left: BorderSide(color: Color(borderColor), width: 5),
-              top: BorderSide(color: Color(borderColor), width: 5),
-              bottom: BorderSide(color: Color(borderColor), width: 5),
+              right: BorderSide(color: Color(borderColor!), width: 5),
+              left: BorderSide(color: Color(borderColor!), width: 5),
+              top: BorderSide(color: Color(borderColor!), width: 5),
+              bottom: BorderSide(color: Color(borderColor!), width: 5),
             ),
           ),
           child: horizontal
@@ -97,19 +97,19 @@ class CardGitHubTrend extends StatelessWidget {
 
 class _CardGitHubContent extends StatelessWidget {
   const _CardGitHubContent({
-    Key key,
-    @required this.title,
-    @required this.currentPeriodStars,
-    @required this.subTitle,
-    @required this.stars,
-    @required this.forks,
+    Key? key,
+    required this.title,
+    required this.currentPeriodStars,
+    required this.subTitle,
+    required this.stars,
+    required this.forks,
   }) : super(key: key);
 
-  final int currentPeriodStars;
-  final int forks;
-  final int stars;
-  final String subTitle;
-  final String title;
+  final int? currentPeriodStars;
+  final int? forks;
+  final int? stars;
+  final String? subTitle;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {
@@ -154,19 +154,19 @@ class _CardGitHubContent extends StatelessWidget {
 
 class _CardGitHubImage extends StatelessWidget {
   const _CardGitHubImage({
-    Key key,
-    @required this.imageNetwork,
-    @required this.languageName,
-    @required this.borderColor,
-    @required this.author,
-    @required this.horizontal,
+    Key? key,
+    required this.imageNetwork,
+    required this.languageName,
+    required this.borderColor,
+    required this.author,
+    required this.horizontal,
   }) : super(key: key);
 
-  final String author;
-  final int borderColor;
+  final String? author;
+  final int? borderColor;
   final bool horizontal;
-  final String imageNetwork;
-  final String languageName;
+  final String? imageNetwork;
+  final String? languageName;
 
   @override
   Widget build(BuildContext context) {
@@ -176,7 +176,7 @@ class _CardGitHubImage extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: imageNetwork != null
-                  ? NetworkImage(imageNetwork)
+                  ? NetworkImage(imageNetwork!)
                   : const NetworkImage(
                       'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'),
               fit: BoxFit.cover,
@@ -187,8 +187,8 @@ class _CardGitHubImage extends StatelessWidget {
           Align(
             alignment: horizontal ? Alignment.topCenter : Alignment.bottomLeft,
             child: Chip(
-              backgroundColor: Color(borderColor),
-              label: Text(languageName),
+              backgroundColor: Color(borderColor!),
+              label: Text(languageName!),
             ),
           ),
         if (author != null)
@@ -196,8 +196,8 @@ class _CardGitHubImage extends StatelessWidget {
             alignment:
                 horizontal ? Alignment.bottomCenter : Alignment.bottomRight,
             child: Chip(
-              backgroundColor: Color(borderColor),
-              label: Text(author),
+              backgroundColor: Color(borderColor!),
+              label: Text(author!),
             ),
           )
       ],
@@ -207,13 +207,13 @@ class _CardGitHubImage extends StatelessWidget {
 
 class _CardGitHubStarsForks extends StatelessWidget {
   const _CardGitHubStarsForks({
-    Key key,
-    @required this.stars,
-    @required this.forks,
+    Key? key,
+    required this.stars,
+    required this.forks,
   }) : super(key: key);
 
-  final int forks;
-  final int stars;
+  final int? forks;
+  final int? stars;
 
   @override
   Widget build(BuildContext context) {
@@ -229,11 +229,11 @@ class _CardGitHubStarsForks extends StatelessWidget {
 
 class _CardGitHubDescr extends StatelessWidget {
   const _CardGitHubDescr({
-    Key key,
-    @required this.subTitle,
+    Key? key,
+    required this.subTitle,
   }) : super(key: key);
 
-  final String subTitle;
+  final String? subTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -249,13 +249,13 @@ class _CardGitHubDescr extends StatelessWidget {
 
 class _CardGitHubTitle extends StatelessWidget {
   const _CardGitHubTitle({
-    Key key,
-    @required this.title,
-    @required this.currentPeriodStars,
+    Key? key,
+    required this.title,
+    required this.currentPeriodStars,
   }) : super(key: key);
 
-  final int currentPeriodStars;
-  final String title;
+  final int? currentPeriodStars;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {

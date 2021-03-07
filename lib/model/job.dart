@@ -13,12 +13,12 @@ class Job {
     this.descr,
   });
 
-  final String date;
-  final String company;
-  final String link;
-  final String linkDisplay;
-  final String jobTitle;
-  final String descr;
+  final String? date;
+  final String? company;
+  final String? link;
+  final String? linkDisplay;
+  final String? jobTitle;
+  final String? descr;
 
   factory Job.fromJson(String str) => Job.fromMap(json.decode(str));
 

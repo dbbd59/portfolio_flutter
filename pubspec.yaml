@@ -4,7 +4,7 @@ description: Flutter Base App
 version: 2.1.0+5
 
 environment:
-  sdk: ">=2.10.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -13,32 +13,28 @@ dependencies:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
-  bloc: ^6.1.1
-  cached_network_image: ^2.5.0
-  connectivity: ^3.0.0
+  bloc: ^7.0.0-nullsafety.3
+  cached_network_image: ^3.0.0-nullsafety
   cupertino_icons: ^1.0.2
-  dio: ^3.0.10
-  equatable: ^1.2.6
-  flutter_bloc: ^6.1.2
-  flutter_page_transition: ^0.1.6
-  freezed_annotation: ^0.12.0
-  get_it: ^5.0.3
-  google_fonts: ^1.1.1
+  dio: ^4.0.0-beta6
+  equatable: ^2.0.0
+  flutter_bloc: ^7.0.0-nullsafety.3
+  freezed_annotation: ^0.14.0
+  get_it: ^6.0.0
+  google_fonts: ^2.0.0
   injectable: ^1.1.0
-  package_info_plus: ^0.6.3
-  provider: ^4.3.3
-  shared_preferences: ^0.5.12+4
-  statsfl: ^1.1.0+3
+  package_info_plus: ^1.0.0
+  provider: ^5.0.0-nullsafety.5
+  shared_preferences: ^2.0.3
+  statsfl: ^2.0.0-nullsafety
   url_launcher: ^6.0.1
 
 dev_dependencies:
-  bloc_test: ^7.1.0
-  build_runner: ^1.10.3
-  ficcanaso: ^1.0.1
-  flutter_launcher_icons: ^0.8.1
-  freezed: ^0.12.6
-  import_sorter: ^4.4.1
-  injectable_generator: ^1.0.7
+  build_runner: ^1.11.5
+  ficcanaso: ^2.0.1
+  flutter_launcher_icons: ^0.9.0
+  freezed: ^0.14.0+1
+  injectable_generator: ^1.2.0
 
 flutter:
   uses-material-design: true
@@ -49,6 +45,7 @@ flutter:
     - assets/images/profile.png
     - assets/icon.png
     - assets/images/dbbd59.png
+    - assets/images/breaking-news.jpg
 
 flutter_icons:
   android: true

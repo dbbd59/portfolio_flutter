@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class Alert {
   Alert({
-    @required this.context,
+    required this.context,
     this.image,
-    @required this.title,
+    required this.title,
     this.desc,
     this.content,
     this.buttons,
@@ -29,14 +29,14 @@ class Alert {
     );
   }
 
-  AlertStyle alertStyle;
-  final List<Widget> buttons;
-  final Widget content;
+  late AlertStyle alertStyle;
+  final List<Widget>? buttons;
+  final Widget? content;
   final BuildContext context;
-  final String desc;
-  final Image image;
+  final String? desc;
+  final Image? image;
   final String title;
-  final Color titleColor;
+  final Color? titleColor;
 
   void show() {
     showGeneralDialog(
@@ -81,7 +81,7 @@ class Alert {
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
+            children: <Widget?>[
               if (image != null)
                 Padding(
                   padding: const EdgeInsets.all(16),
@@ -92,7 +92,7 @@ class Alert {
               ),
               if (desc != null)
                 Text(
-                  desc,
+                  desc!,
                   style: alertStyle.descStyle,
                   textAlign: TextAlign.center,
                 ),
@@ -104,7 +104,7 @@ class Alert {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: _getButtons(),
               ),
-            ],
+            ] as List<Widget>,
           ),
         ),
       ),
@@ -123,13 +123,13 @@ class Alert {
   List<Widget> _getButtons() {
     final expandedButtons = <Widget>[];
     if (buttons != null) {
-      buttons.forEach(
+      buttons!.forEach(
         (button) {
           final buttonWidget = Padding(
             padding: const EdgeInsets.only(left: 2, right: 2),
             child: button,
           );
-          if (buttons.length == 1) {
+          if (buttons!.length == 1) {
             expandedButtons.add(buttonWidget);
           } else {
             expandedButtons.add(Expanded(
@@ -265,7 +265,7 @@ class AlertStyle {
     this.buttonAreaPadding = const EdgeInsets.all(20.0),
   });
 
-  final ShapeBorder alertBorder;
+  final ShapeBorder? alertBorder;
   final Duration animationDuration;
   final AnimationType animationType;
   final EdgeInsets buttonAreaPadding;

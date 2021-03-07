@@ -4,13 +4,13 @@ class AppException implements Exception {
     this.label,
   });
 
-  final ExceptionInfo exceptionInfo;
-  final String label;
+  final ExceptionInfo? exceptionInfo;
+  final String? label;
 }
 
 class BadRequestException extends AppException {
   BadRequestException({
-    ExceptionInfo exceptionInfo,
+    ExceptionInfo? exceptionInfo,
   }) : super(
           exceptionInfo: exceptionInfo,
           label: 'error_invalidrequest',
@@ -24,14 +24,14 @@ class ExceptionInfo {
     this.statusCode,
   });
 
-  final String details;
-  final String message;
-  final int statusCode;
+  final String? details;
+  final String? message;
+  final int? statusCode;
 }
 
 class FetchDataException extends AppException {
   FetchDataException({
-    ExceptionInfo exceptionInfo,
+    ExceptionInfo? exceptionInfo,
   }) : super(
           exceptionInfo: exceptionInfo,
           label: 'error_fetchdata',
@@ -40,7 +40,7 @@ class FetchDataException extends AppException {
 
 class InvalidInputException extends AppException {
   InvalidInputException({
-    ExceptionInfo exceptionInfo,
+    ExceptionInfo? exceptionInfo,
   }) : super(
           exceptionInfo: exceptionInfo,
           label: 'error_invalidinput',
@@ -49,7 +49,7 @@ class InvalidInputException extends AppException {
 
 class UnauthorisedException extends AppException {
   UnauthorisedException({
-    ExceptionInfo exceptionInfo,
+    ExceptionInfo? exceptionInfo,
   }) : super(
           exceptionInfo: exceptionInfo,
           label: 'error_unauthorised',

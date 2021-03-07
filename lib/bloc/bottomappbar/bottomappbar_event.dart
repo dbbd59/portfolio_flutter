@@ -4,7 +4,7 @@ part of 'bottomappbar_bloc.dart';
 abstract class BottomAppBarEvent {}
 
 class BottomAppBarEventPageChanged extends BottomAppBarEvent {
-  BottomAppBarEventPageChanged({@required this.selectedPage});
+  BottomAppBarEventPageChanged({required this.selectedPage});
 
-  final NavigationPageEnum selectedPage;
+  final NavigationPageEnum? selectedPage;
 }

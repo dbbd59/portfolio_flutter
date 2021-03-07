@@ -1,6 +1,5 @@
 // 📦 Package imports:
 import 'package:injectable/injectable.dart';
-import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // 🌎 Project imports:
@@ -15,18 +14,15 @@ class AuthRepository implements IAuthRepository {
     this._prefs,
   );
 
-  final SharedPreferences _prefs;
+  final SharedPreferences? _prefs;
 
   @override
   Future<void> auth() async {
-    await _prefs.setString('accessToken', 'x');
+    await _prefs!.setString('accessToken', 'x');
   }
 
   @override
   Future<void> logout() async {
-    await _prefs.remove('accessToken');
+    await _prefs!.remove('accessToken');
   }
 }
-
-@Injectable(as: IAuthRepository, env: [Env.test])
-class MockAuthRepository extends Mock implements IAuthRepository {}

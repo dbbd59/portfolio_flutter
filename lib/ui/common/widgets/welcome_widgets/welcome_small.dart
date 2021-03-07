@@ -6,7 +6,7 @@ import 'package:portfolio_flutter/ui/common/widgets/welcome_widgets/welcome_larg
 
 class WelcomeSmall extends StatelessWidget {
   const WelcomeSmall({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

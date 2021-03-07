@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'aboutme_bloc.dart';
 
@@ -9,49 +9,53 @@ part of 'aboutme_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$AboutMeEventTearOff {
   const _$AboutMeEventTearOff();
 
-// ignore: unused_element
   AboutMeEventFetch fetch() {
     return const AboutMeEventFetch();
   }
 
-// ignore: unused_element
   AboutMeEventReset reset() {
     return const AboutMeEventReset();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AboutMeEvent = _$AboutMeEventTearOff();
 
 /// @nodoc
 mixin _$AboutMeEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fetch(),
-    @required Result reset(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetch,
+    required TResult Function() reset,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fetch(),
-    Result reset(),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetch,
+    TResult Function()? reset,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fetch(AboutMeEventFetch value),
-    @required Result reset(AboutMeEventReset value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(AboutMeEventFetch value) fetch,
+    required TResult Function(AboutMeEventReset value) reset,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fetch(AboutMeEventFetch value),
-    Result reset(AboutMeEventReset value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AboutMeEventFetch value)? fetch,
+    TResult Function(AboutMeEventReset value)? reset,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -108,23 +112,20 @@ class _$AboutMeEventFetch implements AboutMeEventFetch {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fetch(),
-    @required Result reset(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetch,
+    required TResult Function() reset,
   }) {
-    assert(fetch != null);
-    assert(reset != null);
     return fetch();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fetch(),
-    Result reset(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetch,
+    TResult Function()? reset,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fetch != null) {
       return fetch();
     }
@@ -133,23 +134,20 @@ class _$AboutMeEventFetch implements AboutMeEventFetch {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fetch(AboutMeEventFetch value),
-    @required Result reset(AboutMeEventReset value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(AboutMeEventFetch value) fetch,
+    required TResult Function(AboutMeEventReset value) reset,
   }) {
-    assert(fetch != null);
-    assert(reset != null);
     return fetch(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fetch(AboutMeEventFetch value),
-    Result reset(AboutMeEventReset value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AboutMeEventFetch value)? fetch,
+    TResult Function(AboutMeEventReset value)? reset,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fetch != null) {
       return fetch(this);
     }
@@ -199,23 +197,20 @@ class _$AboutMeEventReset implements AboutMeEventReset {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fetch(),
-    @required Result reset(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetch,
+    required TResult Function() reset,
   }) {
-    assert(fetch != null);
-    assert(reset != null);
     return reset();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fetch(),
-    Result reset(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetch,
+    TResult Function()? reset,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (reset != null) {
       return reset();
     }
@@ -224,23 +219,20 @@ class _$AboutMeEventReset implements AboutMeEventReset {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fetch(AboutMeEventFetch value),
-    @required Result reset(AboutMeEventReset value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(AboutMeEventFetch value) fetch,
+    required TResult Function(AboutMeEventReset value) reset,
   }) {
-    assert(fetch != null);
-    assert(reset != null);
     return reset(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fetch(AboutMeEventFetch value),
-    Result reset(AboutMeEventReset value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AboutMeEventFetch value)? fetch,
+    TResult Function(AboutMeEventReset value)? reset,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (reset != null) {
       return reset(this);
     }
@@ -256,66 +248,65 @@ abstract class AboutMeEventReset implements AboutMeEvent {
 class _$AboutMeStateTearOff {
   const _$AboutMeStateTearOff();
 
-// ignore: unused_element
   AboutMeStateEmpty empty() {
     return const AboutMeStateEmpty();
   }
 
-// ignore: unused_element
-  AboutMeStateLoaded loaded(List<Job> jobs, List<Skill> skills) {
+  AboutMeStateLoaded loaded(List<Job>? jobs, List<Skill>? skills) {
     return AboutMeStateLoaded(
       jobs,
       skills,
     );
   }
 
-// ignore: unused_element
   AboutMeStateLoading loading() {
     return const AboutMeStateLoading();
   }
 
-// ignore: unused_element
   AboutMeStateError error() {
     return const AboutMeStateError();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AboutMeState = _$AboutMeStateTearOff();
 
 /// @nodoc
 mixin _$AboutMeState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result empty(),
-    @required Result loaded(List<Job> jobs, List<Skill> skills),
-    @required Result loading(),
-    @required Result error(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(List<Job>? jobs, List<Skill>? skills) loaded,
+    required TResult Function() loading,
+    required TResult Function() error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result empty(),
-    Result loaded(List<Job> jobs, List<Skill> skills),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(List<Job>? jobs, List<Skill>? skills)? loaded,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result empty(AboutMeStateEmpty value),
-    @required Result loaded(AboutMeStateLoaded value),
-    @required Result loading(AboutMeStateLoading value),
-    @required Result error(AboutMeStateError value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(AboutMeStateEmpty value) empty,
+    required TResult Function(AboutMeStateLoaded value) loaded,
+    required TResult Function(AboutMeStateLoading value) loading,
+    required TResult Function(AboutMeStateError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result empty(AboutMeStateEmpty value),
-    Result loaded(AboutMeStateLoaded value),
-    Result loading(AboutMeStateLoading value),
-    Result error(AboutMeStateError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AboutMeStateEmpty value)? empty,
+    TResult Function(AboutMeStateLoaded value)? loaded,
+    TResult Function(AboutMeStateLoading value)? loading,
+    TResult Function(AboutMeStateError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -372,29 +363,24 @@ class _$AboutMeStateEmpty implements AboutMeStateEmpty {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result empty(),
-    @required Result loaded(List<Job> jobs, List<Skill> skills),
-    @required Result loading(),
-    @required Result error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(List<Job>? jobs, List<Skill>? skills) loaded,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return empty();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result empty(),
-    Result loaded(List<Job> jobs, List<Skill> skills),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(List<Job>? jobs, List<Skill>? skills)? loaded,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty();
     }
@@ -403,29 +389,24 @@ class _$AboutMeStateEmpty implements AboutMeStateEmpty {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result empty(AboutMeStateEmpty value),
-    @required Result loaded(AboutMeStateLoaded value),
-    @required Result loading(AboutMeStateLoading value),
-    @required Result error(AboutMeStateError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(AboutMeStateEmpty value) empty,
+    required TResult Function(AboutMeStateLoaded value) loaded,
+    required TResult Function(AboutMeStateLoading value) loading,
+    required TResult Function(AboutMeStateError value) error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return empty(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result empty(AboutMeStateEmpty value),
-    Result loaded(AboutMeStateLoaded value),
-    Result loading(AboutMeStateLoading value),
-    Result error(AboutMeStateError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AboutMeStateEmpty value)? empty,
+    TResult Function(AboutMeStateLoaded value)? loaded,
+    TResult Function(AboutMeStateLoading value)? loading,
+    TResult Function(AboutMeStateError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty(this);
     }
@@ -442,7 +423,7 @@ abstract class $AboutMeStateLoadedCopyWith<$Res> {
   factory $AboutMeStateLoadedCopyWith(
           AboutMeStateLoaded value, $Res Function(AboutMeStateLoaded) then) =
       _$AboutMeStateLoadedCopyWithImpl<$Res>;
-  $Res call({List<Job> jobs, List<Skill> skills});
+  $Res call({List<Job>? jobs, List<Skill>? skills});
 }
 
 /// @nodoc
@@ -458,26 +439,30 @@ class _$AboutMeStateLoadedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object jobs = freezed,
-    Object skills = freezed,
+    Object? jobs = freezed,
+    Object? skills = freezed,
   }) {
     return _then(AboutMeStateLoaded(
-      jobs == freezed ? _value.jobs : jobs as List<Job>,
-      skills == freezed ? _value.skills : skills as List<Skill>,
+      jobs == freezed
+          ? _value.jobs
+          : jobs // ignore: cast_nullable_to_non_nullable
+              as List<Job>?,
+      skills == freezed
+          ? _value.skills
+          : skills // ignore: cast_nullable_to_non_nullable
+              as List<Skill>?,
     ));
   }
 }
 
 /// @nodoc
 class _$AboutMeStateLoaded implements AboutMeStateLoaded {
-  const _$AboutMeStateLoaded(this.jobs, this.skills)
-      : assert(jobs != null),
-        assert(skills != null);
+  const _$AboutMeStateLoaded(this.jobs, this.skills);
 
   @override
-  final List<Job> jobs;
+  final List<Job>? jobs;
   @override
-  final List<Skill> skills;
+  final List<Skill>? skills;
 
   @override
   String toString() {
@@ -500,35 +485,31 @@ class _$AboutMeStateLoaded implements AboutMeStateLoaded {
       const DeepCollectionEquality().hash(jobs) ^
       const DeepCollectionEquality().hash(skills);
 
+  @JsonKey(ignore: true)
   @override
   $AboutMeStateLoadedCopyWith<AboutMeStateLoaded> get copyWith =>
       _$AboutMeStateLoadedCopyWithImpl<AboutMeStateLoaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result empty(),
-    @required Result loaded(List<Job> jobs, List<Skill> skills),
-    @required Result loading(),
-    @required Result error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(List<Job>? jobs, List<Skill>? skills) loaded,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return loaded(jobs, skills);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result empty(),
-    Result loaded(List<Job> jobs, List<Skill> skills),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(List<Job>? jobs, List<Skill>? skills)? loaded,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(jobs, skills);
     }
@@ -537,29 +518,24 @@ class _$AboutMeStateLoaded implements AboutMeStateLoaded {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result empty(AboutMeStateEmpty value),
-    @required Result loaded(AboutMeStateLoaded value),
-    @required Result loading(AboutMeStateLoading value),
-    @required Result error(AboutMeStateError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(AboutMeStateEmpty value) empty,
+    required TResult Function(AboutMeStateLoaded value) loaded,
+    required TResult Function(AboutMeStateLoading value) loading,
+    required TResult Function(AboutMeStateError value) error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return loaded(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result empty(AboutMeStateEmpty value),
-    Result loaded(AboutMeStateLoaded value),
-    Result loading(AboutMeStateLoading value),
-    Result error(AboutMeStateError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AboutMeStateEmpty value)? empty,
+    TResult Function(AboutMeStateLoaded value)? loaded,
+    TResult Function(AboutMeStateLoading value)? loading,
+    TResult Function(AboutMeStateError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(this);
     }
@@ -568,12 +544,14 @@ class _$AboutMeStateLoaded implements AboutMeStateLoaded {
 }
 
 abstract class AboutMeStateLoaded implements AboutMeState {
-  const factory AboutMeStateLoaded(List<Job> jobs, List<Skill> skills) =
+  const factory AboutMeStateLoaded(List<Job>? jobs, List<Skill>? skills) =
       _$AboutMeStateLoaded;
 
-  List<Job> get jobs;
-  List<Skill> get skills;
-  $AboutMeStateLoadedCopyWith<AboutMeStateLoaded> get copyWith;
+  List<Job>? get jobs => throw _privateConstructorUsedError;
+  List<Skill>? get skills => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AboutMeStateLoadedCopyWith<AboutMeStateLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -614,29 +592,24 @@ class _$AboutMeStateLoading implements AboutMeStateLoading {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result empty(),
-    @required Result loaded(List<Job> jobs, List<Skill> skills),
-    @required Result loading(),
-    @required Result error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(List<Job>? jobs, List<Skill>? skills) loaded,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result empty(),
-    Result loaded(List<Job> jobs, List<Skill> skills),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(List<Job>? jobs, List<Skill>? skills)? loaded,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -645,29 +618,24 @@ class _$AboutMeStateLoading implements AboutMeStateLoading {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result empty(AboutMeStateEmpty value),
-    @required Result loaded(AboutMeStateLoaded value),
-    @required Result loading(AboutMeStateLoading value),
-    @required Result error(AboutMeStateError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(AboutMeStateEmpty value) empty,
+    required TResult Function(AboutMeStateLoaded value) loaded,
+    required TResult Function(AboutMeStateLoading value) loading,
+    required TResult Function(AboutMeStateError value) error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result empty(AboutMeStateEmpty value),
-    Result loaded(AboutMeStateLoaded value),
-    Result loading(AboutMeStateLoading value),
-    Result error(AboutMeStateError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AboutMeStateEmpty value)? empty,
+    TResult Function(AboutMeStateLoaded value)? loaded,
+    TResult Function(AboutMeStateLoading value)? loading,
+    TResult Function(AboutMeStateError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -717,29 +685,24 @@ class _$AboutMeStateError implements AboutMeStateError {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result empty(),
-    @required Result loaded(List<Job> jobs, List<Skill> skills),
-    @required Result loading(),
-    @required Result error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(List<Job>? jobs, List<Skill>? skills) loaded,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return error();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result empty(),
-    Result loaded(List<Job> jobs, List<Skill> skills),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(List<Job>? jobs, List<Skill>? skills)? loaded,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error();
     }
@@ -748,29 +711,24 @@ class _$AboutMeStateError implements AboutMeStateError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result empty(AboutMeStateEmpty value),
-    @required Result loaded(AboutMeStateLoaded value),
-    @required Result loading(AboutMeStateLoading value),
-    @required Result error(AboutMeStateError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(AboutMeStateEmpty value) empty,
+    required TResult Function(AboutMeStateLoaded value) loaded,
+    required TResult Function(AboutMeStateLoading value) loading,
+    required TResult Function(AboutMeStateError value) error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result empty(AboutMeStateEmpty value),
-    Result loaded(AboutMeStateLoaded value),
-    Result loading(AboutMeStateLoading value),
-    Result error(AboutMeStateError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AboutMeStateEmpty value)? empty,
+    TResult Function(AboutMeStateLoaded value)? loaded,
+    TResult Function(AboutMeStateLoading value)? loading,
+    TResult Function(AboutMeStateError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }

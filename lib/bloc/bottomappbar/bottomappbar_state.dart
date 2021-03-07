@@ -2,8 +2,8 @@ part of 'bottomappbar_bloc.dart';
 
 class BottomAppBarState {
   BottomAppBarState({
-    @required this.pageSelected,
+    required this.pageSelected,
   });
 
-  final NavigationPageEnum pageSelected;
+  final NavigationPageEnum? pageSelected;
 }

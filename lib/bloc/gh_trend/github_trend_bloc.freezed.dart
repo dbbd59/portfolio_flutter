@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'github_trend_bloc.dart';
 
@@ -9,49 +9,53 @@ part of 'github_trend_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$GithubTrendEventTearOff {
   const _$GithubTrendEventTearOff();
 
-// ignore: unused_element
   GithubTrendEventFetchTrends fetchTrends() {
     return const GithubTrendEventFetchTrends();
   }
 
-// ignore: unused_element
   GithubTrendEventReset reset() {
     return const GithubTrendEventReset();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $GithubTrendEvent = _$GithubTrendEventTearOff();
 
 /// @nodoc
 mixin _$GithubTrendEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fetchTrends(),
-    @required Result reset(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchTrends,
+    required TResult Function() reset,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fetchTrends(),
-    Result reset(),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchTrends,
+    TResult Function()? reset,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fetchTrends(GithubTrendEventFetchTrends value),
-    @required Result reset(GithubTrendEventReset value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(GithubTrendEventFetchTrends value) fetchTrends,
+    required TResult Function(GithubTrendEventReset value) reset,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fetchTrends(GithubTrendEventFetchTrends value),
-    Result reset(GithubTrendEventReset value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GithubTrendEventFetchTrends value)? fetchTrends,
+    TResult Function(GithubTrendEventReset value)? reset,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -120,23 +124,20 @@ class _$GithubTrendEventFetchTrends
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fetchTrends(),
-    @required Result reset(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchTrends,
+    required TResult Function() reset,
   }) {
-    assert(fetchTrends != null);
-    assert(reset != null);
     return fetchTrends();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fetchTrends(),
-    Result reset(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchTrends,
+    TResult Function()? reset,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fetchTrends != null) {
       return fetchTrends();
     }
@@ -145,23 +146,20 @@ class _$GithubTrendEventFetchTrends
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fetchTrends(GithubTrendEventFetchTrends value),
-    @required Result reset(GithubTrendEventReset value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(GithubTrendEventFetchTrends value) fetchTrends,
+    required TResult Function(GithubTrendEventReset value) reset,
   }) {
-    assert(fetchTrends != null);
-    assert(reset != null);
     return fetchTrends(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fetchTrends(GithubTrendEventFetchTrends value),
-    Result reset(GithubTrendEventReset value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GithubTrendEventFetchTrends value)? fetchTrends,
+    TResult Function(GithubTrendEventReset value)? reset,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fetchTrends != null) {
       return fetchTrends(this);
     }
@@ -219,23 +217,20 @@ class _$GithubTrendEventReset
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fetchTrends(),
-    @required Result reset(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchTrends,
+    required TResult Function() reset,
   }) {
-    assert(fetchTrends != null);
-    assert(reset != null);
     return reset();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fetchTrends(),
-    Result reset(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchTrends,
+    TResult Function()? reset,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (reset != null) {
       return reset();
     }
@@ -244,23 +239,20 @@ class _$GithubTrendEventReset
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fetchTrends(GithubTrendEventFetchTrends value),
-    @required Result reset(GithubTrendEventReset value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(GithubTrendEventFetchTrends value) fetchTrends,
+    required TResult Function(GithubTrendEventReset value) reset,
   }) {
-    assert(fetchTrends != null);
-    assert(reset != null);
     return reset(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fetchTrends(GithubTrendEventFetchTrends value),
-    Result reset(GithubTrendEventReset value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GithubTrendEventFetchTrends value)? fetchTrends,
+    TResult Function(GithubTrendEventReset value)? reset,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (reset != null) {
       return reset(this);
     }
@@ -276,65 +268,64 @@ abstract class GithubTrendEventReset implements GithubTrendEvent {
 class _$GithubTrendStateTearOff {
   const _$GithubTrendStateTearOff();
 
-// ignore: unused_element
   GithubTrendEmpty empty() {
     return const GithubTrendEmpty();
   }
 
-// ignore: unused_element
-  GithubTrendLoaded loaded(List<GitHubTrend> gitHubTrends) {
+  GithubTrendLoaded loaded(List<GitHubTrend>? gitHubTrends) {
     return GithubTrendLoaded(
       gitHubTrends,
     );
   }
 
-// ignore: unused_element
   GithubTrendLoading loading() {
     return const GithubTrendLoading();
   }
 
-// ignore: unused_element
   GithubTrendError error() {
     return const GithubTrendError();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $GithubTrendState = _$GithubTrendStateTearOff();
 
 /// @nodoc
 mixin _$GithubTrendState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result empty(),
-    @required Result loaded(List<GitHubTrend> gitHubTrends),
-    @required Result loading(),
-    @required Result error(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(List<GitHubTrend>? gitHubTrends) loaded,
+    required TResult Function() loading,
+    required TResult Function() error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result empty(),
-    Result loaded(List<GitHubTrend> gitHubTrends),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(List<GitHubTrend>? gitHubTrends)? loaded,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result empty(GithubTrendEmpty value),
-    @required Result loaded(GithubTrendLoaded value),
-    @required Result loading(GithubTrendLoading value),
-    @required Result error(GithubTrendError value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(GithubTrendEmpty value) empty,
+    required TResult Function(GithubTrendLoaded value) loaded,
+    required TResult Function(GithubTrendLoading value) loading,
+    required TResult Function(GithubTrendError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result empty(GithubTrendEmpty value),
-    Result loaded(GithubTrendLoaded value),
-    Result loading(GithubTrendLoading value),
-    Result error(GithubTrendError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GithubTrendEmpty value)? empty,
+    TResult Function(GithubTrendLoaded value)? loaded,
+    TResult Function(GithubTrendLoading value)? loading,
+    TResult Function(GithubTrendError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -400,29 +391,24 @@ class _$GithubTrendEmpty
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result empty(),
-    @required Result loaded(List<GitHubTrend> gitHubTrends),
-    @required Result loading(),
-    @required Result error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(List<GitHubTrend>? gitHubTrends) loaded,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return empty();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result empty(),
-    Result loaded(List<GitHubTrend> gitHubTrends),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(List<GitHubTrend>? gitHubTrends)? loaded,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty();
     }
@@ -431,29 +417,24 @@ class _$GithubTrendEmpty
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result empty(GithubTrendEmpty value),
-    @required Result loaded(GithubTrendLoaded value),
-    @required Result loading(GithubTrendLoading value),
-    @required Result error(GithubTrendError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(GithubTrendEmpty value) empty,
+    required TResult Function(GithubTrendLoaded value) loaded,
+    required TResult Function(GithubTrendLoading value) loading,
+    required TResult Function(GithubTrendError value) error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return empty(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result empty(GithubTrendEmpty value),
-    Result loaded(GithubTrendLoaded value),
-    Result loading(GithubTrendLoading value),
-    Result error(GithubTrendError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GithubTrendEmpty value)? empty,
+    TResult Function(GithubTrendLoaded value)? loaded,
+    TResult Function(GithubTrendLoading value)? loading,
+    TResult Function(GithubTrendError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty(this);
     }
@@ -470,7 +451,7 @@ abstract class $GithubTrendLoadedCopyWith<$Res> {
   factory $GithubTrendLoadedCopyWith(
           GithubTrendLoaded value, $Res Function(GithubTrendLoaded) then) =
       _$GithubTrendLoadedCopyWithImpl<$Res>;
-  $Res call({List<GitHubTrend> gitHubTrends});
+  $Res call({List<GitHubTrend>? gitHubTrends});
 }
 
 /// @nodoc
@@ -486,12 +467,13 @@ class _$GithubTrendLoadedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object gitHubTrends = freezed,
+    Object? gitHubTrends = freezed,
   }) {
     return _then(GithubTrendLoaded(
       gitHubTrends == freezed
           ? _value.gitHubTrends
-          : gitHubTrends as List<GitHubTrend>,
+          : gitHubTrends // ignore: cast_nullable_to_non_nullable
+              as List<GitHubTrend>?,
     ));
   }
 }
@@ -500,10 +482,10 @@ class _$GithubTrendLoadedCopyWithImpl<$Res>
 class _$GithubTrendLoaded
     with DiagnosticableTreeMixin
     implements GithubTrendLoaded {
-  const _$GithubTrendLoaded(this.gitHubTrends) : assert(gitHubTrends != null);
+  const _$GithubTrendLoaded(this.gitHubTrends);
 
   @override
-  final List<GitHubTrend> gitHubTrends;
+  final List<GitHubTrend>? gitHubTrends;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -531,35 +513,31 @@ class _$GithubTrendLoaded
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(gitHubTrends);
 
+  @JsonKey(ignore: true)
   @override
   $GithubTrendLoadedCopyWith<GithubTrendLoaded> get copyWith =>
       _$GithubTrendLoadedCopyWithImpl<GithubTrendLoaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result empty(),
-    @required Result loaded(List<GitHubTrend> gitHubTrends),
-    @required Result loading(),
-    @required Result error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(List<GitHubTrend>? gitHubTrends) loaded,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return loaded(gitHubTrends);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result empty(),
-    Result loaded(List<GitHubTrend> gitHubTrends),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(List<GitHubTrend>? gitHubTrends)? loaded,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(gitHubTrends);
     }
@@ -568,29 +546,24 @@ class _$GithubTrendLoaded
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result empty(GithubTrendEmpty value),
-    @required Result loaded(GithubTrendLoaded value),
-    @required Result loading(GithubTrendLoading value),
-    @required Result error(GithubTrendError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(GithubTrendEmpty value) empty,
+    required TResult Function(GithubTrendLoaded value) loaded,
+    required TResult Function(GithubTrendLoading value) loading,
+    required TResult Function(GithubTrendError value) error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return loaded(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result empty(GithubTrendEmpty value),
-    Result loaded(GithubTrendLoaded value),
-    Result loading(GithubTrendLoading value),
-    Result error(GithubTrendError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GithubTrendEmpty value)? empty,
+    TResult Function(GithubTrendLoaded value)? loaded,
+    TResult Function(GithubTrendLoading value)? loading,
+    TResult Function(GithubTrendError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loaded != null) {
       return loaded(this);
     }
@@ -599,11 +572,13 @@ class _$GithubTrendLoaded
 }
 
 abstract class GithubTrendLoaded implements GithubTrendState {
-  const factory GithubTrendLoaded(List<GitHubTrend> gitHubTrends) =
+  const factory GithubTrendLoaded(List<GitHubTrend>? gitHubTrends) =
       _$GithubTrendLoaded;
 
-  List<GitHubTrend> get gitHubTrends;
-  $GithubTrendLoadedCopyWith<GithubTrendLoaded> get copyWith;
+  List<GitHubTrend>? get gitHubTrends => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GithubTrendLoadedCopyWith<GithubTrendLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -652,29 +627,24 @@ class _$GithubTrendLoading
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result empty(),
-    @required Result loaded(List<GitHubTrend> gitHubTrends),
-    @required Result loading(),
-    @required Result error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(List<GitHubTrend>? gitHubTrends) loaded,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result empty(),
-    Result loaded(List<GitHubTrend> gitHubTrends),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(List<GitHubTrend>? gitHubTrends)? loaded,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading();
     }
@@ -683,29 +653,24 @@ class _$GithubTrendLoading
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result empty(GithubTrendEmpty value),
-    @required Result loaded(GithubTrendLoaded value),
-    @required Result loading(GithubTrendLoading value),
-    @required Result error(GithubTrendError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(GithubTrendEmpty value) empty,
+    required TResult Function(GithubTrendLoaded value) loaded,
+    required TResult Function(GithubTrendLoading value) loading,
+    required TResult Function(GithubTrendError value) error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result empty(GithubTrendEmpty value),
-    Result loaded(GithubTrendLoaded value),
-    Result loading(GithubTrendLoading value),
-    Result error(GithubTrendError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GithubTrendEmpty value)? empty,
+    TResult Function(GithubTrendLoaded value)? loaded,
+    TResult Function(GithubTrendLoading value)? loading,
+    TResult Function(GithubTrendError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (loading != null) {
       return loading(this);
     }
@@ -763,29 +728,24 @@ class _$GithubTrendError
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result empty(),
-    @required Result loaded(List<GitHubTrend> gitHubTrends),
-    @required Result loading(),
-    @required Result error(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function(List<GitHubTrend>? gitHubTrends) loaded,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return error();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result empty(),
-    Result loaded(List<GitHubTrend> gitHubTrends),
-    Result loading(),
-    Result error(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function(List<GitHubTrend>? gitHubTrends)? loaded,
+    TResult Function()? loading,
+    TResult Function()? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error();
     }
@@ -794,29 +754,24 @@ class _$GithubTrendError
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result empty(GithubTrendEmpty value),
-    @required Result loaded(GithubTrendLoaded value),
-    @required Result loading(GithubTrendLoading value),
-    @required Result error(GithubTrendError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(GithubTrendEmpty value) empty,
+    required TResult Function(GithubTrendLoaded value) loaded,
+    required TResult Function(GithubTrendLoading value) loading,
+    required TResult Function(GithubTrendError value) error,
   }) {
-    assert(empty != null);
-    assert(loaded != null);
-    assert(loading != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result empty(GithubTrendEmpty value),
-    Result loaded(GithubTrendLoaded value),
-    Result loading(GithubTrendLoading value),
-    Result error(GithubTrendError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GithubTrendEmpty value)? empty,
+    TResult Function(GithubTrendLoaded value)? loaded,
+    TResult Function(GithubTrendLoading value)? loading,
+    TResult Function(GithubTrendError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }

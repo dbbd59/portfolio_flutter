@@ -12,9 +12,10 @@ import 'package:portfolio_flutter/bloc/auth/auth_bloc.dart';
 import 'package:portfolio_flutter/change_notifier/theme_changenotifier.dart';
 import 'package:portfolio_flutter/change_notifier/utility_changenotifier.dart';
 import 'package:portfolio_flutter/core/app_localizations.dart';
-import 'package:portfolio_flutter/helper/providers_helper.dart';
 import 'package:portfolio_flutter/injections.dart';
 import 'package:portfolio_flutter/ui/main/responsive_page.dart';
+import 'bloc/bottomappbar/bottomappbar_bloc.dart';
+import 'bloc/dialog/dialog_bloc.dart';
 import 'configure_nonweb.dart' if (dart.library.html) 'configure_web.dart';
 
 void main() async {
@@ -28,15 +29,33 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: blocProviders,
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (context) => getIt<AuthBloc>()
+            ..add(
+              AuthEventStart(),
+            ),
+        ),
+        BlocProvider<BottomAppBarBloc>(
+          create: (context) => getIt<BottomAppBarBloc>(),
+        ),
+        BlocProvider<DialogBloc>(
+          create: (context) => getIt<DialogBloc>(),
+        ),
+      ],
       child: MultiProvider(
-        providers: providers,
+        providers: [
+          ChangeNotifierProvider(
+              create: (context) => getIt<ThemeChangeNotifier>()),
+          ChangeNotifierProvider(
+              create: (context) => getIt<UtilityChangeNotifier>()),
+        ],
         child: const AppWidget(),
       ),
     );
@@ -45,7 +64,7 @@ class MyApp extends StatelessWidget {
 
 class AppWidget extends StatelessWidget {
   const AppWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -55,7 +74,7 @@ class AppWidget extends StatelessWidget {
         return MaterialApp(
           builder: (context, child) {
             return MediaQuery(
-              child: child,
+              child: child!,
               data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
             );
           },
@@ -75,7 +94,7 @@ class AppWidget extends StatelessWidget {
           ],
           localeResolutionCallback: (locale, supportedLocales) {
             for (var supportedLocale in supportedLocales) {
-              if (supportedLocale.languageCode == locale.languageCode &&
+              if (supportedLocale.languageCode == locale!.languageCode &&
                   supportedLocale.countryCode == locale.countryCode) {
                 return supportedLocale;
               }

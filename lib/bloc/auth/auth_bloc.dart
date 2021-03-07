@@ -13,7 +13,7 @@ import 'package:portfolio_flutter/injections.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
 
-@Singleton()
+@Injectable()
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(AuthInitial());
 

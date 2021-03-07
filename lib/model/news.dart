@@ -22,9 +22,9 @@ class News {
                 json['articles'].map((x) => Article.fromMap(x))),
       );
 
-  final List<Article> articles;
-  final String status;
-  final int totalResults;
+  final List<Article>? articles;
+  final String? status;
+  final int? totalResults;
 
   String toJson() => json.encode(toMap());
 
@@ -33,7 +33,7 @@ class News {
         'totalResults': totalResults == null ? null : totalResults,
         'articles': articles == null
             ? null
-            : List<dynamic>.from(articles.map((x) => x.toMap())),
+            : List<dynamic>.from(articles!.map((x) => x.toMap())),
       };
 }
 
@@ -64,26 +64,26 @@ class Article {
         content: json['content'] == null ? null : json['content'],
       );
 
-  final String author;
-  final String content;
-  final String description;
-  final DateTime publishedAt;
-  final Source source;
-  final String title;
-  final String url;
-  final String urlToImage;
+  final String? author;
+  final String? content;
+  final String? description;
+  final DateTime? publishedAt;
+  final Source? source;
+  final String? title;
+  final String? url;
+  final String? urlToImage;
 
   String toJson() => json.encode(toMap());
 
   Map<String, dynamic> toMap() => {
-        'source': source == null ? null : source.toMap(),
+        'source': source == null ? null : source!.toMap(),
         'author': author == null ? null : author,
         'title': title == null ? null : title,
         'description': description == null ? null : description,
         'url': url == null ? null : url,
         'urlToImage': urlToImage == null ? null : urlToImage,
         'publishedAt':
-            publishedAt == null ? null : publishedAt.toIso8601String(),
+            publishedAt == null ? null : publishedAt!.toIso8601String(),
         'content': content == null ? null : content,
       };
 }
@@ -101,8 +101,8 @@ class Source {
         name: json['name'] == null ? null : json['name'],
       );
 
-  final String id;
-  final String name;
+  final String? id;
+  final String? name;
 
   String toJson() => json.encode(toMap());
 

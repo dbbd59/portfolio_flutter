@@ -7,7 +7,7 @@ import 'package:portfolio_flutter/ui/common/widgets/welcome_widgets/welcome_smal
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

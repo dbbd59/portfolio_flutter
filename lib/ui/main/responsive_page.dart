@@ -10,7 +10,7 @@ import 'package:portfolio_flutter/ui/main/widgets/drawer_app.dart';
 
 class ResponsivePage extends StatefulWidget {
   const ResponsivePage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -27,14 +27,13 @@ class _ResponsivePageState extends State<ResponsivePage> {
           appBar: AppBar(
             elevation: 0,
             title: Text(
-              AppLocalizations.of(context).translate('main_app_bar_title'),
+              AppLocalizations.of(context)!.translate('main_app_bar_title'),
             ),
           ),
           drawer: const DrawerApp(),
           bottomNavigationBar: const BottomNavBarApp(),
           body: MainPage(),
         );
-        break;
       case DisplayType.DESKTOP:
         return Row(
           children: [
@@ -45,7 +44,7 @@ class _ResponsivePageState extends State<ResponsivePage> {
                 appBar: AppBar(
                   elevation: 0,
                   title: Text(
-                    AppLocalizations.of(context)
+                    AppLocalizations.of(context)!
                         .translate('main_app_bar_title'),
                   ),
                 ),
@@ -54,13 +53,12 @@ class _ResponsivePageState extends State<ResponsivePage> {
             ),
           ],
         );
-        break;
       default:
         return Scaffold(
           appBar: AppBar(
             elevation: 0,
             title: Text(
-              'Default${AppLocalizations.of(context).translate('main_app_bar_title')}',
+              'Default${AppLocalizations.of(context)!.translate('main_app_bar_title')}',
             ),
           ),
           body: Container(),

@@ -14,13 +14,13 @@ class Skill {
     this.perc,
   });
 
-  final int id;
-  final DateTime createdAt;
-  final DateTime updatedAt;
+  final int? id;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
   final dynamic deletedAt;
-  final int skillId;
-  final String name;
-  final double perc;
+  final int? skillId;
+  final String? name;
+  final double? perc;
 
   factory Skill.fromJson(String str) => Skill.fromMap(json.decode(str));
 
@@ -42,8 +42,8 @@ class Skill {
 
   Map<String, dynamic> toMap() => {
         'ID': id == null ? null : id,
-        'CreatedAt': createdAt == null ? null : createdAt.toIso8601String(),
-        'UpdatedAt': updatedAt == null ? null : updatedAt.toIso8601String(),
+        'CreatedAt': createdAt == null ? null : createdAt!.toIso8601String(),
+        'UpdatedAt': updatedAt == null ? null : updatedAt!.toIso8601String(),
         'DeletedAt': deletedAt,
         'id': skillId == null ? null : skillId,
         'name': name == null ? null : name,

@@ -14,7 +14,7 @@ import 'package:portfolio_flutter/ui/common/widgets/common/progress_indicator.da
 
 class GitHubTrendsPage extends StatelessWidget {
   const GitHubTrendsPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -31,13 +31,13 @@ class GitHubTrendsPage extends StatelessWidget {
 
 class GitHubTrendsBody extends StatelessWidget {
   const GitHubTrendsBody({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder(
-      cubit: BlocProvider.of<GithubTrendBloc>(context),
+      bloc: BlocProvider.of<GithubTrendBloc>(context),
       builder: (_, GithubTrendState state) {
         return state.map(
           empty: (_) => Container(),
@@ -61,9 +61,9 @@ class GitHubTrendsBody extends StatelessWidget {
     );
   }
 
-  ListView buildListView({List<GitHubTrend> listGitHubTrends}) {
+  ListView buildListView({required List<GitHubTrend>? listGitHubTrends}) {
     return ListView.builder(
-      itemCount: listGitHubTrends.length,
+      itemCount: listGitHubTrends!.length,
       itemBuilder: (BuildContext ctxt, int index) {
         return CardGitHubTrend(
           currentPeriodStars: listGitHubTrends[index].currentPeriodStars,
@@ -81,8 +81,8 @@ class GitHubTrendsBody extends StatelessWidget {
                 .launchURL(url: listGitHubTrends[index].url);
           },
           title: listGitHubTrends[index].name,
-          imageNetwork: listGitHubTrends[index].builtBy.isNotEmpty
-              ? listGitHubTrends[index]?.builtBy[0]?.avatar
+          imageNetwork: listGitHubTrends[index].builtBy!.isNotEmpty
+              ? listGitHubTrends[index].builtBy![0].avatar
               : 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
           subTitle: listGitHubTrends[index].description,
         );
@@ -90,12 +90,13 @@ class GitHubTrendsBody extends StatelessWidget {
     );
   }
 
-  GridView buildGridView({int gridNumber, List<GitHubTrend> listGitHubTrends}) {
+  GridView buildGridView(
+      {required int gridNumber, required List<GitHubTrend>? listGitHubTrends}) {
     return GridView.count(
       primary: true,
       crossAxisCount: gridNumber,
       children: List.generate(
-        listGitHubTrends.length,
+        listGitHubTrends!.length,
         (index) {
           return CardGitHubTrend(
             currentPeriodStars: listGitHubTrends[index].currentPeriodStars,
@@ -113,8 +114,8 @@ class GitHubTrendsBody extends StatelessWidget {
                   .launchURL(url: listGitHubTrends[index].url);
             },
             title: listGitHubTrends[index].name,
-            imageNetwork: listGitHubTrends[index].builtBy.isNotEmpty
-                ? listGitHubTrends[index]?.builtBy[0]?.avatar
+            imageNetwork: listGitHubTrends[index].builtBy!.isNotEmpty
+                ? listGitHubTrends[index].builtBy![0].avatar
                 : null,
             subTitle: listGitHubTrends[index].description,
           );

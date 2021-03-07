@@ -15,7 +15,7 @@ import 'package:portfolio_flutter/ui/pages/welcome_page.dart';
 
 class MainPage extends StatelessWidget {
   MainPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final List<Widget> _children = [
@@ -44,7 +44,7 @@ class MainPage extends StatelessWidget {
       ],
       child: BlocBuilder<BottomAppBarBloc, BottomAppBarState>(
         builder: (context, state) {
-          return _children[state.pageSelected.index];
+          return _children[state.pageSelected!.index];
         },
       ),
     );

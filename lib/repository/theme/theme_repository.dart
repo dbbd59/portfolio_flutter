@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 // 📦 Package imports:
 import 'package:google_fonts/google_fonts.dart';
 import 'package:injectable/injectable.dart';
-import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // 🌎 Project imports:
@@ -17,10 +16,10 @@ class ThemeRepository implements IThemeRepository {
     this._prefs,
   );
 
-  final SharedPreferences _prefs;
+  final SharedPreferences? _prefs;
   @override
   bool get isDark {
-    return _prefs.getBool('isDarkMode') ?? false;
+    return _prefs!.getBool('isDarkMode') ?? false;
   }
 
   @override
@@ -63,9 +62,6 @@ class ThemeRepository implements IThemeRepository {
 
   @override
   set isDark(bool value) {
-    _prefs.setBool('isDarkMode', value);
+    _prefs!.setBool('isDarkMode', value);
   }
 }
-
-@Injectable(as: IThemeRepository, env: [Env.test])
-class MockThemeRepository extends Mock implements IThemeRepository {}

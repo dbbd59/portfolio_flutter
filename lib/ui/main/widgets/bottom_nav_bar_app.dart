@@ -11,7 +11,7 @@ import 'package:portfolio_flutter/model/enums/navigation_page_enum.dart';
 
 class BottomNavBarApp extends StatelessWidget {
   const BottomNavBarApp({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -20,7 +20,7 @@ class BottomNavBarApp extends StatelessWidget {
       builder: (context, state) {
         return BottomNavigationBar(
           onTap: (int index) {
-            NavigationPageEnum navigationPageEnum;
+            NavigationPageEnum? navigationPageEnum;
             switch (index) {
               case 0:
                 navigationPageEnum = NavigationPageEnum.WELCOME;
@@ -42,7 +42,7 @@ class BottomNavBarApp extends StatelessWidget {
               ),
             );
           },
-          currentIndex: state.pageSelected.index,
+          currentIndex: state.pageSelected!.index,
           selectedItemColor: Theme.of(context).accentColor,
           unselectedItemColor: Colors.grey.withOpacity(.80),
           elevation: 0,
@@ -50,22 +50,22 @@ class BottomNavBarApp extends StatelessWidget {
           items: [
             BottomNavigationBarItem(
               icon: const Icon(Icons.home),
-              label: AppLocalizations.of(context)
+              label: AppLocalizations.of(context)!
                   .translate('bottom_nav_bar_first'),
             ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.star),
-              label: AppLocalizations.of(context)
+              label: AppLocalizations.of(context)!
                   .translate('bottom_nav_bar_second'),
             ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.flare),
-              label: AppLocalizations.of(context)
+              label: AppLocalizations.of(context)!
                   .translate('bottom_nav_bar_third'),
             ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.person),
-              label: AppLocalizations.of(context)
+              label: AppLocalizations.of(context)!
                   .translate('bottom_nav_bar_fifth'),
             ),
           ],

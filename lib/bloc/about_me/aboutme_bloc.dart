@@ -3,7 +3,6 @@ import 'dart:async';
 
 // 📦 Package imports:
 import 'package:bloc/bloc.dart';
-import 'package:bloc_test/bloc_test.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -11,7 +10,7 @@ import 'package:injectable/injectable.dart';
 import 'package:portfolio_flutter/injections.dart';
 import 'package:portfolio_flutter/model/job.dart';
 import 'package:portfolio_flutter/model/skill.dart';
-import 'package:portfolio_flutter/repository/api_service/i_api_service.dart';
+import 'package:portfolio_flutter/repository/api_service/api_service.dart';
 
 part 'aboutme_event.dart';
 part 'aboutme_state.dart';
@@ -21,7 +20,7 @@ part 'aboutme_bloc.freezed.dart';
 class AboutMeBloc extends Bloc<AboutMeEvent, AboutMeState> {
   AboutMeBloc(this._apiService) : super(const AboutMeState.empty());
 
-  final IApiService _apiService;
+  final ApiService? _apiService;
 
   @override
   Stream<AboutMeState> mapEventToState(
@@ -31,8 +30,8 @@ class AboutMeBloc extends Bloc<AboutMeEvent, AboutMeState> {
       fetch: (e) async* {
         try {
           yield const AboutMeState.loading();
-          final jobs = await _apiService.fetchJobs();
-          final skills = await _apiService.fetchSkills();
+          final jobs = await _apiService!.fetchJobs();
+          final skills = await _apiService!.fetchSkills();
           yield AboutMeState.loaded(
             jobs,
             skills,
@@ -46,12 +45,4 @@ class AboutMeBloc extends Bloc<AboutMeEvent, AboutMeState> {
       },
     );
   }
-}
-
-@Injectable(env: [Env.test])
-class MockAboutMeBloc extends MockBloc<AboutMeBloc> implements AboutMeBloc {
-  MockAboutMeBloc(this._apiService);
-
-  @override
-  final IApiService _apiService;
 }
