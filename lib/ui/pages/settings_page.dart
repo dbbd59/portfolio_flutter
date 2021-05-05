@@ -92,44 +92,46 @@ class _InfoState extends State<Info> {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-        child: const Text('Info'),
-        color: Theme.of(context).primaryColor,
-        onPressed: () {
-          showAboutDialog(
-              context: context,
-              applicationIcon: Center(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: SizedBox(
-                    width: 32,
-                    height: 32,
-                    child: Image.asset(
-                      'assets/icon.png',
-                    ),
-                  ),
+      color: Theme.of(context).primaryColor,
+      onPressed: () {
+        showAboutDialog(
+          context: context,
+          applicationIcon: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: SizedBox(
+                width: 32,
+                height: 32,
+                child: Image.asset(
+                  'assets/icon.png',
                 ),
               ),
-              applicationName: 'portfolio_flutter',
-              applicationVersion: _packageInfo.version,
+            ),
+          ),
+          applicationName: 'portfolio_flutter',
+          applicationVersion: _packageInfo.version,
+          children: [
+            Row(
               children: [
-                Row(
+                const FlutterLogo(
+                  size: 30,
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const FlutterLogo(
-                      size: 30,
-                    ),
-                    const SizedBox(
-                      width: 16,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(kFlutterChannel),
-                        const Text(kFlutterFrameworkVersion),
-                      ],
-                    ),
+                    const Text(kFlutterChannel),
+                    const Text(kFlutterFrameworkVersion),
                   ],
                 ),
-              ]);
-        });
+              ],
+            ),
+          ],
+        );
+      },
+      child: const Text('Info'),
+    );
   }
 }

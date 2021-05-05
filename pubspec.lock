@@ -42,7 +42,7 @@ packages:
       name: bloc
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.0.0-nullsafety.3"
+    version: "7.0.0"
   build:
     dependency: transitive
     description:
@@ -105,7 +105,7 @@ packages:
       name: cached_network_image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0-nullsafety"
+    version: "3.0.0"
   characters:
     dependency: transitive
     description:
@@ -175,7 +175,7 @@ packages:
       name: cupertino_icons
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.2"
+    version: "1.0.3"
   dart_style:
     dependency: transitive
     description:
@@ -189,7 +189,7 @@ packages:
       name: dio
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.0-beta6"
+    version: "4.0.0"
   equatable:
     dependency: "direct main"
     description:
@@ -210,7 +210,7 @@ packages:
       name: ficcanaso
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.1"
+    version: "2.0.3"
   file:
     dependency: transitive
     description:
@@ -236,21 +236,21 @@ packages:
       name: flutter_bloc
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.0.0-nullsafety.3"
+    version: "7.0.0"
   flutter_blurhash:
     dependency: transitive
     description:
       name: flutter_blurhash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.2-nullsafety.0"
+    version: "0.6.0"
   flutter_cache_manager:
     dependency: transitive
     description:
       name: flutter_cache_manager
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0-nullsafety.1"
+    version: "3.0.1"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -288,7 +288,7 @@ packages:
       name: get_it
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.0"
+    version: "6.1.1"
   glob:
     dependency: transitive
     description:
@@ -421,7 +421,7 @@ packages:
       name: octo_image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-nullsafety.1"
+    version: "1.0.0+1"
   package_config:
     dependency: transitive
     description:
@@ -435,7 +435,7 @@ packages:
       name: package_info_plus
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.1"
   package_info_plus_linux:
     dependency: transitive
     description:
@@ -561,7 +561,7 @@ packages:
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.0-nullsafety.5"
+    version: "5.0.0"
   pub_semver:
     dependency: transitive
     description:
@@ -596,7 +596,7 @@ packages:
       name: shared_preferences
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.3"
+    version: "2.0.5"
   shared_preferences_linux:
     dependency: transitive
     description:
@@ -671,7 +671,7 @@ packages:
       name: sqflite
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0+2"
+    version: "2.0.0+3"
   sqflite_common:
     dependency: transitive
     description:
@@ -692,7 +692,7 @@ packages:
       name: statsfl
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-nullsafety"
+    version: "2.0.1-nullsafety"
   stream_channel:
     dependency: transitive
     description:
@@ -748,7 +748,7 @@ packages:
       name: url_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.1"
+    version: "6.0.3"
   url_launcher_linux:
     dependency: transitive
     description:

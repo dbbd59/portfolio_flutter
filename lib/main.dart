@@ -74,8 +74,8 @@ class AppWidget extends StatelessWidget {
         return MaterialApp(
           builder: (context, child) {
             return MediaQuery(
-              child: child!,
               data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+              child: child!,
             );
           },
           theme: getIt<ThemeChangeNotifier>().lightTheme(context),
