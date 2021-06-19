@@ -35,9 +35,7 @@ class NavigationBar extends StatelessWidget {
 
     return Material(
       elevation: elevation,
-      color: backgroundColor ??
-          ElevationOverlay.colorWithOverlay(
-              colorScheme.surface, colorScheme.onSurface, 3.0),
+      color: backgroundColor ?? colorScheme.surface,
       child: NavigationBarBottomPadding(
         child: SizedBox(
           height: effectiveHeight,
