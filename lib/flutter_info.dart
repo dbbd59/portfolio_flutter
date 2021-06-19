@@ -1,9 +1,9 @@
-const kFlutterFrameworkVersion = '2.0.1';
+const kFlutterFrameworkVersion = '2.2.2';
 const kFlutterChannel = 'stable';
 const kFlutterRepositoryUrl = 'https://github.com/flutter/flutter.git';
-const kFlutterFrameworkRevision = 'c5a4b4029c0798f37c4a39b479d7cb75daa7b05c';
-const kFlutterFrameworkCommitDate = '2021-03-04 09:47:48 -0800';
-const kFlutterEngineRevision = '40441def692f444660a11e20fac37af9050245ab';
-const kFlutterDartSdkVersion = '2.12.0';
+const kFlutterFrameworkRevision = 'd79295af24c3ed621c33713ecda14ad196fd9c31';
+const kFlutterFrameworkCommitDate = '2021-06-11 08:56:01 -0700';
+const kFlutterEngineRevision = '91c9fc8fe011352879e3bb6660966eafc0847233';
+const kFlutterDartSdkVersion = '2.13.3';
 const kFlutterFlutterRoot =
     '/Users/davidebolzoni/Documents/development/flutter';
