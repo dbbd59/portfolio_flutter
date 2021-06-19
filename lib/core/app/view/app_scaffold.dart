@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 
 // 📦 Package imports:
 import 'package:layout/layout.dart';
+import 'package:portfolio_flutter/core/change_notifier/theme_changenotifier.dart';
 
 // 🌎 Project imports:
 import 'package:portfolio_flutter/core/core.dart';
 import 'package:portfolio_flutter/core/widgets/navigation/navigation_bar.dart';
+import 'package:statsfl/statsfl.dart';
 
 class AppScaffold extends StatefulWidget {
   const AppScaffold({
@@ -76,57 +78,61 @@ class _AppScaffoldState extends State<AppScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _scaffoldKey,
-      appBar: AppBar(
-        elevation: 1,
-        title: GestureDetector(
-          onTap: () {
-            routemaster.push('/dashboard');
-          },
-          child: const Text('DBBD59'),
+    return StatsFl(
+      isEnabled: getIt<ThemeChangeNotifier>().isFpsEnable,
+      align: Alignment.topRight,
+      child: Scaffold(
+        key: _scaffoldKey,
+        appBar: AppBar(
+          elevation: 1,
+          title: GestureDetector(
+            onTap: () {
+              routemaster.push('/dashboard');
+            },
+            child: const Text('DBBD59'),
+          ),
+          centerTitle: context.layout.breakpoint <= LayoutBreakpoint.sm,
+          leading: context.layout.breakpoint > LayoutBreakpoint.sm
+              ? Row(
+                  children: [
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.menu),
+                      onPressed: () {
+                        if (context.layout.breakpoint > LayoutBreakpoint.sm) {
+                          onExtendedSelect();
+                        }
+                      },
+                    ),
+                  ],
+                )
+              : null,
         ),
-        centerTitle: context.layout.breakpoint <= LayoutBreakpoint.sm,
-        leading: context.layout.breakpoint > LayoutBreakpoint.sm
-            ? Row(
-                children: [
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.menu),
-                    onPressed: () {
-                      if (context.layout.breakpoint > LayoutBreakpoint.sm) {
-                        onExtendedSelect();
-                      }
-                    },
-                  ),
-                ],
+        body: Row(
+          children: [
+            if (context.layout.breakpoint > LayoutBreakpoint.sm) ...[
+              NavigationSideBar(
+                selectedIndex: index,
+                onIndexSelect: onIndexSelect,
+                extended: extended,
+              ),
+              const VerticalDivider(thickness: 1, width: 1),
+            ],
+            Expanded(
+              key: const ValueKey('HomePageBody'),
+              child: widget.child!,
+            ),
+          ],
+        ),
+        bottomNavigationBar: context.layout.breakpoint < LayoutBreakpoint.md
+            ? NavigationBottomBar(
+                selectedIndex: index,
+                onIndexSelect: onIndexSelect,
               )
             : null,
       ),
-      body: Row(
-        children: [
-          if (context.layout.breakpoint > LayoutBreakpoint.sm) ...[
-            NavigationSideBar(
-              selectedIndex: index,
-              onIndexSelect: onIndexSelect,
-              extended: extended,
-            ),
-            const VerticalDivider(thickness: 1, width: 1),
-          ],
-          Expanded(
-            key: const ValueKey('HomePageBody'),
-            child: widget.child!,
-          ),
-        ],
-      ),
-      bottomNavigationBar: context.layout.breakpoint < LayoutBreakpoint.md
-          ? NavigationBottomBar(
-              selectedIndex: index,
-              onIndexSelect: onIndexSelect,
-            )
-          : null,
     );
   }
 }

@@ -39,18 +39,18 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
           ),
         ),
-        /*  Padding(
+        Padding(
           padding: const EdgeInsets.only(left: 8.0),
           child: SwitchListTile(
-            value: getIt<UtilityChangeNotifier>().showFps,
+            value: getIt<ThemeChangeNotifier>().isFpsEnable,
             onChanged: (bool value) {
               setState(() {
-                getIt<UtilityChangeNotifier>().showFps = value;
+                getIt<ThemeChangeNotifier>().enableFps = value;
               });
             },
             secondary: const Text('Show FPS'),
           ),
-        ), */
+        ),
         const Info(),
       ],
     );
