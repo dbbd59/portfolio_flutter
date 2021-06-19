@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class DiagonallyCutColoredImage extends StatelessWidget {
-  DiagonallyCutColoredImage(this.image, {Key? key, required this.color})
+  const DiagonallyCutColoredImage(this.image, {Key? key, required this.color})
       : super(key: key);
 
   final Color color;

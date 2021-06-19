@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class CardMaterialDesign2 extends StatelessWidget {
-  CardMaterialDesign2({
+  const CardMaterialDesign2({
     Key? key,
     required this.title,
     required this.onTap,
@@ -25,7 +25,7 @@ class CardMaterialDesign2 extends StatelessWidget {
       elevation: 1,
       child: InkWell(
         onTap: onTap as void Function()?,
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: 164,
           child: vertical

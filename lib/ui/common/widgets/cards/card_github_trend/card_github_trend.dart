@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class CardGitHubTrend extends StatelessWidget {
-  CardGitHubTrend({
+  const CardGitHubTrend({
     Key? key,
     required this.title,
     required this.onTap,

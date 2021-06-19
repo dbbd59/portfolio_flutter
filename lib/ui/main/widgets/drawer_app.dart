@@ -212,7 +212,7 @@ class DrawerAppHeader extends StatelessWidget {
         ),
         child: Row(
           children: <Widget>[
-            Container(
+            SizedBox(
               width: 50,
               child: AspectRatio(
                 aspectRatio: 1.0,

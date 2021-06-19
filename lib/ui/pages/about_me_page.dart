@@ -171,7 +171,7 @@ class JobItem extends StatelessWidget {
               child: Card(
                 child: Padding(
                   padding: const EdgeInsets.all(32.0),
-                  child: Container(
+                  child: SizedBox(
                     width: double.infinity,
                     child: (constraints.maxWidth >= 600)
                         ? Row(
