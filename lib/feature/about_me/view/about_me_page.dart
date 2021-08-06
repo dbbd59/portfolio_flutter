@@ -136,7 +136,7 @@ class AboutMeContent extends StatelessWidget {
                   ),
                   for (var job in jobs!)
                     JobItem(
-                      key: job.company!,
+                      key: Key(job.company!),
                       job: job,
                     ),
                 ],
