@@ -1,22 +1,19 @@
 // 🎯 Dart imports:
 import 'dart:async';
 
-// 🐦 Flutter imports:
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-
-// 📦 Package imports:
+// � Package imports:
 import 'package:bloc/bloc.dart';
+// �🐦 Flutter imports:
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:portfolio_flutter/feature/gh_trend/repo/github_trend_repo.dart';
 import 'package:portfolio_flutter/model/github_trend.dart';
 
+part 'github_trend_bloc.freezed.dart';
 part 'github_trend_event.dart';
 part 'github_trend_state.dart';
-part 'github_trend_bloc.freezed.dart';
 
 @Injectable()
 class GithubTrendBloc extends Bloc<GithubTrendEvent, GithubTrendState> {

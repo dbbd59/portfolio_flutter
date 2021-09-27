@@ -1,22 +1,17 @@
 // 🐦 Flutter imports:
 import 'package:flutter/material.dart';
-
 // 📦 Package imports:
 import 'package:layout/layout.dart';
 import 'package:portfolio_flutter/core/change_notifier/theme_changenotifier.dart';
-
 // 🌎 Project imports:
 import 'package:portfolio_flutter/core/core.dart';
-import 'package:portfolio_flutter/core/widgets/navigation/navigation_bar.dart';
+import 'package:routemaster/routemaster.dart';
 import 'package:statsfl/statsfl.dart';
 
 class AppScaffold extends StatefulWidget {
   const AppScaffold({
     Key? key,
-    required this.child,
   }) : super(key: key);
-
-  final Widget? child;
 
   @override
   _AppScaffoldState createState() => _AppScaffoldState();
@@ -24,7 +19,6 @@ class AppScaffold extends StatefulWidget {
 
 class _AppScaffoldState extends State<AppScaffold> {
   bool extended = true;
-  int index = 0;
 
   late final _linkHandler;
 
@@ -48,25 +42,23 @@ class _AppScaffoldState extends State<AppScaffold> {
   Future<void> onIndexSelect(newIndex) async {
     switch (newIndex) {
       case 0:
-        routemaster.push('/github-trends');
-        setState(() {
-          index = newIndex;
-        });
+        routemaster.push('/welcome');
+
         break;
       case 1:
-        routemaster.push('/about-me');
-        setState(() {
-          index = newIndex;
-        });
+        routemaster.push('/github-trends');
+
         break;
       case 2:
+        routemaster.push('/about-me');
+
+        break;
+      case 3:
         routemaster.push('/settings');
-        setState(() {
-          index = newIndex;
-        });
+
         break;
       default:
-        routemaster.push('/');
+        routemaster.push('/welcome');
     }
   }
 
@@ -78,6 +70,8 @@ class _AppScaffoldState extends State<AppScaffold> {
 
   @override
   Widget build(BuildContext context) {
+    final pageIndex = TabPage.of(context).controller.index;
+
     return StatsFl(
       isEnabled: getIt<ThemeChangeNotifier>().isFpsEnable,
       align: Alignment.topRight,
@@ -87,7 +81,7 @@ class _AppScaffoldState extends State<AppScaffold> {
           elevation: 1,
           title: GestureDetector(
             onTap: () {
-              routemaster.push('/dashboard');
+              routemaster.push('/welcome');
             },
             child: const Text('DBBD59'),
           ),
@@ -114,7 +108,7 @@ class _AppScaffoldState extends State<AppScaffold> {
           children: [
             if (context.layout.breakpoint > LayoutBreakpoint.sm) ...[
               NavigationSideBar(
-                selectedIndex: index,
+                selectedIndex: pageIndex,
                 onIndexSelect: onIndexSelect,
                 extended: extended,
               ),
@@ -122,13 +116,16 @@ class _AppScaffoldState extends State<AppScaffold> {
             ],
             Expanded(
               key: const ValueKey('HomePageBody'),
-              child: widget.child!,
+              child: PageStackNavigator(
+                key: ValueKey(pageIndex),
+                stack: TabPage.of(context).stacks[pageIndex],
+              ),
             ),
           ],
         ),
         bottomNavigationBar: context.layout.breakpoint < LayoutBreakpoint.md
             ? NavigationBottomBar(
-                selectedIndex: index,
+                selectedIndex: pageIndex,
                 onIndexSelect: onIndexSelect,
               )
             : null,
@@ -157,6 +154,11 @@ class NavigationSideBar extends StatelessWidget {
       labelType: NavigationRailLabelType.none,
       extended: extended,
       destinations: [
+        const NavigationRailDestination(
+          icon: Icon(Icons.flutter_dash_outlined),
+          selectedIcon: Icon(Icons.flutter_dash),
+          label: Text('Welcome'),
+        ),
         NavigationRailDestination(
           icon: const Icon(Icons.home_outlined),
           selectedIcon: const Icon(Icons.home),
@@ -190,23 +192,29 @@ class NavigationBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NavigationBar(
-      labelBehavior: NavigationBarDestinationLabelBehavior.onlyShowSelected,
+      labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
       selectedIndex: selectedIndex,
-      onTap: onIndexSelect,
+      onDestinationSelected: onIndexSelect,
+      backgroundColor: Theme.of(context).bottomAppBarColor,
       destinations: [
-        NavigationBarDestination(
-          icon: const Icon(Icons.home),
-          unselectedIcon: const Icon(Icons.home_outlined),
+        const NavigationDestination(
+          selectedIcon: Icon(Icons.flutter_dash),
+          icon: Icon(Icons.flutter_dash_outlined),
+          label: 'Welcome',
+        ),
+        NavigationDestination(
+          selectedIcon: const Icon(Icons.home),
+          icon: const Icon(Icons.home_outlined),
           label: LocaleKeys.nav_gh.tr(),
         ),
-        NavigationBarDestination(
-          icon: const Icon(Icons.people),
-          unselectedIcon: const Icon(Icons.people_outline),
+        NavigationDestination(
+          selectedIcon: const Icon(Icons.people),
+          icon: const Icon(Icons.people_outline),
           label: LocaleKeys.nav_about_me.tr(),
         ),
-        NavigationBarDestination(
+        NavigationDestination(
+          selectedIcon: const Icon(Icons.settings),
           icon: const Icon(Icons.settings),
-          unselectedIcon: const Icon(Icons.settings),
           label: LocaleKeys.nav_settings.tr(),
         ),
       ],

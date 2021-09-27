@@ -1,11 +1,8 @@
 // 🐦 Flutter imports:
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 // 📦 Package imports:
 import 'package:injectable/injectable.dart';
 import 'package:portfolio_flutter/core/core.dart';
-
 // 🌎 Project imports:
 import 'package:portfolio_flutter/utils/theme/theme_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';

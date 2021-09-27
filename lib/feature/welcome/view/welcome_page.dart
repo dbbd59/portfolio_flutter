@@ -1,6 +1,5 @@
 // 🐦 Flutter imports:
 import 'package:flutter/material.dart';
-
 // 🌎 Project imports:
 import 'package:portfolio_flutter/feature/common/widgets/welcome_widgets/welcome_large.dart';
 import 'package:portfolio_flutter/feature/common/widgets/welcome_widgets/welcome_small.dart';

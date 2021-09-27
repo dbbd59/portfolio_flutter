@@ -1,6 +1,5 @@
 // 🐦 Flutter imports:
 import 'package:flutter/material.dart';
-
 // 📦 Package imports:
 import 'package:google_fonts/google_fonts.dart';
 import 'package:injectable/injectable.dart';
@@ -26,7 +25,6 @@ class ThemeRepository {
       ),
       brightness: Brightness.dark,
       primaryColor: const Color(0xFF121212),
-      accentColor: const Color(0xFFdbbd59),
       colorScheme: const ColorScheme.dark(primary: Color(0xFFdbbd59)),
     );
   }
@@ -44,8 +42,8 @@ class ThemeRepository {
       ),
       brightness: Brightness.light,
       primaryColor: const Color(0xFFdbbd59),
-      accentColor: const Color(0xFFdbbd59),
-      colorScheme: const ColorScheme.light(primary: Color(0xFFdbbd59)),
+      colorScheme: const ColorScheme.light(primary: Color(0xFFdbbd59))
+          .copyWith(secondary: const Color(0xFFdbbd59)),
     );
   }
 
