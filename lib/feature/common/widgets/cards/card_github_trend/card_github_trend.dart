@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 class CardGitHubTrend extends StatelessWidget {
   const CardGitHubTrend({
-    Key? key,
     required this.title,
     required this.onTap,
     required this.horizontal,
+    Key? key,
     this.subTitle,
     this.imageNetwork,
     this.imageAsset,
@@ -97,12 +97,12 @@ class CardGitHubTrend extends StatelessWidget {
 
 class _CardGitHubContent extends StatelessWidget {
   const _CardGitHubContent({
-    Key? key,
     required this.title,
     required this.currentPeriodStars,
     required this.subTitle,
     required this.stars,
     required this.forks,
+    Key? key,
   }) : super(key: key);
 
   final int? currentPeriodStars;
@@ -154,12 +154,12 @@ class _CardGitHubContent extends StatelessWidget {
 
 class _CardGitHubImage extends StatelessWidget {
   const _CardGitHubImage({
-    Key? key,
     required this.imageNetwork,
     required this.languageName,
     required this.borderColor,
     required this.author,
     required this.horizontal,
+    Key? key,
   }) : super(key: key);
 
   final String? author;
@@ -178,7 +178,8 @@ class _CardGitHubImage extends StatelessWidget {
               image: imageNetwork != null
                   ? NetworkImage(imageNetwork!)
                   : const NetworkImage(
-                      'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'),
+                      'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
+                    ),
               fit: BoxFit.cover,
             ),
           ),
@@ -199,7 +200,7 @@ class _CardGitHubImage extends StatelessWidget {
               backgroundColor: Color(borderColor!),
               label: Text(author!),
             ),
-          )
+          ),
       ],
     );
   }
@@ -207,9 +208,9 @@ class _CardGitHubImage extends StatelessWidget {
 
 class _CardGitHubStarsForks extends StatelessWidget {
   const _CardGitHubStarsForks({
-    Key? key,
     required this.stars,
     required this.forks,
+    Key? key,
   }) : super(key: key);
 
   final int? forks;
@@ -229,8 +230,8 @@ class _CardGitHubStarsForks extends StatelessWidget {
 
 class _CardGitHubDescr extends StatelessWidget {
   const _CardGitHubDescr({
-    Key? key,
     required this.subTitle,
+    Key? key,
   }) : super(key: key);
 
   final String? subTitle;
@@ -249,9 +250,9 @@ class _CardGitHubDescr extends StatelessWidget {
 
 class _CardGitHubTitle extends StatelessWidget {
   const _CardGitHubTitle({
-    Key? key,
     required this.title,
     required this.currentPeriodStars,
+    Key? key,
   }) : super(key: key);
 
   final int? currentPeriodStars;

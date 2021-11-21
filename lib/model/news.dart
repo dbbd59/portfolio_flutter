@@ -19,7 +19,12 @@ class News {
         articles: json['articles'] == null
             ? null
             : List<Article>.from(
-                json['articles'].map((x) => Article.fromMap(x))),
+                json['articles'].map(
+                  (x) => Article.fromMap(
+                    x,
+                  ),
+                ),
+              ),
       );
 
   final List<Article>? articles;

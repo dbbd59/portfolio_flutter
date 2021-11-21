@@ -14,17 +14,7 @@ class Skill {
     this.perc,
   });
 
-  final int? id;
-  final DateTime? createdAt;
-  final DateTime? updatedAt;
-  final dynamic deletedAt;
-  final int? skillId;
-  final String? name;
-  final double? perc;
-
   factory Skill.fromJson(String str) => Skill.fromMap(json.decode(str));
-
-  String toJson() => json.encode(toMap());
 
   factory Skill.fromMap(Map<String, dynamic> json) => Skill(
         id: json['ID'] == null ? null : json['ID'],
@@ -39,6 +29,16 @@ class Skill {
         name: json['name'] == null ? null : json['name'],
         perc: json['perc'] == null ? null : json['perc'].toDouble(),
       );
+
+  final DateTime? createdAt;
+  final dynamic deletedAt;
+  final int? id;
+  final String? name;
+  final double? perc;
+  final int? skillId;
+  final DateTime? updatedAt;
+
+  String toJson() => json.encode(toMap());
 
   Map<String, dynamic> toMap() => {
         'ID': id == null ? null : id,

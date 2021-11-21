@@ -1,6 +1,5 @@
 // 🐦 Flutter imports:
 import 'package:flutter/material.dart';
-
 // 🌎 Project imports:
 import 'package:portfolio_flutter/core/core.dart';
 import 'package:portfolio_flutter/utils/utility/utility_repository.dart';
@@ -127,6 +126,7 @@ class ButtonsRowWelcome extends StatelessWidget {
                 if (states.contains(MaterialState.pressed)) {
                   return Theme.of(context).primaryColor;
                 }
+
                 return null; // Defer to the widget's default.
               },
             ),
@@ -157,6 +157,7 @@ class ButtonsRowWelcome extends StatelessWidget {
                 if (states.contains(MaterialState.pressed)) {
                   return Theme.of(context).primaryColor;
                 }
+
                 return null; // Defer to the widget's default.
               },
             ),
@@ -187,6 +188,7 @@ class ButtonsRowWelcome extends StatelessWidget {
                 if (states.contains(MaterialState.pressed)) {
                   return Theme.of(context).primaryColor;
                 }
+
                 return null; // Defer to the widget's default.
               },
             ),

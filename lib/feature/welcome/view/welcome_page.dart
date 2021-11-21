@@ -21,6 +21,7 @@ class WelcomePage extends StatelessWidget {
         if (constraints.maxWidth <= 600) {
           return const Center(child: WelcomeSmall());
         }
+
         return Container();
       },
     );

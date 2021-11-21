@@ -35,6 +35,7 @@ class GithubTrendBloc extends Bloc<GithubTrendEvent, GithubTrendState> {
           yield const GithubTrendState.error();
         }
       },
+      // ignore: no-empty-block
       reset: (e) async* {},
     );
   }

@@ -13,16 +13,7 @@ class Job {
     this.descr,
   });
 
-  final String? date;
-  final String? company;
-  final String? link;
-  final String? linkDisplay;
-  final String? jobTitle;
-  final String? descr;
-
   factory Job.fromJson(String str) => Job.fromMap(json.decode(str));
-
-  String toJson() => json.encode(toMap());
 
   factory Job.fromMap(Map<String, dynamic> json) => Job(
         date: json['date'] == null ? null : json['date'],
@@ -32,6 +23,15 @@ class Job {
         jobTitle: json['jobTitle'] == null ? null : json['jobTitle'],
         descr: json['descr'] == null ? null : json['descr'],
       );
+
+  final String? company;
+  final String? date;
+  final String? descr;
+  final String? jobTitle;
+  final String? link;
+  final String? linkDisplay;
+
+  String toJson() => json.encode(toMap());
 
   Map<String, dynamic> toMap() => {
         'date': date == null ? null : date,

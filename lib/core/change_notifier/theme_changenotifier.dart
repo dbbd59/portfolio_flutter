@@ -13,9 +13,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ThemeChangeNotifier extends ChangeNotifier {
   ThemeChangeNotifier({required this.themeRepository});
 
-  final ThemeRepository themeRepository;
-
   bool _isFpsEnable = getIt<SharedPreferences>().getBool('fps') ?? false;
+  final ThemeRepository themeRepository;
 
   set isDark(bool value) {
     themeRepository.isDark = value;
@@ -34,14 +33,15 @@ class ThemeChangeNotifier extends ChangeNotifier {
 
   bool get isFpsEnable {
     _isFpsEnable = getIt<SharedPreferences>().getBool('fps') ?? false;
-    return _isFpsEnable;
-  }
 
-  ThemeData lightTheme(BuildContext context) {
-    return themeRepository.buildThemeDataLight(context);
+    return _isFpsEnable;
   }
 
   ThemeData darkTheme(BuildContext context) {
     return themeRepository.buildThemeDataDark(context);
+  }
+
+  ThemeData lightTheme(BuildContext context) {
+    return themeRepository.buildThemeDataLight(context);
   }
 }

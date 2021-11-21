@@ -1,10 +1,8 @@
 // 🐦 Flutter imports:
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
 // 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 // 🌎 Project imports:
 import 'package:portfolio_flutter/core/core.dart';
 import 'package:portfolio_flutter/feature/about_me/bloc/aboutme_bloc.dart';
@@ -65,9 +63,9 @@ class AboutMeBody extends StatelessWidget {
 
 class AboutMeContent extends StatelessWidget {
   const AboutMeContent({
-    Key? key,
     required this.jobs,
     required this.skills,
+    Key? key,
   }) : super(key: key);
   final List<Job>? jobs;
   final List<Skill>? skills;
@@ -151,8 +149,8 @@ class AboutMeContent extends StatelessWidget {
 
 class JobItem extends StatelessWidget {
   const JobItem({
-    Key? key,
     required this.job,
+    Key? key,
   }) : super(key: key);
 
   final Job job;
@@ -330,27 +328,6 @@ class JobItem extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            Positioned(
-              top: 0.0,
-              left: 15.0,
-              child: Container(
-                height: 40.0,
-                width: 40.0,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white,
-                ),
-                child: Container(
-                  margin: const EdgeInsets.all(5.0),
-                  height: 30.0,
-                  width: 30.0,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-            )
           ],
         );
       },
@@ -360,8 +337,8 @@ class JobItem extends StatelessWidget {
 
 class SkillItem extends StatelessWidget {
   const SkillItem({
-    Key? key,
     required this.skill,
+    Key? key,
   }) : super(key: key);
 
   final Skill skill;
@@ -405,7 +382,7 @@ class SkillItem extends StatelessWidget {
                     width: constraints.maxWidth * skill.perc!,
                   ),
                 ],
-              )
+              ),
             ],
           ),
         );

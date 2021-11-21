@@ -83,11 +83,16 @@ class AppMaterial extends StatelessWidget {
 }
 
 class LinkHandler {
-  final void Function(String link) onLink;
+  LinkHandler({required this.onLink});
+
   // ignore: cancel_subscriptions
   StreamSubscription<String?>? _subscription;
 
-  LinkHandler({required this.onLink});
+  final void Function(String link) onLink;
+
+  void dispose() {
+    _subscription!.cancel();
+  }
 
   Future<Null> init() async {
     if (_subscription != null) {
@@ -112,9 +117,5 @@ class LinkHandler {
         .replaceFirst('8080', '');
     final uri = Uri.tryParse(l);
     onLink('${uri?.path}?${uri?.query}');
-  }
-
-  void dispose() {
-    _subscription!.cancel();
   }
 }

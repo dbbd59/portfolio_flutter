@@ -5,15 +5,14 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:portfolio_flutter/feature/about_me/repo/about_me_repo.dart';
 import 'package:portfolio_flutter/model/job.dart';
 import 'package:portfolio_flutter/model/skill.dart';
 
+part 'aboutme_bloc.freezed.dart';
 part 'aboutme_event.dart';
 part 'aboutme_state.dart';
-part 'aboutme_bloc.freezed.dart';
 
 @injectable
 class AboutMeBloc extends Bloc<AboutMeEvent, AboutMeState> {

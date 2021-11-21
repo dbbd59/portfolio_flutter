@@ -18,56 +18,9 @@ class AppScaffold extends StatefulWidget {
 }
 
 class _AppScaffoldState extends State<AppScaffold> {
-  bool extended = true;
-
   late final _linkHandler;
-
   late final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
-  @override
-  void initState() {
-    _linkHandler = LinkHandler(onLink: (link) {
-      routemaster.push(link);
-    })
-      ..init();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _linkHandler.dispose();
-    super.dispose();
-  }
-
-  Future<void> onIndexSelect(newIndex) async {
-    switch (newIndex) {
-      case 0:
-        routemaster.push('/welcome');
-
-        break;
-      case 1:
-        routemaster.push('/github-trends');
-
-        break;
-      case 2:
-        routemaster.push('/about-me');
-
-        break;
-      case 3:
-        routemaster.push('/settings');
-
-        break;
-      default:
-        routemaster.push('/welcome');
-    }
-  }
-
-  void onExtendedSelect() {
-    setState(() {
-      extended = !extended;
-    });
-  }
-
+  bool extended = true;
   @override
   Widget build(BuildContext context) {
     final pageIndex = TabPage.of(context).controller.index;
@@ -132,18 +85,62 @@ class _AppScaffoldState extends State<AppScaffold> {
       ),
     );
   }
+
+  @override
+  void dispose() {
+    _linkHandler.dispose();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    _linkHandler = LinkHandler(onLink: (link) {
+      routemaster.push(link);
+    })
+      ..init();
+    super.initState();
+  }
+
+  void onExtendedSelect() {
+    setState(() {
+      extended = !extended;
+    });
+  }
+
+  Future<void> onIndexSelect(newIndex) async {
+    switch (newIndex) {
+      case 0:
+        routemaster.push('/welcome');
+
+        break;
+      case 1:
+        routemaster.push('/github-trends');
+
+        break;
+      case 2:
+        routemaster.push('/about-me');
+
+        break;
+      case 3:
+        routemaster.push('/settings');
+
+        break;
+      default:
+        routemaster.push('/welcome');
+    }
+  }
 }
 
 class NavigationSideBar extends StatelessWidget {
   const NavigationSideBar({
-    Key? key,
     required this.selectedIndex,
     required this.onIndexSelect,
     required this.extended,
+    Key? key,
   }) : super(key: key);
 
-  final Function(int) onIndexSelect;
   final bool extended;
+  final Function(int) onIndexSelect;
   final int selectedIndex;
 
   @override
@@ -181,9 +178,9 @@ class NavigationSideBar extends StatelessWidget {
 
 class NavigationBottomBar extends StatelessWidget {
   const NavigationBottomBar({
-    Key? key,
     required this.selectedIndex,
     required this.onIndexSelect,
+    Key? key,
   }) : super(key: key);
 
   final Function(int) onIndexSelect;

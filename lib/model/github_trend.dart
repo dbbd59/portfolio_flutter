@@ -17,22 +17,8 @@ class GitHubTrend {
     this.builtBy,
   });
 
-  final String? author;
-  final String? name;
-  final String? avatar;
-  final String? description;
-  final String? url;
-  final String? language;
-  final String? languageColor;
-  final int? stars;
-  final int? forks;
-  final int? currentPeriodStars;
-  final List<BuiltBy>? builtBy;
-
   factory GitHubTrend.fromJson(String str) =>
       GitHubTrend.fromMap(json.decode(str));
-
-  String toJson() => json.encode(toMap());
 
   factory GitHubTrend.fromMap(Map<String, dynamic> json) => GitHubTrend(
         author: json['author'] == null ? null : json['author'],
@@ -51,8 +37,25 @@ class GitHubTrend {
         builtBy: json['builtBy'] == null
             ? null
             : List<BuiltBy>.from(
-                json['builtBy'].map((x) => BuiltBy.fromMap(x))),
+                json['builtBy'].map(
+                  (x) => BuiltBy.fromMap(x),
+                ),
+              ),
       );
+
+  final String? author;
+  final String? avatar;
+  final List<BuiltBy>? builtBy;
+  final int? currentPeriodStars;
+  final String? description;
+  final int? forks;
+  final String? language;
+  final String? languageColor;
+  final String? name;
+  final int? stars;
+  final String? url;
+
+  String toJson() => json.encode(toMap());
 
   Map<String, dynamic> toMap() => {
         'author': author == null ? null : author,
@@ -79,19 +82,19 @@ class BuiltBy {
     this.avatar,
   });
 
-  final String? username;
-  final String? href;
-  final String? avatar;
-
   factory BuiltBy.fromJson(String str) => BuiltBy.fromMap(json.decode(str));
-
-  String toJson() => json.encode(toMap());
 
   factory BuiltBy.fromMap(Map<String, dynamic> json) => BuiltBy(
         username: json['username'] == null ? null : json['username'],
         href: json['href'] == null ? null : json['href'],
         avatar: json['avatar'] == null ? null : json['avatar'],
       );
+
+  final String? avatar;
+  final String? href;
+  final String? username;
+
+  String toJson() => json.encode(toMap());
 
   Map<String, dynamic> toMap() => {
         'username': username == null ? null : username,

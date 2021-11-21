@@ -1,9 +1,7 @@
 // 🐦 Flutter imports:
 import 'package:flutter/material.dart';
-
 // 📦 Package imports:
 import 'package:package_info_plus/package_info_plus.dart';
-
 // 🌎 Project imports:
 import 'package:portfolio_flutter/core/change_notifier/theme_changenotifier.dart';
 import 'package:portfolio_flutter/core/core.dart';
@@ -75,19 +73,6 @@ class _InfoState extends State<Info> {
   );
 
   @override
-  void initState() {
-    super.initState();
-    _initPackageInfo();
-  }
-
-  Future<void> _initPackageInfo() async {
-    final info = await PackageInfo.fromPlatform();
-    setState(() {
-      _packageInfo = info;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return MaterialButton(
       color: Theme.of(context).primaryColor,
@@ -131,5 +116,18 @@ class _InfoState extends State<Info> {
       },
       child: const Text('Info'),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _initPackageInfo();
+  }
+
+  Future<void> _initPackageInfo() async {
+    final info = await PackageInfo.fromPlatform();
+    setState(() {
+      _packageInfo = info;
+    });
   }
 }

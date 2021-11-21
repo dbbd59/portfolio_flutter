@@ -1,9 +1,7 @@
 // 🐦 Flutter imports:
 import 'package:flutter/material.dart';
-
 // 📦 Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 // 🌎 Project imports:
 import 'package:portfolio_flutter/core/core.dart';
 import 'package:portfolio_flutter/feature/common/widgets/cards/card_github_trend/card_github_trend.dart';
@@ -45,13 +43,20 @@ class GitHubTrendsBody extends StatelessWidget {
             builder: (context, constraints) {
               if (constraints.maxWidth >= 750 && constraints.maxWidth < 1100) {
                 return buildGridView(
-                    gridNumber: 2, listGitHubTrends: state.gitHubTrends);
+                  gridNumber: 2,
+                  listGitHubTrends: state.gitHubTrends,
+                );
               }
               if (constraints.maxWidth >= 1100) {
                 return buildGridView(
-                    gridNumber: 3, listGitHubTrends: state.gitHubTrends);
+                  gridNumber: 3,
+                  listGitHubTrends: state.gitHubTrends,
+                );
               }
-              return buildListView(listGitHubTrends: state.gitHubTrends);
+
+              return buildListView(
+                listGitHubTrends: state.gitHubTrends,
+              );
             },
           ),
           loading: (_) => const ProgressIndicatorCustom(),
@@ -61,36 +66,10 @@ class GitHubTrendsBody extends StatelessWidget {
     );
   }
 
-  ListView buildListView({required List<GitHubTrend>? listGitHubTrends}) {
-    return ListView.builder(
-      itemCount: listGitHubTrends!.length,
-      itemBuilder: (BuildContext ctxt, int index) {
-        return CardGitHubTrend(
-          currentPeriodStars: listGitHubTrends[index].currentPeriodStars,
-          author: listGitHubTrends[index].author,
-          languageName: listGitHubTrends[index].language,
-          stars: listGitHubTrends[index].stars,
-          forks: listGitHubTrends[index].forks,
-          borderColor: listGitHubTrends[index].languageColor != null
-              ? _getColorHexFromStr(listGitHubTrends[index].languageColor)
-              : 0x00000000,
-          horizontal: true,
-          onTap: () {
-            getIt<UtilityRepository>()
-                .launchURL(url: listGitHubTrends[index].url);
-          },
-          title: listGitHubTrends[index].name,
-          imageNetwork: listGitHubTrends[index].builtBy!.isNotEmpty
-              ? listGitHubTrends[index].builtBy![0].avatar
-              : 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
-          subTitle: listGitHubTrends[index].description,
-        );
-      },
-    );
-  }
-
-  GridView buildGridView(
-      {required int gridNumber, required List<GitHubTrend>? listGitHubTrends}) {
+  GridView buildGridView({
+    required int gridNumber,
+    required List<GitHubTrend>? listGitHubTrends,
+  }) {
     return GridView.count(
       primary: true,
       crossAxisCount: gridNumber,
@@ -122,6 +101,34 @@ class GitHubTrendsBody extends StatelessWidget {
     );
   }
 
+  ListView buildListView({required List<GitHubTrend>? listGitHubTrends}) {
+    return ListView.builder(
+      itemCount: listGitHubTrends!.length,
+      itemBuilder: (BuildContext ctxt, int index) {
+        return CardGitHubTrend(
+          currentPeriodStars: listGitHubTrends[index].currentPeriodStars,
+          author: listGitHubTrends[index].author,
+          languageName: listGitHubTrends[index].language,
+          stars: listGitHubTrends[index].stars,
+          forks: listGitHubTrends[index].forks,
+          borderColor: listGitHubTrends[index].languageColor != null
+              ? _getColorHexFromStr(listGitHubTrends[index].languageColor)
+              : 0x00000000,
+          horizontal: true,
+          onTap: () {
+            getIt<UtilityRepository>()
+                .launchURL(url: listGitHubTrends[index].url);
+          },
+          title: listGitHubTrends[index].name,
+          imageNetwork: listGitHubTrends[index].builtBy!.isNotEmpty
+              ? listGitHubTrends[index].builtBy![0].avatar
+              : 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
+          subTitle: listGitHubTrends[index].description,
+        );
+      },
+    );
+  }
+
   int _getColorHexFromStr(String? colorStr) {
     colorStr = 'FF$colorStr';
     colorStr = colorStr.replaceAll('#', '');
@@ -139,9 +146,11 @@ class GitHubTrendsBody extends StatelessWidget {
         val += (hexDigit - 87) * (1 << (4 * (len - 1 - i)));
       } else {
         throw const FormatException(
-            'An error occurred when converting a color');
+          'An error occurred when converting a color',
+        );
       }
     }
+
     return val;
   }
 }

@@ -14,8 +14,10 @@ void main() {
   );
 }
 
-String constantDeclarationsFromMap(Map<String, Object> map,
-    [String prefix = 'k']) {
+String constantDeclarationsFromMap(
+  Map<String, Object> map, [
+  String prefix = 'k',
+]) {
   String _capitalize(String text) =>
       text.isEmpty ? text : '${text[0].toUpperCase()}${text.substring(1)}';
 

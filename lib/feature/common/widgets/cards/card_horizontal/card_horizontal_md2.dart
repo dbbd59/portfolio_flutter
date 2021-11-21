@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 class CardMaterialDesign2 extends StatelessWidget {
   const CardMaterialDesign2({
-    Key? key,
     required this.title,
     required this.onTap,
     required this.vertical,
-    this.subTitle,
     required this.imageNetwork,
+    this.subTitle,
+    Key? key,
     this.imageAsset,
   }) : super(key: key);
 
@@ -35,8 +35,11 @@ class CardMaterialDesign2 extends StatelessWidget {
                       child: imageNetwork != null
                           ? Image.network(
                               imageNetwork!,
-                              errorBuilder: (BuildContext context,
-                                  Object exception, StackTrace? stackTrace) {
+                              errorBuilder: (
+                                BuildContext context,
+                                Object exception,
+                                StackTrace? stackTrace,
+                              ) {
                                 return Image.asset(
                                   'assets/images/breaking-news.jpg',
                                   fit: BoxFit.fitWidth,
@@ -69,7 +72,9 @@ class CardMaterialDesign2 extends StatelessWidget {
                               child: Text(
                                 subTitle ?? 'Title',
                                 style: const TextStyle(
-                                    fontSize: 14.0, color: Colors.grey),
+                                  fontSize: 14.0,
+                                  color: Colors.grey,
+                                ),
                               ),
                             ),
                           ],
@@ -84,8 +89,11 @@ class CardMaterialDesign2 extends StatelessWidget {
                       child: imageNetwork != null
                           ? Image.network(
                               imageNetwork!,
-                              errorBuilder: (BuildContext context,
-                                  Object exception, StackTrace? stackTrace) {
+                              errorBuilder: (
+                                BuildContext context,
+                                Object exception,
+                                StackTrace? stackTrace,
+                              ) {
                                 return Image.asset(
                                   'assets/images/breaking-news.jpg',
                                   fit: BoxFit.fitWidth,
@@ -117,7 +125,9 @@ class CardMaterialDesign2 extends StatelessWidget {
                               child: Text(
                                 subTitle ?? '',
                                 style: const TextStyle(
-                                    fontSize: 14.0, color: Colors.grey),
+                                  fontSize: 14.0,
+                                  color: Colors.grey,
+                                ),
                               ),
                             ),
                           ],

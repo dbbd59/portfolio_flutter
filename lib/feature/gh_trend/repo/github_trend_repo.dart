@@ -1,7 +1,6 @@
 // 📦 Package imports:
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:portfolio_flutter/model/github_trend.dart';
 
@@ -22,8 +21,10 @@ class GithubTrendRepo {
             },
           ),
         );
+
         return trends;
       }
+
       return listGitHubTrend;
     } else {
       return [];

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 class Alert {
   Alert({
     required this.context,
-    this.image,
     required this.title,
+    this.image,
     this.desc,
     this.content,
     this.buttons,
@@ -41,8 +41,11 @@ class Alert {
   void show() {
     showGeneralDialog(
       context: context,
-      pageBuilder: (BuildContext buildContext, Animation<double> animation,
-          Animation<double> secondaryAnimation) {
+      pageBuilder: (
+        BuildContext buildContext,
+        Animation<double> animation,
+        Animation<double> secondaryAnimation,
+      ) {
         return _buildDialog();
       },
       barrierDismissible: alertStyle.isOverlayTapDismiss,
@@ -146,12 +149,18 @@ class Alert {
   dynamic _showAnimation(animation, secondaryAnimation, child) {
     if (alertStyle.animationType == AnimationType.fromRight) {
       return AnimationTransition.fromRight(
-          animation, secondaryAnimation, child);
+        animation,
+        secondaryAnimation,
+        child,
+      );
     } else if (alertStyle.animationType == AnimationType.fromLeft) {
       return AnimationTransition.fromLeft(animation, secondaryAnimation, child);
     } else if (alertStyle.animationType == AnimationType.fromBottom) {
       return AnimationTransition.fromBottom(
-          animation, secondaryAnimation, child);
+        animation,
+        secondaryAnimation,
+        child,
+      );
     } else if (alertStyle.animationType == AnimationType.grow) {
       return AnimationTransition.grow(animation, secondaryAnimation, child);
     } else if (alertStyle.animationType == AnimationType.shrink) {
@@ -163,41 +172,11 @@ class Alert {
 }
 
 class AnimationTransition {
-  static SlideTransition fromRight(Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
-    return SlideTransition(
-      position: Tween<Offset>(
-        begin: const Offset(1.0, 0.0),
-        end: Offset.zero,
-      ).animate(animation),
-      child: child,
-    );
-  }
-
-  static SlideTransition fromLeft(Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
-    return SlideTransition(
-      position: Tween<Offset>(
-        begin: const Offset(-1.0, 0.0),
-        end: Offset.zero,
-      ).animate(animation),
-      child: child,
-    );
-  }
-
-  static SlideTransition fromTop(Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
-    return SlideTransition(
-      position: Tween<Offset>(
-        begin: const Offset(0.0, -1.0),
-        end: Offset.zero,
-      ).animate(animation),
-      child: child,
-    );
-  }
-
-  static SlideTransition fromBottom(Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  static SlideTransition fromBottom(
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
     return SlideTransition(
       position: Tween<Offset>(
         begin: const Offset(0.0, 1.0),
@@ -207,8 +186,53 @@ class AnimationTransition {
     );
   }
 
-  static ScaleTransition grow(Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  static SlideTransition fromLeft(
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
+    return SlideTransition(
+      position: Tween<Offset>(
+        begin: const Offset(-1.0, 0.0),
+        end: Offset.zero,
+      ).animate(animation),
+      child: child,
+    );
+  }
+
+  static SlideTransition fromRight(
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
+    return SlideTransition(
+      position: Tween<Offset>(
+        begin: const Offset(1.0, 0.0),
+        end: Offset.zero,
+      ).animate(animation),
+      child: child,
+    );
+  }
+
+  static SlideTransition fromTop(
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
+    return SlideTransition(
+      position: Tween<Offset>(
+        begin: const Offset(0.0, -1.0),
+        end: Offset.zero,
+      ).animate(animation),
+      child: child,
+    );
+  }
+
+  static ScaleTransition grow(
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
     return ScaleTransition(
       scale: Tween<double>(
         begin: 0.0,
@@ -226,8 +250,11 @@ class AnimationTransition {
     );
   }
 
-  static ScaleTransition shrink(Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  static ScaleTransition shrink(
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
     return ScaleTransition(
       scale: Tween<double>(
         begin: 1.2,
@@ -255,10 +282,11 @@ class AlertStyle {
     this.isOverlayTapDismiss = true,
     this.overlayColor = Colors.black87,
     this.titleStyle = const TextStyle(
-        color: Colors.black,
-        fontWeight: FontWeight.w500,
-        fontStyle: FontStyle.normal,
-        fontSize: 22.0),
+      color: Colors.black,
+      fontWeight: FontWeight.w500,
+      fontStyle: FontStyle.normal,
+      fontSize: 22.0,
+    ),
     this.descStyle = const TextStyle(
       fontSize: 16.0,
     ),

@@ -34,7 +34,7 @@ class UtilityRepository {
     return val;
   } */
 
-  void launchURL({String? url}) async {
+  Future<void> launchURL({String? url}) async {
     if (await canLaunch(url!)) {
       await launch(url);
     } else {

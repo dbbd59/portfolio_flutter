@@ -1,7 +1,6 @@
 // 📦 Package imports:
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-
 // 🌎 Project imports:
 import 'package:portfolio_flutter/model/job.dart';
 import 'package:portfolio_flutter/model/skill.dart';
@@ -19,6 +18,7 @@ class AboutMeRepo {
           (x) => Job.fromMap(x),
         ),
       );
+
       return jobs;
     } else {
       return null;
@@ -36,6 +36,7 @@ class AboutMeRepo {
           (x) => Skill.fromMap(x),
         ),
       );
+
       return skills;
     } else {
       return null;
