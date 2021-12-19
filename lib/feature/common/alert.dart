@@ -135,9 +135,11 @@ class Alert {
           if (buttons!.length == 1) {
             expandedButtons.add(buttonWidget);
           } else {
-            expandedButtons.add(Expanded(
-              child: buttonWidget,
-            ));
+            expandedButtons.add(
+              Expanded(
+                child: buttonWidget,
+              ),
+            );
           }
         },
       );

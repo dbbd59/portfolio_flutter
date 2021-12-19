@@ -94,10 +94,11 @@ class _AppScaffoldState extends State<AppScaffold> {
 
   @override
   void initState() {
-    _linkHandler = LinkHandler(onLink: (link) {
-      routemaster.push(link);
-    })
-      ..init();
+    _linkHandler = LinkHandler(
+      onLink: (link) {
+        routemaster.push(link);
+      },
+    )..init();
     super.initState();
   }
 

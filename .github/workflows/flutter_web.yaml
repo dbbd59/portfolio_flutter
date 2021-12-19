@@ -19,13 +19,11 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: subosito/flutter-action@v1
-        with:
-          channel: 'dev'
       - run: flutter channel master
       - run: flutter upgrade
       - run: flutter config --enable-web
       - run: dart lib/get_flutter_info.dart > lib/flutter_info.dart
-      - run: flutter build web --release --web-renderer auto
+      - run: flutter build web --release
       - run: |
           cd build/web
           git init

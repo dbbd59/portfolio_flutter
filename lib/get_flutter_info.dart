@@ -25,7 +25,9 @@ String constantDeclarationsFromMap(
       prefix.isEmpty ? name : prefix + _capitalize(name);
 
   return map.entries
-      .map((e) =>
-          'const ${_constantName(e.key, prefix)} = ${json.encode(e.value)};')
+      .map(
+        (e) =>
+            'const ${_constantName(e.key, prefix)} = ${json.encode(e.value)};',
+      )
       .join('\n');
 }
