@@ -14,14 +14,9 @@ class ThemeRepository {
 
   ThemeData buildThemeDataDark(BuildContext context) {
     return ThemeData(
+      useMaterial3: true,
       textTheme: GoogleFonts.latoTextTheme(
         ThemeData(brightness: Brightness.dark).textTheme,
-      ),
-      pageTransitionsTheme: const PageTransitionsTheme(
-        builders: {
-          TargetPlatform.android: ZoomPageTransitionsBuilder(),
-          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-        },
       ),
       brightness: Brightness.dark,
       primaryColor: const Color(0xFF121212),
@@ -31,14 +26,9 @@ class ThemeRepository {
 
   ThemeData buildThemeDataLight(BuildContext context) {
     return ThemeData(
+      useMaterial3: true,
       textTheme: GoogleFonts.latoTextTheme(
         ThemeData(brightness: Brightness.light).textTheme,
-      ),
-      pageTransitionsTheme: const PageTransitionsTheme(
-        builders: {
-          TargetPlatform.android: ZoomPageTransitionsBuilder(),
-          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-        },
       ),
       brightness: Brightness.light,
       primaryColor: const Color(0xFFdbbd59),
