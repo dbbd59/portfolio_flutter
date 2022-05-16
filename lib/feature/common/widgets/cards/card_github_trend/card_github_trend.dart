@@ -172,7 +172,7 @@ class _CardGitHubImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Container(
+        DecoratedBox(
           decoration: BoxDecoration(
             image: DecorationImage(
               image: imageNetwork != null

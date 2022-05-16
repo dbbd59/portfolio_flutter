@@ -186,7 +186,7 @@ class JobItem extends StatelessWidget {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                    Container(
+                                    DecoratedBox(
                                       decoration: BoxDecoration(
                                         borderRadius: const BorderRadius.all(
                                           Radius.circular(10),
@@ -251,7 +251,7 @@ class JobItem extends StatelessWidget {
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  Container(
+                                  DecoratedBox(
                                     decoration: BoxDecoration(
                                       borderRadius: const BorderRadius.all(
                                         Radius.circular(10),
