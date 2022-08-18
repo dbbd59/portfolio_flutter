@@ -8,8 +8,6 @@ on:
     workflow_dispatch:
       tags:
       - '*'
-    schedule:
-      - cron: "0 0 * * *"
 jobs:
   build:
     name: Build Web and Deploy
