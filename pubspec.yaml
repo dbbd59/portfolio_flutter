@@ -10,7 +10,7 @@ dependencies:
   bloc: ^7.2.1
   cached_network_image: ^3.2.0
   cupertino_icons: ^1.0.4
-  dio: ^4.0.4
+  dio: ">=4.0.4 <6.0.0"
   easy_localization: ^3.0.0
   equatable: ^2.0.3
   flutter:
